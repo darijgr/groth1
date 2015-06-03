@@ -1,2 +1,2 @@
 # groth1
-Paper in progress on stable dual Grothendieck polynomials
+Paper in progress on dual stable Grothendieck polynomials
