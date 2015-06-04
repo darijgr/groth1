@@ -41,6 +41,7 @@
 \usepackage{framed}
 \usepackage{amsmath}
 \usepackage{comment}
+\usepackage{needspace}
 \usepackage{color}
 \usepackage{hyperref}
 \usepackage[sc]{mathpazo}
@@ -50,7 +51,7 @@
 \usepackage{ytableau}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, June 03, 2015 01:28:15}
+%TCIDATA{LastRevised=Thursday, June 04, 2015 04:42:08}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -396,7 +397,7 @@ Let $\lambda/\mu$ be a skew partition. What we call a semistandard tableau of
 shape $Y\left(  \lambda/\mu\right)  $ is usually called a \textit{semistandard
 tableau of shape }$\lambda/\mu$. (However, unlike the ``semistandard
 tableaux'' defined by some other authors, our semistandard tableaux of shape
-$Y\left( \lambda/ \mu\right) $ do not ``store'' the skew partition $\lambda/
+$Y\left(  \lambda/ \mu\right)  $ do not ``store'' the skew partition $\lambda/
 \mu$ as part of their data.)
 \end{remark}
 \end{vershort}
@@ -903,8 +904,8 @@ then we define a weak composition $\operatorname*{ceq}\left(  T\right)  $ by%
 &  \ \ \ \ \ \ \ \ \ \ \text{for every }i\in\mathbb{N}_{+}.\nonumber
 \end{align}
 (Visually speaking, $\left(  \operatorname*{ceq}\left(  T\right)  \right)
-_{i}$ is the number of columns of $T$ in which the entry in the $i$-th row
-equals the entry in the $\left(  i+1\right)  $-th row.) We call
+_{i}$ is the number of columns of $T$ whose entry in the $i$-th row equals
+their entry in the $\left(  i+1\right)  $-th row.) We call
 $\operatorname*{ceq}\left(  T\right)  $ the \textit{column-equalities counter}
 of $T$. Notice that%
 \begin{equation}
@@ -931,15 +932,72 @@ $ (since the $1$-st and $2$-nd rows of $T$ have equal entries in one column,
 while for every $i>1$, the $i$-th and $\left(  i+1\right)  $-th rows of $T$ do
 not have equal entries in any column).
 
+\begin{verlong}
+\begin{proof}
+[Proof of (\ref{eq.gtilde.ceq.abs}).]Let $T$ be any rpp. The definition of
+$\left\vert \operatorname*{ceq}\left(  T\right)  \right\vert $ yields%
+\begin{align*}
+\left\vert \operatorname*{ceq}\left(  T\right)  \right\vert  &  =\left(
+\operatorname*{ceq}\left(  T\right)  \right)  _{1}+\left(  \operatorname*{ceq}%
+\left(  T\right)  \right)  _{2}+\left(  \operatorname*{ceq}\left(  T\right)
+\right)  _{3}+\cdots\\
+&  =\sum_{i\in\mathbb{N}_{+}}\underbrace{\left(  \operatorname*{ceq}\left(
+T\right)  \right)  _{i}}_{=\left(  \text{the number of }j\in\mathbb{N}%
+_{+}\text{ such that }\left(  i,j\right)  \text{ is a stagnant cell of
+}T\right)  }\\
+&  =\sum_{i\in\mathbb{N}_{+}}\left(  \text{the number of }j\in\mathbb{N}%
+_{+}\text{ such that }\left(  i,j\right)  \text{ is a stagnant cell of
+}T\right) \\
+&  =\left(  \text{the number of }\left(  i,j\right)  \in\mathbb{N}_{+}%
+\times\mathbb{N}_{+}\text{ such that }\left(  i,j\right)  \text{ is a stagnant
+cell of }T\right) \\
+&  =\left(  \text{the number of all stagnant cells of }T\right)  .
+\end{align*}
+This proves (\ref{eq.gtilde.ceq.abs}).
+\end{proof}
+\end{verlong}
+
+\begin{vershort}
 Let now $\lambda/\mu$ be a skew partition. We set%
-\begin{equation}
+\[
 \widetilde{g}_{\lambda/\mu}=\sum_{\substack{T\text{ is an rpp}\\\text{of shape
 }Y\left(  \lambda/\mu\right)  }}\mathbf{t}^{\operatorname*{ceq}\left(
 T\right)  }\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }.
-\label{eq.gtilde.def}%
-\end{equation}
-It is clear that $\widetilde{g}_{\lambda/\mu}$ is a well-defined formal power
-series in $\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]  \right]
+\]
+This $\widetilde{g}_{\lambda/\mu}$ is a well-defined formal power series in
+$\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]  \right]
+$\ \ \ \ \footnote{\textit{Proof.} We need to show that the infinite sum
+$\sum_{\substack{T\text{ is an rpp}\\\text{of shape }Y\left(  \lambda
+/\mu\right)  }}\mathbf{t}^{\operatorname*{ceq}\left(  T\right)  }%
+\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }$ converges with respect
+to the standard topology on $\mathbf{k}\left[  \left[  x_{1},x_{2}%
+,x_{3},\ldots\right]  \right]  $. In other words, we need to show that every
+monomial $\mathbf{x}^{\alpha}$ occurs only finitely often in this sum. But
+this is fairly clear: Given a monomial $\mathbf{x}^{\alpha}$, there exist only
+finitely many $i\in\mathbb{N}_{+}$ satisfying $\alpha_{i}>0$. These finitely
+many $i$ are the only entries that can occur in an rpp $T$ of shape $Y\left(
+\lambda/\mu\right)  $ which satisfies $\operatorname*{ircont}\left(  T\right)
+=\alpha$. Hence, there are only finitely many such rpps. This means that there
+are only finitely many terms in the sum $\sum_{\substack{T\text{ is an
+rpp}\\\text{of shape }Y\left(  \lambda/\mu\right)  }}\mathbf{t}%
+^{\operatorname*{ceq}\left(  T\right)  }\mathbf{x}^{\operatorname*{ircont}%
+\left(  T\right)  }$ in which the monomial $\mathbf{x}^{\alpha}$ occurs,
+qed.}, and moreover belongs to $\mathbf{k}\left[  \left[  x_{1},x_{2}%
+,x_{3},\ldots\right]  \right]  _{\operatorname*{bdd}}$ (since $\left\vert
+\operatorname*{ircont}\left(  T\right)  \right\vert \leq\left\vert Y\left(
+\lambda/\mu\right)  \right\vert =\left\vert \lambda\right\vert -\left\vert
+\mu\right\vert $ for every rpp $T$ of shape $Y\left(  \lambda/\mu\right)  $).
+\end{vershort}
+
+\begin{verlong}
+Let now $\lambda/\mu$ be a skew partition. We set%
+\[
+\widetilde{g}_{\lambda/\mu}=\sum_{\substack{T\text{ is an rpp}\\\text{of shape
+}Y\left(  \lambda/\mu\right)  }}\mathbf{t}^{\operatorname*{ceq}\left(
+T\right)  }\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }.
+\]
+This $\widetilde{g}_{\lambda/\mu}$ is a well-defined formal power series in
+$\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]  \right]
 $\ \ \ \ \footnote{\textit{Proof.} We need to show that the infinite sum
 $\sum_{\substack{T\text{ is an rpp}\\\text{of shape }Y\left(  \lambda
 /\mu\right)  }}\mathbf{t}^{\operatorname*{ceq}\left(  T\right)  }%
@@ -987,6 +1045,7 @@ $\left\vert \operatorname*{ircont}\left(  T\right)  \right\vert \leq\left\vert
 Y\left(  \lambda/\mu\right)  \right\vert =\left\vert \lambda\right\vert
 -\left\vert \mu\right\vert $ for every rpp $T$ of shape $Y\left(  \lambda
 /\mu\right)  $).
+\end{verlong}
 
 Let us give some examples of $\widetilde{g}_{\lambda/\mu}$.
 
@@ -1058,7 +1117,12 @@ e_{n-k}\left(  x_{1},x_{2},x_{3},\ldots\right)  ,
 \end{align*}
 where $e_{i}\left(  \xi_{1},\xi_{2},\xi_{3},\ldots\right)  $ denotes the
 $i$-th elementary symmetric function in the indeterminates $\xi_{1},\xi
-_{2},\xi_{3},\ldots$.
+_{2},\xi_{3},\ldots$. It is possible to rewrite this as%
+\[
+\widetilde{g}_{\lambda/\mu}=e_{n}\left(  t_{1},t_{2},\ldots,t_{n-1}%
+,x_{1},x_{2},x_{3},\ldots\right)  .
+\]
+
 
 \textbf{(c)} Let now $n=3$, let $\lambda=\left(  2,1\right)  $ and let
 $\mu=\varnothing$. Then, the rpps $T$ of shape $Y\left(  \lambda/\mu\right)  $
@@ -1139,6 +1203,48 @@ T\right)  }}_{=1}\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }%
 }=g_{\lambda/\mu}$. This proves Proposition \ref{prop.gtilde.gener}
 \textbf{(a)}.
 
+\begin{vershort}
+\textbf{(b)} Let $\left(  t_{1},t_{2},t_{3},\ldots\right)  =\left(
+0,0,0,\ldots\right)  $. Then, if $T$ is an rpp which has at least one stagnant
+cell, then $\mathbf{t}^{\operatorname*{ceq}\left(  T\right)  }=0$ (because
+$\operatorname*{ceq}\left(  T\right)  $ has at least one nonzero entry in this
+case). Therefore, the sum $\sum_{\substack{T\text{ is an rpp}\\\text{of shape
+}Y\left(  \lambda/\mu\right)  }}\mathbf{t}^{\operatorname*{ceq}\left(
+T\right)  }\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }$ does not
+change if we discard all addends for which $T$ has at least one stagnant cell.
+Thus,%
+\begin{align*}
+\sum_{\substack{T\text{ is an rpp}\\\text{of shape }Y\left(  \lambda
+/\mu\right)  }}\mathbf{t}^{\operatorname*{ceq}\left(  T\right)  }%
+\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }  &  =\sum
+_{\substack{T\text{ is an rpp}\\\text{of shape }Y\left(  \lambda/\mu\right)
+;\\T\text{ has no stagnant cells}}}\mathbf{t}^{\operatorname*{ceq}\left(
+T\right)  }\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }\\
+&  =\sum_{\substack{T\text{ is a semistandard}\\\text{tableau of shape
+}Y\left(  \lambda/\mu\right)  }}\mathbf{t}^{\operatorname*{ceq}\left(
+T\right)  }\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }%
+\end{align*}
+(since a semistandard tableau of shape $Y\left(  \lambda/\mu\right)  $ is the
+same thing as an rpp of shape $Y\left(  \lambda/\mu\right)  $ which has no
+stagnant cells). Now, the definition of $\widetilde{g}_{\lambda/\mu}$ yields%
+\begin{align*}
+\widetilde{g}_{\lambda/\mu}  &  =\sum_{\substack{T\text{ is an rpp}\\\text{of
+shape }Y\left(  \lambda/\mu\right)  }}\mathbf{t}^{\operatorname*{ceq}\left(
+T\right)  }\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }%
+=\sum_{\substack{T\text{ is a semistandard}\\\text{tableau of shape }Y\left(
+\lambda/\mu\right)  }}\underbrace{\mathbf{t}^{\operatorname*{ceq}\left(
+T\right)  }}_{\substack{=1\\\text{(since }\operatorname*{ceq}\left(  T\right)
+=\varnothing\text{)}}}\underbrace{\mathbf{x}^{\operatorname*{ircont}\left(
+T\right)  }}_{\substack{=\mathbf{x}^{\operatorname*{cont}\left(  T\right)
+}\\\text{(by (\ref{eq.ircont=cont}))}}}\\
+&  =\sum_{\substack{T\text{ is a semistandard}\\\text{tableau of shape
+}Y\left(  \lambda/\mu\right)  }}\mathbf{x}^{\operatorname*{cont}\left(
+T\right)  }=s_{\lambda/\mu}.
+\end{align*}
+
+\end{vershort}
+
+\begin{verlong}
 \textbf{(b)} We shall use the \textit{Iverson bracket notation}: Whenever
 $\mathcal{A}$ is a logical statement, we let $\left[  \mathcal{A}\right]  $
 denote the truth value of $\mathcal{A}$ (that is, the integer $\left\{
@@ -1149,10 +1255,20 @@ denote the truth value of $\mathcal{A}$ (that is, the integer $\left\{
 \end{array}
 \right.  $).
 
-Let $\left(  t_{1},t_{2},t_{3},\ldots\right)  =\left(  1,1,1,\ldots\right)  $.
-Then, $\mathbf{t}^{\alpha}=\left[  \alpha=\varnothing\right]  =\left[
-\left\vert \alpha\right\vert =0\right]  $ for every weak composition $\alpha$.
-Hence, if $T$ is an rpp of shape $Y\left(  \lambda/\mu\right)  $, then%
+Let $\left(  t_{1},t_{2},t_{3},\ldots\right)  =\left(  0,0,0,\ldots\right)  $.
+Then,
+\begin{align*}
+\mathbf{t}^{\alpha}  &  =t_{1}^{\alpha_{1}}t_{2}^{\alpha_{2}}t_{3}^{\alpha
+_{3}}\cdots=0^{\alpha_{1}}0^{\alpha_{2}}0^{\alpha_{3}}\cdots
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\left(  t_{1},t_{2},t_{3}%
+,\ldots\right)  =\left(  0,0,0,\ldots\right)  \right) \\
+&  =0^{\alpha_{1}+\alpha_{2}+\alpha_{3}+\cdots}=0^{\left\vert \alpha
+\right\vert }\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\alpha_{1}+\alpha
+_{2}+\alpha_{3}+\cdots=\left\vert \alpha\right\vert \right) \\
+&  =\left[  \left\vert \alpha\right\vert =0\right]
+\end{align*}
+for every weak composition $\alpha$. Hence, if $T$ is an rpp of shape
+$Y\left(  \lambda/\mu\right)  $, then%
 \begin{align*}
 \mathbf{t}^{\operatorname*{ceq}\left(  T\right)  }  &  =\left[  \left\vert
 \operatorname*{ceq}T\right\vert =0\right] \\
@@ -1183,9 +1299,9 @@ semistandard}\\\text{tableau of shape }Y\left(  \lambda/\mu\right)
 \begin{array}
 [c]{c}%
 \text{since a semistandard tableau of shape }Y\left(  \lambda/\mu\right)
-\text{ is the same thing as an}\\
-\text{rpp of shape }Y\left(  \lambda/\mu\right)  \text{ which has no stagnant
-cells}%
+\text{ is the same}\\
+\text{thing as an rpp of shape }Y\left(  \lambda/\mu\right)  \text{ which has
+no stagnant cells}%
 \end{array}
 \right) \\
 &  =\sum_{\substack{T\text{ is a semistandard}\\\text{tableau of shape
@@ -1195,6 +1311,7 @@ T\right)  }=s_{\lambda/\mu}.
 
 
 This proves Proposition \ref{prop.gtilde.gener} \textbf{(b)}.
+\end{verlong}
 \end{proof}
 
 \subsection{The symmetry statement}
@@ -1230,13 +1347,27 @@ and%
 \operatorname*{ircont}\left(  \mathbf{B}_{i}\left(  T\right)  \right)
 =s_{i}\cdot\operatorname*{ircont}\left(  T\right)  . \label{eq.thm.BK.ircont}%
 \end{equation}
-(Here, $s_{i}\cdot\operatorname*{ircont}\left(  T\right)  $ means the result
-of the transposition $s_{i}=\left(  i,i+1\right)  \in\mathfrak{S}_{\left(
-\infty\right)  }$ acting on the weak composition $\operatorname*{ircont}%
-\left(  T\right)  $.)
+\footnotemark(Here, $s_{i}\cdot\operatorname*{ircont}\left(  T\right)  $ means
+the result of the transposition $s_{i}=\left(  i,i+1\right)  \in
+\mathfrak{S}_{\left(  \infty\right)  }$ acting on the weak composition
+$\operatorname*{ircont}\left(  T\right)  $.)
 \end{theorem}
 
-This involution $\mathbf{B}_{i}$ is a generalization of the $i$-th
+\footnotetext{We notice that the equality (\ref{eq.thm.BK.ircont}) says the
+following:
+\par
+\begin{itemize}
+\item The number of columns of $\mathbf{B}_{i}\left(  T\right)  $ containing
+the entry $i$ equals the number of columns of $T$ containing the entry $i+1$.
+\par
+\item The number of columns of $\mathbf{B}_{i}\left(  T\right)  $ containing
+the entry $i+1$ equals the number of columns of $T$ containing the entry $i$.
+\par
+\item For every $h\in\mathbb{N}_{+}\setminus\left\{  i,i+1\right\}  $, the
+number of columns of $\mathbf{B}_{i}\left(  T\right)  $ containing the entry
+$h$ equals the number of columns of $T$ containing the entry $h$.
+\end{itemize}
+}This involution $\mathbf{B}_{i}$ is a generalization of the $i$-th
 Bender-Knuth involution defined for semistandard tableaux (see, e.g.,
 \cite[proof of Proposition 2.11]{GriRei15}), but its definition is more
 complicated than that of the latter.\footnote{We will compare our involution
@@ -1264,6 +1395,55 @@ for every $i\in\mathbb{N}_{+}$ (because the group $\mathfrak{S}_{\left(
 $s_{i}\cdot\widetilde{g}_{\lambda/\mu}=\widetilde{g}_{\lambda/\mu}$ for every
 $i\in\mathbb{N}_{+}$. So let us prove this.
 
+\begin{vershort}
+Fix $i\in\mathbb{N}_{+}$. Theorem \ref{thm.BK} gives us an involution
+$\mathbf{B}_{i}:\operatorname*{RPP}\left(  \lambda/\mu\right)  \rightarrow
+\operatorname*{RPP}\left(  \lambda/\mu\right)  $ satisfying the property
+described in Theorem \ref{thm.BK}. Now, the definition of $\widetilde{g}%
+_{\lambda/\mu}$ yields $\widetilde{g}_{\lambda/\mu}=\sum_{T\in
+\operatorname*{RPP}\left(  \lambda/\mu\right)  }\mathbf{t}%
+^{\operatorname*{ceq}\left(  T\right)  }\mathbf{x}^{\operatorname*{ircont}%
+\left(  T\right)  }$, so that%
+\[
+s_{i}\cdot\widetilde{g}_{\lambda/\mu}=\sum_{T\in\operatorname*{RPP}\left(
+\lambda/\mu\right)  }\mathbf{t}^{\operatorname*{ceq}\left(  T\right)
+}\underbrace{\left(  s_{i}\cdot\mathbf{x}^{\operatorname*{ircont}\left(
+T\right)  }\right)  }_{=\mathbf{x}^{s_{i}\cdot\operatorname*{ircont}\left(
+T\right)  }}=\sum_{T\in\operatorname*{RPP}\left(  \lambda/\mu\right)
+}\mathbf{t}^{\operatorname*{ceq}\left(  T\right)  }\mathbf{x}^{s_{i}%
+\cdot\operatorname*{ircont}\left(  T\right)  }.
+\]
+Compared with%
+\begin{align*}
+\widetilde{g}_{\lambda/\mu}  &  =\sum_{T\in\operatorname*{RPP}\left(
+\lambda/\mu\right)  }\mathbf{t}^{\operatorname*{ceq}\left(  T\right)
+}\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }=\sum_{T\in
+\operatorname*{RPP}\left(  \lambda/\mu\right)  }\underbrace{\mathbf{t}%
+^{\operatorname*{ceq}\left(  \mathbf{B}_{i}\left(  T\right)  \right)  }%
+}_{\substack{=\mathbf{t}^{\operatorname*{ceq}\left(  T\right)  }\\\text{(by
+(\ref{eq.thm.BK.ceq}))}}}\underbrace{\mathbf{x}^{\operatorname*{ircont}\left(
+\mathbf{B}_{i}\left(  T\right)  \right)  }}_{\substack{=\mathbf{x}^{s_{i}%
+\cdot\operatorname*{ircont}\left(  T\right)  }\\\text{(by
+(\ref{eq.thm.BK.ircont}))}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{here, we have substituted }\mathbf{B}_{i}\left(  T\right)  \text{ for
+}T\text{ in the sum}\\
+\text{(since }\mathbf{B}_{i}:\operatorname*{RPP}\left(  \lambda/\mu\right)
+\rightarrow\operatorname*{RPP}\left(  \lambda/\mu\right)  \text{ is a
+bijection)}%
+\end{array}
+\right) \\
+&  =\sum_{T\in\operatorname*{RPP}\left(  \lambda/\mu\right)  }\mathbf{t}%
+^{\operatorname*{ceq}\left(  T\right)  }\mathbf{x}^{s_{i}\cdot
+\operatorname*{ircont}\left(  T\right)  },
+\end{align*}
+this yields $s_{i}\cdot\widetilde{g}_{\lambda/\mu}=\widetilde{g}_{\lambda/\mu
+}$, and this completes our proof.
+\end{vershort}
+
+\begin{verlong}
 Fix $i\in\mathbb{N}_{+}$. Theorem \ref{thm.BK} gives us an involution
 $\mathbf{B}_{i}:\operatorname*{RPP}\left(  \lambda/\mu\right)  \rightarrow
 \operatorname*{RPP}\left(  \lambda/\mu\right)  $ satisfying the property
@@ -1321,6 +1501,7 @@ bijection)}%
 \end{align*}
 this yields $s_{i}\cdot\widetilde{g}_{\lambda/\mu}=\widetilde{g}_{\lambda/\mu
 }$, and this completes our proof.
+\end{verlong}
 \end{proof}
 
 \subsection{Reduction to 12-rpps}
@@ -1372,7 +1553,7 @@ and%
 hold.
 \end{lemma}
 
-Before we prove this lemma, let us show how Theorem \ref{thm.BK} can be
+Before we prove this lemma, we will show how Theorem \ref{thm.BK} can be
 derived from this lemma. But first of all, let us rewrite the lemma as follows:
 
 \begin{lemma}
@@ -1394,6 +1575,26 @@ and%
 hold.
 \end{lemma}
 
+\begin{vershort}
+\begin{proof}
+[Proof of Lemma \ref{lem.BKi} using Lemma \ref{lem.BK}.]The only difference
+between Lemma \ref{lem.BK} and Lemma \ref{lem.BKi} is that the entries $1$ and
+$2$ in Lemma \ref{lem.BK} have been relabelled as $i$ and $i+1$ in Lemma
+\ref{lem.BKi}. Thus, the two lemmas are equivalent, so that the latter follows
+from the former.
+
+(More formally: Define $\mathbf{R}$ as in Lemma \ref{lem.BK}. Then, we can
+define a bijection $\Phi:\mathbf{R}\rightarrow\mathbf{R}_{Z}$ as follows: For
+every $T\in\mathbf{R}$, let $\Phi\left(  T\right)  $ be the filling of $Z$
+which is obtained from $T$ by replacing all $1$'s and $2$'s by $i$'s and
+$\left(  i+1\right)  $'s, respectively. Now, an involution $\mathbf{B}_{Z}$
+satisfying the claim of Lemma \ref{lem.BKi} can be constructed from an
+involution $\mathbf{B}$ satisfying the claim of Lemma \ref{lem.BK} by the
+formula $\mathbf{B}_{Z}=\Phi\circ\mathbf{B}\circ\Phi^{-1}$.)
+\end{proof}
+\end{vershort}
+
+\begin{verlong}
 \begin{proof}
 [Proof of Lemma \ref{lem.BKi} using Lemma \ref{lem.BK}.]Define $\mathbf{R}$ as
 in Lemma \ref{lem.BK}. Then, we can define a bijection $\Phi:\mathbf{R}%
@@ -1412,15 +1613,16 @@ Every $T\in\mathbf{R}$ satisfies%
 filling $\Phi\left(  T\right)  $ is obtained from $T$ simply by replacing all
 $1$'s and $2$'s by $i$'s and $\left(  i+1\right)  $'s, respectively (because
 this is how $\Phi\left(  T\right)  $ was defined). Hence, the stagnant cells
-of $\Phi\left(  T\right)  $ are precisely the stagnant cells of $T$. Thus, for
-every $i\in\mathbb{N}_{+}$, we have $\left(  \operatorname*{ceq}\left(
-\Phi\left(  T\right)  \right)  \right)  _{i}=\left(  \operatorname*{ceq}%
-\left(  T\right)  \right)  _{i}$ (because of how $\left(  \operatorname*{ceq}%
-\left(  \Phi\left(  T\right)  \right)  \right)  _{i}$ and $\left(
-\operatorname*{ceq}\left(  T\right)  \right)  _{i}$ were defined in terms of
-stagnant cells). In other words, $\operatorname*{ceq}\left(  \Phi\left(
-T\right)  \right)  =\operatorname*{ceq}\left(  T\right)  $. This proves
-(\ref{pf.lem.BKi.ceq}).} and%
+of $\Phi\left(  T\right)  $ are precisely the stagnant cells of $T$ (because
+all entries of $T$ are $1$'s and $2$'s). Thus, for every $i\in\mathbb{N}_{+}$,
+we have $\left(  \operatorname*{ceq}\left(  \Phi\left(  T\right)  \right)
+\right)  _{i}=\left(  \operatorname*{ceq}\left(  T\right)  \right)  _{i}$
+(because of how $\left(  \operatorname*{ceq}\left(  \Phi\left(  T\right)
+\right)  \right)  _{i}$ and $\left(  \operatorname*{ceq}\left(  T\right)
+\right)  _{i}$ were defined in terms of stagnant cells). In other words,
+$\operatorname*{ceq}\left(  \Phi\left(  T\right)  \right)
+=\operatorname*{ceq}\left(  T\right)  $. This proves (\ref{pf.lem.BKi.ceq}).}
+and%
 \begin{equation}
 \left(  \operatorname*{ircont}\left(  \Phi\left(  T\right)  \right)  \right)
 _{i}=\left(  \operatorname*{ircont}\left(  T\right)  \right)  _{1}
@@ -1647,7 +1849,7 @@ h\right)  }=\left(  \operatorname*{ircont}\left(  \underbrace{P}_{=\Phi\left(
 S\right)  }\right)  \right)  _{h}\ \ \ \ \ \ \ \ \ \ \left(  \text{since
 }s_{i}^{-1}\left(  h\right)  =h\right) \\
 &  =\left(  \operatorname*{ircont}\left(  \Phi\left(  S\right)  \right)
-\right)  _{i}=0\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.lem.BKi.ircont3}%
+\right)  _{h}=0\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.lem.BKi.ircont3}%
 ), applied to }T=S\right)  ,
 \end{align*}
 this yields $\left(  \operatorname*{ircont}\left(  \mathbf{B}_{Z}\left(
@@ -1665,29 +1867,27 @@ that $\left(  \operatorname*{ircont}\left(  \mathbf{B}_{Z}\left(  P\right)
 P\right)  \right)  _{h}$ always holds. This completes the proof of Lemma
 \ref{lem.BKi} using Lemma \ref{lem.BK}.
 \end{proof}
+\end{verlong}
 
+\begin{vershort}
 \begin{proof}
-[Proof of Theorem \ref{thm.BK} using Lemma \ref{lem.BKi}.]Let us first define
-a map $\mathbf{B}_{i}:\operatorname*{RPP}\left(  \lambda/\mu\right)
-\rightarrow\operatorname*{RPP}\left(  \lambda/\mu\right)  $.
+[Proof of Theorem \ref{thm.BK} using Lemma \ref{lem.BKi}.]Let us define a map
+$\mathbf{B}_{i}:\operatorname*{RPP}\left(  \lambda/\mu\right)  \rightarrow
+\operatorname*{RPP}\left(  \lambda/\mu\right)  $.
 
 Indeed, let $T\in\operatorname*{RPP}\left(  \lambda/\mu\right)  $. Then,
 $T^{-1}\left(  \left\{  i,i+1\right\}  \right)  $ is a finite convex subset of
-$Y\left(  \lambda/\mu\right)  $. Let us denote this subset by $Z$, and refer
-to it as the $\left(  i,i+1\right)  $\textit{-domain} of $T$. Let
+$Y\left(  \lambda/\mu\right)  $. We denote this subset by $Z$. Let
 $\mathbf{R}_{Z}$ denote the set of all rpps of shape $Z$ whose entries all
-belong to the set $\left\{  i,i+1\right\}  $. Lemma \ref{lem.BKi} \textbf{(b)}
-yields that there exists an involution $\mathbf{B}_{Z}:\mathbf{R}%
-_{Z}\rightarrow\mathbf{R}_{Z}$ (defined canonically in terms of $Z$) which has
-the following property: For every $P\in\mathbf{R}_{Z}$, the equalities
-(\ref{eq.lem.BKi.ceq}) and (\ref{eq.lem.BKi.ircont}) hold. Consider this
-involution $\mathbf{B}_{Z}$. We have $Z=T^{-1}\left(  \left\{  i,i+1\right\}
-\right)  $, and thus $T\mid_{Z}$ is an rpp of shape $Z$ whose entries all
-belong to the set $\left\{  i,i+1\right\}  $. In other words, $T\mid_{Z}%
-\in\mathbf{R}_{Z}$. Hence, the involution $\mathbf{B}_{Z}:\mathbf{R}%
-_{Z}\rightarrow\mathbf{R}_{Z}$ gives rise to a new such rpp $\mathbf{B}%
-_{Z}\left(  T\mid_{Z}\right)  $. Now, we define a new filling $T^{\prime}$ of
-$Y\left(  \lambda/\mu\right)  $ as follows:%
+belong to the set $\left\{  i,i+1\right\}  $. Lemma \ref{lem.BKi} yields that
+there exists an involution $\mathbf{B}_{Z}:\mathbf{R}_{Z}\rightarrow
+\mathbf{R}_{Z}$ (defined canonically in terms of $Z$) which has the following
+property: For every $P\in\mathbf{R}_{Z}$, the equalities (\ref{eq.lem.BKi.ceq}%
+) and (\ref{eq.lem.BKi.ircont}) hold. Consider this involution $\mathbf{B}%
+_{Z}$. Clearly, $T\mid_{Z}\in\mathbf{R}_{Z}$. Hence, the involution
+$\mathbf{B}_{Z}:\mathbf{R}_{Z}\rightarrow\mathbf{R}_{Z}$ gives rise to a
+$\mathbf{B}_{Z}\left(  T\mid_{Z}\right)  \in\mathbf{R}_{Z}$. Now, we define a
+new filling $T^{\prime}$ of $Y\left(  \lambda/\mu\right)  $ as follows:%
 \[
 T^{\prime}\left(  c\right)  =\left\{
 \begin{array}
@@ -1713,28 +1913,36 @@ Notice that $T^{\prime}\mid_{Z}=\mathbf{B}_{Z}\left(  T\mid_{Z}\right)  $ and
 $T^{\prime}\mid_{Y\left(  \lambda/\mu\right)  \setminus Z}=T\mid_{Y\left(
 \lambda/\mu\right)  \setminus Z}$. These two equalities determine $T^{\prime}%
 $. It is easy to see that $T^{\prime}$ is an rpp of shape $Y\left(
-\lambda/\mu\right)  $\ \ \ \ \footnote{\textit{Proof.} We need to show that
-$T^{\prime}$ is an rpp. The fillings $T$ and $T^{\prime}$ differ only in some
-entries in cells belonging to $Z$; these entries are $i$'s and $\left(
-i+1\right)  $'s (both in $T$ and in $T^{\prime}$). Hence, in order to prove
-that $T^{\prime}$ is an rpp, we only need to check that there is no $i+1$ to
-the left of an $i$ or above an $i$ in $T^{\prime}$ (because we already know
-that $T$ is an rpp). In other words, we only need to check that the $i$'s and
-the $\left(  i+1\right)  $'s in $T^{\prime}$ form an rpp. But this is clear,
-because they form the filling $\mathbf{B}_{Z}\left(  T\mid_{Z}\right)  $,
-which is an rpp by definition. Thus, we have shown that $T^{\prime}$ is an
-rpp.}. That is, $T^{\prime}\in\operatorname*{RPP}\left(  \lambda/\mu\right)
-$. We now define $\mathbf{B}_{i}\left(  T\right)  =T^{\prime}$. Thus, a map
-$\mathbf{B}_{i}:\operatorname*{RPP}\left(  \lambda/\mu\right)  \rightarrow
-\operatorname*{RPP}\left(  \lambda/\mu\right)  $ is defined. We can briefly
-state this definition as follows: For every $T\in\operatorname*{RPP}\left(
-\lambda/\mu\right)  $, the filling $\mathbf{B}_{i}\left(  T\right)  $ is the
-unique $T^{\prime}\in\operatorname*{RPP}\left(  \lambda/\mu\right)  $ such
-that $T^{\prime}\mid_{Z}=\mathbf{B}_{Z}\left(  T\mid_{Z}\right)  $ and
-$T^{\prime}\mid_{Y\left(  \lambda/\mu\right)  \setminus Z}=T\mid_{Y\left(
-\lambda/\mu\right)  \setminus Z}$, where we let $Z$ be the $\left(
-i,i+1\right)  $-domain of $T$. We shall refer to this fact as the
-\textit{brief definition of }$\mathbf{B}_{i}\left(  T\right)  $.
+\lambda/\mu\right)  $. That is, $T^{\prime}\in\operatorname*{RPP}\left(
+\lambda/\mu\right)  $. We now define $\mathbf{B}_{i}\left(  T\right)
+=T^{\prime}$. Thus, a map $\mathbf{B}_{i}:\operatorname*{RPP}\left(
+\lambda/\mu\right)  \rightarrow\operatorname*{RPP}\left(  \lambda/\mu\right)
+$ is defined.
+
+The reader can easily verify that this map $\mathbf{B}_{i}$ is an involution,
+and that every $T\in\operatorname*{RPP}\left(  \lambda/\mu\right)  $ satisfies
+(\ref{eq.thm.BK.ceq}) and (\ref{eq.thm.BK.ircont}). (Essentially, these
+properties follow from the analogous properties of the map $\mathbf{B}_{Z}$,
+once one realizes that every $T\in\operatorname*{RPP}\left(  \lambda
+/\mu\right)  $ satisfies%
+\[
+\left(  \mathbf{B}_{i}\left(  T\right)  \right)  ^{-1}\left(  \left\{
+i,i+1\right\}  \right)  =T^{-1}\left(  \left\{  i,i+1\right\}  \right)  ,
+\]
+\[
+\operatorname*{ceq}\left(  T\right)  =\operatorname*{ceq}\left(  T\mid
+_{Z}\right)  +\operatorname*{ceq}\left(  T\mid_{Y\left(  \lambda/\mu\right)
+\setminus Z}\right)
+\]
+and%
+\[
+\operatorname*{ircont}\left(  T\right)  =\operatorname*{ircont}\left(
+T\mid_{Z}\right)  +\underbrace{\operatorname*{ircont}\left(  T\mid_{Y\left(
+\lambda/\mu\right)  \setminus Z}\right)  }_{\substack{\text{This composition
+is invariant under }s_{i}\\\text{(because its }i\text{-th and }\left(
+i+1\right)  \text{-th entries are zero).}}}.
+\]
+) \Needspace{14\baselineskip}
 
 \begin{example}
 Let us give an example of how $\mathbf{B}_{i}$ acts on an rpp. Assume for this
@@ -1791,18 +1999,18 @@ $T\mid_{Z}$ to%
 \mathbf{B}_{Z}\left(  T\mid_{Z}\right)  =%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
-%\none& \none& \none& \none& \none& 3 & 3 & 3 \\
+%\none& \none& \none& \none& \none& 3 & 3 & 4 \\
 %\none& \none& \none& \none& \none& 3 & 4 \\
-%\none& \none& \none& \none& 3 & 4 \\
-%\none& \none& \none& \none& 4 & 4
+%\none& \none& \none& \none& 3 & 3 \\
+%\none& \none& \none& \none& 3 & 4
 %\end{ytableau}}}%
 %BeginExpansion
 \ytableausetup{notabloids}
 \begin{ytableau}
-\none& \none& \none& \none& \none& 3 & 3 & 3 \\
+\none& \none& \none& \none& \none& 3 & 3 & 4 \\
 \none& \none& \none& \none& \none& 3 & 4 \\
-\none& \none& \none& \none& 3 & 4 \\
-\none& \none& \none& \none& 4 & 4
+\none& \none& \none& \none& 3 & 3 \\
+\none& \none& \none& \none& 3 & 4
 \end{ytableau}%
 %EndExpansion
 .
@@ -1816,18 +2024,194 @@ they are. Thus,%
 \mathbf{B}_{i}\left(  T\right)  =%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
-%\none& \none& \none& \none& 1 & 3 & 3 & 3 & 5 \\
+%\none& \none& \none& \none& 1 & 3 & 3 & 4 & 5 \\
 %\none& \none& \none& 1 & 1 & 3 & 4 & 6 \\
-%\none& \none& 1 & 2 & 3 & 4 & 5 & 6 \\
-%\none& 1 & 1 & 2 & 4 & 4 & 8
+%\none& \none& 1 & 2 & 3 & 3 & 5 & 6 \\
+%\none& 1 & 1 & 2 & 3 & 4 & 8
 %\end{ytableau}}}%
 %BeginExpansion
 \ytableausetup{notabloids}
 \begin{ytableau}
-\none& \none& \none& \none& 1 & 3 & 3 & 3 & 5 \\
+\none& \none& \none& \none& 1 & 3 & 3 & 4 & 5 \\
 \none& \none& \none& 1 & 1 & 3 & 4 & 6 \\
-\none& \none& 1 & 2 & 3 & 4 & 5 & 6 \\
-\none& 1 & 1 & 2 & 4 & 4 & 8
+\none& \none& 1 & 2 & 3 & 3 & 5 & 6 \\
+\none& 1 & 1 & 2 & 3 & 4 & 8
+\end{ytableau}%
+%EndExpansion
+.
+\]
+
+\end{example}
+\end{proof}
+\end{vershort}
+
+\begin{verlong}
+\begin{proof}
+[Proof of Theorem \ref{thm.BK} using Lemma \ref{lem.BKi}.]Let us first define
+a map $\mathbf{B}_{i}:\operatorname*{RPP}\left(  \lambda/\mu\right)
+\rightarrow\operatorname*{RPP}\left(  \lambda/\mu\right)  $.
+
+Indeed, let $T\in\operatorname*{RPP}\left(  \lambda/\mu\right)  $. Then,
+$T^{-1}\left(  \left\{  i,i+1\right\}  \right)  $ is a finite convex subset of
+$Y\left(  \lambda/\mu\right)  $.\ \ \ \ \footnote{Indeed, the fact that it is
+convex follows from the fact that the entries of $T$ are weakly increasing
+along rows and weakly increasing down columns.} Let us denote this subset by
+$Z$, and refer to it as the $\left(  i,i+1\right)  $\textit{-domain} of $T$.
+Let $\mathbf{R}_{Z}$ denote the set of all rpps of shape $Z$ whose entries all
+belong to the set $\left\{  i,i+1\right\}  $. Lemma \ref{lem.BKi} yields that
+there exists an involution $\mathbf{B}_{Z}:\mathbf{R}_{Z}\rightarrow
+\mathbf{R}_{Z}$ (defined canonically in terms of $Z$) which has the following
+property: For every $P\in\mathbf{R}_{Z}$, the equalities (\ref{eq.lem.BKi.ceq}%
+) and (\ref{eq.lem.BKi.ircont}) hold. Consider this involution $\mathbf{B}%
+_{Z}$. We have $Z=T^{-1}\left(  \left\{  i,i+1\right\}  \right)  $, and thus
+$T\mid_{Z}$ is an rpp of shape $Z$ whose entries all belong to the set
+$\left\{  i,i+1\right\}  $. In other words, $T\mid_{Z}\in\mathbf{R}_{Z}$.
+Hence, the involution $\mathbf{B}_{Z}:\mathbf{R}_{Z}\rightarrow\mathbf{R}_{Z}$
+gives rise to a new such rpp $\mathbf{B}_{Z}\left(  T\mid_{Z}\right)  $. Now,
+we define a new filling $T^{\prime}$ of $Y\left(  \lambda/\mu\right)  $ as
+follows:%
+\[
+T^{\prime}\left(  c\right)  =\left\{
+\begin{array}
+[c]{c}%
+\left(  \mathbf{B}_{Z}\left(  T\mid_{Z}\right)  \right)  \left(  c\right)
+,\ \ \ \ \ \ \ \ \ \ \text{if }c\in Z;\\
+T\left(  c\right)  ,\ \ \ \ \ \ \ \ \ \ \text{if }c\notin Z
+\end{array}
+\right.  \ \ \ \ \ \ \ \ \ \ \text{for every cell }c\text{ of }Y\left(
+\lambda/\mu\right)  .
+\]
+In other words, $T^{\prime}$ is obtained from $T$ by:
+
+\begin{itemize}
+\item replacing all entries of the restriction $T\mid_{Z}$ (that is, all
+entries in cells $c\in Z$) by the respective entries of $\mathbf{B}_{Z}\left(
+T\mid_{Z}\right)  $, and
+
+\item leaving all other entries as they are.
+\end{itemize}
+
+Notice that $T^{\prime}\mid_{Z}=\mathbf{B}_{Z}\left(  T\mid_{Z}\right)  $ and
+$T^{\prime}\mid_{Y\left(  \lambda/\mu\right)  \setminus Z}=T\mid_{Y\left(
+\lambda/\mu\right)  \setminus Z}$. These two equalities determine $T^{\prime}%
+$. It is easy to see that $T^{\prime}$ is an rpp of shape $Y\left(
+\lambda/\mu\right)  $\ \ \ \ \footnote{\textit{Proof.} We need to show that
+$T^{\prime}$ is an rpp. The fillings $T$ and $T^{\prime}$ differ only in some
+entries in cells belonging to $Z$; these entries are $i$'s and $\left(
+i+1\right)  $'s (both in $T$ and in $T^{\prime}$). Hence, in order to prove
+that $T^{\prime}$ is an rpp, we only need to check that there is no $i+1$ to
+the left of an $i$ or above an $i$ in $T^{\prime}$ (because we already know
+that $T$ is an rpp). In other words, we only need to check that the $i$'s and
+the $\left(  i+1\right)  $'s in $T^{\prime}$ form an rpp. But this is clear,
+because they form the filling $\mathbf{B}_{Z}\left(  T\mid_{Z}\right)  $,
+which is an rpp by definition. Thus, we have shown that $T^{\prime}$ is an
+rpp.}. That is, $T^{\prime}\in\operatorname*{RPP}\left(  \lambda/\mu\right)
+$. We now define $\mathbf{B}_{i}\left(  T\right)  =T^{\prime}$. Thus, a map
+$\mathbf{B}_{i}:\operatorname*{RPP}\left(  \lambda/\mu\right)  \rightarrow
+\operatorname*{RPP}\left(  \lambda/\mu\right)  $ is defined. We can briefly
+summarize this definition as follows: For every $T\in\operatorname*{RPP}%
+\left(  \lambda/\mu\right)  $, the filling $\mathbf{B}_{i}\left(  T\right)  $
+is the unique $T^{\prime}\in\operatorname*{RPP}\left(  \lambda/\mu\right)  $
+such that $T^{\prime}\mid_{Z}=\mathbf{B}_{Z}\left(  T\mid_{Z}\right)  $ and
+$T^{\prime}\mid_{Y\left(  \lambda/\mu\right)  \setminus Z}=T\mid_{Y\left(
+\lambda/\mu\right)  \setminus Z}$, where we let $Z$ be the $\left(
+i,i+1\right)  $-domain of $T$. We shall refer to this fact as the
+\textit{brief definition of }$\mathbf{B}_{i}\left(  T\right)  $.
+
+\Needspace{14\baselineskip}
+
+\begin{example}
+Let us give an example of how $\mathbf{B}_{i}$ acts on an rpp. Assume for this
+example that $\lambda=\left(  9,8,8,7\right)  $ and $\mu=\left(
+4,3,2,1\right)  $, and let $T$ be the filling%
+\[%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& \none& \none& 1 & 3 & 3 & 4 & 5 \\
+%\none& \none& \none& 1 & 1 & 3 & 4 & 6 \\
+%\none& \none& 1 & 2 & 3 & 3 & 5 & 6 \\
+%\none& 1 & 1 & 2 & 3 & 4 & 8
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+\none& \none& \none& \none& 1 & 3 & 3 & 4 & 5 \\
+\none& \none& \none& 1 & 1 & 3 & 4 & 6 \\
+\none& \none& 1 & 2 & 3 & 3 & 5 & 6 \\
+\none& 1 & 1 & 2 & 3 & 4 & 8
+\end{ytableau}%
+%EndExpansion
+\]
+(there is an invisible empty $1$-st column here). Set $i=3$. Then, the
+$\left(  i,i+1\right)  $-domain $Z$ of $T$ is the set%
+\[
+\left\{  \left(  1,6\right)  ,\left(  1,7\right)  ,\left(  1,8\right)
+,\left(  2,6\right)  ,\left(  2,7\right)  ,\left(  3,5\right)  ,\left(
+3,6\right)  ,\left(  4,5\right)  ,\left(  4,6\right)  \right\}  .
+\]
+The rpp $T\mid_{Z}$ is%
+\[%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& \none& \none& \none& 3 & 3 & 4 \\
+%\none& \none& \none& \none& \none& 3 & 4 \\
+%\none& \none& \none& \none& 3 & 3\\
+%\none& \none& \none& \none& 3 & 4
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+\none& \none& \none& \none& \none& 3 & 3 & 4 \\
+\none& \none& \none& \none& \none& 3 & 4 \\
+\none& \none& \none& \none& 3 & 3\\
+\none& \none& \none& \none& 3 & 4
+\end{ytableau}%
+%EndExpansion
+\]
+(with the first four columns being empty and invisible). We have not defined
+$\mathbf{B}_{Z}$ yet, but let us assume that $\mathbf{B}_{Z}$ maps this rpp
+$T\mid_{Z}$ to%
+\[
+\mathbf{B}_{Z}\left(  T\mid_{Z}\right)  =%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& \none& \none& \none& 3 & 3 & 4 \\
+%\none& \none& \none& \none& \none& 3 & 4 \\
+%\none& \none& \none& \none& 3 & 3 \\
+%\none& \none& \none& \none& 3 & 4
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+\none& \none& \none& \none& \none& 3 & 3 & 4 \\
+\none& \none& \none& \none& \none& 3 & 4 \\
+\none& \none& \none& \none& 3 & 3 \\
+\none& \none& \none& \none& 3 & 4
+\end{ytableau}%
+%EndExpansion
+.
+\]
+(This is, in fact, what the map $\mathbf{B}_{Z}$ defined below does to
+$T\mid_{Z}$.) Then, $\mathbf{B}_{i}\left(  T\right)  $ is obtained from $T$ by
+replacing the entries of $T\mid_{Z}$ by the respective entries of
+$\mathbf{B}_{Z}\left(  T\mid_{Z}\right)  $, while leaving all other entries as
+they are. Thus,%
+\[
+\mathbf{B}_{i}\left(  T\right)  =%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& \none& \none& 1 & 3 & 3 & 4 & 5 \\
+%\none& \none& \none& 1 & 1 & 3 & 4 & 6 \\
+%\none& \none& 1 & 2 & 3 & 3 & 5 & 6 \\
+%\none& 1 & 1 & 2 & 3 & 4 & 8
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+\none& \none& \none& \none& 1 & 3 & 3 & 4 & 5 \\
+\none& \none& \none& 1 & 1 & 3 & 4 & 6 \\
+\none& \none& 1 & 2 & 3 & 3 & 5 & 6 \\
+\none& 1 & 1 & 2 & 3 & 4 & 8
 \end{ytableau}%
 %EndExpansion
 .
@@ -1837,51 +2221,76 @@ they are. Thus,%
 
 Let us now show that $\mathbf{B}_{i}$ is an involution. Indeed, we must prove
 that $\mathbf{B}_{i}\left(  \mathbf{B}_{i}\left(  T\right)  \right)  =T$ for
-every $T\in\operatorname*{RPP}\left(  \lambda/\mu\right)  $. So let us fix a
-$T\in\operatorname*{RPP}\left(  \lambda/\mu\right)  $. Let $Z$ be the $\left(
-i,i+1\right)  $-domain of $T$. By the brief definition of $\mathbf{B}%
-_{i}\left(  T\right)  $, we know that $\mathbf{B}_{i}\left(  T\right)  $ is
-the unique $T^{\prime}\in\operatorname*{RPP}\left(  \lambda/\mu\right)  $ such
-that $T^{\prime}\mid_{Z}=\mathbf{B}_{Z}\left(  T\mid_{Z}\right)  $ and
-$T^{\prime}\mid_{Y\left(  \lambda/\mu\right)  \setminus Z}=T\mid_{Y\left(
-\lambda/\mu\right)  \setminus Z}$. Thus, $\mathbf{B}_{i}\left(  T\right)
-\mid_{Z}=\mathbf{B}_{Z}\left(  T\mid_{Z}\right)  $ and $\mathbf{B}_{i}\left(
-T\right)  \mid_{Y\left(  \lambda/\mu\right)  \setminus Z}=T\mid_{Y\left(
-\lambda/\mu\right)  \setminus Z}$. But the $\left(  i,i+1\right)  $-domain of
-$\mathbf{B}_{i}\left(  T\right)  $ is again $Z$. Thus, the brief definition of
-$\mathbf{B}_{i}\left(  \mathbf{B}_{i}\left(  T\right)  \right)  $ yields that
-$\mathbf{B}_{i}\left(  \mathbf{B}_{i}\left(  T\right)  \right)  $ is the
-unique $T^{\prime}\in\operatorname*{RPP}\left(  \lambda/\mu\right)  $ such
-that $T^{\prime}\mid_{Z}=\mathbf{B}_{Z}\left(  \mathbf{B}_{i}\left(  T\right)
-\mid_{Z}\right)  $ and $T^{\prime}\mid_{Y\left(  \lambda/\mu\right)  \setminus
-Z}=\mathbf{B}_{i}\left(  T\right)  \mid_{Y\left(  \lambda/\mu\right)
-\setminus Z}$. But this unique $T^{\prime}$ is $T$ (because we have $T\mid
-_{Z}=\mathbf{B}_{Z}\left(  \mathbf{B}_{i}\left(  T\right)  \mid_{Z}\right)
-$\ \ \ \ \footnote{this follows from $\mathbf{B}_{i}\left(  T\right)  \mid
-_{Z}=\mathbf{B}_{Z}\left(  T\mid_{Z}\right)  $ since $\mathbf{B}_{Z}$ is an
-involution} and $T\mid_{Y\left(  \lambda/\mu\right)  \setminus Z}%
-=\mathbf{B}_{i}\left(  T\right)  \mid_{Y\left(  \lambda/\mu\right)  \setminus
-Z}$\ \ \ \ \footnote{since $\mathbf{B}_{i}\left(  T\right)  \mid_{Y\left(
+every $T\in\operatorname*{RPP}\left(  \lambda/\mu\right)  $.
+
+So let us fix a $T\in\operatorname*{RPP}\left(  \lambda/\mu\right)  $. We need
+to show that $\mathbf{B}_{i}\left(  \mathbf{B}_{i}\left(  T\right)  \right)
+=T$.
+
+Let $Z$ be the $\left(  i,i+1\right)  $-domain of $T$. Thus, $Z=T^{-1}\left(
+\left\{  i,i+1\right\}  \right)  $. In other words, $Z$ is the set of all
+cells of $T$ whose entries are $i$'s and $\left(  i+1\right)  $'s.
+Consequently, neither $i$'s nor $\left(  i+1\right)  $'s can occur in
+$T\mid_{Y\left(  \lambda/\mu\right)  \setminus Z}$.
+
+By the brief definition of $\mathbf{B}_{i}\left(  T\right)  $, we know that
+$\mathbf{B}_{i}\left(  T\right)  $ is the unique $T^{\prime}\in
+\operatorname*{RPP}\left(  \lambda/\mu\right)  $ such that $T^{\prime}\mid
+_{Z}=\mathbf{B}_{Z}\left(  T\mid_{Z}\right)  $ and $T^{\prime}\mid_{Y\left(
 \lambda/\mu\right)  \setminus Z}=T\mid_{Y\left(  \lambda/\mu\right)  \setminus
-Z}$}). Hence, $\mathbf{B}_{i}\left(  \mathbf{B}_{i}\left(  T\right)  \right)
-$ must be $T$. We thus have proven $\mathbf{B}_{i}\left(  \mathbf{B}%
-_{i}\left(  T\right)  \right)  =T$, and so we have shown that $\mathbf{B}_{i}$
-is an involution.
+Z}$. Thus, $\mathbf{B}_{i}\left(  T\right)  \mid_{Z}=\mathbf{B}_{Z}\left(
+T\mid_{Z}\right)  $ and $\mathbf{B}_{i}\left(  T\right)  \mid_{Y\left(
+\lambda/\mu\right)  \setminus Z}=T\mid_{Y\left(  \lambda/\mu\right)  \setminus
+Z}$. Therefore, all entries of the filling $\mathbf{B}_{i}\left(  T\right)
+\mid_{Z}$ are $i$'s and $\left(  i+1\right)  $'s (since $\mathbf{B}_{i}\left(
+T\right)  \mid_{Z}=\mathbf{B}_{Z}\left(  T\mid_{Z}\right)  \in\mathbf{R}_{Z}%
+$), whereas neither $i$'s nor $\left(  i+1\right)  $'s can occur in
+$\mathbf{B}_{i}\left(  T\right)  \mid_{Y\left(  \lambda/\mu\right)  \setminus
+Z}$ (because $\mathbf{B}_{i}\left(  T\right)  \mid_{Y\left(  \lambda
+/\mu\right)  \setminus Z}=T\mid_{Y\left(  \lambda/\mu\right)  \setminus Z}$,
+but neither $i$'s nor $\left(  i+1\right)  $'s can occur in $T\mid_{Y\left(
+\lambda/\mu\right)  \setminus Z}$). Therefore,
+\begin{equation}
+\text{the }\left(  i,i+1\right)  \text{-domain of }\mathbf{B}_{i}\left(
+T\right)  \text{ is again }Z\text{.} \label{pf.thm.BK.again-Z}%
+\end{equation}
+Hence, the brief definition of $\mathbf{B}_{i}\left(  \mathbf{B}_{i}\left(
+T\right)  \right)  $ yields that $\mathbf{B}_{i}\left(  \mathbf{B}_{i}\left(
+T\right)  \right)  $ is the unique $T^{\prime}\in\operatorname*{RPP}\left(
+\lambda/\mu\right)  $ such that $T^{\prime}\mid_{Z}=\mathbf{B}_{Z}\left(
+\mathbf{B}_{i}\left(  T\right)  \mid_{Z}\right)  $ and $T^{\prime}%
+\mid_{Y\left(  \lambda/\mu\right)  \setminus Z}=\mathbf{B}_{i}\left(
+T\right)  \mid_{Y\left(  \lambda/\mu\right)  \setminus Z}$. But this unique
+$T^{\prime}$ is $T$ (because we have $T\mid_{Z}=\mathbf{B}_{Z}\left(
+\mathbf{B}_{i}\left(  T\right)  \mid_{Z}\right)  $%
+\ \ \ \ \footnote{\textit{Proof.} We have $\mathbf{B}_{i}\left(  T\right)
+\mid_{Z}=\mathbf{B}_{Z}\left(  T\mid_{Z}\right)  $, thus $\mathbf{B}%
+_{Z}\left(  \mathbf{B}_{i}\left(  T\right)  \mid_{Z}\right)  =\mathbf{B}%
+_{Z}\left(  \mathbf{B}_{Z}\left(  T\mid_{Z}\right)  \right)  =T\mid_{Z}$ (
+since $\mathbf{B}_{Z}$ is an involution), qed.} and $T\mid_{Y\left(
+\lambda/\mu\right)  \setminus Z}=\mathbf{B}_{i}\left(  T\right)
+\mid_{Y\left(  \lambda/\mu\right)  \setminus Z}$\ \ \ \ \footnote{since
+$\mathbf{B}_{i}\left(  T\right)  \mid_{Y\left(  \lambda/\mu\right)  \setminus
+Z}=T\mid_{Y\left(  \lambda/\mu\right)  \setminus Z}$}). Hence, $\mathbf{B}%
+_{i}\left(  \mathbf{B}_{i}\left(  T\right)  \right)  $ must be $T$. We thus
+have proven $\mathbf{B}_{i}\left(  \mathbf{B}_{i}\left(  T\right)  \right)
+=T$, and so we have shown that $\mathbf{B}_{i}$ is an involution.
 
 It remains to prove that, for every $T\in\operatorname*{RPP}\left(
 \lambda/\mu\right)  $, we have (\ref{eq.thm.BK.ceq}) and
 (\ref{eq.thm.BK.ircont}). So fix $T\in\operatorname*{RPP}\left(  \lambda
-/\mu\right)  $. Let $Z$ be the $\left(  i,i+1\right)  $-domain of $T$. Recall
-that $\mathbf{B}_{i}\left(  T\right)  $ is the unique $T^{\prime}%
-\in\operatorname*{RPP}\left(  \lambda/\mu\right)  $ such that $T^{\prime}%
-\mid_{Z}=\mathbf{B}_{Z}\left(  T\mid_{Z}\right)  $ and $T^{\prime}%
-\mid_{Y\left(  \lambda/\mu\right)  \setminus Z}=T\mid_{Y\left(  \lambda
-/\mu\right)  \setminus Z}$. Thus, $\mathbf{B}_{i}\left(  T\right)  \mid
-_{Z}=\mathbf{B}_{Z}\left(  T\mid_{Z}\right)  $ and $\mathbf{B}_{i}\left(
-T\right)  \mid_{Y\left(  \lambda/\mu\right)  \setminus Z}=T\mid_{Y\left(
-\lambda/\mu\right)  \setminus Z}$. Notice that $Z$ is the $\left(
-i,i+1\right)  $-domain of $\mathbf{B}_{i}\left(  T\right)  $ (this follows
-easily from the definition of $\mathbf{B}_{i}\left(  T\right)  $).
+/\mu\right)  $. Let $Z$ be the $\left(  i,i+1\right)  $-domain of $T$. Thus,
+$Z=T^{-1}\left(  \left\{  i,i+1\right\}  \right)  $. Recall that
+$\mathbf{B}_{i}\left(  T\right)  $ is the unique $T^{\prime}\in
+\operatorname*{RPP}\left(  \lambda/\mu\right)  $ such that $T^{\prime}\mid
+_{Z}=\mathbf{B}_{Z}\left(  T\mid_{Z}\right)  $ and $T^{\prime}\mid_{Y\left(
+\lambda/\mu\right)  \setminus Z}=T\mid_{Y\left(  \lambda/\mu\right)  \setminus
+Z}$. Thus, $\mathbf{B}_{i}\left(  T\right)  \mid_{Z}=\mathbf{B}_{Z}\left(
+T\mid_{Z}\right)  $ and $\mathbf{B}_{i}\left(  T\right)  \mid_{Y\left(
+\lambda/\mu\right)  \setminus Z}=T\mid_{Y\left(  \lambda/\mu\right)  \setminus
+Z}$. Notice that the $\left(  i,i+1\right)  $-domain of $\mathbf{B}_{i}\left(
+T\right)  $ is again $Z$.\ \ \ \ \footnote{This is proven just as we proved
+(\ref{pf.thm.BK.again-Z}).}.
 
 \textit{Proof of (\textit{\ref{eq.thm.BK.ceq}}):} We define the sum
 $\alpha+\beta$ of two weak compositions $\alpha$ and $\beta$ by%
@@ -1891,23 +2300,56 @@ _{3}+\beta_{3},\ldots\right)  .
 \]
 
 
-Recall that $Z=T^{-1}\left(  \left\{  i,i+1\right\}  \right)  $. Hence, the
-entries of $T\mid_{Z}$ all belong to the set $\left\{  i,i+1\right\}  $, while
-the entries of $T\mid_{Y\left(  \lambda/\mu\right)  \setminus Z}$ all belong
-to $\mathbb{N}_{+}\setminus\left\{  i,i+1\right\}  $. Thus, if two cells $c$
-and $d$ of $Y\left(  \lambda/\mu\right)  $ satisfy $T\left(  c\right)
-=T\left(  d\right)  $, then either both $c$ and $d$ lie in $Z$ or both $c$ and
-$d$ lie in $Y\left(  \lambda/\mu\right)  \setminus Z$. Thus, the stagnant
-cells of $T$ are precisely the stagnant cells of $T\mid_{Z}$ and the stagnant
-cells of $T\mid_{Y\left(  \lambda/\mu\right)  \setminus Z}$. Now, for every
-$p\in\mathbb{N}_{+}$, the definition of $\left(  \operatorname*{ceq}\left(
-T\right)  \right)  _{p}$ yields%
+Recall that $Z=T^{-1}\left(  \left\{  i,i+1\right\}  \right)  $ (since $Z$ is
+the $\left(  i,i+1\right)  $-domain of $T$). Hence, the entries of $T\mid_{Z}$
+all belong to the set $\left\{  i,i+1\right\}  $, while the entries of
+$T\mid_{Y\left(  \lambda/\mu\right)  \setminus Z}$ all belong to
+$\mathbb{N}_{+}\setminus\left\{  i,i+1\right\}  $. Thus, if two cells $c$ and
+$d$ of $Y\left(  \lambda/\mu\right)  $ satisfy $T\left(  c\right)  =T\left(
+d\right)  $, then either both $c$ and $d$ lie in $Z$ or both $c$ and $d$ lie
+in $Y\left(  \lambda/\mu\right)  \setminus Z$ (depending on whether $T\left(
+c\right)  =T\left(  d\right)  $ belongs to $\left\{  i,i+1\right\}  $ or to
+$\mathbb{N}_{+}\setminus\left\{  i,i+1\right\}  $). Thus, the stagnant cells
+of $T$ are precisely the stagnant cells of $T\mid_{Z}$ and the stagnant cells
+of $T\mid_{Y\left(  \lambda/\mu\right)  \setminus Z}$%
+\ \ \ \ \footnote{\textit{Proof.} It is clear that all stagnant cells of
+$T\mid_{Z}$ and all stagnant cells of $T\mid_{Y\left(  \lambda/\mu\right)
+\setminus Z}$ are stagnant cells of $T$. It remains to prove the opposite
+direction; i.e., it remains to show that each stagnant cell of $T$ is either a
+stagnant cell of $T\mid_{Z}$ or a stagnant cell of $T\mid_{Y\left(
+\lambda/\mu\right)  \setminus Z}$.
+\par
+Let $p$ be a stagnant cell of $T$. We need to prove that $p$ is either a
+stagnant cell of $T\mid_{Z}$ or a stagnant cell of $T\mid_{Y\left(
+\lambda/\mu\right)  \setminus Z}$.
+\par
+Write $p$ in the form $p=\left(  u,v\right)  $. Then, $\left(  u,v\right)  =p$
+is a stagnant cell of $T$. In other words, $\left(  u+1,v\right)  $ is also a
+cell of $Z$ and satisfies $T\left(  u,v\right)  =T\left(  u+1,v\right)  $
+(because of the definition of a \textquotedblleft stagnant
+cell\textquotedblright). Now, recall that if two cells $c$ and $d$ of
+$Y\left(  \lambda/\mu\right)  $ satisfy $T\left(  c\right)  =T\left(
+d\right)  $, then either both $c$ and $d$ lie in $Z$ or both $c$ and $d$ lie
+in $Y\left(  \lambda/\mu\right)  \setminus Z$. Applying this to $c=\left(
+u,v\right)  $ and $d=\left(  u+1,v\right)  $, we conclude that either both
+$\left(  u,v\right)  $ and $\left(  u+1,v\right)  $ lie in $Z$ or both
+$\left(  u,v\right)  $ and $\left(  u+1,v\right)  $ lie in $Z$. In the first
+of these two cases, $\left(  u,v\right)  $ is a stagnant cell of $T\mid_{Z}$;
+in the second case, $\left(  u,v\right)  $ is a stagnant cell of
+$T\mid_{Y\left(  \lambda/\mu\right)  \setminus Z}$. Thus, $\left(  u,v\right)
+$ is either a stagnant cell of $T\mid_{Z}$ or a stagnant cell of
+$T\mid_{Y\left(  \lambda/\mu\right)  \setminus Z}$. In other words, $p$ is
+either a stagnant cell of $T\mid_{Z}$ or a stagnant cell of $T\mid_{Y\left(
+\lambda/\mu\right)  \setminus Z}$ (since $p=\left(  u,v\right)  $). This
+completes our proof.}. Now, for every $p\in\mathbb{N}_{+}$, we have%
 \begin{align*}
 &  \left(  \operatorname*{ceq}\left(  T\right)  \right)  _{p}\\
 &  =\left(  \text{the number of }j\in\mathbb{N}_{+}\text{ such that }\left(
-i,j\right)  \text{ is a stagnant cell of }T\right) \\
+p,j\right)  \text{ is a stagnant cell of }T\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }\left(
+\operatorname*{ceq}\left(  T\right)  \right)  _{p}\right) \\
 &  =\underbrace{\left(  \text{the number of }j\in\mathbb{N}_{+}\text{ such
-that }\left(  i,j\right)  \text{ is a stagnant cell of }T\mid_{Z}\right)
+that }\left(  p,j\right)  \text{ is a stagnant cell of }T\mid_{Z}\right)
 }_{\substack{=\left(  \operatorname*{ceq}\left(  T\mid_{Z}\right)  \right)
 _{p}\\\text{(by the definition of }\left(  \operatorname*{ceq}\left(
 T\mid_{Z}\right)  \right)  _{p}\text{)}}}\\
@@ -1965,8 +2407,8 @@ $\operatorname*{ircont}\left(  \mathbf{B}_{i}\left(  T\right)  \right)
 to show that every $p\in\mathbb{N}_{+}$ satisfies%
 \begin{equation}
 \left(  \operatorname*{ircont}\left(  \mathbf{B}_{i}\left(  T\right)  \right)
-\right)  _{p}=\left(  \operatorname*{ircont}\left(  T\right)  \right)
-_{s_{i}^{-1}\left(  p\right)  }. \label{pf.thm.BK.ircont.goal1}%
+\right)  _{p}=\left(  s_{i}\cdot\operatorname*{ircont}\left(  T\right)
+\right)  _{p}. \label{pf.thm.BK.ircont.goal1}%
 \end{equation}
 
 
@@ -1974,8 +2416,19 @@ So let us fix a $p\in\mathbb{N}_{+}$, and try to prove
 (\ref{pf.thm.BK.ircont.goal1}).
 
 Let us first assume that $p\notin\left\{  i,i+1\right\}  $. Then, $s_{i}%
-^{-1}\left(  p\right)  =p$. The definition of $\left(  \operatorname*{ircont}%
-\left(  T\right)  \right)  _{p}$ yields%
+^{-1}\left(  p\right)  =p$, so that $\left(  \operatorname*{ircont}\left(
+T\right)  \right)  _{s_{i}^{-1}\left(  p\right)  }=\left(
+\operatorname*{ircont}\left(  T\right)  \right)  _{p}$. Thus,%
+\begin{equation}
+\left(  s_{i}\cdot\operatorname*{ircont}\left(  T\right)  \right)
+_{p}=\left(  \operatorname*{ircont}\left(  T\right)  \right)  _{s_{i}%
+^{-1}\left(  p\right)  }=\left(  \operatorname*{ircont}\left(  T\right)
+\right)  _{p}. \label{pf.thm.BK.ircont.1}%
+\end{equation}
+
+
+The definition of $\left(  \operatorname*{ircont}\left(  T\right)  \right)
+_{p}$ yields%
 \begin{equation}
 \left(  \operatorname*{ircont}\left(  T\right)  \right)  _{p}=\left(
 \text{the number of }k\in\mathbb{N}_{+}\text{ such that the }k\text{-th column
@@ -2032,27 +2485,32 @@ _{p}.
 Since $\mathbf{B}_{i}\left(  T\right)  \mid_{Y\left(  \lambda/\mu\right)
 \setminus Z}=T\mid_{Y\left(  \lambda/\mu\right)  \setminus Z}$, this rewrites
 as%
-\[
+\begin{align*}
 \left(  \operatorname*{ircont}\left(  \mathbf{B}_{i}\left(  T\right)  \right)
-\right)  _{p}=\left(  \operatorname*{ircont}\left(  T\mid_{Y\left(
+\right)  _{p}  &  =\left(  \operatorname*{ircont}\left(  T\mid_{Y\left(
 \lambda/\mu\right)  \setminus Z}\right)  \right)  _{p}=\left(
 \operatorname*{ircont}\left(  T\right)  \right)  _{p}%
-\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.thm.BK.ircont.4a})}\right)  .
-\]
-Now, since $s_{i}^{-1}\left(  p\right)  =p$, we have $\left(
-\operatorname*{ircont}\left(  T\right)  \right)  _{s_{i}^{-1}\left(  p\right)
-}=\left(  \operatorname*{ircont}\left(  T\right)  \right)  _{p}=\left(
-\operatorname*{ircont}\left(  \mathbf{B}_{i}\left(  T\right)  \right)
-\right)  _{p}$. Hence, (\ref{pf.thm.BK.ircont.goal1}) is proven under the
-assumption that $p\notin\left\{  i,i+1\right\}  $.
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.thm.BK.ircont.4a})}\right) \\
+&  =\left(  s_{i}\cdot\operatorname*{ircont}\left(  T\right)  \right)
+_{p}\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.thm.BK.ircont.1})}\right)  .
+\end{align*}
+Hence, (\ref{pf.thm.BK.ircont.goal1}) is proven under the assumption that
+$p\notin\left\{  i,i+1\right\}  $.
 
 It thus remains to prove (\ref{pf.thm.BK.ircont.goal1}) under the assumption
 that $p\in\left\{  i,i+1\right\}  $. Let us assume that $p\in\left\{
 i,i+1\right\}  $. We need to prove that $\left(  \operatorname*{ircont}\left(
-\mathbf{B}_{i}\left(  T\right)  \right)  \right)  _{p}=\left(
-\operatorname*{ircont}\left(  T\right)  \right)  _{s_{i}^{-1}\left(  p\right)
-}$. Let $q=s_{i}^{-1}\left(  p\right)  $. Then, $q\in\left\{  i,i+1\right\}  $
-(since $p\in\left\{  i,i+1\right\}  $).
+\mathbf{B}_{i}\left(  T\right)  \right)  \right)  _{p}=\left(  s_{i}%
+\cdot\operatorname*{ircont}\left(  T\right)  \right)  _{p}$. Let $q=s_{i}%
+^{-1}\left(  p\right)  $. Then, $q\in\left\{  i,i+1\right\}  $ (since
+$p\in\left\{  i,i+1\right\}  $) and%
+\begin{equation}
+\left(  s_{i}\cdot\operatorname*{ircont}\left(  T\right)  \right)
+_{p}=\left(  \operatorname*{ircont}\left(  T\right)  \right)  _{s_{i}%
+^{-1}\left(  p\right)  }=\left(  \operatorname*{ircont}\left(  T\right)
+\right)  _{q} \label{pf.thm.BK.ircont.o1}%
+\end{equation}
+(since $q=s_{i}^{-1}\left(  p\right)  $).
 
 The definition of $\left(  \operatorname*{ircont}\left(  T\right)  \right)
 _{q}$ yields%
@@ -2118,20 +2576,21 @@ T\mid_{Z}\right)  \right)  _{q}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }%
 s_{i}^{-1}\left(  p\right)  =q\right) \\
 &  =\left(  \operatorname*{ircont}\left(  T\right)  \right)  _{q}%
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.thm.BK.ircont.o4a})}\right) \\
-&  =\left(  \operatorname*{ircont}\left(  T\right)  \right)  _{s_{i}%
-^{-1}\left(  p\right)  }\ \ \ \ \ \ \ \ \ \ \left(  \text{since }q=s_{i}%
-^{-1}\left(  p\right)  \right)  .
+&  =\left(  s_{i}\cdot\operatorname*{ircont}\left(  T\right)  \right)
+_{p}\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.thm.BK.ircont.o1})}\right)
+.
 \end{align*}
 Thus, $\left(  \operatorname*{ircont}\left(  \mathbf{B}_{i}\left(  T\right)
-\right)  \right)  _{p}=\left(  \operatorname*{ircont}\left(  T\right)
-\right)  _{s_{i}^{-1}\left(  p\right)  }$ is proven. This completes our proof
-of (\ref{pf.thm.BK.ircont.goal1}).
+\right)  \right)  _{p}=\left(  s_{i}\cdot\operatorname*{ircont}\left(
+T\right)  \right)  _{p}$ is proven. This completes our proof of
+(\ref{pf.thm.BK.ircont.goal1}).
 
 Now, both (\ref{eq.thm.BK.ceq}) and (\ref{eq.thm.BK.ircont}) are proven. This
 completes the proof of Theorem \ref{thm.BK} using Lemma \ref{lem.BKi}.
 \end{proof}
+\end{verlong}
 
-\section{\label{sect.diamond}A simple diamond lemma}
+\section{\label{sect.diamond}A diamond lemma}
 
 \subsection{The lemma}
 
@@ -2177,21 +2636,17 @@ $b\in\mathbf{S}$ such that $a\overset{\ast}{\Rrightarrow}b$.
 \end{lemma}
 
 Lemma \ref{lem.diamond} is an easy particular case of what is called
-\textit{Newman's lemma} (see, e.g., \cite{BezCoq}).\footnote{In the general
-version, the finiteness of $\mathbf{S}$ and the length-decrease hypothesis are
-replaced by a requirement that there exist no infinite sequences $\left(
-a_{0},a_{1},a_{2},\ldots\right)  \in\mathbf{S}^{\infty}$ such that every
-$i\in\mathbb{N}_{+}$ satisfies $a_{i}\Rrightarrow a_{i+1}$. The proof of this
-generalization is harder than that of Lemma \ref{lem.diamond}, and not
-constructive. While there is a constructive reformulation of this
-generalization (presented in \cite[Lemma 3.3]{BezCoq}), we do not have a use
-for it in this paper.} (Some authors refer to Newman's lemma as the
-\textit{diamond lemma}, but the latter name is shared with a different fact.)
-
-\begin{todo}
-Find more references for the diamond lemma? Our proof is already
-self-contained enough, but more context could be nice.
-\end{todo}
+\textit{Newman's lemma} (see, e.g., \cite{BezCoq}, or \cite[Lemma 2.7.2 + Fact
+2.1.7]{BaaNip98}).\footnote{In the general version, the finiteness of
+$\mathbf{S}$ and the length-decrease hypothesis are replaced by a requirement
+that there exist no infinite sequences $\left(  a_{0},a_{1},a_{2}%
+,\ldots\right)  \in\mathbf{S}^{\infty}$ such that every $i\in\mathbb{N}$
+satisfies $a_{i}\Rrightarrow a_{i+1}$. The proof of this generalization is
+harder than that of Lemma \ref{lem.diamond}, and not constructive. While there
+is a constructive reformulation of this generalization (presented in
+\cite[Lemma 3.3]{BezCoq}), we do not have a use for it in this paper.} (Some
+authors refer to Newman's lemma as the \textit{diamond lemma}, but the latter
+name is shared with at least one different fact.)
 
 For the sake of completeness, we shall give the simple proof of Lemma
 \ref{lem.diamond}.
@@ -2979,9 +3434,14 @@ of $T$. We shall not use this fact, however.
 
 \begin{todo}
 Proposition \ref{prop.conflict.transitive} shows that every 12-table $T$ gives
-rise to a poset of conflicts. Does this have any interesting properties? What
-exactly happens to this poset when we resolve a conflict? What kinds of posets
-can be obtained this way?
+rise to a \textit{conflict poset}: the set $\mathbb{N}_{+}$ can be endowed
+with a partial order whose smaller relation $\prec$ is given by%
+\[
+\left(  i\prec j\right)  \ \Longleftrightarrow\ \left(  \left(  i,j\right)
+\text{ is a conflict of }T\right)  .
+\]
+Does this have any interesting properties? What exactly happens to this poset
+when we resolve a conflict? What kinds of posets can be obtained this way?
 
 Viviane Pons says that Proposition \ref{prop.conflict.transitive} and Remark
 \ref{rmk.conflict.transitive.anti} yield that there exists a permutation
@@ -2990,8 +3450,11 @@ i,j\right)  $ is a conflict of $T$ if and only if $\left(  i<j\text{ and
 }\sigma\left(  i\right)  >\sigma\left(  j\right)  \right)  $. This, I think,
 is not hard to prove by induction. Conversely, inversion posets of
 permutations in $\mathfrak{S}_{\left(  \infty\right)  }$ can be represented as
-posets of conflicts of 12-tables (though I am not sure if these 12-tables can
-be chosen benign).
+conflict posets of 12-tables (though not necessarily benign 12-tables).
+
+I am wondering: What permutations in $\mathfrak{S}_{\left(  \infty\right)  }$
+have the property that their inversion poset can be written as a conflict
+poset of a benign 12-table?
 \end{todo}
 
 \subsection{Benign 12-tables and separators}
@@ -6580,6 +7043,9 @@ Mention failure of order-$6$ relation?
 
 \begin{thebibliography}{99999999}                                                                                         %
 
+
+\bibitem[BaaNip98]{BaaNip98}Franz Baader, Tobias Nipkow, \textit{Term
+Rewriting and All That}, Cambridge University Press 1998.
 
 \bibitem[BezCoq03]{BezCoq}Marc Bezem, Thierry Coquand, \textit{Newman's Lemma
 -- a Case Study in Proof Automation and Geometric Logic}, Bulletin of the
