@@ -51,7 +51,7 @@
 \usepackage{ytableau}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, June 04, 2015 04:42:08}
+%TCIDATA{LastRevised=Friday, June 05, 2015 02:13:51}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2651,6 +2651,148 @@ name is shared with at least one different fact.)
 For the sake of completeness, we shall give the simple proof of Lemma
 \ref{lem.diamond}.
 
+\begin{vershort}
+\begin{proof}
+[Proof of Lemma \ref{lem.diamond}.]The relation $\overset{\ast}{\Rrightarrow}$
+is the reflexive-and-transitive closure of the relation $\Rrightarrow$. This
+yields the following properties (all of which are easy to check):
+
+\begin{itemize}
+\item The relation $\overset{\ast}{\Rrightarrow}$ is reflexive and transitive
+and extends the relation $\Rrightarrow$.
+
+\item If $a\in\mathbf{S}$ and $b\in\mathbf{S}$ are elements satisfying
+$a\overset{\ast}{\Rrightarrow}b$ and $a\neq b$, then%
+\begin{equation}
+\text{there exists a }c\in\mathbf{S}\text{ such that }a\Rrightarrow c\text{
+and }c\overset{\ast}{\Rrightarrow}b. \label{pf.lem.diamond.short.lem1}%
+\end{equation}
+
+
+\item We have%
+\begin{equation}
+\ell\left(  a\right)  \geq\ell\left(  b\right)  \ \ \ \ \ \ \ \ \ \ \text{for
+any }a\in\mathbf{S}\text{ and }b\in\mathbf{S}\text{ satisfying }%
+a\overset{\ast}{\Rrightarrow}b \label{pf.lem.diamond.short.lem2}%
+\end{equation}
+(because of the length-decrease hypothesis).
+\end{itemize}
+
+Now, we need to show that, for every $a\in\mathbf{S}$,
+\begin{equation}
+\text{there exists a unique final element }b\in\mathbf{S}\text{ such that
+}a\overset{\ast}{\Rrightarrow}b\text{.} \label{pf.lem.diamond.short.goal}%
+\end{equation}
+
+
+\textit{Proof of (\ref{pf.lem.diamond.short.goal}):} We shall prove
+(\ref{pf.lem.diamond.short.goal}) by strong induction over $\ell\left(
+a\right)  $.
+
+\textit{Induction step:} Let $N\in\mathbb{N}$. Assume (as the induction
+hypothesis) that (\ref{pf.lem.diamond.short.goal}) is proven for every
+$a\in\mathbf{S}$ satisfying $\ell\left(  a\right)  <N$. We need to prove that
+(\ref{pf.lem.diamond.short.goal}) holds for every $a\in\mathbf{S}$ satisfying
+$\ell\left(  a\right)  =N$.
+
+Let $a\in\mathbf{S}$ be such that $\ell\left(  a\right)  =N$. We need to show
+that (\ref{pf.lem.diamond.short.goal}) holds for this $a$.
+
+If there exists no $c\in\mathbf{S}$ satisfying $a\Rrightarrow c$, then
+(\ref{pf.lem.diamond.short.goal}) holds\footnote{\textit{Proof.} Assume that
+there exists no $c\in\mathbf{S}$ satisfying $a\Rrightarrow c$. Then, $a$
+itself is final. Hence, there exists a final element $b\in\mathbf{S}$ such
+that $a\overset{\ast}{\Rrightarrow}b$ (namely, $b=a$). This $b$ is unique,
+because (\ref{pf.lem.diamond.short.lem1}) shows that every $b\in\mathbf{S}$
+satisfying $a\overset{\ast}{\Rrightarrow}b$ and $a\neq b$ would have to
+satisfy $a\Rrightarrow c$. This proves (\ref{pf.lem.diamond.short.goal}).}.
+Hence, for the rest of this proof, we WLOG assume that there exists some
+$c\in\mathbf{S}$ satisfying $a\Rrightarrow c$. Let us denote this $c$ by
+$c_{1}$. Thus, $c_{1}\in\mathbf{S}$ and\textbf{ }$a\Rrightarrow c_{1}$.
+Applying the length-decrease hypothesis to $b=c_{1}$, we thus obtain
+$\ell\left(  a\right)  >\ell\left(  c_{1}\right)  $, so that $\ell\left(
+c_{1}\right)  <\ell\left(  a\right)  =N$. Thus, we can apply
+(\ref{pf.lem.diamond.short.goal}) to $c_{1}$ instead of $a$ (according to the
+induction hypothesis). As a result, we conclude that there exists a unique
+final element $b\in\mathbf{S}$ such that $c_{1}\overset{\ast}{\Rrightarrow}b$.
+Let us denote this $b$ by $b_{1}$. Thus, $b_{1}$ is a final element of
+$\mathbf{S}$ such that $c_{1}\overset{\ast}{\Rrightarrow}b_{1}$.
+
+Since $a\Rrightarrow c_{1}$, we have $a\overset{\ast}{\Rrightarrow}c_{1}$
+(since the relation $\overset{\ast}{\Rrightarrow}$ extends the relation
+$\Rrightarrow$). Combining this with $c_{1}\overset{\ast}{\Rrightarrow}b_{1}$,
+we obtain $a\overset{\ast}{\Rrightarrow}b_{1}$ (since the relation
+$\overset{\ast}{\Rrightarrow}$ is transitive). Thus, there exists a final
+element $b\in\mathbf{S}$ such that $a\overset{\ast}{\Rrightarrow}b$ (namely,
+$b=b_{1}$). We shall now prove that such a $b$ is unique.
+
+Indeed, let $b_{2}$ be any final element $b\in\mathbf{S}$ such that
+$a\overset{\ast}{\Rrightarrow}b$. Thus, $b_{2}$ is a final element of
+$\mathbf{S}$ such that $a\overset{\ast}{\Rrightarrow}b_{2}$. We will prove
+that $b_{2}=b_{1}$.
+
+It is easy to see that $a\neq b_{2}$ (because $a\Rrightarrow c_{1}$ shows that
+$a$ is not final, but $b_{2}$ is final). Hence,
+(\ref{pf.lem.diamond.short.lem1}) (applied to $b=b_{2}$) yields that there
+exists a $c\in\mathbf{S}$ such that $a\Rrightarrow c$ and $c\overset{\ast
+}{\Rrightarrow}b_{2}$. Let us denote this $c$ by $c_{2}$. Then, $c_{2}$ is an
+element of $\mathbf{S}$ such that $a\Rrightarrow c_{2}$ and $c_{2}%
+\overset{\ast}{\Rrightarrow}b_{2}$.
+
+The local confluence hypothesis (applied to $c_{1}$ and $c_{2}$ instead of $b$
+and $c$) shows that there exists a $d\in\mathbf{S}$ such that $c_{1}%
+\overset{\ast}{\Rrightarrow}d$ and $c_{2}\overset{\ast}{\Rrightarrow}d$.
+Consider such a $d$. Applying (\ref{pf.lem.diamond.short.lem2}) to $c_{1}$ and
+$d$ instead of $a$ and $b$, we obtain $\ell\left(  c_{1}\right)  \geq
+\ell\left(  d\right)  $, so that $\ell\left(  d\right)  \leq\ell\left(
+c_{1}\right)  <N$. Hence, we can apply (\ref{pf.lem.diamond.short.goal}) to
+$d$ instead of $a$ (according to the induction hypothesis). As a result, we
+conclude that there exists a unique final element $b\in\mathbf{S}$ such that
+$d\overset{\ast}{\Rrightarrow}b$. Let us denote this $b$ by $e$. Thus, $e$ is
+a final element of $\mathbf{S}$ such that $d\overset{\ast}{\Rrightarrow}e$.
+
+We have $c_{1}\overset{\ast}{\Rrightarrow}d$ and $d\overset{\ast
+}{\Rrightarrow}e$. Hence, $c_{1}\overset{\ast}{\Rrightarrow}e$ (since the
+relation $\overset{\ast}{\Rrightarrow}$ is transitive). Thus, $e$ is a final
+element of $\mathbf{S}$ such that $c_{1}\overset{\ast}{\Rrightarrow}e$. In
+other words, $e$ is a final element $b\in\mathbf{S}$ such that $c_{1}%
+\overset{\ast}{\Rrightarrow}b$. Since we already know that $b_{1}$ is the
+unique such element $b$ (in fact, this how we defined $b_{1}$), this shows
+that $e=b_{1}$.
+
+We have $c_{2}\overset{\ast}{\Rrightarrow}d$ and $d\overset{\ast
+}{\Rrightarrow}e$. Hence, $c_{2}\overset{\ast}{\Rrightarrow}e$ (since the
+relation $\overset{\ast}{\Rrightarrow}$ is transitive). In other words,
+$c_{2}\overset{\ast}{\Rrightarrow}b_{1}$ (since $e=b_{1}$). Hence, $b_{1}$ is
+a final element of $\mathbf{S}$ such that $c_{2}\overset{\ast}{\Rrightarrow
+}b_{1}$. In other words, $b_{1}$ is a final element $b\in\mathbf{S}$ such that
+$c_{2}\overset{\ast}{\Rrightarrow}b$. Also, $b_{2}$ is a final element
+$b\in\mathbf{S}$ such that $c_{2}\overset{\ast}{\Rrightarrow}b$ (since $b_{2}$
+is final and since $c_{2}\overset{\ast}{\Rrightarrow}b_{2}$).
+
+But applying the length-decrease hypothesis to $b=c_{2}$, we obtain
+$\ell\left(  a\right)  >\ell\left(  c_{2}\right)  $ (since $a\Rrightarrow
+c_{2}$), so that $\ell\left(  c_{2}\right)  <\ell\left(  a\right)  =N$. Thus,
+we can apply (\ref{pf.lem.diamond.short.goal}) to $c_{2}$ instead of $a$
+(according to the induction hypothesis). As a result, we conclude that there
+exists a unique final element $b\in\mathbf{S}$ such that $c_{2}\overset{\ast
+}{\Rrightarrow}b$. The \textquotedblleft uniqueness\textquotedblright\ part of
+this result gives us $b_{2}=b_{1}$ (since both $b_{2}$ and $b_{1}$ are final
+elements $b\in\mathbf{S}$ such that $c_{2}\overset{\ast}{\Rrightarrow}b$).
+
+Now let us forget that we fixed $b_{2}$. We thus have shown that if $b_{2}$ is
+any final element $b\in\mathbf{S}$ such that $a\overset{\ast}{\Rrightarrow}b$,
+then $b_{2}=b_{1}$. Hence, there exists at most one final element
+$b\in\mathbf{S}$ such that $a\overset{\ast}{\Rrightarrow}b$. As a consequence,
+there exists a unique final element $b\in\mathbf{S}$ such that $a\overset{\ast
+}{\Rrightarrow}b$ (because we already know that there exists such a $b$). In
+other words, (\ref{pf.lem.diamond.short.goal}) holds. This completes the
+induction step. The induction proof of (\ref{pf.lem.diamond.short.goal}) is
+thus complete. In other words, Lemma \ref{lem.diamond} is proven.
+\end{proof}
+\end{vershort}
+
+\begin{verlong}
 \begin{proof}
 [Proof of Lemma \ref{lem.diamond}.]We first notice that if $a\in\mathbf{S}$
 and $b\in\mathbf{S}$ are elements satisfying $a\overset{\ast}{\Rrightarrow}b$
@@ -2692,21 +2834,24 @@ $a_{i}=c_{i+1}$). According to the definition of the relation $\overset{\ast
 \par
 Thus, there exists a $c\in\mathbf{S}$ such that $a\Rrightarrow c$ and
 $c\overset{\ast}{\Rrightarrow}b$ (namely, $c=c_{1}$). This proves
-(\ref{pf.lem.diamond.lem1}).} We also recall that the relation $\overset{\ast
-}{\Rrightarrow}$ is the reflexive-and-transitive closure of the relation
-$\Rrightarrow$. Thus, the relation $\overset{\ast}{\Rrightarrow}$ is reflexive
-and transitive and extends the relation $\Rrightarrow$. Also,%
+(\ref{pf.lem.diamond.lem1}).}
+
+The relation $\overset{\ast}{\Rrightarrow}$ is the reflexive-and-transitive
+closure of the relation $\Rrightarrow$.\ \ \ \ \footnote{Indeed, this is just
+a restatement of our definition of the relation $\overset{\ast}{\Rrightarrow}%
+$.} Thus, the relation $\overset{\ast}{\Rrightarrow}$ is reflexive and
+transitive and extends the relation $\Rrightarrow$. Also,%
 \begin{equation}
 \ell\left(  a\right)  \geq\ell\left(  b\right)  \ \ \ \ \ \ \ \ \ \ \text{for
 any }a\in\mathbf{S}\text{ and }b\in\mathbf{S}\text{ satisfying }%
 a\overset{\ast}{\Rrightarrow}b. \label{pf.lem.diamond.lem2}%
 \end{equation}
 \footnote{\textit{Proof of (\ref{pf.lem.diamond.lem2}):} Let $a\in\mathbf{S}$
-and $b\in\mathbf{S}$ be elements satisfying $a\overset{\ast}{\Rrightarrow}b$
-and $a\neq b$. We have $a\overset{\ast}{\Rrightarrow}b$. According to the
-definition of the relation $\overset{\ast}{\Rrightarrow}$, this means that
-there exists a sequence $\left(  a_{0},a_{1},\ldots,a_{n}\right)  $ of
-elements of $\mathbf{S}$ such that $a_{0}=a$ and $a_{n}=b$ and such that every
+and $b\in\mathbf{S}$ be elements satisfying $a\overset{\ast}{\Rrightarrow}b$.
+We have $a\overset{\ast}{\Rrightarrow}b$. According to the definition of the
+relation $\overset{\ast}{\Rrightarrow}$, this means that there exists a
+sequence $\left(  a_{0},a_{1},\ldots,a_{n}\right)  $ of elements of
+$\mathbf{S}$ such that $a_{0}=a$ and $a_{n}=b$ and such that every
 $i\in\left\{  0,1,\ldots,n-1\right\}  $ satisfies $a_{i}\Rrightarrow a_{i+1}$.
 Consider this sequence $\left(  a_{0},a_{1},\ldots,a_{n}\right)  $. For every
 $i\in\left\{  0,1,\ldots,n-1\right\}  $, we have $a_{i}\Rrightarrow a_{i+1}$
@@ -2747,10 +2892,10 @@ exists no $b\in\mathbf{S}$ satisfying $a\Rrightarrow b$. In other words, $a$
 is final (according to the definition of \textquotedblleft
 final\textquotedblright).
 \par
-Notice that $a\overset{\ast}{\Rrightarrow}a$ (since the relation $a$ is
-reflexive). Hence, there exists a final element $b\in\mathbf{S}$ such that
-$a\overset{\ast}{\Rrightarrow}b$ (namely, $b=a$). We shall now show that this
-$b$ is unique.
+Notice that $a\overset{\ast}{\Rrightarrow}a$ (since the relation
+$\overset{\ast}{\Rrightarrow}$ is reflexive). Hence, there exists a final
+element $b\in\mathbf{S}$ such that $a\overset{\ast}{\Rrightarrow}b$ (namely,
+$b=a$). We shall now show that this $b$ is unique.
 \par
 Indeed, let $b$ be any final element of $\mathbf{S}$ such that $a\overset{\ast
 }{\Rrightarrow}b$. Assume (for the sake of contradiction) that $b\neq a$.
@@ -2834,14 +2979,14 @@ $c_{2}\overset{\ast}{\Rrightarrow}b$. Also, $b_{2}$ is a final element
 $b\in\mathbf{S}$ such that $c_{2}\overset{\ast}{\Rrightarrow}b$ (since $b_{2}$
 is final and since $c_{2}\overset{\ast}{\Rrightarrow}b_{2}$).
 
-But applying the length-decrease hypothesis to $b=c_{2}$, we thus obtain
-$\ell\left(  a\right)  >\ell\left(  c_{2}\right)  $, so that $\ell\left(
-c_{2}\right)  <\ell\left(  a\right)  =N$. Thus, we can apply
-(\ref{pf.lem.diamond.goal}) to $c_{2}$ instead of $a$ (according to the
-induction hypothesis). As a result, we conclude that there exists a unique
-final element $b\in\mathbf{S}$ such that $c_{2}\overset{\ast}{\Rrightarrow}b$.
-Hence, if $b^{\prime}$ and $b^{\prime\prime}$ are two final elements
-$b\in\mathbf{S}$ such that $c_{2}\overset{\ast}{\Rrightarrow}b$, then
+But applying the length-decrease hypothesis to $b=c_{2}$, we obtain
+$\ell\left(  a\right)  >\ell\left(  c_{2}\right)  $ (since $a\Rrightarrow
+c_{2}$), so that $\ell\left(  c_{2}\right)  <\ell\left(  a\right)  =N$. Thus,
+we can apply (\ref{pf.lem.diamond.goal}) to $c_{2}$ instead of $a$ (according
+to the induction hypothesis). As a result, we conclude that there exists a
+unique final element $b\in\mathbf{S}$ such that $c_{2}\overset{\ast
+}{\Rrightarrow}b$. Hence, if $b^{\prime}$ and $b^{\prime\prime}$ are two final
+elements $b\in\mathbf{S}$ such that $c_{2}\overset{\ast}{\Rrightarrow}b$, then
 $b^{\prime}=b^{\prime\prime}$. Applying this to $b^{\prime}=b_{1}$ and
 $b^{\prime\prime}=b_{2}$, we obtain $b_{1}=b_{2}$. That is, $b_{2}=b_{1}$.
 
@@ -2855,6 +3000,7 @@ other words, (\ref{pf.lem.diamond.goal}) holds. This completes the induction
 step. The induction proof of (\ref{pf.lem.diamond.goal}) is thus complete. In
 other words, Lemma \ref{lem.diamond} is proven.
 \end{proof}
+\end{verlong}
 
 \subsection{\label{subsect.bubble}Example: Sorting $n$-tuples by local
 transpositions}
@@ -2864,6 +3010,11 @@ This example (which will take up the whole Subsection~\ref{subsect.bubble})
 will not be used in the rest of the paper, but it serves as a kind of
 prototype that our proof of Lemma \ref{lem.BK} imitates, and so might help
 clarifying the latter proof.
+
+All of the definitions and conventions that will be made in this
+Subsection~\ref{subsect.bubble} are supposed to stand only for this
+Subsection. (In particular, the meanings of the letter $\mathbf{S}$ and the
+symbol $\Rrightarrow$ will later be used for completely different things.)
 
 For the rest of Subsection~\ref{subsect.bubble}, we fix $n\in\mathbb{N}$, and
 we fix a poset $P$.
@@ -2875,33 +3026,57 @@ $z=\left(  z_{1},z_{2},\ldots,z_{n}\right)  $ for every $z\in P^{n}$.)
 Before we go into further details, let us informally explain what we will
 prove in the following. Imagine that we start with some $n$-tuple $z=\left(
 z_{1},z_{2},\ldots,z_{n}\right)  $ of elements of $P$, and we want to
-\textquotedblleft sort it in nondecreasing order\textquotedblright\ by
-repeatedly picking an index $k\in\left\{  1,2,\ldots,n-1\right\}  $ satisfying
-$z_{k}>z_{k+1}$, and switching the entries $z_{k}$ and $z_{k+1}$ in the tuple,
-and continuing in the same way until we can no longer find such a
-$k$.\ \ \ \ \footnote{This is similar to the bubble sort algorithm, but there
-are two differences: Firstly, $P$ is now a poset, not a totally ordered set
-(so we cannot hope to get our $n$-tuple $z$ to satisfy $z_{1}\leq z_{2}%
-\leq\cdots\leq z_{n}$ in the end). Secondly, we are allowed to pick an index
-$k\in\left\{  1,2,\ldots,n-1\right\}  $ satisfying $z_{k}>z_{k+1}$ arbitrarily
-(so our process is nondeterministic), rather than having to scan the $n$-tuple
-from left to right (in multiple passes) as in the classical bubble sort
-algorithm.} It is easy to see that this process will eventually terminate,
-leaving behind an $n$-tuple $z$ such that no $k\in\left\{  1,2,\ldots
-,n-1\right\}  $ satisfies $z_{k}>z_{k+1}$ (although, in general, it will not
-satisfy $z_{1}\leq z_{2}\leq\cdots\leq z_{n}$, as $P$ is only partially
-ordered). But a priori, it is not clear whether this resulting $n$-tuple could
-depend on the choices we made in the \textquotedblleft
-sorting\textquotedblright\ process\footnote{What we mean by \textquotedblleft
-choices\textquotedblright\ is this: Whenever there were at least two indices
-$k\in\left\{  1,2,\ldots,n-1\right\}  $ satisfying $z_{k}>z_{k+1}$, we had
-freedom in choosing one of them to start with. These choices have an effect on
-the \textquotedblleft sorting\textquotedblright\ process, and so it would not
-be surprising if the final result depends on them too.}. It turns out that it
-does not, and this is not completely trivial. We shall now formalize this
-fact. We prefer not to talk about processes, nor to regard $z$ as mutable;
-instead, we will introduce a binary relation on the set of all permutations of
-a given $n$-tuple, which will model the idea of a \textquotedblleft
+\textquotedblleft sort it in nondecreasing order\textquotedblright. We do
+this\ by repeatedly picking an index $k\in\left\{  1,2,\ldots,n-1\right\}  $
+satisfying $z_{k}>z_{k+1}$, and switching the entries $z_{k}$ and $z_{k+1}$ in
+the tuple, and continuing in the same way until we can no longer find such a
+$k$.\ \ \ \ \footnote{Here is an example: If $P$ is the four-element poset
+$\left\{  a,b,c,d\right\}  $ with relations $a<b<d$ and $a<c<d$, if $n=6$, and
+if $z=\left(  d,b,d,c,a,b\right)  $, then our sorting process can look as
+follows:%
+\begin{align*}
+\left(  \underline{d,b},d,c,a,b\right)   &  \rightarrow\left(
+b,d,\underline{d,c},a,b\right)  \rightarrow\left(  b,\underline{d,c}%
+,d,a,b\right)  \rightarrow\left(  b,c,d,\underline{d,a},b\right)
+\rightarrow\left(  b,c,\underline{d,a},d,b\right) \\
+&  \rightarrow\left(  b,\underline{c,a},d,d,b\right)  \rightarrow\left(
+\underline{b,a},c,d,d,b\right)  \rightarrow\left(  a,b,c,d,\underline{d,b}%
+\right)  \rightarrow\left(  a,b,c,\underline{d,b},d\right) \\
+&  \rightarrow\left(  a,b,c,b,d,d\right)
+\end{align*}
+(where an underline under two adjacent entries of a tuple means that these
+entries are going to be switched in the nearest step). The final result
+$\left(  a,b,c,b,d,d\right)  $ is \textquotedblleft sorted\textquotedblright%
+\ in the sense that we can no longer find a $k\in\left\{  1,2,\ldots
+,n-1\right\}  $ such that $z_{k}>z_{k+1}$.
+\par
+We notice that we had some freedom in performing our sorting process: e.g., we
+could have started out by switching the $d$ with the $c$ in the $\left(
+d,b,d,c,a,b\right)  $ rather than by switching the $d$ with the $b$.
+\par
+This is similar to the bubble sort algorithm, but there are two differences:
+Firstly, $P$ is now a poset, not a totally ordered set (so we cannot hope to
+get our $n$-tuple $z$ to satisfy $z_{1}\leq z_{2}\leq\cdots\leq z_{n}$ in the
+end). Secondly, we are allowed to pick an index $k\in\left\{  1,2,\ldots
+,n-1\right\}  $ satisfying $z_{k}>z_{k+1}$ arbitrarily (so our process is
+nondeterministic), rather than having to scan the $n$-tuple from left to right
+(in multiple passes) as in the classical bubble sort algorithm.} It is easy to
+see that this process will eventually terminate, leaving behind an $n$-tuple
+$z$ such that no $k\in\left\{  1,2,\ldots,n-1\right\}  $ satisfies
+$z_{k}>z_{k+1}$ (although, in general, it will not satisfy $z_{1}\leq
+z_{2}\leq\cdots\leq z_{n}$, as $P$ is only partially ordered). But a priori,
+it is not clear whether this resulting $n$-tuple could depend on the choices
+we made in the \textquotedblleft sorting\textquotedblright%
+\ process\footnote{Namely, at every step of our process, we had to choose an
+index $k\in\left\{  1,2,\ldots,n-1\right\}  $ satisfying $z_{k}>z_{k+1}$.
+Whenever this index $k$ was not unique, we had freedom in choosing one of them
+to start with. These choices have an effect on the \textquotedblleft
+sorting\textquotedblright\ process, and so it would not be surprising if the
+final result would depend on them too.}. It turns out that it does not, but
+this is not completely trivial. We shall now formalize this fact. We prefer
+not to talk about processes, nor to regard $z$ as mutable; instead, we will
+introduce a binary relation on the set of all permutations of a given
+$n$-tuple, which will model the idea of a \textquotedblleft
 step\textquotedblright\ of our \textquotedblleft sorting\textquotedblright\ process.
 
 For every $k\in\left\{  1,2,\ldots,n-1\right\}  $, let $s_{k}$ be the
@@ -2917,6 +3092,7 @@ In particular, for each $k\in\left\{  1,2,\ldots,n-1\right\}  $ and $z\in
 P^{n}$, the $n$-tuple $s_{k}\cdot z$ is obtained from $z$ by switching the
 $k$-th and the $\left(  k+1\right)  $-th entries.
 
+\begin{definition}
 Fix $w\in P^{n}$. Let $\mathbf{S}$ be the set of all permutations of $w$.
 Clearly, $\mathbf{S}$ is a finite set (having at most $n!$ elements).
 Moreover, $\mathbf{S}$ is an $\mathfrak{S}_{n}$-subset of the $\mathfrak{S}%
@@ -2932,6 +3108,7 @@ and only if the $n$-tuple $b$ can be obtained from $a$ by switching two
 adjacent entries which are out of order in $a$. Here, we say that two entries
 of $a$ are \textit{out of order} if the left one is greater than the right
 one.) Thus, the relation $\Rrightarrow$ is defined.
+\end{definition}
 
 For example, if $n=5$, $P=\mathbb{Z}$ and $w=\left(  3,1,6,3,5\right)  $, then
 $\left(  1,6,3,5,3\right)  \underset{2}{\Rrightarrow}\left(  1,3,6,5,3\right)
@@ -2946,6 +3123,14 @@ the reflexive-and-transitive closure of the relation $\Rrightarrow$. Thus, the
 relation $\overset{\ast}{\Rrightarrow}$ is reflexive and transitive and
 extends the relation $\Rrightarrow$.
 
+\begin{vershort}
+We also define the notion of a \textquotedblleft final\textquotedblright%
+\ element of $\mathbf{S}$ as in Lemma \ref{lem.diamond}. Now, it is easy to
+see that an element $u\in\mathbf{S}$ is final if and only if no $k\in\left\{
+1,2,\ldots,n-1\right\}  $ satisfies $u_{k}>u_{k+1}$.
+\end{vershort}
+
+\begin{verlong}
 We also define the notion of a \textquotedblleft final\textquotedblright%
 \ element of $\mathbf{S}$ as in Lemma \ref{lem.diamond}. Now, it is easy to
 see that an element $u\in\mathbf{S}$ is final if and only if no $k\in\left\{
@@ -2974,6 +3159,7 @@ we have to do the same arguments in the opposite order). Combining these
 results, we conclude that $u$ is final if and only if no $k\in\left\{
 1,2,\ldots,n-1\right\}  $ satisfies $u_{k}>u_{k+1}$. This is what we wanted to
 prove.}
+\end{verlong}
 
 Now, we claim:
 
@@ -2987,12 +3173,15 @@ In words, Proposition \ref{prop.diamond.example.poset} says that if we start
 with some $n$-tuple $a\in\mathbf{S}$ and repeatedly switch adjacent entries of
 $a$ which are out of order, then the procedure eventually terminates (i.e.,
 eventually we will arrive at an $n$-tuple which has no two adjacent entries
-that are out of order) and the resulting $n$-tuple does not depend on the our
-choices in the process (i.e., even if there were several choices of adjacent
-entries to switch, they all lead to the same final result). The only reason
-why we are working in $\mathbf{S}$ instead of the whole set $P^{n}$ is that
-$\mathbf{S}$ is finite, which will make it easier for us to apply Lemma
-\ref{lem.diamond}.
+that are out of order) and the resulting $n$-tuple does not depend on the
+choices we made in the process (i.e., even if there were several choices of
+adjacent entries to switch, they all lead to the same final
+result).\footnote{Strictly speaking, Proposition
+\ref{prop.diamond.example.poset} does not really say that the procedure
+eventually terminates; but this will follow from the length-decrease
+hypothesis in its proof below.} The only reason why we are working in
+$\mathbf{S}$ instead of the whole set $P^{n}$ is that $\mathbf{S}$ is always
+finite, which will make it easier for us to apply Lemma \ref{lem.diamond}.
 
 \begin{remark}
 It is important that we are switching adjacent entries of $a$. If we start
@@ -3028,11 +3217,40 @@ P^{n}$, let $\ell\left(  z\right)  $ be the number of inversions of $z$.
 Clearly, $\ell\left(  z\right)  \in\mathbb{N}$ and $\ell\left(  z\right)
 \leq\dbinom{n}{2}$.
 
-According to Lemma \ref{lem.diamond}, it is enough to check that the local
-confluence hypothesis and the length-decrease hypothesis are
-satisfied\footnote{Both of these hypotheses were stated in Lemma
-\ref{lem.diamond}.}.
+We need to show that for every $a\in\mathbf{S}$, there exists a unique final
+element $b\in\mathbf{S}$ such that $a\overset{\ast}{\Rrightarrow}b$. According
+to Lemma \ref{lem.diamond}, it is enough to check that the local confluence
+hypothesis and the length-decrease hypothesis are satisfied\footnote{Both of
+these hypotheses were stated in Lemma \ref{lem.diamond}.}.
 
+\begin{vershort}
+\textit{Proof that the length-decrease hypothesis is satisfied:} Let
+$a\in\mathbf{S}$ and $b\in\mathbf{S}$ be such that $a\Rrightarrow b$. Then,
+there exists a $k\in\left\{  1,2,\ldots,n-1\right\}  $ such that
+$a\underset{k}{\Rrightarrow}b$ (since $a\Rrightarrow b$). Consider this $k$.
+We have $a\underset{k}{\Rrightarrow}b$; in other words, $a_{k}>a_{k+1}$ and
+$b=s_{k}\cdot a$. In other words, the $n$-tuple $b$ is obtained from $a$ by
+switching the $k$-th and the $\left(  k+1\right)  $-th entry, which were out
+of order in $a$. Thus, the pair $\left(  k,k+1\right)  $ is an inversion of
+$a$, but not an inversion of $b$. Furthermore, $b_{s_{k}\left(  u\right)
+}=a_{u}$ for every $u\in\left\{  1,2,\ldots,n\right\}  $ (since $b=s_{k}\cdot
+a$), and furthermore, for any $\left(  i,j\right)  \in\left\{  1,2,\ldots
+,n\right\}  ^{2}$ satisfying $i<j$, we have $s_{k}\left(  i\right)
+<s_{k}\left(  j\right)  $ if $\left(  i,j\right)  \neq\left(  k,k+1\right)  $
+(this is easy to prove by checking all possible cases). From the last two
+observations, we can easily conclude that the inversions of $b$ are precisely
+the pairs of the form $\left(  s_{k}\left(  i\right)  ,s_{k}\left(  j\right)
+\right)  $ with $\left(  i,j\right)  $ being an inversion of $a$ satisfying
+$\left(  i,j\right)  \neq\left(  k,k+1\right)  $. Thus, the number of
+inversions of $b$ is one less than the number of inversions of $a$ (because
+$\left(  k,k+1\right)  $ is an inversion of $a$, and thus its exclusion lowers
+the count by $1$). In other words, $\ell\left(  b\right)  =\ell\left(
+a\right)  -1$ (because $\ell\left(  z\right)  $ means the number of inversions
+of $z$ whenever $z\in P^{n}$). Thus, $\ell\left(  a\right)  >\ell\left(
+b\right)  $. Hence, the length-decrease hypothesis is proven.
+\end{vershort}
+
+\begin{verlong}
 \textit{Proof that the length-decrease hypothesis is satisfied:} Let
 $a\in\mathbf{S}$ and $b\in\mathbf{S}$ be such that $a\Rrightarrow b$. Then,
 there exists a $k\in\left\{  1,2,\ldots,n-1\right\}  $ such that
@@ -3040,22 +3258,173 @@ $a\underset{k}{\Rrightarrow}b$ (since $a\Rrightarrow b$). Consider this $k$.
 We have $a\underset{k}{\Rrightarrow}b$; in other words, $a_{k}>a_{k+1}$ and
 $b=s_{k}\cdot a$ (since this is how $a\underset{k}{\Rrightarrow}b$ is
 defined). It is then easy to see that the pair $\left(  k,k+1\right)  $ is an
-inversion of $a$. Furthermore, $b_{s_{k}\left(  u\right)  }=a_{u}$ for every
-$u\in\left\{  1,2,\ldots,n\right\}  $ (since $b=s_{k}\cdot a$), and
-furthermore, for any pair $\left(  i,j\right)  $ of integers satisfying $i<j$,
-we have%
+inversion of $a$\ \ \ \ \footnote{\textit{Proof.} We have $k<k+1$ and
+$a_{k}>a_{k+1}$. Hence, $\left(  k,k+1\right)  $ is an inversion of $a$,
+qed.}, but not an inversion of $b$\ \ \ \ \footnote{\textit{Proof.} Assume the
+contrary. Thus, $\left(  k,k+1\right)  $ is an inversion of $b$. Hence,
+$k<k+1$ and $b_{k}>b_{k+1}$ (by the definition of an \textquotedblleft
+inversion\textquotedblright). But $b=s_{k}\cdot a$ and thus $b_{k}=\left(
+s_{k}\cdot a\right)  _{k}=a_{s_{k}^{-1}\left(  k\right)  }=a_{k+1}$ (since
+$s_{k}^{-1}\left(  k\right)  =k+1$) and similarly $b_{k+1}=a_{k}$. Hence,
+$a_{k+1}=b_{k}>b_{k+1}=a_{k}$. This contradicts $a_{k}>a_{k+1}$. This
+contradiction proves that our assumption was wrong. Qed.}. Furthermore,
+$b_{s_{k}\left(  u\right)  }=a_{u}$ for every $u\in\left\{  1,2,\ldots
+,n\right\}  $ (since $b=s_{k}\cdot a$), and furthermore, for any $\left(
+i,j\right)  \in\left\{  1,2,\ldots,n\right\}  ^{2}$ satisfying $i<j$, we have%
 \begin{equation}
 s_{k}\left(  i\right)  <s_{k}\left(  j\right)  \ \ \ \ \ \ \ \ \ \ \text{if
 }\left(  i,j\right)  \neq\left(  k,k+1\right)
 \label{pf.prop.diamond.example.poset.inversion-transform}%
 \end{equation}
-(this is easy to prove by checking all possible cases). From the last two
-observations, we can easily conclude that the inversions of $b$ are precisely
-the pairs of the form $\left(  s_{k}\left(  i\right)  ,s_{k}\left(  j\right)
-\right)  $ with $\left(  i,j\right)  $ being an inversion of $a$ satisfying
-$\left(  i,j\right)  \neq\left(  k,k+1\right)  $. Thus, the inversions of $b$
-are in 1-to-1 correspondence with the inversions $\left(  i,j\right)  $ of $a$
-with $\left(  i,j\right)  \neq\left(  k,k+1\right)  $. Thus,%
+\footnote{\textit{Proof of
+(\ref{pf.prop.diamond.example.poset.inversion-transform}):} Let $\left(
+i,j\right)  \in\left\{  1,2,\ldots,n\right\}  ^{2}$ be such that $i<j$. Assume
+that $\left(  i,j\right)  \neq\left(  k,k+1\right)  $. We need to prove
+$s_{k}\left(  i\right)  <s_{k}\left(  j\right)  $.
+\par
+Assume the contrary. Thus, $s_{k}\left(  i\right)  \geq s_{k}\left(  j\right)
+$. But $i<j$, thus $i\neq j$ and therefore $s_{k}\left(  i\right)  \neq
+s_{k}\left(  j\right)  $ (since $s_{k}$ is injective (because $s_{k}$ is a
+permutation)). Combined with $s_{k}\left(  i\right)  \geq s_{k}\left(
+j\right)  $, this yields $s_{k}\left(  i\right)  >s_{k}\left(  j\right)  $.
+\par
+We have $i<j$, and thus $i+1\leq j$ (since $i$ and $j$ are integers).
+\par
+Recall that $s_{k}$ is the permutation of $\left\{  1,2,\ldots,n\right\}  $
+which transposes $k$ with $k+1$ while leaving all other elements of $\left\{
+1,2,\ldots,n\right\}  $ unchanged. Hence,%
+\begin{equation}
+s_{k}\left(  u\right)  \leq u+1\ \ \ \ \ \ \ \ \ \ \text{for every }%
+u\in\left\{  1,2,\ldots,n\right\}  .
+\label{pf.prop.diamond.example.poset.inversion-transform.pf.3}%
+\end{equation}
+(Indeed, (\ref{pf.prop.diamond.example.poset.inversion-transform.pf.3}) can be
+proven by separately considering the cases $u=k$, $u=k+1$ and $u\notin\left\{
+k,k+1\right\}  $.)
+\par
+Now, (\ref{pf.prop.diamond.example.poset.inversion-transform.pf.3}) (applied
+to $u=i$) yields $s_{k}\left(  i\right)  \leq i+1$. Hence, $i+1\geq
+s_{k}\left(  i\right)  >s_{k}\left(  j\right)  $, so that $i+1\geq
+s_{k}\left(  j\right)  +1$ (since $i+1$ and $s_{k}\left(  j\right)  $ are
+integers). In other words, $i\geq s_{k}\left(  j\right)  $. Hence,
+$s_{k}\left(  j\right)  \leq i$. But
+(\ref{pf.prop.diamond.example.poset.inversion-transform.pf.3}) (applied to
+$u=s_{k}\left(  j\right)  $) yields $s_{k}\left(  s_{k}\left(  j\right)
+\right)  \leq s_{k}\left(  j\right)  +1$. But $s_{k}$ is an involution, and
+thus $s_{k}\left(  s_{k}\left(  j\right)  \right)  =j$, so that $j=s_{k}%
+\left(  s_{k}\left(  j\right)  \right)  \leq\underbrace{s_{k}\left(  j\right)
+}_{\leq i}+1\leq i+1$. Combined with $i+1\leq j$, this yields $j=i+1$. Hence,
+$i=j-1$. Thus, if we had $j=k+1$, then we would have $i=\underbrace{j}%
+_{=k+1}-1=k+1-1=k$ and thus $\left(  \underbrace{i}_{=k},\underbrace{j}%
+_{=k+1}\right)  =\left(  k,k+1\right)  $, which would contradict $\left(
+i,j\right)  \neq\left(  k,k+1\right)  $. Hence, we cannot have $j=k+1$. We
+thus have $j\neq k+1$.
+\par
+Now, it is easy to see that $s_{k}\left(  u\right)  \geq u$ for every
+$u\in\left\{  1,2,\ldots,n\right\}  $ satisfying $u\neq k+1$. Applying this to
+$u=j$, we obtain $s_{k}\left(  j\right)  \geq j$ (since $j\neq k+1$).
+\par
+Now, combining $j\leq s_{k}\left(  j\right)  +1$ with $s_{k}\left(  j\right)
++1\leq i+1=j$, we obtain $j=s_{k}\left(  j\right)  +1$. In other words,
+$s_{k}\left(  j\right)  =j-1$. Thus, $j-1=s_{k}\left(  j\right)  \geq j$. This
+is absurd. This contradiction proves that our assumption was wrong. Hence,
+(\ref{pf.prop.diamond.example.poset.inversion-transform}) is proven.}. From
+the last two observations, we can easily conclude that the inversions of $b$
+are precisely the pairs of the form $\left(  s_{k}\left(  i\right)
+,s_{k}\left(  j\right)  \right)  $ with $\left(  i,j\right)  $ being an
+inversion of $a$ satisfying $\left(  i,j\right)  \neq\left(  k,k+1\right)
+$\ \ \ \ \footnote{\textit{Proof.} In order to prove this, we need to verify
+the following two claims:
+\par
+\textit{Claim 1:} Every inversion of $b$ is a pair of the form $\left(
+s_{k}\left(  i\right)  ,s_{k}\left(  j\right)  \right)  $ with $\left(
+i,j\right)  $ being an inversion of $a$ satisfying $\left(  i,j\right)
+\neq\left(  k,k+1\right)  $.
+\par
+\textit{Claim 2:} Every pair of the form $\left(  s_{k}\left(  i\right)
+,s_{k}\left(  j\right)  \right)  $ with $\left(  i,j\right)  $ being an
+inversion of $a$ satisfying $\left(  i,j\right)  \neq\left(  k,k+1\right)  $
+is an inversion of $b$.
+\par
+\textit{Proof of Claim 1:} Let $\left(  u,v\right)  $ be an inversion of $b$.
+Then, $u<v$ and $b_{u}>b_{v}$ (by the definition of an \textquotedblleft
+inversion\textquotedblright). Let $\alpha=s_{k}\left(  u\right)  $ and
+$\beta=s_{k}\left(  v\right)  $. Recall that $s_{k}$ is an involution, so that
+$s_{k}^{2}=\operatorname*{id}$. Now, $s_{k}\left(  \underbrace{\alpha}%
+_{=s_{k}\left(  u\right)  }\right)  =s_{k}\left(  s_{k}\left(  u\right)
+\right)  =\underbrace{s_{k}^{2}}_{=\operatorname*{id}}\left(  u\right)  =u$
+and $s_{k}\left(  \underbrace{\beta}_{=s_{k}\left(  v\right)  }\right)
+=s_{k}\left(  s_{k}\left(  v\right)  \right)  =\underbrace{s_{k}^{2}%
+}_{=\operatorname*{id}}\left(  v\right)  =v$.
+\par
+We have $u<v$. Also, $\left(  u,v\right)  \neq\left(  k,k+1\right)  $ (since
+$\left(  u,v\right)  $ is an inversion of $b$, but $\left(  k,k+1\right)  $ is
+not an inversion of $b$). Thus,
+(\ref{pf.prop.diamond.example.poset.inversion-transform}) (applied to $\left(
+i,j\right)  =\left(  u,v\right)  $) shows that $s_{k}\left(  u\right)
+<s_{k}\left(  v\right)  $. Thus, $\alpha=s_{k}\left(  u\right)  <s_{k}\left(
+v\right)  =\beta$. Moreover, $a=s_{k}\cdot u$, so that $a_{\alpha}=\left(
+s_{k}\cdot b\right)  _{\alpha}=b_{s_{k}^{-1}\left(  \alpha\right)  }=b_{u}$
+(since $s_{k}^{-1}\left(  \alpha\right)  =u$ (since $\alpha=s_{k}\left(
+u\right)  $)). Also, $a=s_{k}\cdot u$, so that $a_{\beta}=\left(  s_{k}\cdot
+b\right)  _{\beta}=b_{s_{k}^{-1}\left(  \beta\right)  }=b_{v}$ (since
+$s_{k}^{-1}\left(  \beta\right)  =v$ (since $\beta=s_{k}\left(  v\right)  $)).
+Therefore, $a_{\alpha}=b_{u}>b_{v}=a_{\beta}$.
+\par
+Thus we have $\alpha<\beta$ and $a_{\alpha}>a_{\beta}$. In other words,
+$\left(  \alpha,\beta\right)  $ is an inversion of $a$ (by the definition of
+an \textquotedblleft inversion\textquotedblright). Moreover, if we had
+$\left(  \alpha,\beta\right)  =\left(  k,k+1\right)  $, then we would have
+$\alpha=k$ and $\beta=k+1$ and therefore also $k+1=s_{k}\left(  \underbrace{k}%
+_{=\alpha}\right)  =s_{k}\left(  \alpha\right)  =u<v=s_{k}\left(
+\underbrace{\beta}_{=k+1}\right)  =s_{k}\left(  k+1\right)  =k$, which is
+absurd. Hence, we cannot have $\left(  \alpha,\beta\right)  =\left(
+k,k+1\right)  $. We thus have $\left(  \alpha,\beta\right)  =\left(
+k,k+1\right)  $. Finally, $\left(  u,v\right)  =\left(  s_{k}\left(
+\alpha\right)  ,s_{k}\left(  \beta\right)  \right)  $ (since $u=s_{k}\left(
+\alpha\right)  $ and $v=s_{k}\left(  \beta\right)  $). Hence, $\left(
+u,v\right)  $ is a pair of the form $\left(  s_{k}\left(  i\right)
+,s_{k}\left(  j\right)  \right)  $ with $\left(  i,j\right)  $ being an
+inversion of $a$ satisfying $\left(  i,j\right)  \neq\left(  k,k+1\right)  $
+(namely, for $\left(  i,j\right)  =\left(  \alpha,\beta\right)  $).
+\par
+Now, let us forget that we fixed $\left(  u,v\right)  $. We thus have shown
+that every inversion $\left(  u,v\right)  $ of $b$ is a pair of the form
+$\left(  s_{k}\left(  i\right)  ,s_{k}\left(  j\right)  \right)  $ with
+$\left(  i,j\right)  $ being an inversion of $a$ satisfying $\left(
+i,j\right)  \neq\left(  k,k+1\right)  $. This proves Claim 1.
+\par
+\textit{Proof of Claim 2:} We need to prove that if $\left(  i,j\right)  $ is
+an inversion of $a$ satisfying $\left(  i,j\right)  \neq\left(  k,k+1\right)
+$, then $\left(  s_{k}\left(  i\right)  ,s_{k}\left(  j\right)  \right)  $ is
+an inversion of $b$.
+\par
+So let $\left(  i,j\right)  $ be an inversion of $a$ satisfying $\left(
+i,j\right)  \neq\left(  k,k+1\right)  $. We need to prove that $\left(
+s_{k}\left(  i\right)  ,s_{k}\left(  j\right)  \right)  $ is an inversion of
+$b$.
+\par
+Recall that $s_{k}$ is an involution. Thus, $s_{k}^{-1}=s_{k}$.
+\par
+We know that $\left(  i,j\right)  $ is an inversion of $a$. In other words,
+$i<j$ and $a_{i}>a_{j}$ (by the definition of an \textquotedblleft
+inversion\textquotedblright). Thus, $s_{k}\left(  i\right)  <s_{k}\left(
+j\right)  $ (by (\ref{pf.prop.diamond.example.poset.inversion-transform})).
+Now, $a=s_{k}\cdot b$, so that $a_{i}=\left(  s_{k}\cdot b\right)
+_{i}=b_{s_{k}^{-1}\left(  i\right)  }=b_{s_{k}\left(  i\right)  }$ (since
+$s_{k}^{-1}=s_{k}$). Similarly, $a_{j}=b_{s_{k}\left(  j\right)  }$. Hence,
+$b_{s_{k}\left(  i\right)  }=a_{i}>a_{j}=b_{s_{k}\left(  j\right)  }$.
+\par
+Now, $\left(  s_{k}\left(  i\right)  ,s_{k}\left(  j\right)  \right)  $ is a
+pair such that $s_{k}\left(  i\right)  <s_{k}\left(  j\right)  $ and
+$b_{s_{k}\left(  i\right)  }>b_{s_{k}\left(  j\right)  }$. In other words,
+$\left(  s_{k}\left(  i\right)  ,s_{k}\left(  j\right)  \right)  $ is an
+inversion of $b$ (by the definition of an \textquotedblleft
+inversion\textquotedblright). This completes our proof of Claim 2.
+\par
+Now, both Claims 1 and 2 are proven, qed.}. Thus, the inversions of $b$ are in
+1-to-1 correspondence with the inversions $\left(  i,j\right)  $ of $a$ with
+$\left(  i,j\right)  \neq\left(  k,k+1\right)  $. Thus,%
 \begin{align*}
 &  \left(  \text{the number of inversions of }b\right) \\
 &  =\left(  \text{the number of inversions }\left(  i,j\right)  \text{ of
@@ -3068,7 +3437,116 @@ with $\left(  i,j\right)  \neq\left(  k,k+1\right)  $. Thus,%
 so that $\ell\left(  b\right)  =\left(  \text{the number of inversions of
 }b\right)  =\ell\left(  a\right)  -1$. Thus, $\ell\left(  a\right)
 >\ell\left(  b\right)  $. Hence, the length-decrease hypothesis is proven.
+\end{verlong}
 
+\begin{vershort}
+\textit{Proof that the local confluence hypothesis is satisfied:} Let $a$, $b$
+and $c$ be three elements of $\mathbf{S}$ satisfying $a\Rrightarrow b$ and
+$a\Rrightarrow c$. We need to show that there exists a $d\in\mathbf{S}$ such
+that $b\overset{\ast}{\Rrightarrow}d$ and $c\overset{\ast}{\Rrightarrow}d$.
+
+We have $a\Rrightarrow b$. In other words, the $n$-tuple $b$ can be obtained
+from $a$ by switching two adjacent entries which are out of order in $a$. In
+other words, we can write $a$ and $b$ in the forms%
+\begin{equation}
+a=\left(  \ldots,p,q,\ldots\right)  \ \ \ \ \ \ \ \ \ \ \text{and}%
+\ \ \ \ \ \ \ \ \ \ b=\left(  \ldots,q,p,\ldots\right)
+\label{pf.prop.diamond.example.poset.short.a-b}%
+\end{equation}
+for some $p\in P$ and $q\in P$ satisfying $p>q$, where the \textquotedblleft%
+$\ldots$\textquotedblright\ stand for strings\footnote{These strings are
+allowed to be empty.} of entries of $a$ that appear unchanged in $b$.
+Similarly, we can write $a$ and $c$ in the forms%
+\begin{equation}
+a=\left(  \ldots,r,t,\ldots\right)  \ \ \ \ \ \ \ \ \ \ \text{and}%
+\ \ \ \ \ \ \ \ \ \ c=\left(  \ldots,t,r,\ldots\right)
+\label{pf.prop.diamond.example.poset.short.a-c}%
+\end{equation}
+for some $r\in P$ and $t\in P$ satisfying $r>t$, where the \textquotedblleft%
+$\ldots$\textquotedblright\ stand for strings of entries of $a$ that appear
+unchanged in $c$. Consider the $p$ and $q$ from
+(\ref{pf.prop.diamond.example.poset.short.a-b}), and the $r$ and $t$ from
+(\ref{pf.prop.diamond.example.poset.short.a-c}). Also, let $u$ and $u+1$ be
+the positions of $p$ and $q$ in $a$ in
+(\ref{pf.prop.diamond.example.poset.short.a-b}). Furthermore, let $v$ and
+$v+1$ be the positions of $r$ and $t$ in $a$ in
+(\ref{pf.prop.diamond.example.poset.short.a-c}).
+
+We WLOG assume that $u\leq v$, because otherwise we can simply switch $b$ with
+$c$ (thus forcing $u$ to switch with $v$). Moreover, we can WLOG assume that
+$u\neq v$ (because if $u=v$, then finding a $d\in\mathbf{S}$ such that
+$b\overset{\ast}{\Rrightarrow}d$ and $c\overset{\ast}{\Rrightarrow}d$ is
+trivial\footnote{\textit{Proof.} Assume that $u=v$. Thus, the $p$ and $q$ in
+(\ref{pf.prop.diamond.example.poset.short.a-b}) appear in the same positions
+as the $r$ and $t$ in (\ref{pf.prop.diamond.example.poset.short.a-c}). Hence,
+both $b$ and $c$ are obtained from $a$ in one and the same way (namely, by
+switching the entries in these positions). Hence, $b=c$. Thus, we can find a
+$d\in\mathbf{S}$ such that $b\overset{\ast}{\Rrightarrow}d$ and
+$c\overset{\ast}{\Rrightarrow}d$ just by setting $d=b=c$, qed.}). Thus, $u<v$
+(since $u\leq v$).
+
+Let us now try to combine the representations
+(\ref{pf.prop.diamond.example.poset.short.a-b}) for $a$ and $b$ with the
+representations (\ref{pf.prop.diamond.example.poset.short.a-c}) for $a$ and
+$c$ into a set of representations for $a$, $b$ and $c$ in which both the
+changes from $a$ to $b$ and the changes from $a$ to $c$ are visible at the
+same time. We must be in one of the following two cases:
+
+\textit{Case 1:} We have $u<v-1$.
+
+\textit{Case 2:} We have $u=v-1$.
+
+Let us first consider Case 1. In this case, we can merge the representations
+(\ref{pf.prop.diamond.example.poset.short.a-b}) and
+(\ref{pf.prop.diamond.example.poset.short.a-c}) as follows:%
+\[
+a=\left(  \ldots,p,q,\ldots,r,t,\ldots\right)  ,\ \ \ \ \ \ \ \ \ \ b=\left(
+\ldots,q,p,\ldots,r,t,\ldots\right)  ,\ \ \ \ \ \ \ \ \ \ c=\left(
+\ldots,p,q,\ldots,t,r,\ldots\right)  ,
+\]
+where the \textquotedblleft$\ldots$\textquotedblright\ stand for strings of
+entries of $a$ that appear unchanged in both $b$ and $c$. Thus, we can find a
+$d\in\mathbf{S}$ such that $b\overset{\ast}{\Rrightarrow}d$ and
+$c\overset{\ast}{\Rrightarrow}d$: namely, set%
+\[
+d=\left(  \ldots,q,p,\ldots,t,r,\ldots\right)
+\]
+(where the \textquotedblleft$\ldots$\textquotedblright\ have the same meaning
+as before). Thus, the local confluence hypothesis is proven in Case 1.
+
+Let us now consider Case 2. In this case, $u=v-1$. Hence, $u+1=v$. Now, $q$ is
+the $\left(  u+1\right)  $-th entry of $a$, that is, the $v$-th entry of $a$
+(since $u+1=v$); but $r$ is also the $v$-th entry of $a$. Hence, $q=r$, so
+that $p>q=r>t$. Now, we can merge the representations
+(\ref{pf.prop.diamond.example.poset.short.a-b}) and
+(\ref{pf.prop.diamond.example.poset.short.a-c}) as follows:%
+\[
+a=\left(  \ldots,p,q,t,\ldots\right)  ,\ \ \ \ \ \ \ \ \ \ b=\left(
+\ldots,q,p,t,\ldots\right)  ,\ \ \ \ \ \ \ \ \ \ c=\left(  \ldots
+,p,t,q,\ldots\right)  ,
+\]
+where the \textquotedblleft$\ldots$\textquotedblright\ stand for strings of
+entries of $a$ that appear unchanged in both $b$ and $c$. Let us now set%
+\[
+e=\left(  \ldots,q,t,p,\ldots\right)  ,\ \ \ \ \ \ \ \ \ \ f=\left(
+\ldots,t,p,q,\ldots\right)  ,\ \ \ \ \ \ \ \ \ \ d=\left(  \ldots
+,t,q,p,\ldots\right)
+\]
+(where the \textquotedblleft$\ldots$\textquotedblright\ have the same meaning
+as before). Then, $b\Rrightarrow e$ and $e\Rrightarrow d$; thus,
+$b\overset{\ast}{\Rrightarrow}d$ (since $\overset{\ast}{\Rrightarrow}$ is the
+reflexive-and-transitive closure of $\Rrightarrow$). Also, $c\Rrightarrow f$
+and $f\Rrightarrow d$; thus, $c\overset{\ast}{\Rrightarrow}d$ (since
+$\overset{\ast}{\Rrightarrow}$ is the reflexive-and-transitive closure of
+$\Rrightarrow$). Hence, we have found a $d\in\mathbf{S}$ such that
+$b\overset{\ast}{\Rrightarrow}d$ and $c\overset{\ast}{\Rrightarrow}d$. Thus,
+the local confluence hypothesis is proven in Case 2 as well.
+
+The local confluence hypothesis thus holds (because it is proven in both Cases
+1 and 2).
+\end{vershort}
+
+\begin{verlong}
 \textit{Proof that the local confluence hypothesis is satisfied:} Let $a$, $b$
 and $c$ be three elements of $\mathbf{S}$ satisfying $a\Rrightarrow b$ and
 $a\Rrightarrow c$. We need to show that there exists a $d\in\mathbf{S}$ such
@@ -3094,7 +3572,7 @@ denote this $k$ by $v$. Thus, $a\underset{v}{\Rrightarrow}c$. In other words,
 $a_{v}>a_{v+1}$ and $c=s_{v}\cdot a$.
 
 We have $s_{u}\cdot a=b\neq c=s_{v}\cdot a$ and thus $u\neq v$. Thus, either
-$u<v$ and $v<u$. We can WLOG assume that $u<v$ (since otherwise, we can simply
+$u<v$ or $v<u$. We can WLOG assume that $u<v$ (since otherwise, we can simply
 switch $b$ with $c$). Assume this. Then, we must be in one of the following
 two cases:
 
@@ -3103,28 +3581,43 @@ two cases:
 \textit{Case 2:} We have $u<v-1$.
 
 Let us consider Case 2 first. In this case, we have $u<v-1$. Hence,
-$s_{u}s_{v}=s_{v}s_{u}$ in $\mathfrak{S}_{n}$. Hence,%
+$s_{u}s_{v}=s_{v}s_{u}$ in $\mathfrak{S}_{n}$. Also, $u+1<v$ (since $u<v-1$).
+Now,%
 \[
 s_{v}\cdot\underbrace{b}_{=s_{u}\cdot a}=s_{v}\cdot\left(  s_{u}\cdot
 a\right)  =\underbrace{\left(  s_{v}s_{u}\right)  }_{=s_{u}s_{v}}\cdot
 a=\left(  s_{u}s_{v}\right)  \cdot a=s_{u}\cdot\underbrace{\left(  s_{v}\cdot
 a\right)  }_{=c}=s_{u}\cdot c.
 \]
-We can thus define a $d\in\mathbf{S}$ by $d=s_{v}\cdot b=s_{u}\cdot c$.
+We can thus define a $d\in\mathbf{S}$ by $d=s_{v}\cdot b=s_{u}\cdot c$. (This
+is indeed an element of $\mathbf{S}$ because $\mathbf{S}$ is an $\mathfrak{S}%
+_{n}$-set.)
 
 Now, from $b=s_{u}\cdot a$, we obtain $b_{v}=\left(  s_{u}\cdot a\right)
 _{v}=a_{s_{u}^{-1}\left(  v\right)  }=a_{v}$ (since $s_{u}^{-1}\left(
 v\right)  =v$ (since $u<v-1$)) and $b_{v+1}=\left(  s_{u}\cdot a\right)
 _{v+1}=a_{s_{u}^{-1}\left(  v+1\right)  }=a_{v+1}$ (since $s_{u}^{-1}\left(
-v+1\right)  =v+1$ (since $u<v-1$)). Thus, $b_{v}=a_{v}>a_{v+1}=b_{v+1}$.
-Combined with $d=s_{v}\cdot b$, this yields $b\underset{v}{\Rrightarrow}d$ (by
-the definition of \textquotedblleft$b\underset{v}{\Rrightarrow}d$%
-\textquotedblright). Thus, $b\Rrightarrow d$, so that $b\overset{\ast
+v+1\right)  =v+1$ (since $u<v-1<\left(  v+1\right)  -1$)). Thus, $b_{v}%
+=a_{v}>a_{v+1}=b_{v+1}$. Combined with $d=s_{v}\cdot b$, this yields
+$b\underset{v}{\Rrightarrow}d$ (by the definition of \textquotedblleft%
+$b\underset{v}{\Rrightarrow}d$\textquotedblright). Thus, $b\Rrightarrow d$, so
+that $b\overset{\ast}{\Rrightarrow}d$ (since $\overset{\ast}{\Rrightarrow}$
+extends the relation $\Rrightarrow$).
+
+Also, from $c=s_{v}\cdot b$, we obtain $c_{u}=\left(  s_{v}\cdot b\right)
+_{u}=a_{s_{v}^{-1}\left(  u\right)  }=a_{u}$ (since $s_{v}^{-1}\left(
+u\right)  =u$ (since $u<v-1<v$)) and $c_{u+1}=\left(  s_{v}\cdot b\right)
+_{u+1}=b_{s_{v}^{-1}\left(  u+1\right)  }=b_{u+1}$ (since $s_{v}^{-1}\left(
+u+1\right)  =u+1$ (since $u+1<v$)). Thus, $c_{u}=a_{u}>a_{u+1}=b_{u+1}$.
+Combined with $d=s_{u}\cdot c$, this yields $c\underset{u}{\Rrightarrow}d$ (by
+the definition of \textquotedblleft$c\underset{u}{\Rrightarrow}d$%
+\textquotedblright). Thus, $c\Rrightarrow d$, so that $c\overset{\ast
 }{\Rrightarrow}d$ (since $\overset{\ast}{\Rrightarrow}$ extends the relation
-$\Rrightarrow$). A similar argument (with $u$ and $b$ changing places with $u$
-and $v$) yields $c\overset{\ast}{\Rrightarrow}d$. Hence, we have shown that
-there exists a $d\in\mathbf{S}$ such that $b\overset{\ast}{\Rrightarrow}d$ and
-$c\overset{\ast}{\Rrightarrow}d$. The proof is thus complete in Case 2.
+$\Rrightarrow$).
+
+Hence, we have shown that there exists a $d\in\mathbf{S}$ such that
+$b\overset{\ast}{\Rrightarrow}d$ and $c\overset{\ast}{\Rrightarrow}d$. The
+proof is thus complete in Case 2.
 
 Let us now consider Case 1. In this case, we have $u=v-1$. But recall that
 $a_{u}>a_{u+1}$. Due to $u=v-1$, this rewrites as $a_{v-1}>a_{v}$. Thus,
@@ -3138,14 +3631,15 @@ Now, it is well-known (and easy to check) that $s_{v-1}s_{v}s_{v-1}%
 \mathbf{S}$ by%
 \[
 d=\left(  s_{v-1}s_{v}s_{v-1}\right)  \cdot a=\left(  s_{v}s_{v-1}%
-s_{v}\right)  \cdot a.
+s_{v}\right)  \cdot a
 \]
-Consider this $d$. In order to complete this proof in Case 1, we now need to
-show that $b\overset{\ast}{\Rrightarrow}d$ and $c\overset{\ast}{\Rrightarrow
-}d$. So our goal is now to prove that $b\overset{\ast}{\Rrightarrow}d$ and
-$c\overset{\ast}{\Rrightarrow}d$.
+(because $\mathbf{S}$ is an $\mathfrak{S}_{n}$-set). Consider this $d$. In
+order to complete this proof in Case 1, we now need to show that
+$b\overset{\ast}{\Rrightarrow}d$ and $c\overset{\ast}{\Rrightarrow}d$. So our
+goal is now to prove that $b\overset{\ast}{\Rrightarrow}d$ and $c\overset{\ast
+}{\Rrightarrow}d$.
 
-We will show the four relations%
+We have the four relations%
 \begin{align}
 s_{v-1}\cdot a  &  \underset{v}{\Rrightarrow}\left(  s_{v}s_{v-1}\right)
 \cdot a;\label{pf.prop.diamond.example.poset.four1}\\
@@ -3157,13 +3651,84 @@ a;\label{pf.prop.diamond.example.poset.four3}\\
 \left(  s_{v-1}s_{v}\right)  \cdot a  &  \underset{v}{\Rrightarrow}\left(
 s_{v}s_{v-1}s_{v}\right)  \cdot a. \label{pf.prop.diamond.example.poset.four4}%
 \end{align}
-Once these relations will be shown, it will be easy to complete the proof in
-Case 1.\footnote{\textit{Proof.} Assume that the four relations
-(\ref{pf.prop.diamond.example.poset.four1}),
-(\ref{pf.prop.diamond.example.poset.four2}),
-(\ref{pf.prop.diamond.example.poset.four3}) and
-(\ref{pf.prop.diamond.example.poset.four4}) are proven. Then, from
-(\ref{pf.prop.diamond.example.poset.four1}), we obtain $s_{v-1}\cdot
+\textit{Proof of (\ref{pf.prop.diamond.example.poset.four1}):} We have
+$\left(  s_{v-1}\cdot a\right)  _{v}=a_{s_{v-1}^{-1}\left(  v\right)
+}=a_{v-1}$ (since $s_{v-1}^{-1}\left(  v\right)  =v-1$) and $\left(
+s_{v-1}\cdot a\right)  _{v+1}=a_{s_{v-1}^{-1}\left(  v+1\right)  }=a_{v+1}$
+(since $s_{v-1}^{-1}\left(  v+1\right)  =v+1$). Thus, $\left(  s_{v-1}\cdot
+a\right)  _{v}=a_{v-1}>a_{v+1}=\left(  s_{v-1}\cdot a\right)  _{v+1}$. This,
+combined with $\left(  s_{v}s_{v-1}\right)  \cdot a=s_{v}\cdot\left(
+s_{v-1}\cdot a\right)  $, shows that $s_{v-1}\cdot a\underset{v}{\Rrightarrow
+}\left(  s_{v}s_{v-1}\right)  \cdot a$ (by the definition of the notation
+$s_{v-1}\cdot a\underset{v}{\Rrightarrow}\left(  s_{v}s_{v-1}\right)  \cdot
+a$). Thus, the relation (\ref{pf.prop.diamond.example.poset.four1}) is proven.
+
+\textit{Proof of (\ref{pf.prop.diamond.example.poset.four2}):} We have
+$\left(  s_{v}s_{v-1}\right)  \left(  v+1\right)  =s_{v}\left(
+\underbrace{s_{v-1}\left(  v+1\right)  }_{=v+1}\right)  =s_{v}\left(
+v+1\right)  =v$, and thus $\left(  s_{v}s_{v-1}\right)  ^{-1}\left(  v\right)
+=v+1$. Also, we have $\left(  s_{v}s_{v-1}\right)  \left(  v\right)
+=s_{v}\left(  \underbrace{s_{v-1}\left(  v\right)  }_{=v-1}\right)
+=s_{v}\left(  v-1\right)  =v-1$, and thus $\left(  s_{v}s_{v-1}\right)
+^{-1}\left(  v-1\right)  =v$.
+
+Now, $\left(  \left(  s_{v}s_{v-1}\right)  \cdot a\right)  _{v}=a_{\left(
+s_{v}s_{v-1}\right)  ^{-1}\left(  v\right)  }=a_{v+1}$ (since $\left(
+s_{v}s_{v-1}\right)  ^{-1}\left(  v\right)  =v+1$) and $\left(  \left(
+s_{v}s_{v-1}\right)  \cdot a\right)  _{v-1}=a_{\left(  s_{v}s_{v-1}\right)
+^{-1}\left(  v-1\right)  }=a_{v}$ (since $\left(  s_{v}s_{v-1}\right)
+^{-1}\left(  v-1\right)  =v$). Thus, $\left(  \left(  s_{v}s_{v-1}\right)
+\cdot a\right)  _{v-1}=a_{v}>a_{v+1}=\left(  \left(  s_{v}s_{v-1}\right)
+\cdot a\right)  _{v}=\left(  \left(  s_{v}s_{v-1}\right)  \cdot a\right)
+_{\left(  v-1\right)  +1}$. This, combined with $\left(  s_{v-1}s_{v}%
+s_{v-1}\right)  \cdot a=s_{v-1}\cdot\left(  \left(  s_{v}s_{v-1}\right)  \cdot
+a\right)  $, shows that $\left(  s_{v}s_{v-1}\right)  \cdot
+a\underset{v-1}{\Rrightarrow}\left(  s_{v-1}s_{v}s_{v-1}\right)  \cdot a$ (by
+the definition of the notation $\left(  s_{v}s_{v-1}\right)  \cdot
+a\underset{v-1}{\Rrightarrow}\left(  s_{v-1}s_{v}s_{v-1}\right)  \cdot a$). In
+other words, $\left(  s_{v}s_{v-1}\right)  \cdot a\underset{v-1}{\Rrightarrow
+}\left(  s_{v-1}s_{v}s_{v-1}\right)  \cdot a$ (since $u=v-1$). Thus, the
+relation (\ref{pf.prop.diamond.example.poset.four2}) is proven.
+
+\textit{Proof of (\ref{pf.prop.diamond.example.poset.four3}):} We have
+$\left(  s_{v}\cdot a\right)  _{v-1}=a_{s_{v}^{-1}\left(  v-1\right)
+}=a_{v-1}$ (since $s_{v}^{-1}\left(  v-1\right)  =v-1$) and $\left(
+s_{v}\cdot a\right)  _{v}=a_{s_{v}^{-1}\left(  v\right)  }=a_{v+1}$ (since
+$s_{v}^{-1}\left(  v\right)  =v+1$). Thus, $\left(  s_{v}\cdot a\right)
+_{v-1}=a_{v-1}>a_{v+1}=\left(  s_{v}\cdot a\right)  _{v}$. This, combined with
+$\left(  s_{v-1}s_{v}\right)  \cdot a=s_{v-1}\cdot\left(  s_{v}\cdot a\right)
+$, shows that $s_{v}\cdot a\underset{v-1}{\Rrightarrow}\left(  s_{v-1}%
+s_{v}\right)  \cdot a$ (by the definition of the notation $s_{v}\cdot
+a\underset{v-1}{\Rrightarrow}\left(  s_{v-1}s_{v}\right)  \cdot a$). In other
+words, $s_{v}\cdot a\underset{u}{\Rrightarrow}\left(  s_{v-1}s_{v}\right)
+\cdot a$ (since $u=v-1$). Thus, the relation
+(\ref{pf.prop.diamond.example.poset.four3}) is proven.
+
+\textit{Proof of (\ref{pf.prop.diamond.example.poset.four4}):} We have
+$\left(  s_{v-1}s_{v}\right)  \left(  v-1\right)  =s_{v-1}\left(
+\underbrace{s_{v}\left(  v-1\right)  }_{=v-1}\right)  =s_{v-1}\left(
+v-1\right)  =v$, and thus $\left(  s_{v-1}s_{v}\right)  ^{-1}\left(  v\right)
+=v-1$. Also, we have $\left(  s_{v-1}s_{v}\right)  \left(  v\right)
+=s_{v-1}\left(  \underbrace{s_{v}\left(  v\right)  }_{=v+1}\right)
+=s_{v-1}\left(  v+1\right)  =v+1$, and thus $\left(  s_{v-1}s_{v}\right)
+^{-1}\left(  v+1\right)  =v$.
+
+Now, $\left(  \left(  s_{v-1}s_{v}\right)  \cdot a\right)  _{v}=a_{\left(
+s_{v-1}s_{v}\right)  ^{-1}\left(  v\right)  }=a_{v-1}$ (since $\left(
+s_{v-1}s_{v}\right)  ^{-1}\left(  v\right)  =v-1$) and $\left(  \left(
+s_{v-1}s_{v}\right)  \cdot a\right)  _{v+1}=a_{\left(  s_{v-1}s_{v}\right)
+^{-1}\left(  v+1\right)  }=a_{v}$ (since $\left(  s_{v-1}s_{v}\right)
+^{-1}\left(  v+1\right)  =v$). Thus, $\left(  \left(  s_{v-1}s_{v}\right)
+\cdot a\right)  _{v}=a_{v-1}>a_{v}=\left(  \left(  s_{v-1}s_{v}\right)  \cdot
+a\right)  _{v+1}$. This, combined with $\left(  s_{v}s_{v-1}s_{v}\right)
+\cdot a=s_{v}\cdot\left(  \left(  s_{v-1}s_{v}\right)  \cdot a\right)  $,
+shows that $\left(  s_{v-1}s_{v}\right)  \cdot a\underset{v}{\Rrightarrow
+}\left(  s_{v}s_{v-1}s_{v}\right)  \cdot a$ (by the definition of the notation
+$\left(  s_{v-1}s_{v}\right)  \cdot a\underset{v}{\Rrightarrow}\left(
+s_{v}s_{v-1}s_{v}\right)  \cdot a$). Thus, the relation
+(\ref{pf.prop.diamond.example.poset.four4}) is proven.
+
+Now, from (\ref{pf.prop.diamond.example.poset.four1}), we obtain $s_{v-1}\cdot
 a\Rrightarrow\left(  s_{v}s_{v-1}\right)  \cdot a$, and therefore we have
 $s_{v-1}\cdot a\overset{\ast}{\Rrightarrow}\left(  s_{v}s_{v-1}\right)  \cdot
 a$ (since the relation $\overset{\ast}{\Rrightarrow}$ extends the relation
@@ -3179,42 +3744,34 @@ s_{v-1}\right)  \cdot a$, we obtain $s_{v-1}\cdot a\overset{\ast
 }{\Rrightarrow}\left(  s_{v-1}s_{v}s_{v-1}\right)  \cdot a$ (since the
 relation $\overset{\ast}{\Rrightarrow}$ is transitive). In other words,
 $b\overset{\ast}{\Rrightarrow}d$ (since $b=s_{v-1}\cdot a$ and $d=\left(
-s_{v-1}s_{v}s_{v-1}\right)  \cdot a$). Thus, we have proven $b\overset{\ast
-}{\Rrightarrow}d$ using (\ref{pf.prop.diamond.example.poset.four1}) and
-(\ref{pf.prop.diamond.example.poset.four2}). Similarly, we can show
-$c\overset{\ast}{\Rrightarrow}d$ using
-(\ref{pf.prop.diamond.example.poset.four3}) and
-(\ref{pf.prop.diamond.example.poset.four4}). Thus, the proof is complete in
-Case 1.} Hence, it now remains to prove the four relations
-(\ref{pf.prop.diamond.example.poset.four1}),
-(\ref{pf.prop.diamond.example.poset.four2}),
-(\ref{pf.prop.diamond.example.poset.four3}) and
-(\ref{pf.prop.diamond.example.poset.four4}).
+s_{v-1}s_{v}s_{v-1}\right)  \cdot a$).
 
-Let us only prove the first of these relations, i.e., the relation
-(\ref{pf.prop.diamond.example.poset.four1}). The other three are proven
-similarly, and the details are left to the reader.
+Next, from (\ref{pf.prop.diamond.example.poset.four3}), we obtain $s_{v}\cdot
+a\Rrightarrow\left(  s_{v-1}s_{v}\right)  \cdot a$, and therefore we have
+$s_{v}\cdot a\overset{\ast}{\Rrightarrow}\left(  s_{v-1}s_{v}\right)  \cdot a$
+(since the relation $\overset{\ast}{\Rrightarrow}$ extends the relation
+$\Rrightarrow$). Also, from (\ref{pf.prop.diamond.example.poset.four4}), we
+obtain $\left(  s_{v-1}s_{v}\right)  \cdot a\Rrightarrow\left(  s_{v}%
+s_{v-1}s_{v}\right)  \cdot a$, and therefore we have $\left(  s_{v-1}%
+s_{v}\right)  \cdot a\overset{\ast}{\Rrightarrow}\left(  s_{v}s_{v-1}%
+s_{v}\right)  \cdot a$ (since the relation $\overset{\ast}{\Rrightarrow}$
+extends the relation $\Rrightarrow$). From $s_{v}\cdot a\overset{\ast
+}{\Rrightarrow}\left(  s_{v-1}s_{v}\right)  \cdot a$ and $\left(  s_{v-1}%
+s_{v}\right)  \cdot a\overset{\ast}{\Rrightarrow}\left(  s_{v}s_{v-1}%
+s_{v}\right)  \cdot a$, we obtain $s_{v}\cdot a\overset{\ast}{\Rrightarrow
+}\left(  s_{v}s_{v-1}s_{v}\right)  \cdot a$ (since the relation $\overset{\ast
+}{\Rrightarrow}$ is transitive). In other words, $c\overset{\ast
+}{\Rrightarrow}d$ (since $b=s_{v}\cdot a$ and $d=\left(  s_{v}s_{v-1}%
+s_{v}\right)  \cdot a$).
 
-We have $\left(  s_{v-1}\cdot a\right)  _{v}=a_{s_{v-1}^{-1}\left(  v\right)
-}=a_{v-1}$ (since $s_{v-1}^{-1}\left(  v\right)  =v-1$) and $\left(  \left(
-s_{v}s_{v-1}\right)  \cdot a\right)  _{v}=a_{\left(  s_{v}s_{v-1}\right)
-^{-1}\left(  v\right)  }=a_{v+1}$ (since $\underbrace{\left(  s_{v}%
-s_{v-1}\right)  ^{-1}}_{=s_{v-1}^{-1}s_{v}^{-1}}\left(  v\right)  =\left(
-s_{v-1}^{-1}s_{v}^{-1}\right)  \left(  v\right)  =s_{v-1}^{-1}%
-\underbrace{\left(  s_{v}^{-1}v\right)  }_{=v+1}=s_{v-1}^{-1}\left(
-v+1\right)  =v+1$). Thus, $\left(  s_{v-1}\cdot a\right)  _{v}=a_{v-1}%
->a_{v+1}=\left(  s_{v-1}\cdot a\right)  _{v}$. This, combined with $\left(
-s_{v}s_{v-1}\right)  \cdot a=s_{v}\cdot\left(  s_{v-1}\cdot a\right)  $, shows
-that $s_{v-1}\cdot a\underset{v}{\Rrightarrow}\left(  s_{v}s_{v-1}\right)
-\cdot a$ (by the definition of the notation $s_{v-1}\cdot
-a\underset{v}{\Rrightarrow}\left(  s_{v}s_{v-1}\right)  \cdot a$). Thus, the
-relation (\ref{pf.prop.diamond.example.poset.four1}) is proven. As we said, we
-are leaving the other three relations to the reader. Hence, we have shown that
-there exists a $d\in\mathbf{S}$ such that $b\overset{\ast}{\Rrightarrow}d$ and
+Altogether, we now know that $b\overset{\ast}{\Rrightarrow}d$ and
+$c\overset{\ast}{\Rrightarrow}d$. Hence, we have shown that there exists a
+$d\in\mathbf{S}$ such that $b\overset{\ast}{\Rrightarrow}d$ and
 $c\overset{\ast}{\Rrightarrow}d$. The proof is thus complete in Case 1.
 
 We have thus completed the proof in both Cases 1 and 2. Thus we are done
 proving that the local confluence hypothesis is satisfied.
+\end{verlong}
 
 We now know that both the local confluence hypothesis and the length-decrease
 hypothesis are satisfied. This completes the proof of Proposition
@@ -3294,7 +3851,7 @@ $, then $\ell\left(  T\right)  =1\cdot0+2\cdot1+3\cdot2+4\cdot0+5\cdot
 
 \subsection{Conflicts of 12-tables}
 
-If $T$ is a 12-table, we define a \textit{conflict} of $T$ to be a pair
+If $T$ is a 12-table, then we define a \textit{conflict} of $T$ to be a pair
 $\left(  i,j\right)  $ of positive integers satisfying $i<j$ such that there
 exists an $r\in\mathbb{N}_{+}$ satisfying $\left(  r,i\right)  \in Z$,
 $\left(  r,j\right)  \in Z$, $T\left(  r,i\right)  =2$ and $T\left(
@@ -3336,8 +3893,7 @@ would incur a conflict), i.e., the entries of the 12-table are weakly
 increasing along rows, and thus it is a 12-rpp. The converse is just as
 obvious.}
 
-We notice a simple fact which we will not use until much later, but which
-helps visualize the notion of a conflict:
+We notice a simple fact which we will not use until much later:
 
 \begin{proposition}
 \label{prop.conflict.transitive}Let $T$ be a 12-table. Let $a$, $b$ and $c$ be
@@ -4415,9 +4971,33 @@ Notice that the converse of Proposition \ref{prop.conflict-resolution-props}
 \textbf{(f)} does not generally hold.
 
 \begin{proof}
-[Proof of Proposition \ref{prop.conflict-resolution-props}.]Parts \textbf{(a)}
-and \textbf{(b)} of Proposition \ref{prop.conflict-resolution-props} follow
-immediately from the construction of $\operatorname*{res}\nolimits_{k}P$.
+[Proof of Proposition \ref{prop.conflict-resolution-props}.]Before we come to
+the actual proof, let us notice a simple fact:
+
+For any $\left(  i,j\right)  \in\mathbb{N}_{+}^{2}$ satisfying $i<j$, we have%
+\begin{equation}
+s_{k}\left(  i\right)  <s_{k}\left(  j\right)  \ \ \ \ \ \ \ \ \ \ \text{if
+}\left(  i,j\right)  \neq\left(  k,k+1\right)
+\label{pf.prop.conflict-resolution.props.inversion-transform}%
+\end{equation}
+
+
+\begin{vershort}
+(Indeed, this is straightforward to check.)
+\end{vershort}
+
+\begin{verlong}
+\footnote{\textit{Proof:} The proof of
+(\ref{pf.prop.conflict-resolution.props.inversion-transform}) is analogous to
+the proof of (\ref{pf.prop.diamond.example.poset.inversion-transform}) (the
+only difference being that $\left(  i,j\right)  $ is now an element of
+$\mathbb{N}_{+}^{2}$ rather than an element of $\left\{  1,2,\ldots,n\right\}
+^{2}$).}
+\end{verlong}
+
+Parts \textbf{(a)} and \textbf{(b)} of Proposition
+\ref{prop.conflict-resolution-props} follow immediately from the construction
+of $\operatorname*{res}\nolimits_{k}P$.
 
 \textbf{(c)} Let $i\in\mathbb{N}_{+}$. We say that a positive integer
 $j\in\mathbb{N}_{+}$ is \textit{good} if $\left(  i,j\right)  \in Z$ and
@@ -4831,7 +5411,7 @@ Z$), so that $\left(  \operatorname*{res}\nolimits_{k}P\right)  \left(
 r,s_{k}\left(  j\right)  \right)  =P\left(  r,j\right)  =1$. Finally, from
 $i<j$ and $\left(  i,j\right)  \neq\left(  k,k+1\right)  $, we obtain
 $s_{k}\left(  i\right)  <s_{k}\left(  j\right)  $ (due to
-(\ref{pf.prop.diamond.example.poset.inversion-transform})). Altogether, we
+(\ref{pf.prop.conflict-resolution.props.inversion-transform})). Altogether, we
 thus know that $s_{k}\left(  i\right)  <s_{k}\left(  j\right)  $, $\left(
 r,s_{k}\left(  i\right)  \right)  \in Z$, $\left(  r,s_{k}\left(  j\right)
 \right)  \in Z$, $\left(  \operatorname*{res}\nolimits_{k}P\right)  \left(
@@ -7029,6 +7609,253 @@ generalization of the $i$-th Bender-Knuth involution $B_{i}$) can be stated as f
 T\right)  $.
 \end{proposition}
 
+\begin{proof}
+[Proof of Proposition \ref{prop.BK=BK} (sketched).]We shall abbreviate
+\textquotedblleft semistandard tableau\textquotedblright\ as \textquotedblleft
+sst\textquotedblright. We define a \textit{12-sst} to be an sst whose entries
+all belong to the set $\left\{  1,2\right\}  $.
+
+Let $Z$ be a finite convex subset of $\mathbb{N}_{+}^{2}$. Let $R$ denote the
+set of all 12-ssts of shape $Z$. We define a map $B:R\rightarrow R$ in the
+same way as we defined the map $B_{i}:\operatorname*{SST}\left(  \lambda
+/\mu\right)  \rightarrow\operatorname*{SST}\left(  \lambda/\mu\right)  $, with
+the only differences that we replace every appearance of \textquotedblleft%
+$\operatorname*{SST}\left(  \lambda/\mu\right)  $\textquotedblright, of
+\textquotedblleft$i$\textquotedblright\ and of \textquotedblleft%
+$i+1$\textquotedblright\ by \textquotedblleft$R$\textquotedblright,
+\textquotedblleft$1$\textquotedblright\ and \textquotedblleft$2$%
+\textquotedblright, respectively. Then, this map $B:R\rightarrow R$ is an involution.
+
+Now let us forget that we fixed $Z$. We thus have constructed a map
+$B:R\rightarrow R$ for every finite convex subset $Z$ of $\mathbb{N}_{+}^{2}$.
+Now, recall how the map $\mathbf{B}_{i}:\operatorname*{RPP}\left(  \lambda
+/\mu\right)  \rightarrow\operatorname*{RPP}\left(  \lambda/\mu\right)  $ was
+constructed from the maps $\mathbf{B}:\mathbf{R}\rightarrow\mathbf{R}$ for
+every finite convex subset $Z$ of $\mathbb{N}_{+}^{2}$ (essentially by
+forgetting all entries of an rpp except for the entries $i$ and $i+1$ and
+relabelling these entries $i$ and $i+1$ as $1$ and $2$). Similarly, the map
+$B_{i}:\operatorname*{SST}\left(  \lambda/\mu\right)  \rightarrow
+\operatorname*{SST}\left(  \lambda/\mu\right)  $ can be constructed from the
+maps $B:R\rightarrow R$ for every finite convex subset $Z$ of $\mathbb{N}%
+_{+}^{2}$ (essentially by forgetting all entries of an rpp except for the
+entries $i$ and $i+1$ and relabelling these entries $i$ and $i+1$ as $1$ and
+$2$). Thus, in order to prove that $B_{i}\left(  T\right)  =\mathbf{B}%
+_{i}\left(  T\right)  $ for every $T\in\operatorname*{SST}\left(  \lambda
+/\mu\right)  $, it suffices to show that $B\left(  T\right)  =\mathbf{B}%
+\left(  T\right)  $ for every finite convex subset $Z$ of $\mathbb{N}_{+}^{2}$
+and any 12-sst $T$ of shape $Z$.
+
+\begin{todo}
+Is this readable?
+\end{todo}
+
+So let $Z$ be any finite convex subset of $\mathbb{N}_{+}^{2}$, and let $T$ be
+a 12-sst of shape $Z$. We need to prove that $B\left(  T\right)
+=\mathbf{B}\left(  T\right)  $.
+
+\begin{example}
+Here is an example of a 12-sst:%
+\begin{equation}
+T=%
+%TCIMACRO{\TeXButton{ytableau}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& \none& \none& \none& \none& \none& \none& 1 \\
+%\none& \none& \none& \none& \none& 1 & 1 & 2 \\
+%\none& \none& \none& 1 & 2 & 2 & 2 \\
+%1 & 2 \\
+%2
+%\end{ytableau}
+%}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+\none& \none& \none& \none& \none& \none& \none& \none& 1 \\
+\none& \none& \none& \none& \none& 1 & 1 & 2 \\
+\none& \none& \none& 1 & 2 & 2 & 2 \\
+1 & 2 \\
+2
+\end{ytableau}
+%EndExpansion
+.\label{pf.prop.BK=BK.exampleT}%
+\end{equation}
+It satisfies%
+\begin{equation}
+B\left(  T\right)  =%
+%TCIMACRO{\TeXButton{ytableau}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& \none& \none& \none& \none& \none& \none& 1 \\
+%\none& \none& \none& \none& \none& 1 & 2 & 2 \\
+%\none& \none& \none& 1 & 1 & 2 & 2 \\
+%1 & 1 \\
+%2
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+\none& \none& \none& \none& \none& \none& \none& \none& 1 \\
+\none& \none& \none& \none& \none& 1 & 2 & 2 \\
+\none& \none& \none& 1 & 1 & 2 & 2 \\
+1 & 1 \\
+2
+\end{ytableau}%
+%EndExpansion
+\label{pf.prop.BK=BK.exampleBT}%
+\end{equation}
+and%
+\begin{equation}
+\operatorname*{flip}\left(  T\right)  =%
+%TCIMACRO{\TeXButton{ytableau}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& \none& \none& \none& \none& \none& \none& 1 \\
+%\none& \none& \none& \none& \none& 1 & 2 & 2 \\
+%\none& \none& \none& 2 & 1 & 1 & 2 \\
+%1 & 1 \\
+%2
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+\none& \none& \none& \none& \none& \none& \none& \none& 1 \\
+\none& \none& \none& \none& \none& 1 & 2 & 2 \\
+\none& \none& \none& 2 & 1 & 1 & 2 \\
+1 & 1 \\
+2
+\end{ytableau}%
+%EndExpansion
+\label{pf.prop.BK=BK.exampleflipT}%
+\end{equation}
+(where $\operatorname*{flip}\left(  T\right)  $ is defined as in the
+construction of $\mathbf{B}\left(  T\right)  $).
+\end{example}
+
+We make a few basic observations: The columns which are ignored in the
+construction of $B\left(  T\right)  $ are the columns which contain both a $1$
+and a $2$.\ \ \ \ \footnote{For instance, in the 12-sst
+(\ref{pf.prop.BK=BK.exampleT}), the ignored columns are the $1$-st, the $7$-th
+and the $9$-th columns.} These columns contain exactly two entries each
+(because a column of a 12-sst can only contain at most one $1$, at most one
+$2$ and no other entries), while every other column is either empty or
+contains only one entry. As a consequence, every entry of $T$ which is not
+\textquotedblleft ignored\textquotedblright\ in the construction of $B\left(
+T\right)  $ is alone in its column.
+
+Let us compare the basic ideas of the constructions of $B\left(  T\right)  $
+and $\mathbf{B}\left(  T\right)  $:
+
+\begin{itemize}
+\item To construct $B\left(  T\right)  $, we ignore all columns of $T$ which
+contain both a $1$ and a $2$; that is, we mark all entries in these columns as
+\textquotedblleft ignored\textquotedblright. Then, in every row, we let $r$ be
+the number of $1$'s which are not \textquotedblleft ignored\textquotedblright,
+and let $s$ be the number of $2$'s which are not \textquotedblleft
+ignored\textquotedblright. We replace these $r$ many $1$'s and $s$ many $2$'s
+by $s$ many $1$'s and $r$ many $2$'s. This we do for every row; the resulting
+12-sst is $B\left(  T\right)  $.
+
+\item To construct $\mathbf{B}\left(  T\right)  $, we consider $T$ as a
+12-rpp, and we identify which of its columns are 1-pure, which are 2-pure and
+which are mixed. Then, we replace all entries of all 1-pure columns by $1$'s,
+while simultaneously replacing all entries of all 2-pure columns by $2$'s. The
+resulting 12-table is denoted $\operatorname*{flip}\left(  T\right)  $. Then,
+we repeatedly resolve conflicts in $\operatorname*{flip}\left(  T\right)  $
+until no more conflicts remain. The resulting 12-table $\operatorname*{norm}%
+\left(  \operatorname*{flip}\left(  T\right)  \right)  $ is a 12-rpp, and is
+denoted $\mathbf{B}\left(  T\right)  $.
+\end{itemize}
+
+If we compare the two constructions just described, we first notice that the
+columns ignored in the construction of $B\left(  T\right)  $ are precisely the
+mixed columns of $T$. Thus, the 12-table $\operatorname*{flip}\left(
+T\right)  $ can be obtained from $T$ by replacing all $1$'s which are not
+\textquotedblleft ignored\textquotedblright\ by $2$'s while simultaneously
+replacing all $2$'s which are not \textquotedblleft ignored\textquotedblright%
+\ by $1$'s. Thus, for any given $r\in\mathbb{N}_{+}$, if the $r$-th row of $T$
+contains $r$ many $1$'s which are not \textquotedblleft
+ignored\textquotedblright\ and $s$ many $2$'s which are not \textquotedblleft
+ignored\textquotedblright, then the $r$-th row of $\operatorname*{flip}\left(
+T\right)  $ contains $r$ many $2$'s which are not \textquotedblleft
+ignored\textquotedblright\ and $s$ many $1$'s which are not \textquotedblleft
+ignored\textquotedblright\ (while the \textquotedblleft
+ignored\textquotedblright\ entries in $T$ appear in $\operatorname*{flip}%
+\left(  T\right)  $ unchanged). So we can restate the construction of
+$\operatorname*{flip}\left(  T\right)  $ as follows:
+
+To construct $\operatorname*{flip}\left(  T\right)  $ from $T$, do the
+following: In every row of $T$, let $r$ be the number of $1$'s which are not
+\textquotedblleft ignored\textquotedblright, and let $s$ be the number of
+$2$'s which are not \textquotedblleft ignored\textquotedblright. We replace
+these $r$ many $1$'s and $s$ many $2$'s by $r$ many $2$'s and $s$ many $1$'s
+(in this order). This we do for every row; the resulting 12-table is
+$\operatorname*{flip}\left(  T\right)  $.
+
+Compare this to our construction of $B\left(  T\right)  $:
+
+To construct $B\left(  T\right)  $ from $T$, do the following: In every row of
+$T$, let $r$ be the number of $1$'s which are not \textquotedblleft
+ignored\textquotedblright, and let $s$ be the number of $2$'s which are not
+\textquotedblleft ignored\textquotedblright. We replace these $r$ many $1$'s
+and $s$ many $2$'s by $s$ many $1$'s and $r$ many $2$'s (in this order). This
+we do for every row; the resulting 12-sst is $B\left(  T\right)  $.
+
+Comparing these two constructions makes it clear that each row of $B\left(
+T\right)  $ differs from the corresponding row of $\operatorname*{flip}\left(
+T\right)  $ merely in the order in which the non-\textquotedblleft
+ignored\textquotedblright\ entries appear: In $B\left(  T\right)  $, the
+non-\textquotedblleft ignored\textquotedblright\ $1$'s appear before the
+non-\textquotedblleft ignored\textquotedblright\ $2$'s (as they must,
+$B\left(  T\right)  $ being an sst), whereas in $\operatorname*{flip}\left(
+T\right)  $ they appear in the opposite order. Hence, $B\left(  T\right)  $
+can be obtained from $\operatorname*{flip}\left(  T\right)  $ by sorting all
+non-\textquotedblleft ignored\textquotedblright\ entries into increasing order
+in each row.
+
+Now, let us notice that every pair of a non-\textquotedblleft
+ignored\textquotedblright\ $2$ and a non-\textquotedblleft
+ignored\textquotedblright\ $1$ lying in the same row of $\operatorname*{flip}%
+\left(  T\right)  $ cause a conflict\footnote{More precisely: If
+$r\in\mathbb{N}_{+}$, $i\in\mathbb{N}_{+}$ and $j\in\mathbb{N}_{+}$ are such
+that $\left(  \operatorname*{flip}T\right)  \left(  r,i\right)  $ is a
+non-\textquotedblleft ignored\textquotedblright\ $2$ and that $\left(
+\operatorname*{flip}T\right)  \left(  r,j\right)  $ is a non-\textquotedblleft
+ignored\textquotedblright\ $1$, then $\left(  i,j\right)  $ is a conflict of
+$\operatorname*{flip}T$.}. Conversely, all conflicts of $\operatorname*{flip}%
+\left(  T\right)  $ are caused by a non-\textquotedblleft
+ignored\textquotedblright\ $2$ and a non-\textquotedblleft
+ignored\textquotedblright\ $1$ lying in the same row (because all
+\textquotedblleft ignored\textquotedblright\ entries are carried over from $T$
+without change and thus cannot take part in conflicts). We can resolve these
+conflicts one after the other (starting with the $2$ and the $1$ that are
+adjacent to each other), until none are left. The result is a 12-rpp. What is
+this 12-rpp?
+
+\begin{itemize}
+\item On the one hand, this 12-rpp is $\operatorname*{norm}\left(
+\operatorname*{flip}\left(  T\right)  \right)  $, because
+$\operatorname*{norm}\left(  \operatorname*{flip}\left(  T\right)  \right)  $
+is defined as what results when all conflicts of $\operatorname*{flip}\left(
+T\right)  $ are resolved.
+
+\item On the other hand, this 12-rpp is $B\left(  T\right)  $. In fact,
+resolving a conflict caused by a non-\textquotedblleft
+ignored\textquotedblright\ $2$ and a non-\textquotedblleft
+ignored\textquotedblright\ $1$ lying in the same row results in this $2$
+getting switched with the $1$ (while no other entries get moved\footnote{This
+is because every non-\textquotedblleft ignored\textquotedblright\ entry is
+alone in its column.}). Hence, when we resolve the conflicts, we just sort all
+non-\textquotedblleft ignored\textquotedblright\ entries into increasing order
+in each row. But as we know, the 12-table obtained from $\operatorname*{flip}%
+\left(  T\right)  $ by sorting all non-\textquotedblleft
+ignored\textquotedblright\ entries into increasing order in each row is
+$B\left(  T\right)  $.
+\end{itemize}
+
+So we have found a 12-rpp which equals both $\operatorname*{norm}\left(
+\operatorname*{flip}\left(  T\right)  \right)  $ and $B\left(  T\right)  $.
+Thus, $B\left(  T\right)  =\operatorname*{norm}\left(  \operatorname*{flip}%
+\left(  T\right)  \right)  =\mathbf{B}\left(  T\right)  $. This completes our
+proof of Proposition \ref{prop.BK=BK}.
+\end{proof}
+
 \begin{todo}
 Prove this (well, sketch a proof).
 \end{todo}
@@ -7062,7 +7889,7 @@ Mathematical Society Student Texts 35, Cambridge University Press 1997.
 \bibitem[GriRei15]{GriRei15}Darij Grinberg, Victor Reiner, \textit{Hopf
 algebras in Combinatorics}, June 1, 2015,
 \href{http://arxiv.org/abs/1409.8356v2}{arXiv:1409.8356v2}. \newline See also
-\url{http://web.mit.edu/~darij/www/algebra/HopfComb.pdf}{f}or a version which
+\url{http://web.mit.edu/~darij/www/algebra/HopfComb.pdf} for a version which
 is more frequently updated.
 
 \bibitem[LamPyl07]{LamPyl}Thomas Lam, Pavlo Pylyavskyy, \textit{Combinatorial
