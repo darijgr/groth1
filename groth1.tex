@@ -7860,9 +7860,237 @@ proof of Proposition \ref{prop.BK=BK}.
 Prove this (well, sketch a proof).
 \end{todo}
 
-\begin{todo}
-Pavel's alternative definition and uniqueness?
-\end{todo}
+
+
+\section{The structure of 12-rpps}
+\def\cut{{\operatorname*{cut}}} % what would be a good notation here? same question for the below:
+\def\ceq{{\operatorname*{ceq}}}
+\def\ircont{{\operatorname*{ircont}}}
+\def\ceqvar{{{ceq}}} %??
+\def\cutvar{{{\nu}}} % ???
+\def\supp{{\operatorname*{supp}}}
+\def\NS{{\operatorname*{NS}}}
+\def\g{{\widetilde{g}}}
+\def\t{{\mathbf{t}}}
+\def\lm{{\lambda/\mu}}
+\def\lmp{{(\lambda/\mu)}}
+\def\N{{\mathbb{N}}}
+\def\Z{\mathbb{Z}}
+
+\def\OneTwoRPP{{\operatorname*{RPP}^{12}\left(  \lambda/\mu\right)}}
+\def\OneTwoRPPCutvar{{\operatorname*{RPP}^{12}\left(  \lambda/\mu ;\cutvar \right)}}
+\def\flip{{\operatorname*{flip}}}
+
+In this section, we restrict ourselves to the two-variable dual-stable Grothendieck polynomial $\g_\lm(x_1,x_2,0,0,\dots;\t)$. We can represent it as a polynomial in $\t$ with coefficients in $\Z[x_1,x_2]$:
+$$\g_\lm(x_1,x_2,0,0,\dots;\t)=\sum_{\ceqvar\in \N^{\N_+}}\t^\ceqvar Q_\ceqvar(x_1,x_2).$$
+We show that each $Q_\ceqvar(x_1,x_2)$ is either zero or has a form
+$$Q_\ceqvar(x_1,x_2)=(x_1x_2)^{M} P_{n_0}(x_1,x_2)P_{n_1}(x_1,x_2)\dots P_{n_r}(x_1,x_2) ,$$
+where $M,r$ and $n_0,n_1,\dots,n_{r}$ are integers naturally associated to $\ceqvar$ and $\lm$ and 
+$$P_n(x_1,x_2)=(x_1^{n+1}-x_2^{n+1})/(x_1-x_2)=x_1^{n}+x_1^{n-1}x_2+\dots+x_1x_2^{n-1}+x_2^n.$$
+We fix the skew-shape $\lm$ throughout the whole section and let $W(\lm)$ be the number of columns in $\lm$. We will have a running example with $\lambda=(7,7,7,4,4)$ and $\mu=(5,3,2)$.
+
+
+
+\subsection{Irreducible components}
+Given a rpp $T$, consider the set $\NS(T)$ of all cells $(i,j)\in \lm$ such that $T(i,j)=1$ but $T(i+1,j)=2$ (in other words, $\NS(T)$ is the set of all non-stangant cells in $T$ filled with a $1$). Clearly, $\NS(T)$ contains at most one cell from each column, so denote $\NS(T)=\{(i_1,j_1),(i_2,j_2),\dots,(i_s,j_s)\}$ with $j_1<j_2<\dots<j_s$. Because $T$ is a 12-rpp, it follows that the numbers $i_1,i_2,\dots,i_s$ decrease weakly, therefore they form a partition which we call \textit{the cut-partition of} $T$ and denote 
+$$\cut(T):=(i_1,i_2,\dots,i_s).$$ 
+An example of calculation of $\cut(T)$ and $\NS(T)$ is illustrated on Figure \ref{fig:cut}.
+
+\def\one{{\mathbf{1}}}
+\def\two{{\mathbf{1}}}
+
+\begin{figure}
+\begin{tabular}{cc}
+ & \\
+\begin{ytableau}
+\none& \none& \none&\none&\none & 1   & 2 \\
+\none& \none& \none& 1   & 1    &\one & 2 \\
+\none& \none& \one &\one & 1    & 2   & 2 \\
+\one &    2 & 2    & 2 \\
+2    &    2 & 2    & 2
+\end{ytableau}\ \  &
+\begin{ytableau}
+\none& \none& \none&\none&\none & 1   & 1    \\
+\none& \none& \none& 1   & 1    & 1   & \one \\
+\none& \none& \one &\one & 1    & 1   & 2    \\
+1    & \one & 2    & 2 \\
+2    &    2 & 2    & 2
+\end{ytableau}\\
+ & \\
+$\NS(T_1)=\{(4,1),(3,3),(3,4),(2,6)\}$ & $\NS(T_2)=\{(4,2),(3,3),(3,4),(2,7)\}$ \\
+$\cut(T_1)=(4,3,3,2)$ & $\cut(T_2)=(4,3,3,2)$ 
+\end{tabular}\\
+\caption{\label{fig:cut} Two rpps of the same shape and with the same cut-partition.}
+\end{figure}
+
+
+
+We would like to answer the following question: for which partitions $\cutvar=(i_1\geq \dots\geq i_s>0)$ there exists a rpp $T$ of shape $\lm$ such that $\cut(T)=\cutvar$?
+
+A trivial necessary condition for this to happen is that there should exist some numbers $j_1<j_2<\dots<j_s$ such that 
+\begin{equation}\label{cond:necessary}
+(i_1,j_1),(i_1+1,j_1),(i_2,j_2),(i_2+1,j_2),\dots,(i_s,j_s),(i_s+1,j_s)\in \lm. 
+\end{equation}
+
+\newcommand{\nuxy}[2]{{\cutvar\big|_{[#1,#2)}}}
+\def\nuab{{\cutvar\big|_{[a,b)}}}
+
+
+For each integer $i$ the set of all integers $j$ such that $(i,j),(i+1,j)\in\lm$ is just an interval $[\mu_{i}+1,\lambda_{i+1}]$ which we call \textit{the support of $i$} and denote $\supp(i):=[\mu_{i}+1,\lambda_{i+1}]$. For two integers $a< b$, by $\nuab$ we denote the subpartition $(i_r,i_{r+1},\dots,i_{r+q})$ of $\cutvar$ such that for $r\leq k\leq r+q$ we have $\supp(i_k)\subset [a,b)$. In this case, we put $\#\nuab:=q+1$ which is just the number of entries in $\nuab$. For example, for $\cutvar=(4,3,3,2)$ and $\lm$ as on Figure \ref{fig:cut}, we have $\supp(3)=[3,4]$, $\supp(2)=[4,7]$, $\supp(4)=[1,4]$, $\nuxy{2}{7}=(3,3)$, $\nuxy{2}{8}=(3,3,2)$, $\nuxy{4}{8}=(2)$ and $\#\nuxy{2}{7}=2$. 
+
+We introduce several definitions (all of which depend on $\lm$): a partition $\cutvar=(i_1\geq \dots\geq i_s>0)$ is called
+
+\begin{tabular}{@{$\bullet$ }lll}
+ \textit{non-representable} & if for some $a<b$ we have & $\#\nuab>b-a$;\\
+ \textit{representable}& if for all $a<b$ we have& $\#\nuab\leq b-a$;\\
+ \textit{irreducible}& if for all  $a<b$ we have &$\#\nuab < b-a$;\\
+ \textit{reducible} &if for some $a<b$ we have &$\#\nuab=b-a$.
+\end{tabular}
+
+For example, $\cutvar=(4,3,3,2)$ is representable but reducible because we have $\nuxy{3}{5}=(3,3)$ so $\#\nuxy{3}{5}=2=5-3$.
+
+These definitions can be motivated as follows. Suppose that a partition $\cutvar$ is non-representable, so there exist integers $a<b$ such that $\#\nuab>b-a$. Recall that $\nuab=:(i_r,i_{r+1},\dots,i_{r+q})$ contains all entries of $\cutvar$ whose support is a subset of $[a,b)$. Thus in order for condition (\ref{cond:necessary}) to be true there must exist some integers $j_r<j_{r+1}<\dots<j_{r+q}$ such that 
+$$(i_r, j_r),\dots,(i_{r+q},j_{r+q})\in\lm.$$
+From the other hand, by the defintion of the support, we must have $j_k\in \supp(i_k)\subset [a,b)$ for all $r\leq k\leq r+q$. Therefore we get $q+1$ distinct elements of $[a,b)$ which is impossible if $q+1=\#\nuab>b-a$. It means that a non-representable partition $\cutvar$ is never a cut-partition of a 12-rpp $T$. 
+
+Suppose now that a partition $\cutvar$ is reducible, so for some $a<b$ we get an equality $\#\nuab=b-a$. Then these integers $j_r<\dots<j_{r+q}$ should still all belong to $[a,b)$ and there are exactly $b-a$ of them, hence 
+$$j_r=a,j_{r+1}=a+1,\dots,j_{r+q}=a+q=b-1.$$
+Because $\supp(i_r)\subset[a,b)$, we have $(i_r,a-1)\notin\lm$ so placing a one into $(i_r,a)$ and twos into $(i_r+1,a),(i_r+2,a),\dots$ does not put any resrtictions on entries in columns $1,\dots, a-1$. And the same is true for columns $b,b+1,\dots$. Thus, if a partition $\cutvar$ is reducible then the filling of columns $a,a+1,\dots, b-1$ is uniquely determined and the filling of the rest can be arbitrary -- the problem of existence of and 12-rpp $T$ such that $\cut(T)=\cutvar$ reduces to two smaller independent problems of the same kind. One can continue this reduction process and end up with several independent irreducible components separated from each other by mixed columns. An illustration of this phenomenon can be seen on Figure \ref{fig:cut}: the columns $3$ and $4$ must be mixed for any 12-rpps $T$ with $\cut(T)=(4,3,3,2)$. We summarize our observations in the follwing lemma:
+\begin{lemma}
+\label{lemma:irreducible}
+ For a partition $\cutvar$, there exist unique numbers $(1=b_0\leq a_1<b_1<a_2<b_2<\dots<a_r<b_r\leq a_{r+1}=W(\lm)+1)$ such that 
+ \begin{itemize}
+  \item for all $1\leq k\leq r$, $\#\nuxy{a_k}{b_k} =b_k-a_k$;
+  \item for all $0\leq k \leq r$, $\nuxy{b_k}{a_{k+1}}$ is irreducible.
+ \end{itemize}
+\end{lemma}\qed
+\begin{defi}
+ In the context of Lemma \ref{lemma:irreducible}, for $0\leq k\leq r$ the subpartitions $\nuxy{b_k}{a_{k+1}}$ are called \textit{the irreducible components of $\cutvar$} and the numbers $n_k:=a_{k+1}-b_k-\#\nuxy{b_k}{a_{k+1}}$ are called their \textit{degrees}  (for $T$ with $\cut(T)=\cutvar$, the $k$-th degree $n_k$ is equal to the number of pure columns of $T$ inside the corresponding $k$-th irreducible component).
+\end{defi}
+\begin{remark}
+ Note that the conditions on $b_0,a_1,\dots,a_{r+1}$ guarantee that $\cutvar$ is just a concatenation of partitions $\nuxy{b_0}{a_1},\nuxy{a_1}{b_1},\dots,\nuxy{b_r}{a_{r+1}}$. 
+\end{remark}
+
+\begin{exmp}
+ For $\cutvar=(4,3,3,2)$ we have $r=1,b_0=1,a_1=3,b_1=5,a_2=8$. The irreducible components of $\cutvar$ are $(4)$ and $(2)$ and their degrees are $3-1-1=1$ and $8-5-1=2$ respectively. We have $\nuxy{1}{3}=(4),\nuxy{3}{5}=(3,3),\nuxy{5}{8}=(2)$.
+\end{exmp}
+
+
+\subsection{The structural theorem and its applications}
+It is easy to see that for a 12-rpp $T$, $\#\cut(T)$ is equal to the number of mixed columns in $T$. Also, by $\OneTwoRPP$ denote the set of all 12-rpps $T$ of shape $\lm$ and by $\OneTwoRPPCutvar$ denote its subset that contains only 12-rpps $T$ with $\cut(T)=\cutvar$. Now we are ready to state a theorem that completely describes the structure of irreducible components:
+\begin{theo}
+\label{thm:12rpps}
+ Let $\cutvar$ be an irreducible partition. Then for all $0\leq m\leq W(\lm)-\#\cutvar$ there is exactly one 12-rpp $T\in\OneTwoRPPCutvar$ with $\#\cutvar$ mixed columns, $m$ $1$-pure columns and $(W(\lm)-\#\cutvar-m)$ $2$-pure columns. Moreover, these are the only elements of $\OneTwoRPPCutvar$. In other words, for an irreducible partition $\cutvar$ we have
+  \begin{equation}
+ \label{eq:thm12rpps}
+ \sum_{T\in\OneTwoRPPCutvar} x^{\ircont(T)}=(x_1x_2)^{\#\cutvar} P_{W(\lm)-\#\cutvar}(x_1,x_2).
+ \end{equation}
+\end{theo}
+
+\begin{exmp}
+ Each of the two 12-rpps on Figure \ref{fig:cut} has two irreducible components. One of them is supported on the first two columns and the other one is supported on the last three columns. All possible 12-rpps for each component are depicted on Figure \ref{fig:irr}.
+ 
+\begin{figure}
+\begin{tabular}{cc}
+\begin{tabular}{cc}
+ & \\
+\begin{ytableau}
+1 & \one \\
+1 & 2
+\end{ytableau}\ &
+\begin{ytableau}
+\one& 2\\
+2   & 2
+\end{ytableau}\\
+\end{tabular} & 
+\begin{tabular}{ccc}
+\begin{ytableau}
+\none & 1 & 1\\
+1 & 1 & \one \\
+1 & 1 & 2
+\end{ytableau}\ &
+\begin{ytableau}
+\none & 1 & 2\\
+1 & \one & 2 \\
+1 & 2 & 2
+\end{ytableau}\ &
+\begin{ytableau}
+\none & 2 & 2\\
+\one & 2 & 2 \\
+2 & 2 & 2
+\end{ytableau} \\
+\end{tabular}\\
+$\lambda=(2,2);\ \mu=();\ \cutvar=(1)$ & $\lambda=(3,3,3);\ \mu=(1);\ \cutvar=(2)$. 
+\end{tabular}\\
+\caption{\label{fig:irr} Irreducible components and all possible 12-rpps for them}
+\end{figure}
+\end{exmp}
+
+
+After decomposing into irreducible components, we can obtain a formula for general reducible partitions:
+\begin{coro}
+ Let $\cutvar$ be a representable partition. Then
+  \begin{equation}
+  \label{eq:thm12rppsComposite}
+\sum_{T\in\OneTwoRPPCutvar} x^{\ircont(T)}=(x_1x_2)^{M} P_{n_0}(x_1,x_2)P_{n_1}(x_1,x_2)\dots P_{n_r}(x_1,x_2),
+  \end{equation}
+
+  where the numbers $M,r,n_0,\dots,n_r$ are defined above: $M=\#\cutvar$, $r+1$ is the number of irreducible components of $\cutvar$ and $n_0,n_1,\dots,n_r$ are their degrees.
+\end{coro}
+
+ For a 12-rpp $T$, the vectors $\cut(T)$ and $\ceq(T)$ uniquely determine each other: if $(\ceq(T))_i=h$ then $\cut(T)$ contains exactly $\lambda_{i+1}-\mu_i-h$ entries equal to $i$, and this correspondence is one-to-one. Therefore, the polynomials on both sides of (\ref{eq:thm12rppsComposite}) are equal to $Q_{\ceqvar}(x_1,x_2)$ where the vector $\ceqvar$ is the one that corresponds to $\cutvar$.
+
+ Note that the polynomials $P_n(x_1,x_2)$ are symmetric for all $n$. Since the question about the symmetry of $\g$ can be reduced to the two-variable case, Theorem \ref{thm:12rpps} gives an alternative proof of the symmetry of $\g$:
+\begin{coro}
+ The polynomials $\g(x_1,x_2,x_3,\dots;\t)$ are symmetric in $(x_1,x_2,x_3\dots)$.
+\end{coro}
+
+Another application of Theorem \ref{thm:12rpps} is a complete description of Bender-Knuth involutions on rpps.
+
+\begin{coro}
+\label{cor:uniqueBK}
+Let $\cutvar$ be an irreducible partition. Then there is a unique map $b:\OneTwoRPPCutvar\to\OneTwoRPPCutvar$ such that for all $T\in\OneTwoRPPCutvar$ we have 
+$$\ircont(T)=(c_1,c_2,0,0,\dots)\Longrightarrow \ircont(b(T))=(c_2,c_1,0,0,\dots).$$
+In this case, such a map is an involution on $\OneTwoRPPCutvar$. So, for irreducible partition $\cutvar$ the corresponding Bender-Knuth involution exists and is unique.
+\end{coro}
+
+Take any 12-rpp $T\in\OneTwoRPPCutvar$ and recall that a 12-table $\flip(T)$ is obtained from $T$ by simultaneously replacing all entries in $1$-pure columns by $2$ and all entries in $2$-pure columns by $1$. 
+
+\begin{coro}
+\label{cor:confluence}
+ If $\cutvar$ is an irreducible partition, then no matter in which order one resolves conflicts in $\flip(T)$, the resulting tableau $T'$ will be the same. The map $T\to T'$ is the unique Bender-Knuth involution on $\OneTwoRPPCutvar$.
+\end{coro}
+\begin{proof}[Proof of Corollary \ref{cor:confluence}]
+ By Proposition \ref{prop.finality}, conflict-resolving steps applied in any order give an element of $\OneTwoRPPCutvar$. So we get a map $\OneTwoRPPCutvar\to \OneTwoRPPCutvar$ that satisfies the assumptions of Corollary \ref{cor:uniqueBK}.
+\end{proof}
+
+
+Finally, notice that for a general representable partition $\cutvar$ conflicts may only occur inside each irreducible component independently, so we conclude the chain of corollaries by stating that our constructed involutions are canonical in the following sense:
+
+\begin{coro}
+ For a representable partition, the map $\mathbf{B}:\OneTwoRPPCutvar\to\OneTwoRPPCutvar$ is the unique involution that interchanges the number of $1$-pure columns with the number of $2$-pure columns inside each irreducible component.
+\end{coro}
+
+\subsection{The proof}
+Recall that $\cutvar=(i_1,\dots,i_s)$ is an irreducible partition. We start with the following simple observation:
+\begin{lemma}
+\label{lemma:leftRight}
+ Let $T\in\OneTwoRPPCutvar$. Then any $1$-pure column of $T$ is to the left of any $2$-pure column of $T$.
+\end{lemma}
+\begin{proof}[Proof of Lemma \ref{lemma:leftRight}]
+Suppose it is false and we have a $1$-pure column to the right of a $2$-pure column. Consider the closest pair of columns $a$ and $b$ such that $a$ is $2$-pure and $b$ is $1$-pure, then the columns $a+1,\dots,b-1$ must all be mixed. %, otherwise if some column $k\in (a,b)$ is $1$-pure (resp., $2$-pure) then the columns $a$ and $k$ (resp., $k$ and $b$) would be closer to each other than $a$ and $b$.
+Therefore the set $\NS(T)$ contains $\{(i_1,a+1),(i_2,a+2),\dots,(i_{b-1-a},b-1)\}$. And because $a$ is $2$-pure and $b$ is $1$-pure, the support of any $i_k$ for $k=1\dots b-1-a$ is a subset of $[a+1,b)$ which contradicts the irreducibility of $\cutvar$.
+\end{proof}
+
+
+\begin{proof}[Proof of Theorem \ref{thm:12rpps}]
+We proceed by induction on the number of columns in $\lm$. If the number of columns is one then the statement of Theorem \ref{thm:12rpps} is obvious. Suppose that we have proven that for all skew-shapes $\widetilde{\lm}$ with less than $W(\lm)$ columns and for all $\widetilde{\lm}$-irreducible partitions $\widetilde\cutvar$ and for all $0\leq \widetilde m\leq W(\widetilde{\lm})-\#\widetilde\cutvar$, there is exactly one 12-rpp $\widetilde T$ of shape $\widetilde{\lm}$ with exactly $\widetilde m$ $1$-pure columns, exactly $\#\widetilde\cutvar$ mixed columns and exactly $(W(\widetilde{\lm})-\#\widetilde\cutvar-\widetilde m)$ $2$-pure columns. Now we want to prove the same for $\lm$.
+
+Take any 12-rpp $T\in\OneTwoRPPCutvar$ with $\cut(T)=\cutvar$ and with $m$ $1$-pure columns for $0\leq m\leq W(\lm)-\#\cutvar$. Suppose first that $m>0$. Then there is at least one $1$-pure column in $T$. Let $q+1$ be the leftmost such column for some $q\geq 0$. Then by Lemma \ref{lemma:leftRight} the columns $1,2,\dots,q$ are mixed. If $q>0$ then the supports of $i_1,i_2,\dots,i_q$ are all contained inside $[1,q+1)$ and we get a contradiction with the irreducibility of $\cutvar$. The only remaining case is that $q=0$ and the first column of $T$ is $1$-pure. Let $\widetilde\lm$ denote $\lm$ with the first column removed. Then $\cutvar$ may be not $\widetilde\lm$-reducible, because it may happen that $\#\nuxy{1}{b}=b-1$ for some $b$. In this case we can ignore these first $b-1$ mixed columns and apply the induction hypothesis. We are done with the case $m>0$. If $m<W(\lm)-\#\cutvar$ then we can apply a mirrored argument to the last column, and it remains to note that for $W(\lm)-\#\cutvar>0$ the cases $m>0$ and $m<W(\lm)-\#\cutvar$ cover everything and for $W(\lm)=\#\cutvar$ we get that $T$ is a 12-rpp with all mixed columns, but there is obviously a unique such 12-rpp.
+\end{proof}
+
+
+
 
 \begin{todo}
 Mention failure of order-$6$ relation?
