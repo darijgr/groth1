@@ -49,9 +49,10 @@
 \usepackage{amsthm}
 \usepackage{fancyhdr}
 \usepackage{ytableau}
+\usepackage{tabu}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, June 05, 2015 02:13:51}
+%TCIDATA{LastRevised=Monday, June 08, 2015 22:39:34}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -140,47 +141,118 @@
 
 \section{Introduction}
 
-\begin{todo}
-Add an introduction (as in, abstract/advertisement; the definitions of all
-notations used should be separate and have already been written).
-
-Ask Alex to come up with reasons why to care about dual stable Grothendieck polynomials?
-
-The below introduction is a stopgap.
-\end{todo}
-
 Thomas Lam and Pavlo Pylyavskyy, in \cite[\S 9.1]{LamPyl}, (and earlier Mark
 Shimozono and Mike Zabrocki in unpublished work of 2003) studied \textit{dual
 stable Grothendieck polynomials}, a deformation (in a sense) of the Schur
-functions. As the Schur functions are multivariate generating functions of
-semistandard tableaux of a given (skew) partition shape, the dual stable
-Grothendieck polynomials are generating functions of reverse plane partitions,
-which, unlike semistandard tableaux, are only required to have their entries
-increase \textit{weakly} down columns. (Like for the Schur function, each
-addend of the generating function corresponds to a single reverse plane
-partition $T$. It is, in fact, the product of the $x$'s corresponding to the
-entries of $T$ -- but with the caveat that every entry counts only once per
-column, even if it appears several times in the column. We will give a more
-formal definition of this and other concepts further below.) Lam and
-Pylyavskyy have shown that these dual stable Grothendieck
-polynomials\footnote{The word \textquotedblleft polynomials\textquotedblright%
-\ is a stretch: these generating functions are bounded-degree power series in
-infinitely many indeterminates (like the Schur functions).} are symmetric functions.
+functions. Let us briefly recount their definition.\footnote{All definitions
+that will be made in this introduction are provisional. Every notion that will
+be used in the paper is going to be defined in more detail and precision in
+one of the sections below; thus, a reader not already familiar with Schur
+functions and partitions should start reading from Section
+\ref{sect.notations} on.}
 
-We devise a common generalization (with infinitely many additional degrees of
-freedom) of the dual stable Grothendieck polynomials and the classical skew
-Schur functions. We then prove that these generalized power series still are
-symmetric functions (which also yields a new proof of \cite[Theorem
-9.1]{LamPyl}). This is achieved through a generalization of the classical
-Bender-Knuth involutions to the reverse plane partitions; these generalized
-involutions are constructed using a form of the \textit{diamond lemma}, which
-we prove for the sake of completeness.
+Let $\lambda/\mu$ be a skew partition. The Schur function $s_{\lambda/\mu}$ is
+a multivariate generating function for the semistandard tableaux of shape
+$\lambda/\mu$. In the same vein, the dual stable Grothendieck
+polynomial\footnote{The word \textquotedblleft polynomial\textquotedblright%
+\ is a stretch: $g_{\lambda/\mu}$ is a bounded-degree power series in
+infinitely many indeterminates (like $s_{\lambda/\mu}$).} $g_{\lambda/\mu}$ is
+a generating function for the reverse plane partitions of shape $\lambda/\mu$;
+these, unlike semistandard tableaux, are only required to have their entries
+increase \textit{weakly} down columns (and along rows). More precisely,
+$g_{\lambda/\mu}$ is a formal power series in countably many commuting
+indeterminates $x_{1},x_{2},x_{3},\ldots$ (over an arbitrary commutative ring
+$\mathbf{k}$) defined by%
+\[
+g_{\lambda/\mu}=\sum_{\substack{T\text{ is a reverse plane}\\\text{partition
+of shape }\lambda/\mu}}\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  },
+\]
+where $\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }$ is the monomial
+$x_{1}^{a_{1}}x_{2}^{a_{2}}x_{3}^{a_{3}}\cdots$ whose $i$-th exponent $a_{i}$
+is the number of columns of $T$ containing the entry $i$. As proven in
+\cite[\S 9.1]{LamPyl}, this power series $g_{\lambda/\mu}$ is a symmetric
+function (albeit, unlike $s_{\lambda/\mu}$, an inhomogeneous one in general).
+Lam and Pylyavskyy connect the $g_{\lambda/\mu}$ to the (more familiar)
+\textit{stable Grothendieck polynomials} $G_{\lambda/\mu}$ (via a duality
+between the symmetric functions and their completion, which explains the name
+of the $g_{\lambda/\mu}$; see \cite[\S 9.4]{LamPyl}) and to the $K$-theory of
+Grassmannians (\cite[\S 9.5]{LamPyl}).
+
+We devise a common generalization of the dual stable Grothendieck polynomial
+$g_{\lambda/\mu}$ and the classical skew Schur function $s_{\lambda/\mu}$.
+Namely, if $t_{1},t_{2},t_{3},\ldots$ are countably many fixed elements of the
+base ring $\mathbf{k}$ (e.g., polynomial indeterminates, or integers), then we
+set%
+\[
+\widetilde{g}_{\lambda/\mu}=\sum_{\substack{T\text{ is a reverse
+plane}\\\text{partition of shape }\lambda/\mu}}\mathbf{t}^{\operatorname*{ceq}%
+\left(  T\right)  }\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  },
+\]
+where $\mathbf{t}^{\operatorname*{ceq}\left(  T\right)  }$ is the product
+$t_{1}^{b_{1}}t_{2}^{b_{2}}t_{3}^{b_{3}}\cdots$ whose $i$-th exponent $b_{i}$
+is the number of cells in the $i$-th row of $T$ whose entry equals the entry
+of their neighbor cell directly below them. This $\widetilde{g}_{\lambda/\mu}$
+becomes $g_{\lambda/\mu}$ when all the $t_{i}$ are set to $1$, and becomes
+$s_{\lambda/\mu}$ when all the $t_{i}$ are set to $0$; but keeping the $t_{i}$
+arbitrary offers infinitely many degrees of freedom which are so far
+unexplored. Our main result, Theorem \ref{thm.gtilde.symm}, states that
+$\widetilde{g}_{\lambda/\mu}$ is a symmetric function (in the $x_{1}%
+,x_{2},x_{3},\ldots$).
+
+We prove this result (thus obtaining a new proof of \cite[Theorem 9.1]%
+{LamPyl}) first using an elaborate generalization of the classical
+Bender-Knuth involutions to reverse plane partitions; these generalized
+involutions are constructed using a form of the \textit{diamond lemma} (Lemma
+\ref{lem.diamond}).
+
+\begin{todo}
+Pavel: advertise your section here? It sort-of gives some justification for
+why the $t_{i}$ are a natural thing to consider too.
+\end{todo}
+
+The present paper is organized as follows: In Section \ref{sect.notations}, we
+recall classical definitions and introduce notations pertaining to
+combinatorics and symmetric functions. In Section \ref{sect.def}, we define
+the dual stable Grothendieck polynomials $\widetilde{g}_{\lambda/\mu}$, state
+our main result (that they are symmetric functions), and do the first steps of
+its proof (by reducing it to a purely combinatorial statement about the
+existence of an involution with certain properties). In Section
+\ref{sect.diamond}, we state and (for the sake of completeness) prove the
+version of the diamond lemma we need, and we digress to give an elementary
+application of it that serves to demonstrate its use. In Section
+\ref{sect.proof}, we prove our main result by constructing the required
+involution using the diamond lemma. In Section \ref{sect.BKclassical}, we
+recapitulate the definition of the classical Bender-Knuth involution, and
+sketch the proof that our involution is a generalization of the latter.
+
+\begin{todo}
+Pavel: your last section should also be summarized here.
+\end{todo}
+
+\begin{todo}
+What is missing from the above introduction? Specifically:
+
+\begin{itemize}
+\item Are there any more results from the paper that should be advertised here?
+
+\item More reasons why care about dual stable Grothendieck polynomials? (Buch,
+Knutson, Postnikov could know some.)
+
+\item What I wrote about $K$-theory is rather shallow. More details?
+
+More specifically, and interestingly, I am wondering if our $\widetilde{g}%
+_{\lambda/\mu}$ aren't K-theoretical classes of something multigraded (toric
+structure on the Grassmannian? there are two sides from which we can multiply
+a matrix by a diagonal matrix, and even if we \textquotedblleft use
+up\textquotedblright\ one for taking \textquotedblleft
+characters\textquotedblright, the other one is still there).
+\end{itemize}
+\end{todo}
 
 \subsection{Acknowledgments}
 
-Thanks are due to Richard Stanley for familiarizing the authors of this paper
-with dual stable Grothendieck polynomials, and to Alexander Postnikov for
-providing context and motivation.
+We owe our familiarity with dual stable Grothendieck polynomials to Richard
+Stanley. Thanks are also due to Alexander Postnikov for providing context and motivation.
 
 \begin{todo}
 Keep this up to date.
@@ -3780,13 +3852,15 @@ hypothesis are satisfied. This completes the proof of Proposition
 
 \section{\label{sect.proof}Proof of Lemma \ref{lem.BK}}
 
-We now come to the actual proof of Lemma \ref{lem.BK}.
+We now come to the actual proof of Lemma \ref{lem.BK}. For the whole Section
+\ref{sect.proof}, we shall be working in the situation of Lemma \ref{lem.BK}.
 
 \subsection{\label{subsect.fourtypes}12-tables and the four types of their
 columns}
 
-Let $Z$ be a finite convex subset of $\mathbb{N}_{+}^{2}$. Let $\mathbf{R}$
-denote the set of all 12-rpps of shape $Z$.
+Let $Z$ be a finite convex subset of $\mathbb{N}_{+}^{2}$. We shall keep $Z$
+fix for the rest of Section \ref{sect.proof}. Let $\mathbf{R}$ denote the set
+of all 12-rpps of shape $Z$.
 
 A \textit{12-table} will mean a map $T:Z\rightarrow\left\{  1,2\right\}  $
 such that the entries of $T$ are weakly increasing down columns. (We do not
@@ -3881,6 +3955,13 @@ $.
 (The notion of a conflict of $T$ is in some sense analogous to that of an
 inversion of $z$ in Subsection \ref{subsect.bubble}.)
 
+\begin{vershort}
+Clearly, a 12-rpp of shape $Z$ is the same as a 12-table which has no
+conflicts.\footnote{Indeed, the conflicts of a 12-table stem from the failures
+of its entries to be weakly increasing along rows.}
+\end{vershort}
+
+\begin{verlong}
 It is clear that%
 \begin{equation}
 \text{a 12-rpp of shape }Z\text{ is the same as a 12-table which has no
@@ -3892,6 +3973,7 @@ $2$'s, and each of the $1$'s must be left of each of the $2$'s or else we
 would incur a conflict), i.e., the entries of the 12-table are weakly
 increasing along rows, and thus it is a 12-rpp. The converse is just as
 obvious.}
+\end{verlong}
 
 We notice a simple fact which we will not use until much later:
 
@@ -3924,9 +4006,54 @@ $T$, and so is $\left(  1,3\right)  $. One can notice that every row which
 conflict $\left(  1,3\right)  $ (where we say that the $r$-th row
 \textit{witnesses} a conflict $\left(  i,j\right)  $ if and only if $\left(
 r,i\right)  \in Z$, $\left(  r,j\right)  \in Z$, $T\left(  r,i\right)  =2$ and
-$T\left(  r,j\right)  =1$). This is the main idea of the proof that will follow.
+$T\left(  r,j\right)  =1$).
+
+\begin{verlong}
+This is the main idea of the proof that will follow.
+\end{verlong}
 \end{example}
 
+\begin{vershort}
+\begin{proof}
+[\nopunct]Since we shall not use Proposition \ref{prop.conflict.transitive},
+we leave its proof (which is an instructive exercise on the definition of
+conflicts and on the use of the convexity of $Z$) to the reader.
+\end{proof}
+\end{vershort}
+
+\begin{noncompile}
+\begin{proof}
+[Proof of Proposition \ref{prop.conflict.transitive}.]We know that $\left(
+b,c\right)  $ is a conflict of $T$. In other words, $\left(  b,c\right)  $ is
+a pair of positive integers such that $b<c$ and such that there exists an
+$r\in\mathbb{N}_{+}$ satisfying $\left(  r,b\right)  \in Z$, $\left(
+r,c\right)  \in Z$, $T\left(  r,b\right)  =2$ and $T\left(  r,c\right)  =1$
+(due to the definition of a \textquotedblleft conflict\textquotedblright). Let
+us denote this $r$ by $q$. Thus, $\left(  q,b\right)  \in Z$, $\left(
+q,c\right)  \in Z$, $T\left(  q,b\right)  =2$ and $T\left(  q,c\right)  =1$.
+
+Also, $\left(  a,b\right)  $ is a conflict of $T$. In other words, $\left(
+a,b\right)  $ is a pair of positive integers such that $a<b$ and such that
+there exists an $r\in\mathbb{N}_{+}$ satisfying $\left(  r,a\right)  \in Z$,
+$\left(  r,b\right)  \in Z$, $T\left(  r,a\right)  =2$ and $T\left(
+r,b\right)  =1$. Consider this $r$. Clearly, $a<b<c$.
+
+We have $T\left(  q,b\right)  =2>1=T\left(  r,c\right)  $. Since the entries
+of $T$ are weakly increasing down columns, this shows that $q>r$. Hence,
+$r<q$. Now, the set $Z$ is convex. Thus, $\left(  r,c\right)  \in Z$ (by
+(\ref{eq.convex}), applied to $r$, $r$, $q$, $a$, $c$ and $c$ instead of $i$,
+$i^{\prime}$, $i^{\prime\prime}$, $j$, $j^{\prime}$ and $j^{\prime\prime}$).
+Now, recalling again that the entries of $T$ are weakly increasing down
+columns, we obtain $T\left(  r,c\right)  \leq T\left(  q,c\right)  $ (since
+$r<q$). Hence, $T\left(  r,c\right)  \leq T\left(  q,c\right)  =1$, so that
+$T\left(  r,c\right)  =1$. Now, we know that $a<c$, $\left(  r,a\right)  \in
+Z$, $\left(  r,c\right)  \in Z$, $T\left(  r,a\right)  =2$ and $T\left(
+r,c\right)  =1$. Hence, $\left(  a,c\right)  $ is a conflict of $T$. This
+proves Proposition \ref{prop.conflict.transitive}.
+\end{proof}
+\end{noncompile}
+
+\begin{verlong}
 \begin{proof}
 [Proof of Proposition \ref{prop.conflict.transitive}.]We know that $\left(
 b,c\right)  $ is a conflict of $T$. In other words, $\left(  b,c\right)  $ is
@@ -3973,11 +4100,12 @@ T\left(  r,c\right)   &  \leq T\left(  q,c\right)  \ \ \ \ \ \ \ \ \ \ \left(
 &  =1,
 \end{align*}
 so that $T\left(  r,c\right)  =1$ (since $T\left(  r,c\right)  $ is either $1$
-or $2$). Now, we know that $\left(  r,a\right)  \in Z$, $\left(  r,c\right)
-\in Z$, $T\left(  r,a\right)  =2$ and $T\left(  r,c\right)  =1$. Hence,
-$\left(  a,c\right)  $ is a conflict of $T$. This proves Proposition
+or $2$). Now, we know that $a<c$, $\left(  r,a\right)  \in Z$, $\left(
+r,c\right)  \in Z$, $T\left(  r,a\right)  =2$ and $T\left(  r,c\right)  =1$.
+Hence, $\left(  a,c\right)  $ is a conflict of $T$. This proves Proposition
 \ref{prop.conflict.transitive}.
 \end{proof}
+\end{verlong}
 
 \begin{remark}
 \label{rmk.conflict.transitive.anti}Proposition \ref{prop.conflict.transitive}
@@ -4068,12 +4196,14 @@ smallest $r\in\mathbb{N}_{+}$ such that $\left(  r,k\right)  \in Z$ and
 $T\left(  r,k\right)  =2$.\ \ \ \ \footnote{Such an $r$ exists since the
 $k$-th column of $T$ contains at least one $2$ (in fact, it is mixed).}
 (Speaking visually, the integer $\operatorname*{sep}\nolimits_{k}T$ tells us
-at what row the $1$'s end and the $2$'s begin in the $k$-th column of $T$. Or,
-more sloppily said, it separates the $1$'s from the $2$'s in the $k$-th column
-of $T$; this is why we call it $\operatorname*{sep}\nolimits_{k}T$.) Thus,
-every 12-table, every $r\in\mathbb{N}_{+}$ and every $k\in\mathbb{N}_{+}$ such
-that the $k$-th column of $T$ is mixed and such that $\left(  r,k\right)  \in
-Z$ satisfy%
+at what row the $1$'s end\footnote{Our use of the words \textquotedblleft
+end\textquotedblright\ and \textquotedblleft begin\textquotedblright\ always
+assumes that we are reading the columns of our 12-tables from top to bottom.}
+and the $2$'s begin in the $k$-th column of $T$. Or, more sloppily said, it
+separates the $1$'s from the $2$'s in the $k$-th column of $T$; this is why we
+call it $\operatorname*{sep}\nolimits_{k}T$.) Thus, every 12-table $T$, every
+$r\in\mathbb{N}_{+}$ and every $k\in\mathbb{N}_{+}$ such that the $k$-th
+column of $T$ is mixed and such that $\left(  r,k\right)  \in Z$ satisfy%
 \begin{equation}
 T\left(  r,k\right)  =\left\{
 \begin{array}
@@ -4081,14 +4211,80 @@ T\left(  r,k\right)  =\left\{
 1,\ \ \ \ \ \ \ \ \ \ \text{if }r<\operatorname*{sep}\nolimits_{k}T;\\
 2,\ \ \ \ \ \ \ \ \ \ \text{if }r\geq\operatorname*{sep}\nolimits_{k}T
 \end{array}
-\right.  . \label{pf.lem.BK.Tsep}%
+\right.  \label{pf.lem.BK.Tsep}%
 \end{equation}
+(because the $k$-th column of $T$ is weakly increasing).
 
+\begin{verlong}
+We notice a simple property of 12-tables: If $T$ is a 12-table, and if
+$k\in\mathbb{N}_{+}$ is such that the $k$-th column of $T$ is mixed, then%
+\begin{equation}
+\left(  \operatorname*{sep}\nolimits_{k}T,k\right)  \in
+Z\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ T\left(
+\operatorname*{sep}\nolimits_{k}T,k\right)  =2 \label{pf.lem.BK.Tsep1}%
+\end{equation}
+\footnote{\textit{Proof of (\ref{pf.lem.BK.Tsep1}):} Let $T$ be a 12-table.
+Let $k\in\mathbb{N}_{+}$ be such that the $k$-th column of $T$ is mixed.
+\par
+We have defined $\operatorname*{sep}\nolimits_{k}T$ to be the smallest
+$r\in\mathbb{N}_{+}$ such that $\left(  r,k\right)  \in Z$ and $T\left(
+r,k\right)  =2$. Hence, $\operatorname*{sep}\nolimits_{k}T$ is an element of
+$\mathbb{N}_{+}$ such that $\left(  \operatorname*{sep}\nolimits_{k}%
+T,k\right)  \in Z$ and $T\left(  \operatorname*{sep}\nolimits_{k}T,k\right)
+=2$. This proves (\ref{pf.lem.BK.Tsep1}).} and%
+\begin{equation}
+\left(  \operatorname*{sep}\nolimits_{k}T-1,k\right)  \in
+Z\ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ T\left(
+\operatorname*{sep}\nolimits_{k}T-1,k\right)  =1 \label{pf.lem.BK.Tsep2}%
+\end{equation}
+\footnote{\textit{Proof of (\ref{pf.lem.BK.Tsep2}):} Let $T$ be a 12-table.
+Let $k\in\mathbb{N}_{+}$ be such that the $k$-th column of $T$ is mixed.
+\par
+The $k$-th column of $T$ is mixed. Thus, it contains both $1$'s and $2$'s. In
+particular, it contains at least one $1$. In other words, there exists a
+$q\in\mathbb{N}_{+}$ such that $\left(  q,k\right)  \in Z$ and $T\left(
+q,k\right)  =1$. Consider this $q$.
+\par
+Let $w=\operatorname*{sep}\nolimits_{k}T$. From (\ref{pf.lem.BK.Tsep1}), we
+obtain $\left(  \operatorname*{sep}\nolimits_{k}T,k\right)  \in Z$ and
+$T\left(  \operatorname*{sep}\nolimits_{k}T,k\right)  =2$. Now, $\left(
+\underbrace{w}_{=\operatorname*{sep}\nolimits_{k}T},k\right)  =\left(
+\operatorname*{sep}\nolimits_{k}T,k\right)  \in Z$.
+\par
+The entries of $T$ are weakly increasing down columns. Hence, if we had $w\leq
+q$, then we would have $T\left(  w,k\right)  \leq T\left(  q,k\right)  =1$.
+But this would contradict $T\left(  \underbrace{w}_{=\operatorname*{sep}%
+\nolimits_{k}T},k\right)  =T\left(  \operatorname*{sep}\nolimits_{k}%
+T,k\right)  =2>1$. Hence, we cannot have $w\leq q$. Thus, we have $w>q$. In
+other words, $w-1\geq q$ (since $w$ and $q$ are integers), so that $q\leq
+w-1$.
+\par
+The set $Z$ is convex and we have $\left(  q,k\right)  \in Z$ and $\left(
+w,k\right)  \in Z$ and $q\leq w-1\leq w$ and $k\leq k\leq k$. Thus, $\left(
+w-1,k\right)  \in Z$ (by (\ref{eq.convex}), applied to $q$, $w-1$, $w$, $k$,
+$k$ and $k$ instead of $i$, $i^{\prime}$, $i^{\prime\prime}$, $j$, $j^{\prime
+}$ and $j^{\prime\prime}$). In other words, $\left(  \operatorname*{sep}%
+\nolimits_{k}T-1,k\right)  \in Z$ (since $\operatorname*{sep}\nolimits_{k}%
+T=w$).
+\par
+We have defined $\operatorname*{sep}\nolimits_{k}T$ to be the smallest
+$r\in\mathbb{N}_{+}$ such that $\left(  r,k\right)  \in Z$ and $T\left(
+r,k\right)  =2$. Hence, if $r$ is an element of $\mathbb{N}_{+}$ such that
+$\left(  r,k\right)  \in Z$ but $r<\operatorname*{sep}\nolimits_{k}T$, then
+$T\left(  r,k\right)  \neq2$. Applying this to $r=w-1$, we obtain $T\left(
+w-1,k\right)  \neq2$ (since $\left(  w-1,k\right)  \in Z$ and
+$w-1<w=\operatorname*{sep}\nolimits_{k}T$). Combined with $T\left(
+w-1,k\right)  \in\left\{  1,2\right\}  $, this yields $T\left(  w-1,k\right)
+\in\left\{  1,2\right\}  \setminus\left\{  2\right\}  =\left\{  1\right\}  $,
+so that $T\left(  w-1,k\right)  =1$. In other words, $T\left(
+\operatorname*{sep}\nolimits_{k}T-1,k\right)  =1$ (since $\operatorname*{sep}%
+\nolimits_{k}T=w$). This proves (\ref{pf.lem.BK.Tsep2}).}.
+\end{verlong}
 
-We let $\operatorname*{seplist}T$ denote the list of all values
-$\operatorname*{sep}\nolimits_{k}T$ (in the order of increasing $k$), where
-$k$ ranges over all positive integers for which the $k$-th column of $T$ is
-mixed. For instance, if $T=%
+If $T$ is a 12-table, then we let $\operatorname*{seplist}T$ denote the list
+of all values $\operatorname*{sep}\nolimits_{k}T$ (in the order of increasing
+$k$), where $k$ ranges over all positive integers for which the $k$-th column
+of $T$ is mixed. For instance, if $T=%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& 1 & 1 & 1 \\
@@ -4111,25 +4307,223 @@ $\operatorname*{sep}\nolimits_{5}T=2$ (and there are no other $k\in
 \mathbb{N}_{+}$ for which $\operatorname*{sep}\nolimits_{k}T$ is defined), so
 that $\operatorname*{seplist}T=\left(  4,4,2\right)  $.
 
-What do the numbers $\operatorname*{sep}\nolimits_{k}T$ have to do with being
-benign? It is easy to see that if $T$ is a 12-table, and $i$ and $j$ are two
-positive integers such that the $i$-th column of $T$ and the $j$-th column of
-$T$ both are mixed, then $\left(  i,j\right)  $ is a conflict of $T$ if and
-only if we have $i<j$ and $\operatorname*{sep}\nolimits_{i}%
-T>\operatorname*{sep}\nolimits_{j}T$. Hence, the definition of a
-\textquotedblleft benign\textquotedblright\ 12-table rewrites as follows: A
-12-table $T$ is benign if and only if there exists no pair $\left(
-i,j\right)  $ of positive integers such that the $i$-th column of $T$ and the
-$j$-th column of $T$ both are mixed and such that $i<j$ and
-$\operatorname*{sep}\nolimits_{i}T>\operatorname*{sep}\nolimits_{j}T$. In
-other words, a 12-table $T$ is benign if and only if the list
-$\operatorname*{seplist}T$ is weakly increasing. We will refer to this fact as
-the \textquotedblleft separational definition of benignity\textquotedblright.
+What do the numbers $\operatorname*{sep}\nolimits_{k}T$ have to do with being benign?
 
+\begin{vershort}
+It is easy to see that if $T$ is a 12-table, and $i$ and $j$ are two positive
+integers such that the $i$-th column of $T$ and the $j$-th column of $T$ both
+are mixed, then $\left(  i,j\right)  $ is a conflict of $T$ if and only if we
+have $i<j$ and $\operatorname*{sep}\nolimits_{i}T<\operatorname*{sep}%
+\nolimits_{j}T$.
+\end{vershort}
+
+\begin{verlong}
+It is easy to see that if $T$ is a 12-table, and $i$ and $j$ are two positive
+integers such that the $i$-th column of $T$ and the $j$-th column of $T$ both
+are mixed, then
+\begin{equation}
+\left(  i,j\right)  \text{ is a conflict of }T\text{ if and only if }\left(
+i<j\text{ and }\operatorname*{sep}\nolimits_{i}T<\operatorname*{sep}%
+\nolimits_{j}T\right)  . \label{pf.lem.BK.sep-conflict}%
+\end{equation}
+\footnote{\textit{Proof of (\ref{pf.lem.BK.sep-conflict}):} Let $T$ be a
+12-table. Let $i$ and $j$ be two positive integers such that the $i$-th column
+of $T$ and the $j$-th column of $T$ both are mixed.
+\par
+Let us first assume that $\left(  i,j\right)  $ is a conflict of $T$. Thus,
+$\left(  i,j\right)  $ is a pair of positive integers satisfying $i<j$ and
+such that there exists an $r\in\mathbb{N}_{+}$ satisfying $\left(  r,i\right)
+\in Z$, $\left(  r,j\right)  \in Z$, $T\left(  r,i\right)  =2$ and $T\left(
+r,j\right)  =1$ (because of the definition of a \textquotedblleft
+conflict\textquotedblright). Consider this $r$. Applying (\ref{pf.lem.BK.Tsep}%
+) to $k=i$, we obtain $T\left(  r,i\right)  =\left\{
+\begin{array}
+[c]{c}%
+1,\ \ \ \ \ \ \ \ \ \ \text{if }r<\operatorname*{sep}\nolimits_{i}T;\\
+2,\ \ \ \ \ \ \ \ \ \ \text{if }r\geq\operatorname*{sep}\nolimits_{i}T
+\end{array}
+\right.  $. Hence, if we had $r<\operatorname*{sep}\nolimits_{i}T$, then we
+would obtain $T\left(  r,i\right)  =\left\{
+\begin{array}
+[c]{c}%
+1,\ \ \ \ \ \ \ \ \ \ \text{if }r<\operatorname*{sep}\nolimits_{i}T;\\
+2,\ \ \ \ \ \ \ \ \ \ \text{if }r\geq\operatorname*{sep}\nolimits_{i}T
+\end{array}
+\right.  =1$ (since $r<\operatorname*{sep}\nolimits_{i}T$), which would
+contradict $T\left(  r,i\right)  =2\neq1$. Hence, we cannot have
+$r<\operatorname*{sep}\nolimits_{i}T$. We thus must have $r\geq
+\operatorname*{sep}\nolimits_{i}T$. Furthermore, applying
+(\ref{pf.lem.BK.Tsep}) to $k=j$, we obtain $T\left(  r,j\right)  =\left\{
+\begin{array}
+[c]{c}%
+1,\ \ \ \ \ \ \ \ \ \ \text{if }r<\operatorname*{sep}\nolimits_{j}T;\\
+2,\ \ \ \ \ \ \ \ \ \ \text{if }r\geq\operatorname*{sep}\nolimits_{j}T
+\end{array}
+\right.  $. Hence, if we had $r\geq\operatorname*{sep}\nolimits_{j}T$, then we
+would obtain $T\left(  r,j\right)  =\left\{
+\begin{array}
+[c]{c}%
+1,\ \ \ \ \ \ \ \ \ \ \text{if }r<\operatorname*{sep}\nolimits_{j}T;\\
+2,\ \ \ \ \ \ \ \ \ \ \text{if }r\geq\operatorname*{sep}\nolimits_{j}T
+\end{array}
+\right.  =2$ (since $r\geq\operatorname*{sep}\nolimits_{j}T$), which would
+contradict $T\left(  r,j\right)  =1\neq2$. Hence, we cannot have
+$r\geq\operatorname*{sep}\nolimits_{j}T$. We thus have $r<\operatorname*{sep}%
+\nolimits_{j}T$. Hence, $\operatorname*{sep}\nolimits_{j}T>r\geq
+\operatorname*{sep}\nolimits_{i}T$. Hence, $\operatorname*{sep}\nolimits_{i}%
+T<\operatorname*{sep}\nolimits_{j}T$.
+\par
+Now, let us forget that we fixed $\left(  i,j\right)  $. We thus have shown
+that
+\begin{equation}
+\text{if }\left(  i,j\right)  \text{ is a conflict of }T\text{, then }\left(
+i<j\text{ and }\operatorname*{sep}\nolimits_{i}T<\operatorname*{sep}%
+\nolimits_{j}T\right)  . \label{pf.lem.BK.sep-conflict.pf.1}%
+\end{equation}
+\par
+Let us now assume that $\left(  i<j\text{ and }\operatorname*{sep}%
+\nolimits_{i}T<\operatorname*{sep}\nolimits_{j}T\right)  $. We shall prove
+that $\left(  i,j\right)  $ is a conflict of $T$.
+\par
+We have $\operatorname*{sep}\nolimits_{i}T<\operatorname*{sep}\nolimits_{j}T$,
+hence $\operatorname*{sep}\nolimits_{i}T\leq\operatorname*{sep}\nolimits_{j}%
+T-1$ (since $\operatorname*{sep}\nolimits_{i}T$ and $\operatorname*{sep}%
+\nolimits_{j}T$ are integers).
+\par
+Applying (\ref{pf.lem.BK.Tsep1}) to $k=i$, we obtain $\left(
+\operatorname*{sep}\nolimits_{i}T,i\right)  \in Z$ and $T\left(
+\operatorname*{sep}\nolimits_{i}T,i\right)  =2$.
+\par
+Applying (\ref{pf.lem.BK.Tsep2}) to $k=j$, we obtain $\left(
+\operatorname*{sep}\nolimits_{j}T-1,j\right)  \in Z$ and $T\left(
+\operatorname*{sep}\nolimits_{j}T-1,j\right)  =1$.
+\par
+The set $Z$ is convex and we have $\left(  \operatorname*{sep}\nolimits_{i}%
+T,i\right)  \in Z$ and $\left(  \operatorname*{sep}\nolimits_{j}T-1,j\right)
+\in Z$ and $\operatorname*{sep}\nolimits_{i}T\leq\operatorname*{sep}%
+\nolimits_{i}T\leq\operatorname*{sep}\nolimits_{j}T-1$ and $i\leq j\leq j$.
+Thus, $\left(  \operatorname*{sep}\nolimits_{i}T,j\right)  \in Z$ (by
+(\ref{eq.convex}), applied to $\operatorname*{sep}\nolimits_{i}T$,
+$\operatorname*{sep}\nolimits_{i}T$, $\operatorname*{sep}\nolimits_{j}T-1$,
+$i$, $i$ and $j$ instead of $i$, $i^{\prime}$, $i^{\prime\prime}$, $j$,
+$j^{\prime}$ and $j^{\prime\prime}$). Hence, the entry $T\left(
+\operatorname*{sep}\nolimits_{i}T,j\right)  $ is well-defined.
+\par
+Now, we recall that the entries of $T$ are weakly increasing down columns.
+Hence, $T\left(  \operatorname*{sep}\nolimits_{i}T,j\right)  \leq T\left(
+\operatorname*{sep}\nolimits_{j}T-1,j\right)  $ (because $\operatorname*{sep}%
+\nolimits_{i}T\leq\operatorname*{sep}\nolimits_{j}T-1$). Thus, $T\left(
+\operatorname*{sep}\nolimits_{i}T,j\right)  \leq T\left(  \operatorname*{sep}%
+\nolimits_{j}T-1,j\right)  =1$. Since $T\left(  \operatorname*{sep}%
+\nolimits_{i}T,j\right)  \in\left\{  1,2\right\}  $, this shows that $T\left(
+\operatorname*{sep}\nolimits_{i}T,j\right)  =1$.
+\par
+Now, $\left(  i,j\right)  $ is a pair of positive integers satisfying $i<j$
+and such that there exists an $r\in\mathbb{N}_{+}$ satisfying $\left(
+r,i\right)  \in Z$, $\left(  r,j\right)  \in Z$, $T\left(  r,i\right)  =2$ and
+$T\left(  r,j\right)  =1$ (namely, $r=\operatorname*{sep}\nolimits_{i}T$). In
+other words, $\left(  i,j\right)  $ is a conflict of $T$ (by the definition of
+\textquotedblleft conflict\textquotedblright).
+\par
+Let us now forget that we assumed that $\left(  i<j\text{ and }%
+\operatorname*{sep}\nolimits_{i}T<\operatorname*{sep}\nolimits_{j}T\right)  $.
+We thus have shown that%
+\[
+\text{if }\left(  i<j\text{ and }\operatorname*{sep}\nolimits_{i}%
+T<\operatorname*{sep}\nolimits_{j}T\right)  \text{, then }\left(  i,j\right)
+\text{ is a conflict of }T.
+\]
+Combining this with (\ref{pf.lem.BK.sep-conflict.pf.1}), we conclude that
+$\left(  i,j\right)  $ is a conflict of $T$ if and only if $\left(  i<j\text{
+and }\operatorname*{sep}\nolimits_{i}T<\operatorname*{sep}\nolimits_{j}%
+T\right)  $. This proves (\ref{pf.lem.BK.sep-conflict}).}
+\end{verlong}
+
+\begin{vershort}
+Hence, the definition of a \textquotedblleft benign\textquotedblright%
+\ 12-table rewrites as follows: A 12-table $T$ is benign if and only if there
+exists no pair $\left(  i,j\right)  $ of positive integers such that the
+$i$-th column of $T$ and the $j$-th column of $T$ both are mixed and such that
+$i<j$ and $\operatorname*{sep}\nolimits_{i}T<\operatorname*{sep}%
+\nolimits_{j}T$. In other words, a 12-table $T$ is benign if and only if the
+list $\operatorname*{seplist}T$ is weakly decreasing. We will refer to this
+fact as the \textquotedblleft separational definition of
+benignity\textquotedblright.
+\end{vershort}
+
+\begin{verlong}
+Thus, we conclude that a 12-table $T$ is benign if and only if the list
+$\operatorname*{seplist}T$ is weakly decreasing\footnote{\textit{Proof.} Let
+$T$ be a 12-table. Then, we have the following chain of logical equivalences:%
+\begin{align*}
+&  \ \left(  \text{the 12-table }T\text{ is benign}\right) \\
+&  \Longleftrightarrow\ \left(  \text{there exists no conflict }\left(
+i,j\right)  \text{ of }T\text{ such that the }i\text{-th column of }T\right.
+\\
+&  \ \ \ \ \ \ \ \ \ \ \left.  \text{and the }j\text{-th column of }T\text{
+both are mixed}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of \textquotedblleft
+benign\textquotedblright}\right) \\
+&  \Longleftrightarrow\ \left(  \text{there exists no }\left(  i,j\right)
+\in\mathbb{N}_{+}^{2}\text{ such that the }i\text{-th column of }T\text{
+and}\right. \\
+&  \ \ \ \ \ \ \ \ \ \ \left.  \text{the }j\text{-th column of }T\text{ both
+are mixed, and}\right. \\
+&  \ \ \ \ \ \ \ \ \ \ \left.  \text{such that }\underbrace{\left(
+i,j\right)  \text{ is a conflict of }T}_{\substack{\text{this is equivalent
+to}\\\left(  i<j\text{ and }\operatorname*{sep}\nolimits_{i}%
+T<\operatorname*{sep}\nolimits_{j}T\right)  \\\text{(by
+(\ref{pf.lem.BK.sep-conflict}))}}}\right) \\
+&  \Longleftrightarrow\ \left(  \text{there exists no }\left(  i,j\right)
+\in\mathbb{N}_{+}^{2}\text{ such that the }i\text{-th column of }T\text{
+and}\right. \\
+&  \ \ \ \ \ \ \ \ \ \ \left.  \text{the }j\text{-th column of }T\text{ both
+are mixed, and}\right. \\
+&  \ \ \ \ \ \ \ \ \ \ \left.  \text{such that }i<j\text{ and }%
+\operatorname*{sep}\nolimits_{i}T<\operatorname*{sep}\nolimits_{j}T\right) \\
+&  \Longleftrightarrow\ \left(  \text{there exists no }\left(  i,j\right)
+\in\mathbb{N}_{+}^{2}\text{ such that }i<j\text{ and such that}\right. \\
+&  \ \ \ \ \ \ \ \ \ \ \left.  \text{the }i\text{-th column of }T\text{ and
+the }j\text{-th column of }T\text{ both are mixed}\right. \\
+&  \ \ \ \ \ \ \ \ \ \ \left.  \text{and such that }\operatorname*{sep}%
+\nolimits_{i}T<\operatorname*{sep}\nolimits_{j}T\right) \\
+&  \Longleftrightarrow\ \left(  \text{for every }\left(  i,j\right)
+\in\mathbb{N}_{+}^{2}\text{ such that }i<j\text{ and such that}\right. \\
+&  \ \ \ \ \ \ \ \ \ \ \left.  \text{the }i\text{-th column of }T\text{ and
+the }j\text{-th column of }T\text{ both are mixed,}\right. \\
+&  \ \ \ \ \ \ \ \ \ \ \left.  \text{we have }\operatorname*{sep}%
+\nolimits_{i}T\geq\operatorname*{sep}\nolimits_{j}T\right)
+\end{align*}%
+\begin{align*}
+&  \Longleftrightarrow\ \left(  \text{the list of all values }%
+\operatorname*{sep}\nolimits_{k}T\text{ (in the order of increasing
+}k\text{),}\right. \\
+&  \ \ \ \ \ \ \ \ \ \ \left.  \text{where }k\text{ ranges over all positive
+integers for which the}\right. \\
+&  \ \ \ \ \ \ \ \ \ \ \left.  k\text{-th column of }T\text{ is mixed, is
+weakly decreasing}\right) \\
+&  \Longleftrightarrow\ \left(  \text{the list }\operatorname*{seplist}T\text{
+is weakly decreasing}\right)
+\end{align*}
+(since the list $\operatorname*{seplist}T$ is the list of all values
+$\operatorname*{sep}\nolimits_{k}T$ (in the order of increasing $k$), where
+$k$ ranges over all positive integers for which the $k$-th column of $T$ is
+mixed). Qed.}. We will refer to this fact as the \textquotedblleft
+separational definition of benignity\textquotedblright.
+\end{verlong}
+
+\begin{vershort}
+Let $\mathbf{S}$ denote the set of all benign 12-tables.\footnote{We recall
+that $Z$ is fixed, and all 12-tables have to have $Z$ as their domain.} Then,
+$\mathbf{S}$ is a finite set, and we have $\mathbf{R}\subseteq\mathbf{S}$
+(since every 12-rpp of shape $Z$ is a benign 12-table).
+\end{vershort}
+
+\begin{verlong}
 Let $\mathbf{S}$ denote the set of all benign 12-tables.\footnote{We recall
 that $Z$ is fixed, and all 12-tables have to have $Z$ as their domain.} Then,
 $\mathbf{S}$ is a finite set (since there are only finitely many ways to
-assign either $1$ or $2$ to each cell in $Z$) and we have $\mathbf{R}%
+assign either $1$ or $2$ to each cell in $Z$), and we have $\mathbf{R}%
 \subseteq\mathbf{S}$\ \ \ \ \footnote{\textit{Proof.} Let $T\in\mathbf{R}$.
 Then, $T$ is a 12-rpp of shape $Z$ (since $\mathbf{R}$ is the set of all
 12-rpps of shape $Z$). Thus, $T$ is a 12-table which has no conflicts
@@ -4139,6 +4533,7 @@ Then, $T$ is a 12-rpp of shape $Z$ (since $\mathbf{R}$ is the set of all
 Now, let us forget that we fixed $T$. We thus have shown that $T\in\mathbf{S}$
 for every $T\in\mathbf{R}$. In other words, $\mathbf{R}\subseteq\mathbf{S}$,
 qed.}.
+\end{verlong}
 
 \subsection{The $\operatorname*{flip}$ map on benign 12-tables}
 
@@ -4148,17 +4543,14 @@ every $k\in\mathbb{N}_{+}$ for which the $k$-th column of $T$ is nonempty, we
 transform the $k$-th column of $T$ as follows:
 
 \begin{itemize}
-\item If this column is 1-pure, we replace all its entries by $2$'s (so that
-it becomes 2-pure).
+\item \textbf{If} this column is 1-pure, we replace all its entries by $2$'s
+(so that it becomes 2-pure).
 
-\item If this column is 2-pure, we replace all its entries by $1$'s (so that
-it becomes 1-pure).
+\textbf{Otherwise}, if this column is 2-pure, we replace all its entries by
+$1$'s (so that it becomes 1-pure).
 
-\item Otherwise (i.e., if this column is mixed), we do not change it.
+\textbf{Otherwise} (i.e., if this column is mixed), we do not change it.
 \end{itemize}
-
-(These three steps, of course, are done simultaneously, not successively; so
-the column changes at most once.)
 
 Once these transformations are made for all $k$, the resulting filling of $Z$
 is a 12-table which is still benign (because its mixed columns are precisely
@@ -4234,6 +4626,17 @@ and%
 
 \end{proposition}
 
+\begin{vershort}
+\begin{proof}
+[Proof of Proposition \ref{prop.flip}.]All of Proposition \ref{prop.flip} is
+straightforward to prove. (The equality (\ref{pf.lem.BK.flip.ircont}) follows
+from observing that the $k \in\mathbb{N}_{+}$ for which the $k$-th column of
+$\operatorname*{flip}\left(  T\right)  $ contains $1$ are precisely the $k
+\in\mathbb{N}_{+}$ for which the $k$-th column of $T$ contains $2$, and vice versa.)
+\end{proof}
+\end{vershort}
+
+\begin{verlong}
 \begin{proof}
 [Proof of Proposition \ref{prop.flip}.]\textbf{(b)} Proposition
 \ref{prop.flip} \textbf{(b)} follows immediately from the definition of
@@ -4254,12 +4657,15 @@ subsequent application of $\operatorname*{flip}$ then turns this 2-pure column
 back into a 1-pure column (due to Proposition \ref{prop.flip} \textbf{(b)}),
 which is exactly how it was in $T$. Hence, every 1-pure column of $T$ appears
 unchanged in $\left(  \operatorname*{flip}\circ\operatorname*{flip}\right)
-\left(  T\right)  $. Similarly, we can prove the same for 2-pure columns and
-mixed columns (and, of course, empty columns). Thus, every column of $T$
-appears unchanged in $\left(  \operatorname*{flip}\circ\operatorname*{flip}%
-\right)  \left(  T\right)  $. Hence, $\left(  \operatorname*{flip}%
-\circ\operatorname*{flip}\right)  \left(  T\right)  =T$. This proves
-Proposition \ref{prop.flip} \textbf{(a)}.
+\left(  T\right)  $ (since all its entries were $1$'s in $T$ and are $1$'s in
+$\left(  \operatorname*{flip}\circ\operatorname*{flip}\right)  \left(
+T\right)  $ as well). Similarly, we can prove the same for 2-pure columns, for
+mixed columns (here, the argument is even simpler: mixed columns never change
+under $\operatorname*{flip}$), and (of course) for empty columns. Thus, every
+column of $T$ appears unchanged in $\left(  \operatorname*{flip}%
+\circ\operatorname*{flip}\right)  \left(  T\right)  $. Hence, $\left(
+\operatorname*{flip}\circ\operatorname*{flip}\right)  \left(  T\right)  =T$.
+This proves Proposition \ref{prop.flip} \textbf{(a)}.
 
 \textbf{(c)} Let $T$ be a benign 12-table. It is easy to see that the stagnant
 cells of $\operatorname*{flip}\left(  T\right)  $ are precisely the stagnant
@@ -4453,6 +4859,7 @@ that $\operatorname*{ircont}\left(  \operatorname*{flip}\left(  T\right)
 (\ref{pf.lem.BK.flip.ircont}) holds. The proof of Proposition \ref{prop.flip}
 \textbf{(c)} is thus complete.
 \end{proof}
+\end{verlong}
 
 We notice that, when the map $\operatorname*{flip}$ acts on a benign 12-table
 $T$, it transforms every column of $T$ independently. Thus, we have the following:
@@ -4494,33 +4901,349 @@ to the relation $\Rrightarrow$ from Subsection \ref{subsect.bubble}.
 benign 12-table $P$ is an analogue of switching two adjacent entries of an
 $n$-tuple $z$ which are out of order.) Starting with a benign 12-table $P$, we
 can repeatedly resolve \textquotedblleft resolvable\textquotedblright%
-\ conflicts until this is no longer possible (because we will show that if
-\textquotedblleft resolving\textquotedblright\ a conflict in $P$ yields a new
-12-table $Q$, then $\ell\left(  P\right)  >\ell\left(  Q\right)  $ using the
-notations of Subsection \ref{subsect.fourtypes}; the function $\ell$ thus
-plays the same role as the function $\ell$ in Subsection \ref{subsect.bubble}%
-). We have some freedom in performing this process, because at any step there
-can be a choice of several resolvable conflicts to resolve; but we will see
-(using Lemma \ref{lem.diamond}) that the final result does not depend on the
-process. Hence, the final result can be a function of $P$. We will denote it
-by $\operatorname*{norm}P$, and we will see that it is a 12-rpp. We will then
-define a map $\mathbf{B}:\mathbf{R}\rightarrow\mathbf{R}$ by $\mathbf{B}%
-\left(  T\right)  =\operatorname*{norm}\left(  \operatorname*{flip}T\right)
-$, and show that it is an involution satisfying the properties that we want it
-to satisfy.
+\ conflicts until this is no longer possible\footnote{This will eventually
+happen; i.e., we will eventually rearch a state where resolving conflicts will
+no longer be possible because there will be no resolvable conflicts left. In
+fact, we will show that if \textquotedblleft resolving\textquotedblright\ a
+conflict in $P$ yields a new 12-table $Q$, then $\ell\left(  P\right)
+>\ell\left(  Q\right)  $ using the notations of Subsection
+\ref{subsect.fourtypes}; thus, we cannot go on resolving conflicts
+indefinitely (because the value of $\ell\left(  T\right)  $ cannot go on
+decreasing indefinitely). The function $\ell$ thus plays the same role as the
+function $\ell$ in Subsection \ref{subsect.bubble}.}. We have some freedom in
+performing this process, because at any step there can be a choice of several
+resolvable conflicts to resolve; but we will see (using Lemma
+\ref{lem.diamond}) that the final result does not depend on the process.
+Hence, the final result can be regarded as a function of $P$. We will denote
+it by $\operatorname*{norm}P$, and we will see that it is a 12-rpp. We will
+then define a map $\mathbf{B}:\mathbf{R}\rightarrow\mathbf{R}$ by
+$\mathbf{B}\left(  T\right)  =\operatorname*{norm}\left(  \operatorname*{flip}%
+T\right)  $, and show that it is an involution satisfying the properties that
+we want it to satisfy.
 
-\subsection{Resolving conflicts}
+\subsection{\label{subsect.resolving}Resolving conflicts}
 
 Now we come to the details.
 
+\begin{vershort}
 Let $k\in\mathbb{N}_{+}$. Let $P\in\mathbf{S}$. Thus, $P$ is a benign
-12-table. Assume that $\left(  k,k+1\right)  $ is a conflict of $P$. In this
-case, we say that $\left(  k,k+1\right)  $ is a \textit{resolvable conflict}
-of $P$ (and, in a moment, we will explain what it means to \textquotedblleft
+12-table. Assume (for the whole Subsection \ref{subsect.resolving}) that
+$\left(  k,k+1\right)  $ is a conflict of $P$. In this case, we say that
+$\left(  k,k+1\right)  $ is a \textit{resolvable conflict} of $P$ (and, in a
+moment, we will explain what it means to \textquotedblleft
 resolve\textquotedblright\ it). Since $\left(  k,k+1\right)  $ is a conflict
 of $P$, it is clear that the $k$-th column of $P$ must contain at least one
 $2$. Hence, the $k$-th column of $P$ is either mixed or 2-pure. Similarly, the
-$\left(  k+1\right)  $-st column of $P$ is either mixed or 1-pure. Thus, we
+$\left(  k+1\right)  $-th column of $P$ is either mixed or 1-pure. But the
+$k$-th and the $\left(  k+1\right)  $-th columns of $P$ cannot both be mixed
+at the same time\footnote{This is because there exists no conflict $\left(
+i,j\right)  $ of $P$ such that the $i$-th column of $P$ and the $j$-th column
+of $P$ both are mixed (since $P$ is benign), but $\left(  k,k+1\right)  $
+would be such a conflict if the $k$-th and the $\left(  k+1\right)  $-th
+columns of $P$ both were mixed.}. Hence, if the $k$-th column of $P$ is mixed,
+then the $\left(  k+1\right)  $-th column of $P$ cannot be mixed, and thus
+this $\left(  k+1\right)  $-th column must be 1-pure\footnote{since the
+$\left(  k+1\right)  $-th column of $P$ is either mixed or 1-pure}. Thus we
+introduce the following notations:
+
+\begin{itemize}
+\item We say that the 12-table $P$ has $k$\textit{-type M1} if the $k$-th
+column of $P$ is mixed and the $\left(  k+1\right)  $-th column of $P$ is 1-pure.
+
+\item We say that the 12-table $P$ has $k$\textit{-type 2M} if the $k$-th
+column of $P$ is 2-pure and the $\left(  k+1\right)  $-th column of $P$ is mixed.
+
+\item We say that the 12-table $P$ has $k$\textit{-type 21} if the $k$-th
+column of $P$ is 2-pure and the $\left(  k+1\right)  $-th column of $P$ is 1-pure.
+\end{itemize}
+
+Then, the 12-table $P$ always either has $k$-type M1, or has $k$-type 2M, or
+has $k$-type 21\ \ \ \ \footnote{\textit{Proof.} As we know, the $k$-th column
+of $P$ is either mixed or 2-pure. If it is 2-pure, then $P$ must either have
+$k$-type 2M or have $k$-type 21 (since the $\left(  k+1\right)  $-th column of
+$P$ is either mixed or 1-pure). If it is mixed, then the $\left(  k+1\right)
+$-th column of $P$ must be 1-pure (as we have seen above), and thus $P$ must
+have type M1. In either case, the 12-table $P$ either has $k$-type M1, or has
+$k$-type 2M, or has $k$-type 21. Qed.}.
+
+(Of course, the names \textquotedblleft M1\textquotedblright,
+\textquotedblleft2M\textquotedblright, \textquotedblleft21\textquotedblright%
+\ have been chosen to match the types of the columns: e.g., \textquotedblleft%
+2M\textquotedblright\ stands for \textquotedblleft\textbf{2}-pure and
+\textbf{M}ixed\textquotedblright.)
+
+Now, we define a new 12-table $\operatorname*{res}\nolimits_{k}P$ as follows:
+
+\begin{itemize}
+\item If $P$ has $k$-type M1, then we let $\operatorname*{res}_{k}P$ be the
+12-table defined as follows\footnote{Here is an example for this definition:
+If $P=%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& 1 & 1 \\
+%\none& \none& 1 & 2 \\
+%\none& 1 & 1 & 2 \\
+%\none& 1 & 1 \\
+%\none& 2 & 1 \\
+%1 & 2 & 1 \\
+%2 & 2
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+\none& \none& 1 & 1 \\
+\none& \none& 1 & 2 \\
+\none& 1 & 1 & 2 \\
+\none& 1 & 1 \\
+\none& 2 & 1 \\
+1 & 2 & 1 \\
+2 & 2
+\end{ytableau}%
+%EndExpansion
+$ and $k=2$, then $\left(  k,k+1\right)  $ is a conflict of $P$, and we have
+$\operatorname*{sep}\nolimits_{k}P=5$ (since $P\left(  4,k\right)  =P\left(
+4,2\right)  =1$ and $P\left(  5,k\right)  =P\left(  5,2\right)  =2$) and
+$\operatorname*{res}\nolimits_{k}P=%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& 1 & 1 \\
+%\none& \none& 1 & 2 \\
+%\none& 1 & 1 & 2 \\
+%\none& 1 & 1 \\
+%\none& 1 & 2 \\
+%1 & 1 & 2 \\
+%2 & 1
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+\none& \none& 1 & 1 \\
+\none& \none& 1 & 2 \\
+\none& 1 & 1 & 2 \\
+\none& 1 & 1 \\
+\none& 1 & 2 \\
+1 & 1 & 2 \\
+2 & 1
+\end{ytableau}%
+%EndExpansion
+$. The $2$'s in the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
+\nolimits_{k}P$ start in row $5$ because the $2$'s in the $k$-th column of $P$
+start in row $5$; this illustrates the equality $\operatorname*{sep}%
+\nolimits_{k+1}\left(  \operatorname*{res}\nolimits_{k}P\right)
+=\operatorname*{sep}\nolimits_{k}P$.
+\par
+See Example \ref{exa.resolve.short} below for another example.}: The $k$-th
+column of $\operatorname*{res}_{k}P$ is 1-pure (i.e., it is filled with
+$1$'s); the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
+\nolimits_{k}P$ is mixed and satisfies $\operatorname*{sep}\nolimits_{k+1}%
+\left(  \operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{sep}%
+\nolimits_{k}P$; all other columns of $\operatorname*{res}\nolimits_{k}P$ are
+copied over from $P$ unchanged.\footnote{The reader should check that this
+definition is well-defined: It is clear that the requirements that we are
+imposing on $\operatorname*{res}_{k}P$ determine the 12-table
+$\operatorname*{res}_{k}P$ uniquely, but it is not immediately obvious why
+there exists a 12-table $\operatorname*{res}\nolimits_{k}P$ which meets these
+requirements. What could (in theory) go wrong is the requirement that the
+$\left(  k+1\right)  $-th column of $\operatorname*{res}\nolimits_{k}P$ be
+mixed and satisfy $\operatorname*{sep}\nolimits_{k+1}\left(
+\operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{sep}\nolimits_{k}P$.
+We can try to achieve this by setting
+\begin{align*}
+\left(  \operatorname*{res}\nolimits_{k}P\right)  \left(  r,k+1\right)   &
+=\left\{
+\begin{array}
+[c]{c}%
+1,\ \ \ \ \ \ \ \ \ \ \text{if }r<\operatorname*{sep}\nolimits_{k}P;\\
+2,\ \ \ \ \ \ \ \ \ \ \text{if }r\geq\operatorname*{sep}\nolimits_{k}P
+\end{array}
+\right. \\
+&  \ \ \ \ \ \ \ \ \ \ \text{for all }r\in\mathbb{N}_{+}\text{ for which
+}\left(  r,k+1\right)  \in Z.
+\end{align*}
+This (together with the requirements on the other columns) defines a 12-table
+$\operatorname*{res}\nolimits_{k}P$, but we still need to check that the thus
+resulting $\left(  k+1\right)  $-th column of $\operatorname*{res}%
+\nolimits_{k}P$ is actually mixed. To check this, the reader should verify
+that both cells $\left(  \operatorname*{sep}\nolimits_{k}P,k+1\right)  $ and
+$\left(  \operatorname*{sep}\nolimits_{k}P+1,k+1\right)  $ belong to $Z$ (here
+it is necessary to invoke the convexity of $Z$ and the existence of the
+conflict $\left(  k,k+1\right)  $ in $P$), and that these cells have entries
+$1$ and $2$ in $\operatorname*{res}\nolimits_{k}P$, respectively.}
+
+\item If $P$ has $k$-type 2M, then we let $\operatorname*{res}_{k}P$ be the
+12-table defined as follows: The $k$-th column of $\operatorname*{res}_{k}P$
+is mixed and satisfies $\operatorname*{sep}\nolimits_{k}\left(
+\operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{sep}\nolimits_{k+1}%
+P$; the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
+\nolimits_{k}P$ is 2-pure (i.e., it is filled with $2$'s); all other columns
+of $\operatorname*{res}\nolimits_{k}P$ are copied over from $P$
+unchanged.\footnote{Again, it is easy to see that this is well-defined.}
+
+\item If $P$ has $k$-type 21, then we let $\operatorname*{res}_{k}P$ be the
+12-table defined as follows: The $k$-th column of $\operatorname*{res}_{k}P$
+is 1-pure; the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
+\nolimits_{k}P$ is 2-pure; all other columns of $\operatorname*{res}%
+\nolimits_{k}P$ are copied over from $P$ unchanged.
+\end{itemize}
+
+In either case, $\operatorname*{res}\nolimits_{k}P$ is a well-defined
+12-table. It is furthermore clear that $\operatorname*{seplist}\left(
+\operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{seplist}P$. Thus,
+using the \textquotedblleft separational definition of
+benignity\textquotedblright, we see that $\operatorname*{res}\nolimits_{k}P$
+is benign (since $P$ is benign); that is, $\operatorname*{res}\nolimits_{k}%
+P\in\mathbf{S}$. We say that $\operatorname*{res}\nolimits_{k}P$ is the
+12-table obtained by \textit{resolving} the conflict $\left(  k,k+1\right)  $
+in $P$. Let us give some examples:
+
+\Needspace{14\baselineskip}
+
+\begin{example}
+\label{exa.resolve.short}Let $P=%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& 1 & 2 & 1 \\
+%\none& 1 & 1 & 2 \\
+%2 & 1 & 1 \\
+%2 & 2 & 1 \\
+%2
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+\none& \none& 1 & 2 & 1 \\
+\none& 1 & 1 & 2 \\
+2 & 1 & 1 \\
+2 & 2 & 1 \\
+2
+\end{ytableau}%
+%EndExpansion
+$. Then, $P$ is a benign 12-table (with only one mixed column), and its
+conflicts are $\left(  1,2\right)  $, $\left(  1,3\right)  $, $\left(
+2,3\right)  $ and $\left(  4,5\right)  $. Out of these conflicts, $\left(
+1,2\right)  $, $\left(  2,3\right)  $ and $\left(  4,5\right)  $ are
+resolvable (as they have the form $\left(  k,k+1\right)  $ for various $k$).
+We have $\operatorname*{sep}\nolimits_{2}P=4$.
+
+If we set $k=1$, then $P$ has $k$-type 2M, and resolving the conflict $\left(
+k,k+1\right)  =\left(  1,2\right)  $ gives us the 12-table
+$\operatorname*{res}\nolimits_{1}P=%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& 1 & 2 & 1 \\
+%\none& 2 & 1 & 2 \\
+%1 & 2 & 1 \\
+%2 & 2 & 1 \\
+%2
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+\none& \none& 1 & 2 & 1 \\
+\none& 2 & 1 & 2 \\
+1 & 2 & 1 \\
+2 & 2 & 1 \\
+2
+\end{ytableau}%
+%EndExpansion
+$.
+
+If we instead set $k=2$, then $P$ has $k$-type M1, and resolving the conflict
+$\left(  k,k+1\right)  =\left(  2,3\right)  $ gives us the 12-table
+$\operatorname*{res}\nolimits_{2}P=%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& 1 & 2 & 1 \\
+%\none& 1 & 1 & 2 \\
+%2 & 1 & 1 \\
+%2 & 1 & 2 \\
+%2
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+\none& \none& 1 & 2 & 1 \\
+\none& 1 & 1 & 2 \\
+2 & 1 & 1 \\
+2 & 1 & 2 \\
+2
+\end{ytableau}%
+%EndExpansion
+$.
+
+If we instead set $k=4$, then $P$ has $k$-type 21, and resolving the conflict
+$\left(  k,k+1\right)  =\left(  4,5\right)  $ gives us the 12-table
+$\operatorname*{res}\nolimits_{4}P=%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& 1 & 1 & 2 \\
+%\none& 1 & 1 & 1 \\
+%2 & 1 & 1 \\
+%2 & 2 & 1 \\
+%2
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+\none& \none& 1 & 1 & 2 \\
+\none& 1 & 1 & 1 \\
+2 & 1 & 1 \\
+2 & 2 & 1 \\
+2
+\end{ytableau}%
+%EndExpansion
+$.
+
+We notice that each of the three 12-tables $\operatorname*{res}\nolimits_{1}%
+P$, $\operatorname*{res}\nolimits_{2}P$ and $\operatorname*{res}%
+\nolimits_{4}P$ still has conflicts\footnotemark, and again some of these
+conflicts are resolvable. In order to get a 12-rpp from $P$, we will have to
+keep resolving these conflicts until none remain.
+\end{example}
+
+\footnotetext{Actually, each of these three 12-tables has fewer conflicts than
+$P$ (in particular, the conflict that was resolved is now gone). But this does
+not generalize. For instance, if $P=%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& 1 & 1 \\
+%2 & 1
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+\none& 1 & 1 \\
+2 & 1
+\end{ytableau}%
+%EndExpansion
+$ and $k=1$, then resolving the conflict $\left(  k,k+1\right)  =\left(
+1,2\right)  $ (which is the only conflict of $P$) leads to the 12-table
+$\operatorname*{res}\nolimits_{1}P=%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& 2 & 1 \\
+%1 & 2
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+\none& 2 & 1 \\
+1 & 2
+\end{ytableau}%
+%EndExpansion
+$, which has as many conflicts as $P$ did.}
+\end{vershort}
+
+\begin{verlong}
+Let $k\in\mathbb{N}_{+}$. Let $P\in\mathbf{S}$. Thus, $P$ is a benign
+12-table. Assume (for the whole Subsection \ref{subsect.resolving}) that
+$\left(  k,k+1\right)  $ is a conflict of $P$. In this case, we say that
+$\left(  k,k+1\right)  $ is a \textit{resolvable conflict} of $P$ (and, in a
+moment, we will explain what it means to \textquotedblleft
+resolve\textquotedblright\ it). Since $\left(  k,k+1\right)  $ is a conflict
+of $P$, it is clear that the $k$-th column of $P$ must contain at least one
+$2$. Hence, the $k$-th column of $P$ is either mixed or 2-pure. Similarly, the
+$\left(  k+1\right)  $-th column of $P$ is either mixed or 1-pure. Thus, we
 must be in one of the following four cases:
 
 \textit{Case 1:} The $k$-th column of $P$ is mixed, and the $\left(
@@ -4569,12 +5292,69 @@ Now, we define a new 12-table $\operatorname*{res}\nolimits_{k}P$ as follows:
 
 \begin{itemize}
 \item If $P$ has $k$-type M1, then we let $\operatorname*{res}_{k}P$ be the
-12-table which differs from $P$ in that the $k$-th column of
-$\operatorname*{res}_{k}P$ is 1-pure (i.e., it is filled with $1$'s), whereas
-the $\left(  k+1\right)  $-th column of $\operatorname*{res}\nolimits_{k}P$ is
+12-table defined as follows\footnote{Here is an example for this definition:
+If $P=%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& 1 & 1 \\
+%\none& \none& 1 & 2 \\
+%\none& 1 & 1 & 2 \\
+%\none& 1 & 1 \\
+%\none& 2 & 1 \\
+%1 & 2 & 1 \\
+%2 & 2
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+\none& \none& 1 & 1 \\
+\none& \none& 1 & 2 \\
+\none& 1 & 1 & 2 \\
+\none& 1 & 1 \\
+\none& 2 & 1 \\
+1 & 2 & 1 \\
+2 & 2
+\end{ytableau}%
+%EndExpansion
+$ and $k=2$, then $\left(  k,k+1\right)  $ is a conflict of $P$, and we have
+$\operatorname*{sep}\nolimits_{k}P=5$ (since $P\left(  4,k\right)  =P\left(
+4,2\right)  =1$ and $P\left(  5,k\right)  =P\left(  5,2\right)  =2$) and
+$\operatorname*{res}\nolimits_{k}P=%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& 1 & 1 \\
+%\none& \none& 1 & 2 \\
+%\none& 1 & 1 & 2 \\
+%\none& 1 & 1 \\
+%\none& 1 & 2 \\
+%1 & 1 & 2 \\
+%2 & 1
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+\none& \none& 1 & 1 \\
+\none& \none& 1 & 2 \\
+\none& 1 & 1 & 2 \\
+\none& 1 & 1 \\
+\none& 1 & 2 \\
+1 & 1 & 2 \\
+2 & 1
+\end{ytableau}%
+%EndExpansion
+$. The $2$'s in the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
+\nolimits_{k}P$ start in row $5$ because the $2$'s in the $k$-th column of $P$
+start in row $5$; this illustrates the equality $\operatorname*{sep}%
+\nolimits_{k+1}\left(  \operatorname*{res}\nolimits_{k}P\right)
+=\operatorname*{sep}\nolimits_{k}P$.
+\par
+See Example \ref{exa.resolve} below for another example.}: The $k$-th column
+of $\operatorname*{res}_{k}P$ is 1-pure (i.e., it is filled with $1$'s); the
+$\left(  k+1\right)  $-th column of $\operatorname*{res}\nolimits_{k}P$ is
 mixed and satisfies $\operatorname*{sep}\nolimits_{k+1}\left(
-\operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{sep}\nolimits_{k}%
-P$.\ \ \ \ \footnote{Let us prove that this is a legitimate definition for
+\operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{sep}\nolimits_{k}P$;
+all other columns of $\operatorname*{res}\nolimits_{k}P$ are copied over from
+$P$ unchanged.\footnote{Let us prove that this is a legitimate definition for
 $\operatorname*{res}_{k}P$.
 \par
 First of all, the requirements that we are imposing on $\operatorname*{res}%
@@ -4585,12 +5365,13 @@ that it be mixed and that $\operatorname*{sep}\nolimits_{k+1}\left(
 \operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{sep}\nolimits_{k}P$;
 all its other columns are copied from $P$ unchanged.
 \par
-But it is not immediately that there exists a 12-table $\operatorname*{res}%
-\nolimits_{k}P$ which meets these requirements. What can go wrong is the
-requirement that the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
-\nolimits_{k}P$ be mixed and satisfy $\operatorname*{sep}\nolimits_{k+1}%
-\left(  \operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{sep}%
-\nolimits_{k}P$. We can try to achieve this by setting
+But it is not immediately clear that there exists a 12-table
+$\operatorname*{res}\nolimits_{k}P$ which meets these requirements. What could
+(in theory) go wrong is the requirement that the $\left(  k+1\right)  $-th
+column of $\operatorname*{res}\nolimits_{k}P$ be mixed and satisfy
+$\operatorname*{sep}\nolimits_{k+1}\left(  \operatorname*{res}\nolimits_{k}%
+P\right)  =\operatorname*{sep}\nolimits_{k}P$. We can try to achieve this by
+setting
 \begin{align}
 \left(  \operatorname*{res}\nolimits_{k}P\right)  \left(  r,k+1\right)   &
 =\left\{
@@ -4600,7 +5381,7 @@ requirement that the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
 2,\ \ \ \ \ \ \ \ \ \ \text{if }r\geq\operatorname*{sep}\nolimits_{k}P
 \end{array}
 \right. \label{eq.def.res.check2}\\
-&  \ \ \ \ \ \ \ \ \ \ \text{for all }h\in\mathbb{N}_{+}\text{ for which
+&  \ \ \ \ \ \ \ \ \ \ \text{for all }r\in\mathbb{N}_{+}\text{ for which
 }\left(  r,k+1\right)  \in Z.\nonumber
 \end{align}
 This (together with the requirements on the other columns) defines a 12-table
@@ -4644,13 +5425,9 @@ have $q\geq\operatorname*{sep}\nolimits_{k}P$. In other words, $q\geq s$
 (since $s=\operatorname*{sep}\nolimits_{k}P$), so that $s\leq q$. Thus,
 $w<s\leq q$.
 \par
-Now, the set $Z$ is convex, and we have $\left(  w,k\right)  \in Z$ and
-$\left(  q,k+1\right)  \in Z$. Hence, $\left(  q,k+1\right)  \in Z$ (by
-(\ref{eq.convex}), applied to $w$, $q$, $q$, $k$, $k+1$ and $k+1$ instead of
-$i$, $i^{\prime}$, $i^{\prime\prime}$, $j$, $j^{\prime}$ and $j^{\prime\prime
-}$). Hence, $\left(  \operatorname*{res}\nolimits_{k}P\right)  \left(
-q,k+1\right)  $ is well-defined. Moreover, (\ref{eq.def.res.check2}) (applied
-to $r=q$) yields
+Now, $\left(  q,k+1\right)  \in Z$. Hence, $\left(  \operatorname*{res}%
+\nolimits_{k}P\right)  \left(  q,k+1\right)  $ is well-defined. Moreover,
+(\ref{eq.def.res.check2}) (applied to $r=q$) yields
 \[
 \left(  \operatorname*{res}\nolimits_{k}P\right)  \left(  q,k+1\right)
 =\left\{
@@ -4680,7 +5457,7 @@ to $r=w$) yields
 1,\ \ \ \ \ \ \ \ \ \ \text{if }w<\operatorname*{sep}\nolimits_{k}P;\\
 2,\ \ \ \ \ \ \ \ \ \ \text{if }w\geq\operatorname*{sep}\nolimits_{k}P
 \end{array}
-\right.  =2\ \ \ \ \ \ \ \ \ \ \left(  \text{since }w<s=\operatorname*{sep}%
+\right.  =1\ \ \ \ \ \ \ \ \ \ \left(  \text{since }w<s=\operatorname*{sep}%
 \nolimits_{k}P\right)  .
 \]
 Thus, the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
@@ -4693,29 +5470,104 @@ meets the requirements we have imposed on it. This completes the proof of the
 well-definedness.}
 
 \item If $P$ has $k$-type 2M, then we let $\operatorname*{res}_{k}P$ be the
-12-table which differs from $P$ in that the $k$-th column of
-$\operatorname*{res}_{k}P$ is mixed and satisfies $\operatorname*{sep}%
-\nolimits_{k}\left(  \operatorname*{res}\nolimits_{k}P\right)
-=\operatorname*{sep}\nolimits_{k+1}P$, whereas the $\left(  k+1\right)  $-th
-column of $\operatorname*{res}\nolimits_{k}P$ is 2-pure (i.e., it is filled
-with $2$'s).\ \ \ \ \footnote{Again, it is easy to see that this is
-well-defined.}
+12-table defined as follows: The $k$-th column of $\operatorname*{res}_{k}P$
+is mixed and satisfies $\operatorname*{sep}\nolimits_{k}\left(
+\operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{sep}\nolimits_{k+1}%
+P$; the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
+\nolimits_{k}P$ is 2-pure (i.e., it is filled with $2$'s); all other columns
+of $\operatorname*{res}\nolimits_{k}P$ are copied over from $P$
+unchanged.\footnote{Again, it is easy to see that this is well-defined.}
 
 \item If $P$ has $k$-type 21, then we let $\operatorname*{res}_{k}P$ be the
-12-table which differs from $P$ in that the $k$-th column of
-$\operatorname*{res}_{k}P$ is 1-pure, whereas the $\left(  k+1\right)  $-th
-column of $\operatorname*{res}\nolimits_{k}P$ is 2-pure.
+12-table defined as follows: The $k$-th column of $\operatorname*{res}_{k}P$
+is 1-pure; the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
+\nolimits_{k}P$ is 2-pure; all other columns of $\operatorname*{res}%
+\nolimits_{k}P$ are copied over from $P$ unchanged.
 \end{itemize}
 
 In either case, $\operatorname*{res}\nolimits_{k}P$ is a well-defined
 12-table. It is furthermore clear that $\operatorname*{seplist}\left(
-\operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{seplist}P$. Thus,
-using the \textquotedblleft separational definition of
-benignity\textquotedblright, we see that $\operatorname*{res}\nolimits_{k}P$
-is benign (since $P$ is benign); that is, $\operatorname*{res}\nolimits_{k}%
-P\in\mathbf{S}$. We say that $\operatorname*{res}\nolimits_{k}P$ is the
-12-table obtained by \textit{resolving} the conflict $\left(  k,k+1\right)  $
-in $P$. Let us give some examples:
+\operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{seplist}%
+P$\ \ \ \ \footnote{\textit{Proof.} If the 12-table $P$ has type 21, then the
+mixed columns of $\operatorname*{res}\nolimits_{k}P$ are identical with the
+mixed columns of $P$ (because the only two columns that have changed between
+$P$ and $\operatorname*{res}\nolimits_{k}P$ are the $k$-th and the $\left(
+k+1\right)  $-th columns, and neither of these two columns is mixed). Thus, if
+the 12-table $P$ has type 21, then clearly $\operatorname*{seplist}\left(
+\operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{seplist}P$. Hence,
+the proof is complete in the case when the 12-table $P$ has type 21. It thus
+remains to prove $\operatorname*{seplist}\left(  \operatorname*{res}%
+\nolimits_{k}P\right)  =\operatorname*{seplist}P$ in the case when the
+12-table $P$ has type M1 or has type 2M.
+\par
+We shall only consider the case when the 12-table $P$ has type 2M (since the
+case of type M1 is similar). So let us assume that the 12-table $P$ has type
+2M.
+\par
+We recall that $\operatorname*{seplist}P$ is the list of all values
+$\operatorname*{sep}\nolimits_{j}P$ (in the order of increasing $j$), where
+$j$ ranges over all positive integers for which the $j$-th column of $P$ is
+mixed. One of these values is $\operatorname*{sep}\nolimits_{k+1}P$, because
+the $\left(  k+1\right)  $-th column of $P$ is mixed. We can thus write%
+\begin{equation}
+\operatorname*{seplist}P=\left(  \ldots,\operatorname*{sep}\nolimits_{k+1}%
+P,\ldots\right)  , \label{eq.def.res.checkseplist.1}%
+\end{equation}
+where the first \textquotedblleft$\ldots$\textquotedblright\ stands for values
+$\operatorname*{sep}\nolimits_{j}P$ with $j<k$ (because the $k$-th column of
+$P$ is not mixed, and thus does not contribute to $\operatorname*{seplist}P$),
+and the second \textquotedblleft$\ldots$\textquotedblright\ stands for values
+$\operatorname*{sep}\nolimits_{j}P$ with $j>k+1$.
+\par
+On the other hand, $\operatorname*{seplist}\left(  \operatorname*{res}%
+\nolimits_{k}P\right)  $ is the list of all values $\operatorname*{sep}%
+\nolimits_{j}\left(  \operatorname*{res}\nolimits_{k}P\right)  $ (in the order
+of increasing $j$), where $j$ ranges over all positive integers for which the
+$j$-th column of $\operatorname*{res}\nolimits_{k}P$ is mixed. One of these
+values is $\operatorname*{sep}\nolimits_{k}\left(  \operatorname*{res}%
+\nolimits_{k}P\right)  $, because the $k$-th column of $\operatorname*{res}%
+\nolimits_{k}P$ is mixed. We can thus write%
+\begin{equation}
+\operatorname*{seplist}\left(  \operatorname*{res}\nolimits_{k}P\right)
+=\left(  \ldots,\operatorname*{sep}\nolimits_{k}\left(  \operatorname*{res}%
+\nolimits_{k}P\right)  ,\ldots\right)  , \label{eq.def.res.checkseplist.2}%
+\end{equation}
+where the first \textquotedblleft$\ldots$\textquotedblright\ stands for values
+$\operatorname*{sep}\nolimits_{j}\left(  \operatorname*{res}\nolimits_{k}%
+P\right)  $ with $j<k$, and the second \textquotedblleft$\ldots$%
+\textquotedblright\ stands for values $\operatorname*{sep}\nolimits_{j}\left(
+\operatorname*{res}\nolimits_{k}P\right)  $ with $j>k+1$ (because the $\left(
+k+1\right)  $-th column of $\operatorname*{res}\nolimits_{k}P$ is not mixed,
+and thus does not contribute to $\operatorname*{seplist}\left(
+\operatorname*{res}\nolimits_{k}P\right)  $).
+\par
+Now, let us recall that all columns of $\operatorname*{res}\nolimits_{k}P$
+apart from the $k$-th and the $\left(  k+1\right)  $-th one are copied over
+from $P$ unchanged (by the definition of $\operatorname*{res}\nolimits_{k}P$).
+Hence, the first \textquotedblleft$\ldots$\textquotedblright\ in
+(\ref{eq.def.res.checkseplist.1}) means the same thing as the first
+\textquotedblleft$\ldots$\textquotedblright\ in
+(\ref{eq.def.res.checkseplist.2}), and the second \textquotedblleft$\ldots
+$\textquotedblright\ in (\ref{eq.def.res.checkseplist.1}) means the same thing
+as the second \textquotedblleft$\ldots$\textquotedblright\ in
+(\ref{eq.def.res.checkseplist.2}). Now, (\ref{eq.def.res.checkseplist.2})
+becomes%
+\[
+\operatorname*{seplist}\left(  \operatorname*{res}\nolimits_{k}P\right)
+=\left(  \ldots,\underbrace{\operatorname*{sep}\nolimits_{k}\left(
+\operatorname*{res}\nolimits_{k}P\right)  }_{=\operatorname*{sep}%
+\nolimits_{k+1}P},\ldots\right)  =\left(  \ldots,\operatorname*{sep}%
+\nolimits_{k+1}P,\ldots\right)  =\operatorname*{seplist}P
+\]
+(by (\ref{eq.def.res.checkseplist.1})), qed.}. Thus, using the
+\textquotedblleft separational definition of benignity\textquotedblright, we
+see that $\operatorname*{res}\nolimits_{k}P$ is benign (since $P$ is benign);
+that is, $\operatorname*{res}\nolimits_{k}P\in\mathbf{S}$. We say that
+$\operatorname*{res}\nolimits_{k}P$ is the 12-table obtained by
+\textit{resolving} the conflict $\left(  k,k+1\right)  $ in $P$. Let us give
+some examples:
+
+\Needspace{14\baselineskip}
 
 \begin{example}
 \label{exa.resolve}Let $P=%
@@ -4850,8 +5702,10 @@ $\operatorname*{res}\nolimits_{1}P=%
 1 & 2
 \end{ytableau}%
 %EndExpansion
-$, which has as many conflicts as $P$ did.}We now observe some further
-properties of $\operatorname*{res}\nolimits_{k}P$:
+$, which has as many conflicts as $P$ did.}
+\end{verlong}
+
+We now observe some further properties of $\operatorname*{res}\nolimits_{k}P$:
 
 \begin{proposition}
 \label{prop.conflict-resolution-props}Let $P\in\mathbf{S}$ and $k\in
@@ -4875,7 +5729,7 @@ k+1\right)  $-th columns of $P$. In other words, if $Q$ is a further benign
 }h\text{-th column of }P\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \text{for each }h\in\left\{  k,k+1\right\}  ,
 \end{align*}
-then%
+then $\left(  k,k+1\right)  $ is a conflict of $Q$ and we have%
 \begin{align}
 \left(  \text{the }h\text{-th column of }\operatorname*{res}\nolimits_{k}%
 Q\right)   &  =\left(  \text{the }h\text{-th column of }\operatorname*{res}%
@@ -4970,6 +5824,154 @@ have
 Notice that the converse of Proposition \ref{prop.conflict-resolution-props}
 \textbf{(f)} does not generally hold.
 
+\begin{vershort}
+\begin{proof}
+[Proof of Proposition \ref{prop.conflict-resolution-props}.]Most of
+Proposition \ref{prop.conflict-resolution-props} succumbs to straightforward
+arguments using the definitions of $\operatorname*{res}_{k}$ and
+$\operatorname*{flip}$ coupled with a thorough case analysis, with an
+occasional use of the convexity of $Z$ and of the formula
+(\ref{pf.lem.BK.Tsep}). Merely the parts \textbf{(c)} and \textbf{(f)} require
+a bit more thinking. We shall only give the proof for part \textbf{(c)}, since
+part \textbf{(f)} will not be used in the following.
+
+\textbf{(c)} A cell $\left(  i,j\right)  $ in $Z$ will be called \textit{good}
+if the cell $\left(  i+1,j\right)  $ also belongs to $Z$. Notice that every
+stagnant cell of $P$ or of $\operatorname*{res}\nolimits_{k}P$ must be good.
+
+In order to prove (\ref{pf.lem.BK.res.ceq}), we need to show that, for every
+$r\in\mathbb{N}_{+}$, the number of stagnant cells of $P$ in row $r$ equals
+the number of stagnant cells of $\operatorname*{res}\nolimits_{k}P$ in row
+$r$. Instead of comparing the numbers of stagnant cells, we can just as well
+compare the numbers of good cells that are not stagnant (because all stagnant
+cells are good, and because the total number of good cells clearly depends
+only on $Z$ and not on the 12-table). So we need to show that, for every
+$r\in\mathbb{N}_{+}$, the number of good cells in row $r$ that are not
+stagnant cells of $P$ equals the number of good cells in row $r$ that are not
+stagnant cells of $\operatorname*{res}\nolimits_{k}P$.
+
+Fix $r\in\mathbb{N}_{+}$. The number of good cells in row $r$ that are not
+stagnant cells of $P$ is precisely the number of appearances of $r+1$ in the
+list $\operatorname*{seplist}P$ (because the good cells that are not stagnant
+cells of $P$ are precisely the cells of the form $\left(  \operatorname*{sep}%
+\nolimits_{k}P,k\right)  $, where $k$ is a positive integer such that the
+$k$-th column of $P$ is mixed). Similarly, the number of good cells in row $r$
+that are not stagnant cells of $\operatorname*{res}\nolimits_{k}P$ is
+precisely the number of appearances of $r+1$ in the list
+$\operatorname*{seplist}\left(  \operatorname*{res}\nolimits_{k}P\right)  $.
+These two numbers are equal, because $\operatorname*{seplist}\left(
+\operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{seplist}P$. As
+explained above, this completes the proof of (\ref{pf.lem.BK.res.ceq}).
+\end{proof}
+\end{vershort}
+
+\begin{noncompile}
+\begin{proof}
+[Proof of Proposition \ref{prop.conflict-resolution-props} \textbf{(f)}%
+.]\textbf{(f)} Let $\left(  i,j\right)  $ be a conflict of $P$ such that
+$\left(  i,j\right)  \neq\left(  k,k+1\right)  $. Then, there exists an
+$r\in\mathbb{N}_{+}$ satisfying $\left(  r,i\right)  \in Z$, $\left(
+r,j\right)  \in Z$, $P\left(  r,i\right)  =2$ and $P\left(  r,j\right)  =1$
+(since $\left(  i,j\right)  $ is a conflict of $P$). Consider this $r$.
+Clearly, $i<j$ (since $\left(  i,j\right)  $ is a conflict). Since $i$ and $j$
+are integers, this yields $i\leq j-1$ and thus $i+1\leq j$.
+
+We have $s_{k}\left(  i\right)  <s_{k}\left(  j\right)  $. (Indeed, this can
+be proven straightforwardly using $i<j$ and $\left(  i,j\right)  \neq\left(
+k,k+1\right)  $ alone, by dealing with the cases $i=k$ and $j=k+1$ separately.)
+
+We shall now show that $\left(  r,s_{k}\left(  i\right)  \right)  \in Z$.
+Indeed, assume the contrary. Then, $\left(  r,s_{k}\left(  i\right)  \right)
+\notin Z$. Notice that $s_{k}\left(  i\right)  \leq i+1$ (since every
+$u\in\mathbb{N}_{+}$ yields $s_{k}\left(  u\right)  \leq u+1$). Therefore,
+$s_{k}\left(  i\right)  \leq i+1\leq j$. If $i\leq s_{k}\left(  i\right)  $,
+then we thus have $\left(  r,s_{k}\left(  i\right)  \right)  \in Z$ (by
+(\ref{eq.convex}), applied to $r$, $r$, $r$, $i$, $s_{k}\left(  i\right)  $
+and $j$ instead of $i$, $i^{\prime}$, $i^{\prime\prime}$, $j$, $j^{\prime}$
+and $j^{\prime\prime}$ (since $Z$ is convex and since $\left(  r,i\right)  \in
+Z$ and $\left(  r,j\right)  \in Z$)), which contradicts $\left(
+r,s_{k}\left(  i\right)  \right)  \notin Z$. Hence, we cannot have $i\leq
+s_{k}\left(  i\right)  $. Thus, $i>s_{k}\left(  i\right)  $, so that $i=k+1$
+(since the only $u\in\mathbb{N}_{+}$ satisfying $u>s_{k}\left(  u\right)  $ is
+$k+1$). Thus, $s_{k}\left(  i\right)  =s_{k}\left(  k+1\right)  =k$, so that
+$\left(  r,\underbrace{k}_{=s_{k}\left(  i\right)  }\right)  =\left(
+r,s_{k}\left(  i\right)  \right)  \notin Z$.
+
+But recall that $\left(  k,k+1\right)  $ is a conflict of $P$. Thus, there
+exists a $q\in\mathbb{N}_{+}$ satisfying $\left(  q,k\right)  \in Z$, $\left(
+q,k+1\right)  \in Z$, $P\left(  q,k\right)  =2$ and $P\left(  q,k+1\right)
+=1$ (by the definition of a \textquotedblleft conflict\textquotedblright).
+Consider this $q$. If we had $r\leq q$, then we would have $P\left(
+r,k+1\right)  \leq P\left(  q,k+1\right)  $ (since the entries of $P$ are
+weakly increasing down columns), which would contradict $P\left(
+r,\underbrace{k+1}_{=i}\right)  =P\left(  r,i\right)  =2>1=P\left(
+q,k+1\right)  $. Hence, we cannot have $r\leq q$. Thus, we have $r>q$, so that
+$q<r$. Now, $Z$ is convex and we have $\left(  q,k\right)  \in Z$ and $\left(
+r,\underbrace{k+1}_{=i}\right)  =\left(  r,i\right)  \in Z$. Hence,
+(\ref{eq.convex}) (applied to $q$, $r$, $r$, $k$, $k$ and $k+1$ instead of
+$i$, $i^{\prime}$, $i^{\prime\prime}$, $j$, $j^{\prime}$ and $j^{\prime\prime
+}$) yields $\left(  r,k\right)  \in Z$, which contradicts $\left(  r,k\right)
+\notin Z$. This contradicts our assumption. Thus, $\left(  r,s_{k}\left(
+i\right)  \right)  \in Z$ is proven.
+
+Next, we shall show that $\left(  r,s_{k}\left(  j\right)  \right)  \in Z$.
+Indeed, assume the contrary. Then, $\left(  r,s_{k}\left(  j\right)  \right)
+\notin Z$. Notice that $s_{k}\left(  j\right)  \geq j-1$ (since every
+$u\in\mathbb{N}_{+}$ satisfies $s_{k}\left(  u\right)  \geq u-1$). Thus,
+$j-1\leq s_{k}\left(  j\right)  $, so that $i\leq j-1\leq s_{k}\left(
+j\right)  $. If $s_{k}\left(  j\right)  \leq j$, then we thus have $\left(
+r,s_{k}\left(  j\right)  \right)  \in Z$ (by (\ref{eq.convex}), applied to
+$r$, $r$, $r$, $i$, $s_{k}\left(  j\right)  $ and $j$ instead of $i$,
+$i^{\prime}$, $i^{\prime\prime}$, $j$, $j^{\prime}$ and $j^{\prime\prime}$
+(since $Z$ is convex and since $\left(  r,i\right)  \in Z$ and $\left(
+r,j\right)  \in Z$)), which contradicts $\left(  r,s_{k}\left(  j\right)
+\right)  \notin Z$. Hence, we cannot have $s_{k}\left(  j\right)  \leq j$.
+Thus, $s_{k}\left(  j\right)  >j$, so that $j=k$ (since the only
+$u\in\mathbb{N}_{+}$ satisfying $s_{k}\left(  u\right)  >u$ is $k$). Thus,
+$s_{k}\left(  j\right)  =s_{k}\left(  k\right)  =k+1$, so that $\left(
+r,\underbrace{k+1}_{=s_{k}\left(  j\right)  }\right)  =\left(  r,s_{k}\left(
+j\right)  \right)  \notin Z$.
+
+But recall that $\left(  k,k+1\right)  $ is a conflict of $P$. Thus, there
+exists a $q\in\mathbb{N}_{+}$ satisfying $\left(  q,k\right)  \in Z$, $\left(
+q,k+1\right)  \in Z$, $P\left(  q,k\right)  =2$ and $P\left(  q,k+1\right)
+=1$ (by the definition of a \textquotedblleft conflict\textquotedblright).
+Consider this $q$. If we had $q\leq r$, then we would have $P\left(
+q,k\right)  \leq P\left(  r,k\right)  $ (since the entries of $P$ are weakly
+increasing down columns), which would contradict $P\left(  q,k\right)
+=2>1=P\left(  r,\underbrace{j}_{=k}\right)  =P\left(  r,k\right)  $. Hence, we
+cannot have $q\leq r$. Thus, we have $q>r$. Thus, $r<q$. Now, $Z$ is convex
+and we have $\left(  r,\underbrace{k}_{=j}\right)  =\left(  r,j\right)  \in Z$
+and $\left(  q,k+1\right)  \in Z$. Hence, (\ref{eq.convex}) (applied to $r$,
+$r$, $q$, $k$, $k+1$ and $k+1$ instead of $i$, $i^{\prime}$, $i^{\prime\prime
+}$, $j$, $j^{\prime}$ and $j^{\prime\prime}$) yields $\left(  r,k+1\right)
+\in Z$, which contradicts $\left(  r,k+1\right)  \notin Z$. This contradicts
+our assumption. Thus, $\left(  r,s_{k}\left(  j\right)  \right)  \in Z$ is proven.
+
+From (\ref{pf.lem.BK.res.Pli}), we obtain $P\left(  r,i\right)  =\left(
+\operatorname*{res}\nolimits_{k}P\right)  \left(  r,s_{k}\left(  i\right)
+\right)  $ (since $\left(  r,i\right)  \in Z$ and $\left(  r,s_{k}\left(
+i\right)  \right)  \in Z$), so that $\left(  \operatorname*{res}%
+\nolimits_{k}P\right)  \left(  r,s_{k}\left(  i\right)  \right)  =P\left(
+r,i\right)  =2$. From (\ref{pf.lem.BK.res.Pli}) (applied to $j$ instead of
+$i$), we obtain $P\left(  r,j\right)  =\left(  \operatorname*{res}%
+\nolimits_{k}P\right)  \left(  r,s_{k}\left(  j\right)  \right)  $ (since
+$\left(  r,j\right)  \in Z$ and $\left(  r,s_{k}\left(  j\right)  \right)  \in
+Z$), so that $\left(  \operatorname*{res}\nolimits_{k}P\right)  \left(
+r,s_{k}\left(  j\right)  \right)  =P\left(  r,j\right)  =1$. Altogether, we
+thus know that $s_{k}\left(  i\right)  <s_{k}\left(  j\right)  $, $\left(
+r,s_{k}\left(  i\right)  \right)  \in Z$, $\left(  r,s_{k}\left(  j\right)
+\right)  \in Z$, $\left(  \operatorname*{res}\nolimits_{k}P\right)  \left(
+r,s_{k}\left(  i\right)  \right)  =2$ and $\left(  \operatorname*{res}%
+\nolimits_{k}P\right)  \left(  r,s_{k}\left(  j\right)  \right)  =1$. Thus,
+$\left(  s_{k}\left(  i\right)  ,s_{k}\left(  j\right)  \right)  $ is a
+conflict of $\operatorname*{res}\nolimits_{k}P$ (due to the definition of a
+\textquotedblleft conflict\textquotedblright). This proves Proposition
+\ref{prop.conflict-resolution-props} \textbf{(f)}.
+\end{proof}
+\end{noncompile}
+
+\begin{verlong}
 \begin{proof}
 [Proof of Proposition \ref{prop.conflict-resolution-props}.]Before we come to
 the actual proof, let us notice a simple fact:
@@ -4980,20 +5982,16 @@ s_{k}\left(  i\right)  <s_{k}\left(  j\right)  \ \ \ \ \ \ \ \ \ \ \text{if
 }\left(  i,j\right)  \neq\left(  k,k+1\right)
 \label{pf.prop.conflict-resolution.props.inversion-transform}%
 \end{equation}
-
-
-\begin{vershort}
-(Indeed, this is straightforward to check.)
-\end{vershort}
-
-\begin{verlong}
 \footnote{\textit{Proof:} The proof of
 (\ref{pf.prop.conflict-resolution.props.inversion-transform}) is analogous to
 the proof of (\ref{pf.prop.diamond.example.poset.inversion-transform}) (the
 only difference being that $\left(  i,j\right)  $ is now an element of
 $\mathbb{N}_{+}^{2}$ rather than an element of $\left\{  1,2,\ldots,n\right\}
-^{2}$).}
-\end{verlong}
+^{2}$).}.
+
+We have assumed that $\left(  k,k+1\right)  $ is a conflict of $P$. Thus, as
+we know, the 12-table $P$ either has $k$-type M1, or has $k$-type 2M, or has
+$k$-type 21.
 
 Parts \textbf{(a)} and \textbf{(b)} of Proposition
 \ref{prop.conflict-resolution-props} follow immediately from the construction
@@ -5010,8 +6008,152 @@ Now, it is easy to see that%
 \text{the number of appearances of }i+1\text{ in }\operatorname*{seplist}%
 P\right)
 \]
-\footnote{\textit{Proof.} The definition of $\operatorname*{ceq}\left(
-P\right)  $ yields%
+\footnote{\textit{Proof.} First, we notice that every $j\in\mathbb{N}_{+}$
+such that $\left(  i,j\right)  $ is a stagnant cell of $P$ must be good. This
+is because, if $j\in\mathbb{N}_{+}$ is such that $\left(  i,j\right)  $ is a
+stagnant cell of $P$, then we must have $\left(  i,j\right)  \in Z$ and
+$\left(  i+1,j\right)  \in Z$ (by the definition of a \textquotedblleft
+stagnant cell\textquotedblright), and therefore $j$ must be good (by the
+definition of \textquotedblleft good\textquotedblright).
+\par
+Now, every $j\in\mathbb{N}_{+}$ satisfies the logical equivalence%
+\begin{align}
+&  \ \left(  j\text{ is good, and }\left(  i,j\right)  \text{ is not a
+stagnant cell of }P\right) \nonumber\\
+&  \Longleftrightarrow\ \left(  \text{the }j\text{-th column of }P\text{ is
+mixed and satisfies }\operatorname*{sep}\nolimits_{j}P=i+1\right)  .
+\label{pf.prop.conflict-resolution-props.c.fn1.eq1}%
+\end{align}
+\par
+\textit{Proof of (\ref{pf.prop.conflict-resolution-props.c.fn1.eq1}):} Fix
+$j\in\mathbb{N}_{+}$.
+\par
+Assume that $\left(  j\text{ is good, and }\left(  i,j\right)  \text{ is not a
+stagnant cell of }P\right)  $. Thus, $j$ is good. Hence, $\left(  i,j\right)
+\in Z$ and $\left(  i+1,j\right)  \in Z$ (by the definition of
+\textquotedblleft good\textquotedblright).
+\par
+If we had $P\left(  i,j\right)  =P\left(  i+1,j\right)  $, then $\left(
+i,j\right)  $ would be a stagnant cell of $P$ (according to the definition of
+a \textquotedblleft stagnant cell\textquotedblright), which would contradict
+our assumption that $\left(  i,j\right)  $ is not a stagnant cell of $P$.
+Hence, we cannot have $P\left(  i,j\right)  =P\left(  i+1,j\right)  $. Thus,
+$P\left(  i,j\right)  \neq P\left(  i+1,j\right)  $. Combined with $P\left(
+i,j\right)  \leq P\left(  i+1,j\right)  $ (because the entries of $P$ are
+weakly increasing down columns), this yields $P\left(  i,j\right)  <P\left(
+i+1,j\right)  $. But $P\left(  i+1,j\right)  \in\left\{  1,2\right\}  $ (since
+all entries of $P$ are $1$'s and $2$'s), so that $P\left(  i+1,j\right)
+\leq2$ and thus $P\left(  i,j\right)  <P\left(  i+1,j\right)  \leq2$. Hence,
+$P\left(  i,j\right)  \leq1$ (since $P\left(  i,j\right)  $ is an integer).
+But $P\left(  i,j\right)  \in\left\{  1,2\right\}  $ (since all entries of $P$
+are $1$'s and $2$'s), so that $P\left(  i,j\right)  \geq1$. Combined with
+$P\left(  i,j\right)  \leq1$, this yields $P\left(  i,j\right)  =1$.
+\par
+Furthermore, $P\left(  i,j\right)  <P\left(  i+1,j\right)  $, so that
+$P\left(  i+1,j\right)  >P\left(  i,j\right)  =1$ and thus $P\left(
+i+1,j\right)  \geq2$ (since $P\left(  i+1,j\right)  $ is an integer). Combined
+with $P\left(  i+1,j\right)  \leq2$, this yields $P\left(  i+1,j\right)  =2$.
+\par
+Now, the $j$-th column of $P$ contains both $1$'s and $2$'s (since $P\left(
+i,j\right)  =1$ and $P\left(  i+1,j\right)  =2$), and thus is mixed. Moreover,
+if we had $i\geq\operatorname*{sep}\nolimits_{j}P$, then we would have%
+\begin{align*}
+1  &  =P\left(  i,j\right)  =\left\{
+\begin{array}
+[c]{c}%
+1,\ \ \ \ \ \ \ \ \ \ \text{if }i<\operatorname*{sep}\nolimits_{j}P;\\
+2,\ \ \ \ \ \ \ \ \ \ \text{if }i\geq\operatorname*{sep}\nolimits_{j}P
+\end{array}
+\right.  \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.lem.BK.Tsep}), applied
+to }T=P\text{, }r=i\text{ and }k=j\right) \\
+&  =2\ \ \ \ \ \ \ \ \ \ \left(  \text{since }i\geq\operatorname*{sep}%
+\nolimits_{j}P\right)  ,
+\end{align*}
+which would be absurd. Hence, we cannot have $i\geq\operatorname*{sep}%
+\nolimits_{j}P$. We thus must have $i<\operatorname*{sep}\nolimits_{j}P$, so
+that $i+1\leq\operatorname*{sep}\nolimits_{j}P$ (since $i$ and
+$\operatorname*{sep}\nolimits_{j}P$ are integers). But if we had
+$i+1<\operatorname*{sep}\nolimits_{j}P$, then we would have%
+\begin{align*}
+2  &  =P\left(  i+1,j\right)  =\left\{
+\begin{array}
+[c]{c}%
+1,\ \ \ \ \ \ \ \ \ \ \text{if }i+1<\operatorname*{sep}\nolimits_{j}P;\\
+2,\ \ \ \ \ \ \ \ \ \ \text{if }i+1\geq\operatorname*{sep}\nolimits_{j}P
+\end{array}
+\right.  \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.lem.BK.Tsep}), applied
+to }T=P\text{, }r=i+1\text{ and }k=j\right) \\
+&  =1\ \ \ \ \ \ \ \ \ \ \left(  \text{since }i+1<\operatorname*{sep}%
+\nolimits_{j}P\right)  ,
+\end{align*}
+which would be absurd. Hence, we cannot have $i+1<\operatorname*{sep}%
+\nolimits_{j}P$. Thus, we have $i+1\geq\operatorname*{sep}\nolimits_{j}P$.
+Combined with $i+1\leq\operatorname*{sep}\nolimits_{j}P$, this yields
+$i+1=\operatorname*{sep}\nolimits_{j}P$. In other words, $\operatorname*{sep}%
+\nolimits_{j}P=i+1$. Hence, we now have shown that $\left(  \text{the
+}j\text{-th column of }P\text{ is mixed and satisfies }\operatorname*{sep}%
+\nolimits_{j}P=i+1\right)  $.
+\par
+Let us now forget that we assumed that $\left(  j\text{ is good, and }\left(
+i,j\right)  \text{ is not a stagnant cell of }P\right)  $. We thus have proven
+the logical implication%
+\begin{align}
+&  \ \left(  j\text{ is good, and }\left(  i,j\right)  \text{ is not a
+stagnant cell of }P\right) \nonumber\\
+&  \Longrightarrow\ \left(  \text{the }j\text{-th column of }P\text{ is mixed
+and satisfies }\operatorname*{sep}\nolimits_{j}P=i+1\right)  .
+\label{pf.prop.conflict-resolution-props.c.fn1.eq1.pf.1}%
+\end{align}
+\par
+Let us now assume that $\left(  \text{the }j\text{-th column of }P\text{ is
+mixed and satisfies }\operatorname*{sep}\nolimits_{j}P=i+1\right)  $.
+\par
+We have $\operatorname*{sep}\nolimits_{j}P=i+1$, thus $i=\operatorname*{sep}%
+\nolimits_{j}P-1$.
+\par
+Applying (\ref{pf.lem.BK.Tsep1}) to $T=P$ and $k=j$, we obtain $\left(
+\operatorname*{sep}\nolimits_{j}P,j\right)  \in Z$ and $P\left(
+\operatorname*{sep}\nolimits_{j}P,j\right)  =2$. In other words, $\left(
+i+1,j\right)  \in Z$ and $P\left(  i+1,j\right)  =2$ (since
+$i+1=\operatorname*{sep}\nolimits_{j}P$).
+\par
+Applying (\ref{pf.lem.BK.Tsep2}) to $T=P$ and $k=j$, we obtain $\left(
+\operatorname*{sep}\nolimits_{j}P-1,j\right)  \in Z$ and $P\left(
+\operatorname*{sep}\nolimits_{j}P-1,j\right)  =1$. In other words, $\left(
+i,j\right)  \in Z$ and $P\left(  i,j\right)  =1$ (since $i=\operatorname*{sep}%
+\nolimits_{j}P-1$).
+\par
+Now, $j$ is good (since $\left(  i,j\right)  \in Z$ and $\left(  i+1,j\right)
+\in Z$). Also, $P\left(  i,j\right)  =1\neq2=P\left(  i+1,j\right)  $. Hence,
+$\left(  i,j\right)  $ is not a stagnant cell of $P$ (because if $\left(
+i,j\right)  $ was a stagnant cell of $P$, then it would satisfy $P\left(
+i,j\right)  =P\left(  i+1,j\right)  $ (by the definition of a
+\textquotedblleft stagnant cell\textquotedblright), which would contradict
+$P\left(  i,j\right)  \neq P\left(  i+1,j\right)  $). We thus have shown that
+$\left(  j\text{ is good, and }\left(  i,j\right)  \text{ is not a stagnant
+cell of }P\right)  $.
+\par
+Let us now forget that we assumed that $\left(  \text{the }j\text{-th column
+of }P\text{ is mixed and satisfies }\operatorname*{sep}\nolimits_{j}%
+P=i+1\right)  $. We thus have proven the logical implication%
+\begin{align*}
+&  \ \left(  \text{the }j\text{-th column of }P\text{ is mixed and satisfies
+}\operatorname*{sep}\nolimits_{j}P=i+1\right) \\
+&  \Longrightarrow\ \left(  j\text{ is good, and }\left(  i,j\right)  \text{
+is not a stagnant cell of }P\right)  .
+\end{align*}
+Combining this implication with
+(\ref{pf.prop.conflict-resolution-props.c.fn1.eq1.pf.1}), we obtain the
+equivalence%
+\begin{align*}
+&  \ \left(  j\text{ is good, and }\left(  i,j\right)  \text{ is not a
+stagnant cell of }P\right) \\
+&  \Longleftrightarrow\ \left(  \text{the }j\text{-th column of }P\text{ is
+mixed and satisfies }\operatorname*{sep}\nolimits_{j}P=i+1\right)  .
+\end{align*}
+Thus, (\ref{pf.prop.conflict-resolution-props.c.fn1.eq1}) is proven.
+\par
+Now, the definition of $\operatorname*{ceq}\left(  P\right)  $ yields%
 \begin{align*}
 &  \left(  \operatorname*{ceq}\left(  P\right)  \right)  _{i}\\
 &  =\left(  \text{the number of }j\in\mathbb{N}_{+}\text{ such that }\left(
@@ -5024,19 +6166,16 @@ good}\right) \\
 &  =\underbrace{\left(  \text{the number of good }j\in\mathbb{N}_{+}\right)
 }_{=z_{i}}\\
 &  \ \ \ \ \ \ \ \ \ \ -\underbrace{\left(  \text{the number of good }%
-j\in\mathbb{N}_{+}\text{ such that }P\left(  i,j\right)  =1\text{ and
-}P\left(  i+1,j\right)  =2\right)  }_{=\left(  \text{the number of }%
-j\in\mathbb{N}_{+}\text{ such that the }j\text{-th column of }P\text{ is mixed
-and satisfies }\operatorname*{sep}\nolimits_{j}P=i+1\right)  }\\
-&  \ \ \ \ \ \ \ \ \ \ \left(
-\begin{array}
-[c]{c}%
-\text{because for a good }j\in\mathbb{N}_{+}\text{, we have that }\left(
-i,j\right)  \text{ is a stagnant cell of}\\
-P\text{ if and only if }j\text{ does \textbf{not} satisfy }\left(  P\left(
-i,j\right)  =1\text{ and }P\left(  i+1,j\right)  =2\right)
-\end{array}
-\right) \\
+j\in\mathbb{N}_{+}\text{ such that }\left(  i,j\right)  \text{ is not a
+stagnant cell of }P\right)  }_{=\left(  \text{the number of }j\in
+\mathbb{N}_{+}\text{ such that }j\text{ is good, and }\left(  i,j\right)
+\text{ is not a stagnant cell of }P\right)  }\\
+&  =z_{i}-\left(  \text{the number of }j\in\mathbb{N}_{+}\text{ such that
+}\underbrace{j\text{ is good, and }\left(  i,j\right)  \text{ is not a
+stagnant cell of }P}_{\substack{\text{this is equivalent to}\\\left(
+\text{the }j\text{-th column of }P\text{ is mixed and satisfies }%
+\operatorname*{sep}\nolimits_{j}P=i+1\right)  \\\text{(by
+(\ref{pf.prop.conflict-resolution-props.c.fn1.eq1}))}}}\right) \\
 &  =z_{i}-\underbrace{\left(  \text{the number of }j\in\mathbb{N}_{+}\text{
 such that the }j\text{-th column of }P\text{ is mixed and satisfies
 }\operatorname*{sep}\nolimits_{j}P=i+1\right)  }_{=\left(  \text{the number of
@@ -5069,8 +6208,7 @@ $\left(  \operatorname*{ircont}\left(  \operatorname*{res}\nolimits_{k}%
 P\right)  \right)  _{g}=\left(  \operatorname*{ircont}\left(  P\right)
 \right)  _{g}$ for every $g\in\mathbb{N}_{+}$.
 
-So let us fix an $g\in\mathbb{N}_{+}$. We must be in one of the following
-three Cases:
+So let us fix a $g\in\mathbb{N}_{+}$. We must be in one of the following three Cases:
 
 \textit{Case 1:} We have $g=1$.
 
@@ -5286,9 +6424,7 @@ Let us finally assume that we are in Case 3. Then, the 12-table $P$ has
 $k$-type 21. In other words, the $k$-th column of $P$ is 2-pure, and the
 $\left(  k+1\right)  $-th column of $P$ is 1-pure. The definition of
 $\operatorname*{res}\nolimits_{k}P$ then shows that the $k$-th column of
-$\operatorname*{res}_{k}P$ is mixed and satisfies $\operatorname*{sep}%
-\nolimits_{k}\left(  \operatorname*{res}\nolimits_{k}P\right)
-=\operatorname*{sep}\nolimits_{k+1}P$, whereas the $\left(  k+1\right)  $-th
+$\operatorname*{res}_{k}P$ is 1-pure, whereas the $\left(  k+1\right)  $-th
 column of $\operatorname*{res}\nolimits_{k}P$ is 2-pure.
 
 We have $P\left(  r,k\right)  =2$ (since the $k$-th column of $P$ is 2-pure)
@@ -5329,15 +6465,17 @@ r,s_{k}\left(  i\right)  \right)  \notin Z$. Hence, we cannot have $i\leq
 s_{k}\left(  i\right)  $. Thus, $i>s_{k}\left(  i\right)  $, so that $i=k+1$
 (since the only $u\in\mathbb{N}_{+}$ satisfying $u>s_{k}\left(  u\right)  $ is
 $k+1$). Thus, $s_{k}\left(  i\right)  =s_{k}\left(  k+1\right)  =k$, so that
-$\left(  r,k\right)  \notin Z$ (since $\left(  r,s_{k}\left(  i\right)
-\right)  \notin Z$).
+$\left(  r,\underbrace{k}_{=s_{k}\left(  i\right)  }\right)  =\left(
+r,s_{k}\left(  i\right)  \right)  \notin Z$.
 
 But recall that $\left(  k,k+1\right)  $ is a conflict of $P$. Thus, there
 exists a $q\in\mathbb{N}_{+}$ satisfying $\left(  q,k\right)  \in Z$, $\left(
 q,k+1\right)  \in Z$, $P\left(  q,k\right)  =2$ and $P\left(  q,k+1\right)
-=1$. Consider this $q$. If $r\leq q$, then
+=1$ (by the definition of a \textquotedblleft conflict\textquotedblright).
+Consider this $q$. If $r\leq q$, then%
 \begin{align*}
-1  &  =P\left(  q,k+1\right)  \geq P\left(  r,\underbrace{k+1}_{=i}\right) \\
+2  &  =P\left(  r,\underbrace{i}_{=k+1}\right)  =P\left(  r,k+1\right)  \leq
+P\left(  q,k+1\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
@@ -5345,7 +6483,7 @@ q,k+1\right)  \in Z$, $P\left(  q,k\right)  =2$ and $P\left(  q,k+1\right)
 \text{weakly increasing down columns}%
 \end{array}
 \right) \\
-&  =P\left(  r,i\right)  =2,
+&  =1,
 \end{align*}
 which is absurd. Hence, we cannot have $r\leq q$. Thus, we have $r>q$, so that
 $q<r$. Now, $Z$ is convex and we have $\left(  q,k\right)  \in Z$ and $\left(
@@ -5371,13 +6509,14 @@ r,j\right)  \in Z$)), which contradicts $\left(  r,s_{k}\left(  j\right)
 Thus, $s_{k}\left(  j\right)  >j$, so that $j=k$ (since the only
 $u\in\mathbb{N}_{+}$ satisfying $s_{k}\left(  u\right)  >u$ is $k$). Thus,
 $s_{k}\left(  j\right)  =s_{k}\left(  k\right)  =k+1$, so that $\left(
-r,k+1\right)  \notin Z$ (since $\left(  r,s_{k}\left(  j\right)  \right)
-\notin Z$).
+r,\underbrace{k+1}_{=s_{k}\left(  j\right)  }\right)  =\left(  r,s_{k}\left(
+j\right)  \right)  \notin Z$.
 
 But recall that $\left(  k,k+1\right)  $ is a conflict of $P$. Thus, there
 exists a $q\in\mathbb{N}_{+}$ satisfying $\left(  q,k\right)  \in Z$, $\left(
 q,k+1\right)  \in Z$, $P\left(  q,k\right)  =2$ and $P\left(  q,k+1\right)
-=1$. Consider this $q$. If $q\leq r$, then
+=1$ (by the definition of a \textquotedblleft conflict\textquotedblright).
+Consider this $q$. If $q\leq r$, then
 \begin{align*}
 2  &  =P\left(  q,k\right)  \leq P\left(  r,\underbrace{k}_{=j}\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(
@@ -5454,10 +6593,10 @@ M1) shows that the $k$-th column of $\operatorname*{res}_{k}P$ is 1-pure,
 whereas the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
 \nolimits_{k}P$ is mixed and satisfies $\operatorname*{sep}\nolimits_{k+1}%
 \left(  \operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{sep}%
-\nolimits_{k}P$. In particular, the 12-table $\operatorname*{res}%
-\nolimits_{k}P$ differs from $P$ only in its columns $k$ and $k+1$. By the
-definition of $\operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}%
-P\right)  $, we now see that:
+\nolimits_{k}P$. Furthermore, the 12-table $\operatorname*{res}\nolimits_{k}P$
+differs from $P$ only in its columns $k$ and $k+1$. By the definition of
+$\operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)  $, we
+now see that:
 
 \begin{itemize}
 \item the $k$-th column of $\operatorname*{flip}\left(  \operatorname*{res}%
@@ -5544,18 +6683,20 @@ P\right)  $ has $k$-type 2M. Therefore, the definition of $\operatorname*{res}%
 \nolimits_{k}\left(  \operatorname*{flip}\left(  \operatorname*{res}%
 \nolimits_{k}P\right)  \right)  $ shows that $\operatorname*{res}%
 \nolimits_{k}\left(  \operatorname*{flip}\left(  \operatorname*{res}%
-\nolimits_{k}P\right)  \right)  $ is the 12-table which differs from
-$\operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)  $ in
-that the $k$-th column of $\operatorname*{res}\nolimits_{k}\left(
+\nolimits_{k}P\right)  \right)  $ is the 12-table defined as follows: The
+$k$-th column of $\operatorname*{res}\nolimits_{k}\left(  \operatorname*{flip}%
+\left(  \operatorname*{res}\nolimits_{k}P\right)  \right)  $ is mixed and
+satisfies $\operatorname*{sep}\nolimits_{k}\left(  \operatorname*{res}%
+\nolimits_{k}\left(  \operatorname*{flip}\left(  \operatorname*{res}%
+\nolimits_{k}P\right)  \right)  \right)  =\operatorname*{sep}\nolimits_{k+1}%
+\left(  \operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)
+\right)  $; the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
+\nolimits_{k}\left(  \operatorname*{flip}\left(  \operatorname*{res}%
+\nolimits_{k}P\right)  \right)  $ is 2-pure (i.e., it is filled with $2$'s);
+all other columns of $\operatorname*{res}\nolimits_{k}\left(
 \operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)  \right)
-$ is mixed and satisfies $\operatorname*{sep}\nolimits_{k}\left(
-\operatorname*{res}\nolimits_{k}\left(  \operatorname*{flip}\left(
-\operatorname*{res}\nolimits_{k}P\right)  \right)  \right)
-=\operatorname*{sep}\nolimits_{k+1}\left(  \operatorname*{flip}\left(
-\operatorname*{res}\nolimits_{k}P\right)  \right)  $, whereas the $\left(
-k+1\right)  $-th column of $\operatorname*{res}\nolimits_{k}\left(
-\operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)  \right)
-$ is 2-pure (i.e., it is filled with $2$'s). In particular, the 12-table
+$ are copied over from $\operatorname*{flip}\left(  \operatorname*{res}%
+\nolimits_{k}P\right)  $ unchanged. In particular, the 12-table
 $\operatorname*{res}\nolimits_{k}\left(  \operatorname*{flip}\left(
 \operatorname*{res}\nolimits_{k}P\right)  \right)  $ differs from
 $\operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)  $ only
@@ -5611,7 +6752,7 @@ is the }k\text{-th column of }P\text{)}%
 \end{array}
 \right)  .
 \end{align*}
-That is, the point at which the $1$'s end at the $2$'s begin is the same in
+That is, the point at which the $1$'s end and the $2$'s begin is the same in
 these two columns. Hence,%
 \[
 \left(  \text{the }k\text{-th column of }\operatorname*{res}\nolimits_{k}%
@@ -5651,7 +6792,8 @@ only in its columns $k$ and $k+1$). Therefore,%
 }i\text{-th column of }\operatorname*{flip}\left(  P\right)  \right)
 \]
 (by Remark \ref{rmk.flip.independent}, applied to $\operatorname*{res}%
-\nolimits_{k}P$ and $P$ instead of $P$ and $Q$). Now,%
+\nolimits_{k}P$ and $P$ instead of $P$ and $Q$). Now, $i\notin\left\{
+k,k+1\right\}  $, so that%
 \begin{align*}
 &  \left(  \text{the }i\text{-th column of }\operatorname*{res}\nolimits_{k}%
 \left(  \operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)
@@ -5690,12 +6832,12 @@ $\operatorname*{flip}\left(  P\right)  $, we see that:
 \item the $k$-th column of $\operatorname*{flip}\left(  P\right)  $ is 1-pure
 (since the $k$-th column of $P$ is 2-pure, and since the map
 $\operatorname*{flip}$ changes 2-pure columns by replacing all their entries
-by $1$'s).
+by $1$'s);
 
 \item the $\left(  k+1\right)  $-th column of $\operatorname*{flip}\left(
 P\right)  $ is the $\left(  k+1\right)  $-th column of $P$ (since the $\left(
 k+1\right)  $-th column of $P$ is mixed, and the map $\operatorname*{flip}$
-leaves mixed columns unchanged);
+leaves mixed columns unchanged).
 \end{itemize}
 
 On the other hand, recall the definition of $\operatorname*{res}%
@@ -5704,8 +6846,8 @@ On the other hand, recall the definition of $\operatorname*{res}%
 satisfies $\operatorname*{sep}\nolimits_{k}\left(  \operatorname*{res}%
 \nolimits_{k}P\right)  =\operatorname*{sep}\nolimits_{k+1}P$, whereas the
 $\left(  k+1\right)  $-th column of $\operatorname*{res}\nolimits_{k}P$ is
-2-pure. In particular, the 12-table $\operatorname*{res}\nolimits_{k}P$
-differs from $P$ only in its columns $k$ and $k+1$. By the definition of
+2-pure. Furthermore, the 12-table $\operatorname*{res}\nolimits_{k}P$ differs
+from $P$ only in its columns $k$ and $k+1$. By the definition of
 $\operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)  $, we
 now see that:
 
@@ -5793,19 +6935,21 @@ P\right)  $ is 1-pure. Thus, the 12-table $\operatorname*{flip}\left(
 definition of $\operatorname*{res}\nolimits_{k}\left(  \operatorname*{flip}%
 \left(  \operatorname*{res}\nolimits_{k}P\right)  \right)  $ shows that
 $\operatorname*{res}\nolimits_{k}\left(  \operatorname*{flip}\left(
-\operatorname*{res}\nolimits_{k}P\right)  \right)  $ is the 12-table which
-differs from $\operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}%
-P\right)  $ in that the $k$-th column of $\operatorname*{res}_{k}\left(
+\operatorname*{res}\nolimits_{k}P\right)  \right)  $ is the 12-table defined
+as follows: The $k$-th column of $\operatorname*{res}_{k}\left(
 \operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)  \right)
-$ is 1-pure (i.e., it is filled with $1$'s), whereas the $\left(  k+1\right)
-$-th column of $\operatorname*{res}\nolimits_{k}\left(  \operatorname*{flip}%
-\left(  \operatorname*{res}\nolimits_{k}P\right)  \right)  $ is mixed and
-satisfies \newline$\operatorname*{sep}\nolimits_{k+1}\left(
-\operatorname*{res}\nolimits_{k}\left(  \operatorname*{flip}\left(
-\operatorname*{res}\nolimits_{k}P\right)  \right)  \right)
-=\operatorname*{sep}\nolimits_{k}\left(  \operatorname*{flip}\left(
-\operatorname*{res}\nolimits_{k}P\right)  \right)  $. In particular, the
-12-table $\operatorname*{res}\nolimits_{k}\left(  \operatorname*{flip}\left(
+$ is 1-pure (i.e., it is filled with $1$'s); the $\left(  k+1\right)  $-th
+column of $\operatorname*{res}\nolimits_{k}\left(  \operatorname*{flip}\left(
+\operatorname*{res}\nolimits_{k}P\right)  \right)  $ is mixed and satisfies
+\newline$\operatorname*{sep}\nolimits_{k+1}\left(  \operatorname*{res}%
+\nolimits_{k}\left(  \operatorname*{flip}\left(  \operatorname*{res}%
+\nolimits_{k}P\right)  \right)  \right)  =\operatorname*{sep}\nolimits_{k}%
+\left(  \operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)
+\right)  $; all other columns of $\operatorname*{res}_{k}\left(
+\operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)  \right)
+$ are copied over from $\operatorname*{flip}\left(  \operatorname*{res}%
+\nolimits_{k}P\right)  $ unchanged. In particular, the 12-table
+$\operatorname*{res}\nolimits_{k}\left(  \operatorname*{flip}\left(
 \operatorname*{res}\nolimits_{k}P\right)  \right)  $ differs from
 $\operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)  $ only
 in its columns $k$ and $k+1$.
@@ -5830,8 +6974,8 @@ First, the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
 \nolimits_{k}\left(  \operatorname*{flip}\left(  \operatorname*{res}%
 \nolimits_{k}P\right)  \right)  $ is mixed; so is the $\left(  k+1\right)
 $-th column of $\operatorname*{flip}\left(  P\right)  $ (since this column is
-the $k$-th column of $P$, and the latter is mixed). These two columns
-furthermore satisfy%
+the $\left(  k+1\right)  $-th column of $P$, and the latter is mixed). These
+two columns furthermore satisfy%
 \begin{align*}
 &  \operatorname*{sep}\nolimits_{k+1}\left(  \operatorname*{res}%
 \nolimits_{k}\left(  \operatorname*{flip}\left(  \operatorname*{res}%
@@ -5839,14 +6983,9 @@ furthermore satisfy%
 &  =\operatorname*{sep}\nolimits_{k}\left(  \operatorname*{flip}\left(
 \operatorname*{res}\nolimits_{k}P\right)  \right)  =\operatorname*{sep}%
 \nolimits_{k}\left(  \operatorname*{res}\nolimits_{k}P\right) \\
-&  \ \ \ \ \ \ \ \ \ \ \left(
-\begin{array}
-[c]{c}%
-\text{since the }k\text{-th column of }\operatorname*{flip}\left(
-\operatorname*{res}\nolimits_{k}P\right) \\
-\text{is the }k\text{-th column of }\operatorname*{res}\nolimits_{k}P
-\end{array}
-\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since the }k\text{-th column of
+}\operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)  \text{
+is the }k\text{-th column of }\operatorname*{res}\nolimits_{k}P\right) \\
 &  =\operatorname*{sep}\nolimits_{k+1}P=\operatorname*{sep}\nolimits_{k+1}%
 \left(  \operatorname*{flip}\left(  P\right)  \right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(
@@ -5861,7 +7000,7 @@ furthermore satisfy%
 \end{array}
 \right)  .
 \end{align*}
-That is, the point at which the $1$'s end at the $2$'s begin is the same in
+That is, the point at which the $1$'s end and the $2$'s begin is the same in
 these two columns. Hence,%
 \[
 \left(  \text{the }\left(  k+1\right)  \text{-th column of }%
@@ -5900,7 +7039,8 @@ only in its columns $k$ and $k+1$). Therefore,%
 }i\text{-th column of }\operatorname*{flip}\left(  P\right)  \right)
 \]
 (by Remark \ref{rmk.flip.independent}, applied to $\operatorname*{res}%
-\nolimits_{k}P$ and $P$ instead of $P$ and $Q$). Now,%
+\nolimits_{k}P$ and $P$ instead of $P$ and $Q$). Now, $i\notin\left\{
+k,k+1\right\}  $, so that%
 \begin{align*}
 &  \left(  \text{the }i\text{-th column of }\operatorname*{res}\nolimits_{k}%
 \left(  \operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)
@@ -5939,7 +7079,7 @@ $\operatorname*{flip}\left(  P\right)  $, we see that:
 \item the $k$-th column of $\operatorname*{flip}\left(  P\right)  $ is 1-pure
 (since the $k$-th column of $P$ is 2-pure, and since the map
 $\operatorname*{flip}$ changes 2-pure columns by replacing all their entries
-by $1$'s).
+by $1$'s);
 
 \item the $\left(  k+1\right)  $-th column of $\operatorname*{flip}\left(
 P\right)  $ is 2-pure (since the $\left(  k+1\right)  $-th column of $P$ is
@@ -5951,7 +7091,7 @@ On the other hand, recall the definition of $\operatorname*{res}%
 \nolimits_{k}P$. This definition (combined with the fact that $P$ has $k$-type
 21) shows that the $k$-th column of $\operatorname*{res}_{k}P$ is 1-pure,
 whereas the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
-\nolimits_{k}P$ is 2-pure. In particular, the 12-table $\operatorname*{res}%
+\nolimits_{k}P$ is 2-pure. Furthermore, the 12-table $\operatorname*{res}%
 \nolimits_{k}P$ differs from $P$ only in its columns $k$ and $k+1$. By the
 definition of $\operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}%
 P\right)  $, we now see that:
@@ -5960,8 +7100,8 @@ P\right)  $, we now see that:
 \item the $k$-th column of $\operatorname*{flip}\left(  \operatorname*{res}%
 \nolimits_{k}P\right)  $ is 2-pure (since the $k$-th column of
 $\operatorname*{res}\nolimits_{k}P$ is 1-pure, and since the map
-$\operatorname*{flip}$ changes 2-pure columns by replacing all their entries
-by $1$'s);
+$\operatorname*{flip}$ changes 1-pure columns by replacing all their entries
+by $2$'s);
 
 \item the $\left(  k+1\right)  $-th column of $\operatorname*{flip}\left(
 \operatorname*{res}\nolimits_{k}P\right)  $ is 1-pure (since the $\left(
@@ -6008,17 +7148,19 @@ $\operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)  $ is
 $\operatorname*{res}\nolimits_{k}\left(  \operatorname*{flip}\left(
 \operatorname*{res}\nolimits_{k}P\right)  \right)  $ shows that
 $\operatorname*{res}\nolimits_{k}\left(  \operatorname*{flip}\left(
-\operatorname*{res}\nolimits_{k}P\right)  \right)  $ is the 12-table which
-differs from $\operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}%
-P\right)  $ in that the $k$-th column of $\operatorname*{res}_{k}\left(
+\operatorname*{res}\nolimits_{k}P\right)  \right)  $ is the 12-table defined
+as follows: The $k$-th column of $\operatorname*{res}_{k}\left(
 \operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)  \right)
-$ is 1-pure, whereas the $\left(  k+1\right)  $-th column of
+$ is 1-pure; the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
+\nolimits_{k}\left(  \operatorname*{flip}\left(  \operatorname*{res}%
+\nolimits_{k}P\right)  \right)  $ is 2-pure; all other columns of
 $\operatorname*{res}\nolimits_{k}\left(  \operatorname*{flip}\left(
-\operatorname*{res}\nolimits_{k}P\right)  \right)  $ is 2-pure. In particular,
-the 12-table $\operatorname*{res}\nolimits_{k}\left(  \operatorname*{flip}%
-\left(  \operatorname*{res}\nolimits_{k}P\right)  \right)  $ differs from
-$\operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)  $ only
-in its columns $k$ and $k+1$.
+\operatorname*{res}\nolimits_{k}P\right)  \right)  $ are copied over from
+$\operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)  $
+unchanged. In particular, the 12-table $\operatorname*{res}\nolimits_{k}%
+\left(  \operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)
+\right)  $ differs from $\operatorname*{flip}\left(  \operatorname*{res}%
+\nolimits_{k}P\right)  $ only in its columns $k$ and $k+1$.
 
 Now, we want to show that $\operatorname*{res}\nolimits_{k}\left(
 \operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)  \right)
@@ -6078,7 +7220,8 @@ only in its columns $k$ and $k+1$). Therefore,%
 }i\text{-th column of }\operatorname*{flip}\left(  P\right)  \right)
 \]
 (by Remark \ref{rmk.flip.independent}, applied to $\operatorname*{res}%
-\nolimits_{k}P$ and $P$ instead of $P$ and $Q$). Now,%
+\nolimits_{k}P$ and $P$ instead of $P$ and $Q$). Now, $i\notin\left\{
+k,k+1\right\}  $, so that%
 \begin{align*}
 &  \left(  \text{the }i\text{-th column of }\operatorname*{res}\nolimits_{k}%
 \left(  \operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)
@@ -6208,12 +7351,13 @@ $k$-type 2M, or has $k$-type 21. Let us WLOG assume that it has $k$-type M1
 (as the other cases are similar and left to the reader). Thus, the $k$-th
 column of $P$ is mixed, and the $\left(  k+1\right)  $-th column of $P$ is
 1-pure. The construction of $\operatorname*{res}\nolimits_{k}P$ now shows that
-$\operatorname*{res}_{k}P$ is the 12-table which differs from $P$ in that the
-$k$-th column of $\operatorname*{res}_{k}P$ is 1-pure (i.e., it is filled with
-$1$'s), whereas the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
+$\operatorname*{res}_{k}P$ is the 12-table defined as follows: The $k$-th
+column of $\operatorname*{res}_{k}P$ is 1-pure (i.e., it is filled with
+$1$'s); the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
 \nolimits_{k}P$ is mixed and satisfies $\operatorname*{sep}\nolimits_{k+1}%
 \left(  \operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{sep}%
-\nolimits_{k}P$. Now, (\ref{pf.lem.BK.res.lendec.pf.3}) becomes%
+\nolimits_{k}P$; all other columns of $\operatorname*{res}\nolimits_{k}P$ are
+copied over from $P$ unchanged. Now, (\ref{pf.lem.BK.res.lendec.pf.3}) becomes%
 \begin{align*}
 &  \ell\left(  P\right)  -\ell\left(  \operatorname*{res}\nolimits_{k}P\right)
 \\
@@ -6230,7 +7374,7 @@ _{\substack{=2\\\text{(since the }\left(  k+1\right)  \text{-th column of
 &  \ \ \ \ \ \ \ \ \ \ -\left(  k+1\right)  \cdot
 \underbrace{\operatorname*{sig}\left(  \text{the }\left(  k+1\right)
 \text{-th column of }\operatorname*{res}\nolimits_{k}P\right)  }%
-_{\substack{=2\\\text{(since the }\left(  k+1\right)  \text{-th column of
+_{\substack{=1\\\text{(since the }\left(  k+1\right)  \text{-th column of
 }\operatorname*{res}\nolimits_{k}P\text{ is mixed)}}}\\
 &  =k\cdot1+\left(  k+1\right)  \cdot2-k\cdot2-\left(  k+1\right)  \cdot1=1>0.
 \end{align*}
@@ -6241,9 +7385,11 @@ other two cases are left to the reader. Hence, $\ell\left(  P\right)
 This finishes the proof of Proposition \ref{prop.conflict-resolution-props}
 \textbf{(h)}.
 \end{proof}
+\end{verlong}
 
 \subsection{The conflict-resolution relation $\Rrightarrow$}
 
+\begin{definition}
 Let us now define a binary relation $\Rrightarrow$ on the set $\mathbf{S}$ as
 follows: Let $P\in\mathbf{S}$ and $Q\in\mathbf{S}$. If $k\in\mathbb{N}_{+}$,
 then we write $P\underset{k}{\Rrightarrow}Q$ if and only if $\left(
@@ -6256,9 +7402,17 @@ $k\in\mathbb{N}_{+}$ such that $P\underset{k}{\Rrightarrow}Q$. (In other
 words, we write $P\Rrightarrow Q$ if and only if the 12-table $Q$ is obtained
 from $P$ by resolving a conflict of the form $\left(  k,k+1\right)  $ with
 $k\in\mathbb{N}_{+}$.) Thus, the relation $\Rrightarrow$ is defined.
+\end{definition}
 
+\begin{vershort}
+Some of what was shown above translates into properties of this relation
+$\Rrightarrow$:
+\end{vershort}
+
+\begin{verlong}
 Using the results we have shown above, we now readily obtain several
 properties of this relation $\Rrightarrow$:
+\end{verlong}
 
 \begin{lemma}
 \label{lem.conflict-resolution-props}Let $P\in\mathbf{S}$ and $Q\in\mathbf{S}$
@@ -6278,6 +7432,44 @@ P\right)  $.
 \textbf{(d)} We have $\ell\left(  P\right)  >\ell\left(  Q\right)  $.
 \end{lemma}
 
+\begin{vershort}
+\begin{proof}
+[Proof of Lemma \ref{lem.conflict-resolution-props}.]We have $P\Rrightarrow
+Q$. In other words, there exists a $k\in\mathbb{N}_{+}$ such that
+$P\underset{k}{\Rrightarrow}Q$. Consider this $k$. We have
+$P\underset{k}{\Rrightarrow}Q$. In other words, $\left(  k,k+1\right)  $ is a
+conflict of $P$ and we have $Q=\operatorname*{res}\nolimits_{k}P$.
+
+\textbf{(a)} We have $\operatorname*{ceq}\left(  \underbrace{Q}%
+_{=\operatorname*{res}\nolimits_{k}P}\right)  =\operatorname*{ceq}\left(
+\operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{ceq}\left(
+P\right)  $ (by (\ref{pf.lem.BK.res.ceq})). This proves Lemma
+\ref{lem.conflict-resolution-props} \textbf{(a)}.
+
+\textbf{(b)} This follows similarly from (\ref{pf.lem.BK.res.irconts}).
+
+\textbf{(c)} From (\ref{pf.lem.BK.res.flip}), we know that $\left(
+k,k+1\right)  $ is a conflict of $\operatorname*{flip}\left(
+\operatorname*{res}\nolimits_{k}P\right)  $, and we have $\operatorname*{flip}%
+\left(  P\right)  =\operatorname*{res}\nolimits_{k}\left(
+\operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)  \right)
+$. In other words, $\operatorname*{flip}\left(  \operatorname*{res}%
+\nolimits_{k}P\right)  \underset{k}{\Rrightarrow}\operatorname*{flip}\left(
+P\right)  $. Thus, $\operatorname*{flip}\left(  \operatorname*{res}%
+\nolimits_{k}P\right)  \Rrightarrow\operatorname*{flip}\left(  P\right)  $. In
+other words, $\operatorname*{flip}\left(  Q\right)  \Rrightarrow
+\operatorname*{flip}\left(  P\right)  $ (since $Q=\operatorname*{res}%
+\nolimits_{k}P$). This proves Lemma \ref{lem.conflict-resolution-props}
+\textbf{(c)}.
+
+\textbf{(d)} From (\ref{pf.lem.BK.res.lendec}), we have $\ell\left(  P\right)
+>\ell\left(  \underbrace{\operatorname*{res}\nolimits_{k}P}_{=Q}\right)
+=\ell\left(  Q\right)  $. This proves Lemma
+\ref{lem.conflict-resolution-props} \textbf{(d)}.
+\end{proof}
+\end{vershort}
+
+\begin{verlong}
 \begin{proof}
 [Proof of Lemma \ref{lem.conflict-resolution-props}.]We have $P\Rrightarrow
 Q$. In other words, there exists a $k\in\mathbb{N}_{+}$ such that
@@ -6298,7 +7490,7 @@ P\right)  $ (by (\ref{pf.lem.BK.res.ceq})). This proves Lemma
 _{=\operatorname*{res}\nolimits_{k}P}\right)  =\operatorname*{ircont}\left(
 \operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{ircont}\left(
 P\right)  $ (by (\ref{pf.lem.BK.res.irconts})). This proves Lemma
-\ref{lem.conflict-resolution-props} \textbf{(a)}.
+\ref{lem.conflict-resolution-props} \textbf{(b)}.
 
 \textbf{(c)} From (\ref{pf.lem.BK.res.flip}), we know that $\left(
 k,k+1\right)  $ is a conflict of $\operatorname*{flip}\left(
@@ -6319,17 +7511,26 @@ $Q=\operatorname*{res}\nolimits_{k}P$). This proves Lemma
 \ref{lem.conflict-resolution-props} \textbf{(c)}.
 
 \textbf{(d)} From (\ref{pf.lem.BK.res.lendec}), we have $\ell\left(  P\right)
->\ell\left(  \underbrace{Q}_{=\operatorname*{res}\nolimits_{k}P}\right)
-=\ell\left(  \operatorname*{res}\nolimits_{k}P\right)  $. This proves Lemma
+>\ell\left(  \underbrace{\operatorname*{res}\nolimits_{k}P}_{=Q}\right)
+=\ell\left(  Q\right)  $. This proves Lemma
 \ref{lem.conflict-resolution-props} \textbf{(d)}.
 \end{proof}
+\end{verlong}
 
 We furthermore define a relation $\overset{\ast}{\Rrightarrow}$ as in Lemma
 \ref{lem.diamond}. In other words, $\overset{\ast}{\Rrightarrow}$ is the
 reflexive-and-transitive closure of the relation $\Rrightarrow$. In
 particular, the relation $\overset{\ast}{\Rrightarrow}$ is reflexive and
-transitive, and extends the relation $\Rrightarrow$. Thus, it is easy to
-derive from Lemma \ref{lem.conflict-resolution-props} the following fact:
+transitive, and extends the relation $\Rrightarrow$.
+
+If $P\in\mathbf{S}$ and $Q\in\mathbf{S}$, then the relation \textquotedblleft%
+$P\overset{\ast}{\Rrightarrow}Q$\textquotedblright\ can be interpreted as
+\textquotedblleft$Q$ can be obtained from $P$ by repeatedly resolving
+conflicts\textquotedblright\ (because $P\Rrightarrow Q$ holds if and only if
+$Q$ is obtained from $P$ by resolving a resolvable conflict).
+
+It is easy to derive from Lemma \ref{lem.conflict-resolution-props} the
+following fact:
 
 \begin{lemma}
 \label{lem.conflict-resolution-*props}Let $P\in\mathbf{S}$ and $Q\in
@@ -6347,6 +7548,17 @@ $\operatorname*{flip}\left(  Q\right)  \overset{\ast}{\Rrightarrow
 }\operatorname*{flip}\left(  P\right)  $.
 \end{lemma}
 
+\begin{vershort}
+\begin{proof}
+[Proof of Lemma \ref{lem.conflict-resolution-*props}.]Recalling that
+$\overset{\ast}{\Rrightarrow}$ is the reflexive-and-transitive closure of the
+relation $\Rrightarrow$, we see that Lemma
+\ref{lem.conflict-resolution-*props} follows by induction using Lemma
+\ref{lem.conflict-resolution-props}.
+\end{proof}
+\end{vershort}
+
+\begin{verlong}
 \begin{proof}
 [Proof of Lemma \ref{lem.conflict-resolution-*props}.]We have $P\overset{\ast
 }{\Rrightarrow}Q$. In other words, there exists a sequence $\left(
@@ -6394,9 +7606,10 @@ a_{n-1-i}\right)  $ (according to (\ref{pf.lem.conflict-resolution-*props.c.1}%
 ), applied to $n-1-i$ instead of $i$). In other words, for every $i\in\left\{
 0,1,\ldots,n-1\right\}  $, we have $\operatorname*{flip}\left(  a_{n-i}%
 \right)  \Rrightarrow\operatorname*{flip}\left(  a_{n-\left(  i+1\right)
-}\right)  $. Also, $\operatorname*{flip}\left(  \underbrace{a_{n-0}}%
-_{=a_{n}=Q}\right)  =\operatorname*{flip}\left(  Q\right)  $ and
-$\operatorname*{flip}\left(  \underbrace{a_{n-n}}_{=a_{0}=P}\right)
+}\right)  $ (since $a_{\left(  n-1-i\right)  +1}=a_{n-i}$ and $a_{n-1-i}%
+=a_{n-\left(  i+1\right)  }$). Also, $\operatorname*{flip}\left(
+\underbrace{a_{n-0}}_{=a_{n}=Q}\right)  =\operatorname*{flip}\left(  Q\right)
+$ and $\operatorname*{flip}\left(  \underbrace{a_{n-n}}_{=a_{0}=P}\right)
 =\operatorname*{flip}\left(  P\right)  $. Thus, there exists a sequence
 $\left(  b_{0},b_{1},\ldots,b_{n}\right)  $ of elements of $\mathbf{S}$ such
 that $b_{0}=\operatorname*{flip}\left(  Q\right)  $ and $b_{n}%
@@ -6409,6 +7622,7 @@ sequence $\left(  \operatorname*{flip}\left(  a_{n}\right)
 P\right)  $ (by the definition of the relation $\overset{\ast}{\Rrightarrow}%
 $). Lemma \ref{lem.conflict-resolution-*props} \textbf{(c)} is thus proven.
 \end{proof}
+\end{verlong}
 
 In Subsection \ref{subsect.fourtypes}, we defined a nonnegative integer
 $\ell\left(  T\right)  $ for every 12-table $T$. In particular, $\ell\left(
@@ -6418,9 +7632,458 @@ $\ell\left(  T\right)  $.
 
 Our goal is now to apply Lemma \ref{lem.diamond} to our set $\mathbf{S}$, our
 map $\ell$ and our relation $\Rrightarrow$. In order to do so, we need to
-check that the local confluence hypothesis and the length-decrease hypothesis
-are satisfied\footnote{Both of these hypotheses have been stated in Lemma
-\ref{lem.diamond}.}. Let us begin with the proof of the length-decrease hypothesis:
+check the following fact:
+
+\begin{proposition}
+\label{prop.conflict-resolution-hyps}The local confluence hypothesis and the
+length-decrease hypothesis are satisfied for our set $\mathbf{S}$, our map
+$\ell$ and our relation $\Rrightarrow$. (See Lemma \ref{lem.diamond} for the
+statements of these two hypotheses.)
+\end{proposition}
+
+\begin{vershort}
+\begin{proof}
+[Proof of Proposition \ref{prop.conflict-resolution-hyps}.]The length-decrease
+hypothesis is clearly satisfied (indeed, it is just Lemma
+\ref{lem.conflict-resolution-props} \textbf{(d)}, with $P$ and $Q$ renamed as
+$a$ and $b$). It thus remains only to prove that the local confluence
+hypothesis is satisfied. In other words, it remains to prove that if $a$, $b$
+and $c$ are three elements of $\mathbf{S}$ satisfying $a\Rrightarrow b$ and
+$a\Rrightarrow c$, then there exists a $d\in\mathbf{S}$ such that
+$b\overset{\ast}{\Rrightarrow}d$ and $c\overset{\ast}{\Rrightarrow}d$. Let us
+rename the bound variables $a$, $b$, $c$ and $d$ as $A$, $B$, $C$ and $D$ in
+this sentence. Thus, it remains to prove that if $A$, $B$ and $C$ are three
+elements of $\mathbf{S}$ satisfying $A\Rrightarrow B$ and $A\Rrightarrow C$,
+then there exists a $D\in\mathbf{S}$ such that $B\overset{\ast}{\Rrightarrow
+}D$ and $C\overset{\ast}{\Rrightarrow}D$.
+
+So let $A$, $B$ and $C$ be three elements of $\mathbf{S}$ satisfying
+$A\Rrightarrow B$ and $A\Rrightarrow C$. We need to prove that there exists a
+$D\in\mathbf{S}$ such that $B\overset{\ast}{\Rrightarrow}D$ and
+$C\overset{\ast}{\Rrightarrow}D$. If $B=C$, then we can simply choose $D=B=C$
+and be done with it; thus, we WLOG assume that $B\neq C$.
+
+We have $A\Rrightarrow B$. In other words, there exists a $k\in\mathbb{N}_{+}$
+such that $A\underset{k}{\Rrightarrow}B$. Let us denote this $k$ by $u$. Thus,
+$A\underset{u}{\Rrightarrow}B$. In other words, $\left(  u,u+1\right)  $ is a
+conflict of $A$ and we have $B=\operatorname*{res}\nolimits_{u}A$ (due to the
+definition of \textquotedblleft$A\underset{u}{\Rrightarrow}B$%
+\textquotedblright). Similarly, we can find a $v\in\mathbb{N}_{+}$ such that
+$\left(  v,v+1\right)  $ is a conflict of $A$ and we have
+$C=\operatorname*{res}\nolimits_{v}A$. Consider this $v$ as well.
+
+We have $\operatorname*{res}\nolimits_{u}A=B\neq C=\operatorname*{res}%
+\nolimits_{v}A$ and thus $u\neq v$. Hence, either $u<v$ or $u>v$. We WLOG
+assume that $u<v$ (since otherwise, we can simply switch $u$ with $v$). Hence,
+we are in one of the following two Cases:
+
+\textit{Case 1:} We have $u=v-1$.
+
+\textit{Case 2:} We have $u<v-1$.
+
+Let us deal with Case 2 first (since it is the simpler of the two). In this
+case, $u<v-1$, so that $\left\{  u,u+1\right\}  \cap\left\{  v,v+1\right\}
+=\varnothing$.
+
+Now, the operation of resolving the conflict $\left(  u,u+1\right)  $ in $A$
+(that is, the passage from $A$ to $\operatorname*{res}\nolimits_{u}A$) only
+affects the columns $u$ and $u+1$, and thus it preserves the conflict $\left(
+v,v+1\right)  $ (since $\left\{  u,u+1\right\}  \cap\left\{  v,v+1\right\}
+=\varnothing$). Hence, $\operatorname*{res}\nolimits_{v}\left(
+\operatorname*{res}\nolimits_{u}A\right)  $ is well-defined. Similarly,
+$\operatorname*{res}\nolimits_{u}\left(  \operatorname*{res}\nolimits_{v}%
+A\right)  $ is well-defined.
+
+Recall again that $\left\{  u,u+1\right\}  \cap\left\{  v,v+1\right\}
+=\varnothing$. Thus, the operation of resolving the conflict $\left(
+u,u+1\right)  $ and the operation of resolving the conflict $\left(
+v,v+1\right)  $ \textquotedblleft do not interact\textquotedblright\ (in the
+sense that the former only changes the columns $u$ and $u+1$, and changes them
+in a way that does not depend on any of the other columns; and similarly for
+the latter). Therefore, the two operations can be applied one after the other
+in any order; the results will be the same. In other words,
+$\operatorname*{res}\nolimits_{u}\left(  \operatorname*{res}\nolimits_{v}%
+A\right)  =\operatorname*{res}\nolimits_{v}\left(  \operatorname*{res}%
+\nolimits_{u}A\right)  $. Now, set $D=\operatorname*{res}\nolimits_{u}\left(
+\operatorname*{res}\nolimits_{v}A\right)  =\operatorname*{res}\nolimits_{v}%
+\left(  \operatorname*{res}\nolimits_{u}A\right)  $. Then,
+$D=\operatorname*{res}\nolimits_{u}\underbrace{\left(  \operatorname*{res}%
+\nolimits_{v}A\right)  }_{=C}=\operatorname*{res}\nolimits_{u}C$ and thus
+$C\underset{u}{\Rrightarrow}D$, so that $C\Rrightarrow D$, therefore
+$C\overset{\ast}{\Rrightarrow}D$. Similarly, $B\overset{\ast}{\Rrightarrow}D$.
+Hence, we have found a $D\in\mathbf{S}$ such that $B\overset{\ast
+}{\Rrightarrow}D$ and $C\overset{\ast}{\Rrightarrow}D$. This completes the
+proof of the local confluence hypothesis in Case 2.
+
+Now, let us consider Case 1. In this case, $u=v-1$. Hence, $\left(
+v-1,v\right)  $ is a conflict of $A$ (since $\left(  u,u+1\right)  $ is a
+conflict of $A$), and we have $B=\operatorname*{res}\nolimits_{u}%
+A=\operatorname*{res}\nolimits_{v-1}A$ (since $u=v-1$).
+
+The $v$-th column of $A$ must contain a $1$ (since $\left(  v-1,v\right)  $ is
+a conflict of $A$) and a $2$ (since $\left(  v,v+1\right)  $ is a conflict of
+$A$). Hence, the $v$-th column of $A$ is mixed. The $\left(  v-1\right)  $-th
+column of $A$ is 2-pure\footnote{\textit{Proof.} Assume the contrary. Then,
+the $\left(  v-1\right)  $-th column of $A$ contains a $2$ (because $\left(
+v-1,v\right)  $ is a conflict of $A$) but is not 2-pure. Hence, this column is
+mixed. But $A$ is benign. In other words, there exists no conflict $\left(
+i,j\right)  $ of $A$ such that the $i$-th column of $A$ and the $j$-th column
+of $A$ both are mixed. This flies in the face of the fact that $\left(
+v-1,v\right)  $ is exactly such a conflict (since both the $\left(
+v-1\right)  $-th and the $v$-th columns of $A$ are mixed). This contradiction
+proves that our assumption was wrong, qed.}, and the $\left(  v+1\right)  $-th
+column of $A$ is 1-pure\footnote{This follows similarly.}. We can thus
+semiotically represent the 12-table $A$ as follows:%
+\begin{equation}
+A=%
+%TCIMACRO{\TeXButton{tabular}{\begin{tabular}{ccc}
+%\cline{3-3} & & \multicolumn{1}{|c|}{} \\
+%\cline{2-2} & \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+%\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{1} & \multicolumn
+%{1}{|c|}{1} \\
+%\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+%\cline{2-2} \multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{} & \multicolumn
+%{1}{|c|}{} \\
+%\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{} \\
+%\cline{3-3} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+%\cline{2-2} \multicolumn{1}{|c|}{} \\
+%\cline{1-1}
+%\end{tabular}}}%
+%BeginExpansion
+\begin{tabular}{ccc}
+\cline{3-3} & & \multicolumn{1}{|c|}{} \\
+\cline{2-2} & \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{1} & \multicolumn
+{1}{|c|}{1} \\
+\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+\cline{2-2} \multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{} & \multicolumn
+{1}{|c|}{} \\
+\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{} \\
+\cline{3-3} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+\cline{2-2} \multicolumn{1}{|c|}{} \\
+\cline{1-1}
+\end{tabular}%
+%EndExpansion
+. \label{pf.prop.conflict-resolution.hyps.short.A}%
+\end{equation}
+In this representation, we only draw the $\left(  v-1\right)  $-th, the $v$-th
+and the $\left(  v+1\right)  $-th columns (since the remaining columns are
+neither used nor changed by $\operatorname*{res}\nolimits_{v-1}$ and
+$\operatorname*{res}\nolimits_{v}$, and thus are irrelevant to our argument);
+we use a rectangle with a \textquotedblleft$1$\textquotedblright\ inside to
+signify a string of $1$'s in a column\footnote{The length of the rectangle is
+immaterial; it does not say anything about the number of $1$'s.}, and we use a
+rectangle with a \textquotedblleft$2$\textquotedblright\ inside to signify a
+string of $2$'s in a column.
+
+Let $s=\operatorname*{sep}\nolimits_{v}A$. Then, $\left(  s,v\right)  $ and
+$\left(  s+1,v\right)  $ belong to $Z$ and satisfy $A\left(  s,v\right)  =1$
+and $A\left(  s+1,v\right)  =2$ (by the definition of $\operatorname*{sep}%
+\nolimits_{v}A$). Also, $\left(  s,v-1\right)  $ must belong to $Z$%
+\ \ \ \ \footnote{\textit{Proof.} We know that $\left(  v-1,v\right)  $ is a
+conflict of $A$. Hence, there exists an $r\in\mathbb{N}_{+}$ such that
+$\left(  r,v-1\right)  \in Z$, $\left(  r,v\right)  \in Z$, $A\left(
+r,v-1\right)  =2$ and $A\left(  r,v\right)  =1$. Consider this $r$. If we had
+$s+1\leq r$, then we would have $A\left(  s+1,v\right)  \leq A\left(
+r,v\right)  $ (since the entries of $A$ are weakly decreasing down columns),
+which would contradict $A\left(  r,v\right)  =1<2=A\left(  s+1,v\right)  $.
+Therefore, we cannot have $s+1\leq r$. Hence, $r<s+1$, so that $r\leq s$.
+Hence, (\ref{eq.convex}) (applied to $r$, $s$, $s$, $v-1$, $v-1$ and $v$
+instead of $i$, $i^{\prime}$, $i^{\prime\prime}$, $j$, $j^{\prime}$ and
+$j^{\prime\prime}$) yields $\left(  s,v-1\right)  \in Z$, qed.}. Hence,
+$\left(  s+1,v-1\right)  $ must belong to $Z$ as well\footnote{by
+(\ref{eq.convex}) (applied to $s$, $s+1$, $s+1$, $v-1$, $v-1$ and $v$ instead
+of $i$, $i^{\prime}$, $i^{\prime\prime}$, $j$, $j^{\prime}$ and $j^{\prime
+\prime}$)}. Similarly, $\left(  s+1,v+1\right)  $ and $\left(  s,v+1\right)  $
+belong to $Z$. Altogether, we thus know that all six squares $\left(
+s,v\right)  $, $\left(  s+1,v\right)  $, $\left(  s,v-1\right)  $, $\left(
+s+1,v-1\right)  $, $\left(  s+1,v+1\right)  $ and $\left(  s,v+1\right)  $
+belong to $Z$. We shall denote these six squares as the \textquotedblleft core
+squares\textquotedblright. The restriction of $A$ to the core squares is $%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%2 & 1 & 1 \\
+%2 & 2 & 1
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+2 & 1 & 1 \\
+2 & 2 & 1
+\end{ytableau}%
+%EndExpansion
+$\ \ \ \ \footnote{Indeed, the two core squares in the $v$-th column have
+entries $A\left(  s,v\right)  =1$ and $A\left(  s+1,v\right)  =2$; the two
+core squares in the $\left(  v-1\right)  $-th column have entries $2$ (since
+the $\left(  v-1\right)  $-th column of $A$ is 2-pure); and the two core
+squares in the $\left(  v+1\right)  $-th column have entries $1$ (since the
+$\left(  v+1\right)  $-th column of $A$ is 1-pure).}.
+
+Now, $A$ has $\left(  v-1\right)  $-type 2M, and resolving the conflict
+$\left(  v-1,v\right)  $ of $A$ yields $\operatorname*{res}\nolimits_{v-1}%
+A=B$. Hence, $B$ is represented semiotically as follows:%
+\[
+B=%
+%TCIMACRO{\TeXButton{tabular}{\begin{tabular}{ccc}
+%\cline{3-3} & & \multicolumn{1}{|c|}{} \\
+%\cline{2-2} & \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+%\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} & \multicolumn
+%{1}{|c|}{1} \\
+%\multicolumn{1}{|c|}{1} & \multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{} \\
+%\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} & \multicolumn
+%{1}{|c|}{} \\
+%\multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+%\cline{3-3} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+%\cline{2-2} \multicolumn{1}{|c|}{} \\
+%\cline{1-1}
+%\end{tabular}}}%
+%BeginExpansion
+\begin{tabular}{ccc}
+\cline{3-3} & & \multicolumn{1}{|c|}{} \\
+\cline{2-2} & \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} & \multicolumn
+{1}{|c|}{1} \\
+\multicolumn{1}{|c|}{1} & \multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{} \\
+\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} & \multicolumn
+{1}{|c|}{} \\
+\multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+\cline{3-3} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+\cline{2-2} \multicolumn{1}{|c|}{} \\
+\cline{1-1}
+\end{tabular}%
+%EndExpansion
+,
+\]
+and the restriction of $B$ to the core squares is $%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%1 & 2 & 1 \\
+%2 & 2 & 1
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+1 & 2 & 1 \\
+2 & 2 & 1
+\end{ytableau}%
+%EndExpansion
+$. This shows that $\left(  v,v+1\right)  $ is a conflict of $B$, and that $B$
+has $v$-type 21. Hence, resolving this conflict in $B$ yields a 12-table
+$\operatorname*{res}\nolimits_{v}B$ which is represented semiotically as
+follows:%
+\[
+\operatorname*{res}\nolimits_{v}B=%
+%TCIMACRO{\TeXButton{tabular}{\begin{tabular}{ccc}
+%\cline{3-3} & & \multicolumn{1}{|c|}{} \\
+%\cline{2-2} & \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+%\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} & \multicolumn
+%{1}{|c|}{2} \\
+%\multicolumn{1}{|c|}{1} & \multicolumn{1}{|c|}{1} & \multicolumn{1}{|c|}{} \\
+%\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} & \multicolumn
+%{1}{|c|}{} \\
+%\multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+%\cline{3-3} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+%\cline{2-2} \multicolumn{1}{|c|}{} \\
+%\cline{1-1}
+%\end{tabular}}}%
+%BeginExpansion
+\begin{tabular}{ccc}
+\cline{3-3} & & \multicolumn{1}{|c|}{} \\
+\cline{2-2} & \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} & \multicolumn
+{1}{|c|}{2} \\
+\multicolumn{1}{|c|}{1} & \multicolumn{1}{|c|}{1} & \multicolumn{1}{|c|}{} \\
+\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} & \multicolumn
+{1}{|c|}{} \\
+\multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+\cline{3-3} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+\cline{2-2} \multicolumn{1}{|c|}{} \\
+\cline{1-1}
+\end{tabular}%
+%EndExpansion
+,
+\]
+and the restriction of $\operatorname*{res}\nolimits_{v}B$ to the core squares
+is $%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%1 & 1 & 2 \\
+%2 & 1 & 2
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+1 & 1 & 2 \\
+2 & 1 & 2
+\end{ytableau}%
+%EndExpansion
+$. This, in turn, shows that $\left(  v-1,v\right)  $ is a conflict of
+$\operatorname*{res}\nolimits_{v}B$, and that $\operatorname*{res}%
+\nolimits_{v}B$ has $\left(  v-1\right)  $-type M1. Thus, resolving this
+conflict in $\operatorname*{res}\nolimits_{v}B$ yields a 12-table
+$\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
+B\right)  $ which is represented semiotically as follows:%
+\begin{equation}
+\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
+B\right)  =%
+%TCIMACRO{\TeXButton{tabular}{\begin{tabular}{ccc}
+%\cline{3-3} & & \multicolumn{1}{|c|}{} \\
+%\cline{2-2} & \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+%\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{1} & \multicolumn
+%{1}{|c|}{2} \\
+%\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+%\cline{2-2} \multicolumn{1}{|c|}{1} & \multicolumn{1}{|c|}{} & \multicolumn
+%{1}{|c|}{} \\
+%\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{} \\
+%\cline{3-3} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+%\cline{2-2} \multicolumn{1}{|c|}{} \\
+%\cline{1-1}
+%\end{tabular}}}%
+%BeginExpansion
+\begin{tabular}{ccc}
+\cline{3-3} & & \multicolumn{1}{|c|}{} \\
+\cline{2-2} & \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{1} & \multicolumn
+{1}{|c|}{2} \\
+\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+\cline{2-2} \multicolumn{1}{|c|}{1} & \multicolumn{1}{|c|}{} & \multicolumn
+{1}{|c|}{} \\
+\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{} \\
+\cline{3-3} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+\cline{2-2} \multicolumn{1}{|c|}{} \\
+\cline{1-1}
+\end{tabular}%
+%EndExpansion
+, \label{pf.prop.conflict-resolution.hyps.short.D}%
+\end{equation}
+and the restriction of $\operatorname*{res}\nolimits_{v-1}\left(
+\operatorname*{res}\nolimits_{v}B\right)  $ to the core squares is $%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%1 & 1 & 2 \\
+%1 & 2 & 2
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+1 & 1 & 2 \\
+1 & 2 & 2
+\end{ytableau}%
+%EndExpansion
+$.
+
+On the other hand, $A$ has $v$-type M1. Resolving the conflict $\left(
+v,v+1\right)  $ of $A$ yields $\operatorname*{res}\nolimits_{v}A=C$. Thus, we
+can represent $C$ semiotically and find its restriction to the core squares.
+This shows us that $C$ has $\left(  v-1,v\right)  $ as a conflict and has
+$\left(  v-1\right)  $-type 21. Resolving this conflict yields a 12-table
+$\operatorname*{res}\nolimits_{v-1}C$ which we can again represent
+semiotically and find its restriction to the core squares. Doing this, we
+observe that $\operatorname*{res}\nolimits_{v-1}C$ has $\left(  v,v+1\right)
+$ as a conflict and has $v$-type 2M. Resolving this conflict yields a 12-table
+$\operatorname*{res}\nolimits_{v}\left(  \operatorname*{res}\nolimits_{v-1}%
+C\right)  $ whose semiotic representation and restriction to the core squares
+can again be found. We leave the details of this argument to the reader, but
+we state its result: The 12-table $\operatorname*{res}\nolimits_{v}\left(
+\operatorname*{res}\nolimits_{v-1}C\right)  $ is well-defined and has the same
+semiotic representation and the same restriction to the core squares as the
+12-table $\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}%
+\nolimits_{v}B\right)  $. Consequently, the 12-tables $\operatorname*{res}%
+\nolimits_{v}\left(  \operatorname*{res}\nolimits_{v-1}C\right)  $ and
+$\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
+B\right)  $ are equal\footnote{\textit{Proof.} To see this, we need to show
+that for every $h\in\mathbb{N}_{+}$, the $h$-th column of $\operatorname*{res}%
+\nolimits_{v}\left(  \operatorname*{res}\nolimits_{v-1}C\right)  $ equals the
+$h$-th column of $\operatorname*{res}\nolimits_{v-1}\left(
+\operatorname*{res}\nolimits_{v}B\right)  $.
+\par
+For $h\notin\left\{  v-1,v,v+1\right\}  $, this is obvious (because for
+$h\notin\left\{  v-1,v,v+1\right\}  $, the $h$-th column of a 12-table never
+changes under $\operatorname*{res}\nolimits_{v}$ or $\operatorname*{res}%
+\nolimits_{v-1}$).
+\par
+For $h=v-1$, this is again obvious (because the semiotic representation of
+$\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
+B\right)  $ given in (\ref{pf.prop.conflict-resolution.hyps.short.D}) shows
+that the $\left(  v-1\right)  $-th column of $\operatorname*{res}%
+\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}B\right)  $ is 1-pure,
+and the same can be said of the $\left(  v-1\right)  $-th column of
+$\operatorname*{res}\nolimits_{v}\left(  \operatorname*{res}\nolimits_{v-1}%
+C\right)  $).
+\par
+For $h=v+1$, this is also obvious (because the semiotic representation of
+$\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
+B\right)  $ given in (\ref{pf.prop.conflict-resolution.hyps.short.D}) shows
+that the $\left(  v+1\right)  $-th column of $\operatorname*{res}%
+\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}B\right)  $ is 2-pure,
+and the same can be said of the $\left(  v+1\right)  $-th column of
+$\operatorname*{res}\nolimits_{v}\left(  \operatorname*{res}\nolimits_{v-1}%
+C\right)  $).
+\par
+It thus only remains to deal with the case of $h=v$. In other words, we need
+to prove that the $v$-th column of $\operatorname*{res}\nolimits_{v}\left(
+\operatorname*{res}\nolimits_{v-1}C\right)  $ equals the $v$-th column of
+$\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
+B\right)  $.
+\par
+We know from (\ref{pf.prop.conflict-resolution.hyps.short.D}) that the $v$-th
+column of $\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}%
+\nolimits_{v}B\right)  $ is mixed. Moreover, the restriction of
+$\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
+B\right)  $ to the core squares is $%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%1 & 1 & 2 \\
+%1 & 2 & 2
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+1 & 1 & 2 \\
+1 & 2 & 2
+\end{ytableau}%
+%EndExpansion
+$; therefore, the last $1$ and the first $2$ in the $v$-th column of
+$\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
+B\right)  $ are in the cells $\left(  s,v\right)  $ and $\left(  s+1,v\right)
+$, respectively. But the same can be said about the $v$-th column of
+$\operatorname*{res}\nolimits_{v}\left(  \operatorname*{res}\nolimits_{v-1}%
+C\right)  $. Hence, the $v$-th column of $\operatorname*{res}\nolimits_{v}%
+\left(  \operatorname*{res}\nolimits_{v-1}C\right)  $ and the $v$-th column of
+$\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
+B\right)  $ both are mixed, and the cell containing the last $1$ is the same
+for both of these columns. This yields that these columns must be equal. As we
+know, this finishes our proof.}.
+
+Hence, we can set $D=\operatorname*{res}\nolimits_{v}\left(
+\operatorname*{res}\nolimits_{v-1}C\right)  =\operatorname*{res}%
+\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}B\right)  $. Consider
+this $D$. We have $C\Rrightarrow\operatorname*{res}\nolimits_{v-1}C$ (since
+$C\underset{v-1}{\Rrightarrow}\operatorname*{res}\nolimits_{v-1}C$) and
+$\operatorname*{res}\nolimits_{v-1}C\Rrightarrow\operatorname*{res}%
+\nolimits_{v}\left(  \operatorname*{res}\nolimits_{v-1}C\right)  $ (since
+$\operatorname*{res}\nolimits_{v-1}C\underset{v}{\Rrightarrow}%
+\operatorname*{res}\nolimits_{v}\left(  \operatorname*{res}\nolimits_{v-1}%
+C\right)  $). Combining these two relations, we obtain $C\overset{\ast
+}{\Rrightarrow}\operatorname*{res}\nolimits_{v}\left(  \operatorname*{res}%
+\nolimits_{v-1}C\right)  $ (since $\overset{\ast}{\Rrightarrow}$ is the
+reflexive-and-transitive closure of the relation $\Rrightarrow$). In other
+words, $C\overset{\ast}{\Rrightarrow}D$ (since $D=\operatorname*{res}%
+\nolimits_{v}\left(  \operatorname*{res}\nolimits_{v-1}C\right)  $).
+Similarly, $B\overset{\ast}{\Rrightarrow}D$. Thus, we have found a
+$D\in\mathbf{S}$ such that $B\overset{\ast}{\Rrightarrow}D$ and
+$C\overset{\ast}{\Rrightarrow}D$. This completes the proof of the local
+confluence hypothesis in Case 1.
+
+Now, the local confluence hypothesis is proven (since we have shown it in both
+Cases 1 and 2), and with it, Proposition \ref{prop.conflict-resolution-hyps}.
+\end{proof}
+\end{vershort}
+
+\begin{verlong}
+\begin{proof}
+[Proof of Proposition \ref{prop.conflict-resolution-hyps}.]Let us begin with
+the proof of the length-decrease hypothesis:
 
 \textit{Proof that the length-decrease hypothesis is satisfied:} Let
 $a\in\mathbf{S}$ and $b\in\mathbf{S}$ be such that $a\Rrightarrow b$. Then,
@@ -6467,10 +8130,10 @@ $u=v$, so that $\operatorname*{res}\nolimits_{u}A=\operatorname*{res}%
 \nolimits_{v}A$, and thus $B=\operatorname*{res}\nolimits_{u}%
 A=\operatorname*{res}\nolimits_{v}A=C$. This contradicts the fact that we
 don't have $B=C$. This contradiction proves that our assumption was wrong,
-qed.}. Hence, $\left(  u,u+1\right)  \neq\left(  v,v+1\right)  $. Also,
-$u-v\neq0$ (since $u\neq v$), thus $\left\vert u-v\right\vert \neq0$ and
-therefore $\left\vert u-v\right\vert \geq1$. Hence, we must be in one of the
-following two cases:
+qed.}. Hence, $\left(  u,u+1\right)  \neq\left(  v,v+1\right)  $, so that
+$\left(  v,v+1\right)  \neq\left(  u,u+1\right)  $. Also, $u-v\neq0$ (since
+$u\neq v$), thus $\left\vert u-v\right\vert \neq0$ and therefore $\left\vert
+u-v\right\vert \geq1$. Hence, we must be in one of the following two cases:
 
 \textit{Case 1:} We have $\left\vert u-v\right\vert =1$.
 
@@ -6496,7 +8159,7 @@ From (\ref{pf.lem.BK.res.conflict1}) (applied to $P=A$, $i=u$, $j=u+1$ and
 $k=v$), we see that $\left(  s_{v}\left(  u\right)  ,s_{v}\left(  u+1\right)
 \right)  $ is a conflict of $\operatorname*{res}\nolimits_{v}A$. In other
 words, $\left(  u,u+1\right)  $ is a conflict of $C$ (since $s_{v}\left(
-u\right)  =v$, $s_{v}\left(  u+1\right)  =u+1$ and $\operatorname*{res}%
+u\right)  =u$, $s_{v}\left(  u+1\right)  =u+1$ and $\operatorname*{res}%
 \nolimits_{v}A=C$). Thus, $\operatorname*{res}\nolimits_{u}C$ is well-defined.
 
 We shall now show that $\operatorname*{res}\nolimits_{v}B=\operatorname*{res}%
@@ -6591,7 +8254,11 @@ $B\underset{v}{\Rrightarrow}D$ (by the definition of \textquotedblleft%
 $B\underset{v}{\Rrightarrow}D$\textquotedblright), so that $B\Rrightarrow D$
 and thus $B\overset{\ast}{\Rrightarrow}D$ (since the relation $\overset{\ast
 }{\Rrightarrow}$ extends $\Rrightarrow$). Similarly, $C\overset{\ast
-}{\Rrightarrow}D$. Thus, the proof is complete in Case 2.
+}{\Rrightarrow}D$.
+
+So we have found a $D\in\mathbf{S}$ such that $B\overset{\ast}{\Rrightarrow}D$
+and $C\overset{\ast}{\Rrightarrow}D$. Thus, the proof of the local confluence
+hypothesis is complete in Case 2.
 
 Let us now consider Case 1. In this case, we have $\left\vert u-v\right\vert
 =1$. We can WLOG assume that $u\leq v$ (since otherwise, we can achieve this
@@ -6618,18 +8285,19 @@ $i=v-1$ and $j=v+1$) yields that $\left(  s_{v}\left(  v-1\right)
 ,s_{v}\left(  v+1\right)  \right)  $ is a conflict of $\operatorname*{res}%
 \nolimits_{v}A$. In other words, $\left(  v-1,v\right)  $ is a conflict of $C$
 (since $s_{v}\left(  v-1\right)  =v-1$, $s_{v}\left(  v+1\right)  =v$ and
-$\operatorname*{res}\nolimits_{v}A=C$). Hence, $\operatorname*{res}%
-\nolimits_{v-1}C$ is well-defined. Similarly, we can show that
-$\operatorname*{res}\nolimits_{v}B$ is well-defined\footnote{\textit{Proof.}
-We know that $\left(  v-1,v+1\right)  $ is a conflict of $A$ such that
-$\left(  v-1,v+1\right)  \neq\left(  v-1,v\right)  $. Thus, Proposition
+$\operatorname*{res}\nolimits_{v}A=C$). Similarly, we can show that $\left(
+v,v+1\right)  $ is a conflict of $B$\ \ \ \ \footnote{\textit{Proof.} We know
+that $\left(  v-1,v+1\right)  $ is a conflict of $A$ such that $\left(
+v-1,v+1\right)  \neq\left(  v-1,v\right)  $. Thus, Proposition
 \ref{prop.conflict-resolution-props} \textbf{(f)} (applied to $P=A$, $k=v-1$,
 $i=v-1$ and $j=v+1$) yields that $\left(  s_{v-1}\left(  v-1\right)
 ,s_{v-1}\left(  v+1\right)  \right)  $ is a conflict of $\operatorname*{res}%
 \nolimits_{v-1}A$. In other words, $\left(  v,v+1\right)  $ is a conflict of
 $B$ (since $s_{v-1}\left(  v-1\right)  =v$, $s_{v-1}\left(  v+1\right)  =v+1$
-and $\operatorname*{res}\nolimits_{v-1}A=B$). Hence, $\operatorname*{res}%
-\nolimits_{v}B$ is well-defined, qed.}.
+and $\operatorname*{res}\nolimits_{v-1}A=B$), qed.}. Hence,
+$\operatorname*{res}\nolimits_{v}B$ is well-defined. Also,
+$\operatorname*{res}\nolimits_{v-1}C$ is well-defined (since $\left(
+v-1,v\right)  $ is a conflict of $C$).
 
 We furthermore know that $\left(  v-1,v\right)  $ is a conflict of $A$ such
 that $\left(  v-1,v\right)  \neq\left(  v,v+1\right)  $. Thus, Proposition
@@ -6717,24 +8385,26 @@ least one $1$ and at least one $2$; it thus is mixed.
 Since $\left(  v,v+1\right)  $ is a conflict of $A$, it is clear that the
 $\left(  v+1\right)  $-th column of $A$ must contain at least one $1$. Thus,
 the $\left(  v+1\right)  $-th column of $A$ is either mixed or 1-pure. But it
-cannot be mixed\footnote{\textit{Proof.} Assume the contrary. Then, both the
-$v$-th and the $\left(  v+1\right)  $-th column of $A$ are mixed. But $A$ is
-benign. In other words, there exists no conflict $\left(  i,j\right)  $ of $T$
-such that the $i$-th column of $T$ and the $j$-th column of $T$ both are
-mixed. This flies in the face of the fact that $\left(  v,v+1\right)  $ is
-exactly such a conflict. This contradiction proves that our assumption was
-wrong, qed.}, and thus it must be 1-pure.
+cannot be mixed\footnote{\textit{Proof.} Assume the contrary. Then, the
+$\left(  v+1\right)  $-th column of $A$ is mixed. Hence, both the $v$-th and
+the $\left(  v+1\right)  $-th column of $A$ are mixed. But $A$ is benign. In
+other words, there exists no conflict $\left(  i,j\right)  $ of $A$ such that
+the $i$-th column of $A$ and the $j$-th column of $A$ both are mixed. This
+flies in the face of the fact that $\left(  v,v+1\right)  $ is exactly such a
+conflict. This contradiction proves that our assumption was wrong, qed.}, and
+thus it must be 1-pure.
 
 Since $\left(  v-1,v\right)  $ is a conflict of $A$, it is clear that the
 $\left(  v-1\right)  $-th column of $A$ must contain at least one $2$. Thus,
 the $\left(  v-1\right)  $-th column of $A$ is either mixed or 2-pure. But it
-cannot be mixed\footnote{\textit{Proof.} Assume the contrary. Then, both the
-$\left(  v-1\right)  $-th and the $v$-th column of $A$ are mixed. But $A$ is
-benign. In other words, there exists no conflict $\left(  i,j\right)  $ of $T$
-such that the $i$-th column of $T$ and the $j$-th column of $T$ both are
-mixed. This flies in the face of the fact that $\left(  v-1,v\right)  $ is
-exactly such a conflict. This contradiction proves that our assumption was
-wrong, qed.}, and thus it must be 2-pure.
+cannot be mixed\footnote{\textit{Proof.} Assume the contrary. Then, the
+$\left(  v-1\right)  $-th column of $A$ is mixed. Hence, both the $\left(
+v-1\right)  $-th and the $v$-th column of $A$ are mixed. But $A$ is benign. In
+other words, there exists no conflict $\left(  i,j\right)  $ of $A$ such that
+the $i$-th column of $A$ and the $j$-th column of $A$ both are mixed. This
+flies in the face of the fact that $\left(  v-1,v\right)  $ is exactly such a
+conflict. This contradiction proves that our assumption was wrong, qed.}, and
+thus it must be 2-pure.
 
 So we know that:
 
@@ -6755,15 +8425,17 @@ $B=\operatorname*{res}\nolimits_{v-1}A$. The 12-table $A$ has $\left(
 v-1\right)  $-type 2M (since the $\left(  v-1\right)  $-th column of $A$ is
 2-pure, while the $v$-th column of $A$ is mixed). Thus, the definition of
 $\operatorname*{res}_{v-1}A$ shows that $\operatorname*{res}_{v-1}A$ is the
-12-table which differs from $A$ in that the $\left(  v-1\right)  $-th column
-of $\operatorname*{res}_{v-1}A$ is mixed and satisfies $\operatorname*{sep}%
+12-table defined as follows: The $\left(  v-1\right)  $-th column of
+$\operatorname*{res}_{v-1}A$ is mixed and satisfies $\operatorname*{sep}%
 \nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v-1}A\right)
-=\operatorname*{sep}\nolimits_{v}A$, whereas the $v$-th column of
-$\operatorname*{res}\nolimits_{v}A$ is 2-pure. Since $\operatorname*{res}%
-\nolimits_{v-1}A=B$, this rewrites as follows: $B$ is the 12-table which
-differs from $A$ in that the $\left(  v-1\right)  $-th column of $B$ is mixed
-and satisfies $\operatorname*{sep}\nolimits_{v-1}B=\operatorname*{sep}%
-\nolimits_{v}A$, whereas the $v$-th column of $B$ is 2-pure. Thus:
+=\operatorname*{sep}\nolimits_{v}A$; the $v$-th column of $\operatorname*{res}%
+\nolimits_{v-1}A$ is 2-pure; all other columns of $\operatorname*{res}%
+\nolimits_{v-1}A$ are copied over from $A$ unchanged. Since
+$\operatorname*{res}\nolimits_{v-1}A=B$, this rewrites as follows: The
+$\left(  v-1\right)  $-th column of $B$ is mixed and satisfies
+$\operatorname*{sep}\nolimits_{v-1}B=\operatorname*{sep}\nolimits_{v}A$; the
+$v$-th column of $B$ is 2-pure; all other columns of $B$ are copied over from
+$A$ unchanged. Thus:
 
 \begin{itemize}
 \item the $\left(  v-1\right)  $-th column of $B$ is mixed and satisfies
@@ -6780,10 +8452,11 @@ $-th column of $A$ is 1-pure}.
 But the 12-table $B$ has $v$-type 21 (since the $v$-th column of $B$ is
 2-pure, and the $\left(  v+1\right)  $-th column of $P$ is 1-pure). Thus, the
 definition of $\operatorname*{res}\nolimits_{v}B$ shows that
-$\operatorname*{res}\nolimits_{v}B$ is the 12-table which differs from $B$ in
-that the $v$-th column of $\operatorname*{res}\nolimits_{v}B$ is 1-pure,
-whereas the $\left(  v+1\right)  $-th column of $\operatorname*{res}%
-\nolimits_{v}B$ is 2-pure. Thus:
+$\operatorname*{res}\nolimits_{v}B$ is the 12-table defined as follows: The
+$v$-th column of $\operatorname*{res}\nolimits_{v}B$ is 1-pure; the $\left(
+v+1\right)  $-th column of $\operatorname*{res}\nolimits_{v}B$ is 2-pure; all
+other columns of $\operatorname*{res}\nolimits_{v}B$ are copied over from $B$
+unchanged. Thus:
 
 \begin{itemize}
 \item the $\left(  v-1\right)  $-th column of $\operatorname*{res}%
@@ -6806,15 +8479,16 @@ $-type M1 (since the $\left(  v-1\right)  $-th column of $\operatorname*{res}%
 \nolimits_{v}B$ is 1-pure). Thus, the definition of $\operatorname*{res}%
 \nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}B\right)  $ shows that
 $\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
-B\right)  $ is the 12-table which differs from $\operatorname*{res}%
-\nolimits_{v}B$ in that the $\left(  v-1\right)  $-th column of
-$\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
-B\right)  $ is 1-pure, whereas the $v$-th column of $\operatorname*{res}%
+B\right)  $ is the 12-table defined as follows: The $\left(  v-1\right)  $-th
+column of $\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}%
+\nolimits_{v}B\right)  $ is 1-pure; the $v$-th column of $\operatorname*{res}%
 \nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}B\right)  $ is mixed
 and satisfies $\operatorname*{sep}\nolimits_{v}\left(  \operatorname*{res}%
 \nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}B\right)  \right)
 =\operatorname*{sep}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
-B\right)  $. Thus:
+B\right)  $; all other columns of $\operatorname*{res}\nolimits_{v-1}\left(
+\operatorname*{res}\nolimits_{v}B\right)  $ are copied over from
+$\operatorname*{res}\nolimits_{v}B$ unchanged. Thus:
 
 \begin{itemize}
 \item the $\left(  v-1\right)  $-th column of $\operatorname*{res}%
@@ -6930,8 +8604,10 @@ Now, set $D=\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}%
 C\right)  $. In other words, $C\overset{\ast}{\Rrightarrow}D$ (since
 $D=\operatorname*{res}\nolimits_{v}\left(  \operatorname*{res}\nolimits_{v-1}%
 C\right)  $). Thus, our $D\in\mathbf{S}$ satisfies $B\overset{\ast
-}{\Rrightarrow}D$ and $C\overset{\ast}{\Rrightarrow}D$. This completes the
-proof in Case 1.
+}{\Rrightarrow}D$ and $C\overset{\ast}{\Rrightarrow}D$. So we have found a
+$D\in\mathbf{S}$ such that $B\overset{\ast}{\Rrightarrow}D$ and
+$C\overset{\ast}{\Rrightarrow}D$. This completes the proof of the local
+confluence hypothesis in Case 1.
 
 Hence, in both Cases 1 and 2, we have shown that there exists a $D\in
 \mathbf{S}$ such that $B\overset{\ast}{\Rrightarrow}D$ and $C\overset{\ast
@@ -6939,6 +8615,10 @@ Hence, in both Cases 1 and 2, we have shown that there exists a $D\in
 that there always exists a $D\in\mathbf{S}$ such that $B\overset{\ast
 }{\Rrightarrow}D$ and $C\overset{\ast}{\Rrightarrow}D$. This completes the
 proof of the local confluence hypothesis.
+
+Thus, Proposition \ref{prop.conflict-resolution-hyps} is proven.
+\end{proof}
+\end{verlong}
 
 Now, let us define the notion of a \textquotedblleft final\textquotedblright%
 \ element of $\mathbf{S}$ as in Lemma \ref{lem.diamond}. Then, the following
@@ -6949,13 +8629,71 @@ is almost obvious:
 $\mathbf{S}$ is final if and only if $P$ is a 12-rpp.
 \end{proposition}
 
+\begin{vershort}
 \begin{proof}
 [Proof of Proposition \ref{prop.finality}.]Let us first assume that $P$ is
 final. We shall show that $P$ is a 12-rpp.
 
 Indeed, assume the contrary. Then, $P$ is not a 12-rpp. But $P$ is an element
 of $\mathbf{S}$, thus a benign 12-table. The entries of $P$ are weakly
-increasing down columns (since $P$ is a 12-table). Thus, if the entries of $P$
+increasing down columns (since $P$ is a 12-table). Thus, the entries of $P$
+are not weakly increasing along rows (because otherwise, $P$ would be a
+12-rpp). In other words, there exists an $r\in\mathbb{N}_{+}$ such that the
+$r$-th row of $P$ is not weakly increasing. Consider this $r$. The $r$-th row
+of $P$ is not weakly increasing; hence, there exist two adjacent entries of
+this row such that the left one is larger than the right one. In other words,
+there exists a $k\in\mathbb{N}_{+}$ such that $\left(  r,k\right)  \in Z$,
+$\left(  r,k+1\right)  \in Z$ and $P\left(  r,k\right)  >P\left(
+r,k+1\right)  $. Consider this $k$. Both $P\left(  r,k\right)  $ and $P\left(
+r,k+1\right)  $ belong to $\left\{  1,2\right\}  $. Hence, from $P\left(
+r,k\right)  >P\left(  r,k+1\right)  $, we obtain $P\left(  r,k\right)  =2$ and
+$P\left(  r,k+1\right)  =1$. Therefore, $\left(  k,k+1\right)  $ is a conflict
+of $P$ (due to the definition of a \textquotedblleft
+conflict\textquotedblright). Consequently, $\operatorname*{res}\nolimits_{k}P$
+is well-defined, and we have $P\underset{k}{\Rrightarrow}\operatorname*{res}%
+\nolimits_{k}P$ (due to the definition of \textquotedblleft%
+$P\underset{k}{\Rrightarrow}\operatorname*{res}\nolimits_{k}P$%
+\textquotedblright), so that $P\Rrightarrow\operatorname*{res}\nolimits_{k}P$
+(due to the definition of the relation $\Rrightarrow$).
+
+But recall that $P$ is final. In other words, there exists no $b\in\mathbf{S}$
+satisfying $P\Rrightarrow b$ (according to the definition of \textquotedblleft
+final\textquotedblright). This contradicts the fact that $\operatorname*{res}%
+\nolimits_{k}P$ is such a $b$ (since $P\Rrightarrow\operatorname*{res}%
+\nolimits_{k}P$ and $\operatorname*{res}\nolimits_{k}P\in\mathbf{S}$). This
+contradiction proves that our assumption was wrong. So we have shown that $P$
+is a 12-rpp.
+
+Now, let us forget that we assumed that $P$ is final. Thus, we have proven
+that if $P$ is final, then $P$ is a 12-rpp. It remains to prove the converse.
+In other words, it remains to prove that if $P$ is a 12-rpp, then $P$ is final.
+
+So let us assume that $P$ is a 12-rpp. Let $b\in\mathbf{S}$ be such that
+$P\Rrightarrow b$. Then, there exists a $k\in\mathbb{N}_{+}$ such that
+$P\underset{k}{\Rrightarrow}b$ (by the definition of the relation
+$\Rrightarrow$). Consider this $k$. We have $P\underset{k}{\Rrightarrow}b$. In
+other words, $\left(  k,k+1\right)  $ is a conflict of $P$ and we have
+$b=\operatorname*{res}\nolimits_{k}P$. But $P$ is a 12-rpp of shape $Z$, and
+thus has no conflicts (since a 12-rpp of shape $Z$ is the same as a 12-table
+which has no conflicts). So $\left(  k,k+1\right)  $ is a conflict of $P$, but
+$P$ has no conflicts. This is a contradiction.
+
+Now, let us forget that we fixed $b$. We thus have found a contradiction for
+every $b\in\mathbf{S}$ satisfying $P\Rrightarrow b$. Hence, there exists no
+$b\in\mathbf{S}$ satisfying $P\Rrightarrow b$. In other words, $P$ is final
+(according to the definition of \textquotedblleft final\textquotedblright).
+This completes our proof of Proposition \ref{prop.finality}.
+\end{proof}
+\end{vershort}
+
+\begin{verlong}
+\begin{proof}
+[Proof of Proposition \ref{prop.finality}.]Let us first assume that $P$ is
+final. We shall show that $P$ is a 12-rpp.
+
+Indeed, assume the contrary. Then, $P$ is not a 12-rpp. But $P$ is an element
+of $\mathbf{S}$, thus a benign 12-table. The entries of $P$ are weakly
+increasing down columns (since $P$ is a 12-table). Thus, the entries of $P$
 are not weakly increasing along rows (because otherwise, $P$ would be a
 12-rpp). In other words, there exists an $r\in\mathbb{N}_{+}$ such that the
 $r$-th row of $P$ is not weakly increasing. Consider this $r$. The $r$-th row
@@ -7009,12 +8747,17 @@ $b\in\mathbf{S}$ satisfying $P\Rrightarrow b$. In other words, $P$ is final
 (according to the definition of \textquotedblleft final\textquotedblright).
 This completes our proof of Proposition \ref{prop.finality}.
 \end{proof}
+\end{verlong}
 
 \subsection{The normalization map}
 
+\begin{definition}
 We now define a map $\operatorname*{norm}:\mathbf{S}\rightarrow\mathbf{R}$ as follows:
 
-Let $T\in\mathbf{S}$. Lemma \ref{lem.diamond} shows that for every
+Let $T\in\mathbf{S}$. Proposition \ref{prop.conflict-resolution-hyps} shows
+that the local confluence hypothesis and the length-decrease hypothesis are
+satisfied for our set $\mathbf{S}$, our map $\ell$ and our relation
+$\Rrightarrow$. Thus, Lemma \ref{lem.diamond} shows that for every
 $a\in\mathbf{S}$, there exists a unique final element $b\in\mathbf{S}$ such
 that $a\overset{\ast}{\Rrightarrow}b$. Applying this to $a=T$, we conclude
 that there exists a unique final element $b\in\mathbf{S}$ such that
@@ -7036,7 +8779,9 @@ T\overset{\ast}{\Rrightarrow}\operatorname*{norm}\left(  T\right)  .
 
 
 Thus, the map $\operatorname*{norm}:\mathbf{S}\rightarrow\mathbf{R}$ is defined.
+\end{definition}
 
+\begin{vershort}
 \begin{example}
 Let us give an example of a computation of $\operatorname*{norm}\left(
 T\right)  $. For this example, let us take%
@@ -7070,7 +8815,10 @@ resolving conflicts until no more conflicts are left (because
 \textquotedblleft$b$ can be obtained from $T$ by repeatedly resolving
 conflicts\textquotedblright). The word \textquotedblleft
 unique\textquotedblright\ here implies that, in whatever order we resolve
-conflicts, the result will always be the same.
+conflicts, the result will always be the same. And the procedure will
+eventually come to an end because the nonnegative integer $\ell\left(
+T\right)  $ decreases every time we resolve a conflict in $T$ (by Lemma
+\ref{lem.conflict-resolution-props} \textbf{(d)}).
 
 Let us first resolve the conflict $\left(  2,3\right)  $ in $T$. This gives us
 the 12-table%
@@ -7096,8 +8844,8 @@ the 12-table%
 %EndExpansion
 .
 \]
-(In fact, we have seen this in Example \ref{exa.resolve} already, but we
-called the 12-table by $T$ there.) Next, resolving the conflict $\left(
+(In fact, we have seen this in Example \ref{exa.resolve.short} already, but we
+denoted the 12-table by $P$ there.) Next, resolving the conflict $\left(
 4,5\right)  $ in $\operatorname*{res}\nolimits_{2}T$, we obtain the 12-table%
 \[
 \operatorname*{res}\nolimits_{4}\left(  \operatorname*{res}\nolimits_{2}%
@@ -7253,11 +9001,236 @@ an example where it can actually increase.) This is why we could not have used
 a function $\ell:\mathbf{S}\rightarrow\mathbb{N}$ that counts the number of
 conflicts to satisfy the length-decrease condition.
 \end{example}
+\end{vershort}
+
+\begin{verlong}
+\begin{example}
+Let us give an example of a computation of $\operatorname*{norm}\left(
+T\right)  $. For this example, let us take%
+\[
+T=%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& 1 & 2 & 1 \\
+%\none& 1 & 1 & 2 \\
+%2 & 1 & 1 \\
+%2 & 2 & 1 \\
+%2
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+\none& \none& 1 & 2 & 1 \\
+\none& 1 & 1 & 2 \\
+2 & 1 & 1 \\
+2 & 2 & 1 \\
+2
+\end{ytableau}%
+%EndExpansion
+.
+\]
+Then, $\operatorname*{norm}\left(  T\right)  $ is the unique final element
+$b\in\mathbf{S}$ such that $T\overset{\ast}{\Rrightarrow}b$. Thus, we can
+obtain $\operatorname*{norm}\left(  T\right)  $ from $T$ by repeatedly
+resolving conflicts until no more conflicts are left (because
+\textquotedblleft$T\overset{\ast}{\Rrightarrow}b$\textquotedblright\ means
+\textquotedblleft$b$ can be obtained from $T$ by repeatedly resolving
+conflicts\textquotedblright). The word \textquotedblleft
+unique\textquotedblright\ here implies that, in whatever order we resolve
+conflicts, the result will always be the same. And the procedure will
+eventually come to an end because the nonnegative integer $\ell\left(
+T\right)  $ decreases every time we resolve a conflict in $T$ (by Lemma
+\ref{lem.conflict-resolution-props} \textbf{(d)}).
+
+Let us first resolve the conflict $\left(  2,3\right)  $ in $T$. This gives us
+the 12-table%
+\[
+\operatorname*{res}\nolimits_{2}T=%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& 1 & 2 & 1 \\
+%\none& 1 & 1 & 2 \\
+%2 & 1 & 1 \\
+%2 & 1 & 2 \\
+%2
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+\none& \none& 1 & 2 & 1 \\
+\none& 1 & 1 & 2 \\
+2 & 1 & 1 \\
+2 & 1 & 2 \\
+2
+\end{ytableau}%
+%EndExpansion
+.
+\]
+(In fact, we have seen this in Example \ref{exa.resolve} already, but we
+denoted the 12-table by $P$ there.) Next, resolving the conflict $\left(
+4,5\right)  $ in $\operatorname*{res}\nolimits_{2}T$, we obtain the 12-table%
+\[
+\operatorname*{res}\nolimits_{4}\left(  \operatorname*{res}\nolimits_{2}%
+T\right)  =%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& 1 & 1 & 2 \\
+%\none& 1 & 1 & 1 \\
+%2 & 1 & 1 \\
+%2 & 1 & 2 \\
+%2
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+\none& \none& 1 & 1 & 2 \\
+\none& 1 & 1 & 1 \\
+2 & 1 & 1 \\
+2 & 1 & 2 \\
+2
+\end{ytableau}%
+%EndExpansion
+.
+\]
+We go on by resolving the conflict $\left(  1,2\right)  $ in
+$\operatorname*{res}\nolimits_{4}\left(  \operatorname*{res}\nolimits_{2}%
+T\right)  $, and thus obtain%
+\[
+\operatorname*{res}\nolimits_{1}\left(  \operatorname*{res}\nolimits_{4}%
+\left(  \operatorname*{res}\nolimits_{2}T\right)  \right)  =%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& 1 & 1 & 2 \\
+%\none& 2 & 1 & 1 \\
+%1 & 2 & 1 \\
+%1 & 2 & 2 \\
+%1
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+\none& \none& 1 & 1 & 2 \\
+\none& 2 & 1 & 1 \\
+1 & 2 & 1 \\
+1 & 2 & 2 \\
+1
+\end{ytableau}%
+%EndExpansion
+.
+\]
+Next, we resolve the conflict $\left(  2,3\right)  $ in $\operatorname*{res}%
+\nolimits_{1}\left(  \operatorname*{res}\nolimits_{4}\left(
+\operatorname*{res}\nolimits_{2}T\right)  \right)  $, and obtain%
+\[
+\operatorname*{res}\nolimits_{2}\left(  \operatorname*{res}\nolimits_{1}%
+\left(  \operatorname*{res}\nolimits_{4}\left(  \operatorname*{res}%
+\nolimits_{2}T\right)  \right)  \right)  =%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& 2 & 1 & 2 \\
+%\none& 1 & 2 & 1 \\
+%1 & 1 & 2 \\
+%1 & 2 & 2 \\
+%1
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+\none& \none& 2 & 1 & 2 \\
+\none& 1 & 2 & 1 \\
+1 & 1 & 2 \\
+1 & 2 & 2 \\
+1
+\end{ytableau}%
+%EndExpansion
+.
+\]
+Next, we resolve the conflict $\left(  3,4\right)  $ in $\operatorname*{res}%
+\nolimits_{2}\left(  \operatorname*{res}\nolimits_{1}\left(
+\operatorname*{res}\nolimits_{4}\left(  \operatorname*{res}\nolimits_{2}%
+T\right)  \right)  \right)  $, and this leads us to%
+\[
+\operatorname*{res}\nolimits_{3}\left(  \operatorname*{res}\nolimits_{2}%
+\left(  \operatorname*{res}\nolimits_{1}\left(  \operatorname*{res}%
+\nolimits_{4}\left(  \operatorname*{res}\nolimits_{2}T\right)  \right)
+\right)  \right)  =%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& 1 & 2 & 2 \\
+%\none& 1 & 1 & 2 \\
+%1 & 1 & 1 \\
+%1 & 2 & 1 \\
+%1
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+\none& \none& 1 & 2 & 2 \\
+\none& 1 & 1 & 2 \\
+1 & 1 & 1 \\
+1 & 2 & 1 \\
+1
+\end{ytableau}%
+%EndExpansion
+.
+\]
+Finally, we resolve the conflict $\left(  2,3\right)  $ in
+$\operatorname*{res}\nolimits_{3}\left(  \operatorname*{res}\nolimits_{2}%
+\left(  \operatorname*{res}\nolimits_{1}\left(  \operatorname*{res}%
+\nolimits_{4}\left(  \operatorname*{res}\nolimits_{2}T\right)  \right)
+\right)  \right)  $, and thus obtain%
+\[
+\operatorname*{res}\nolimits_{2}\left(  \operatorname*{res}\nolimits_{3}%
+\left(  \operatorname*{res}\nolimits_{2}\left(  \operatorname*{res}%
+\nolimits_{1}\left(  \operatorname*{res}\nolimits_{4}\left(
+\operatorname*{res}\nolimits_{2}T\right)  \right)  \right)  \right)  \right)
+=%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& 1 & 2 & 2 \\
+%\none& 1 & 1 & 2 \\
+%1 & 1 & 1 \\
+%1 & 1 & 2 \\
+%1
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+\none& \none& 1 & 2 & 2 \\
+\none& 1 & 1 & 2 \\
+1 & 1 & 1 \\
+1 & 1 & 2 \\
+1
+\end{ytableau}%
+%EndExpansion
+.
+\]
+This 12-table $\operatorname*{res}\nolimits_{2}\left(  \operatorname*{res}%
+\nolimits_{3}\left(  \operatorname*{res}\nolimits_{2}\left(
+\operatorname*{res}\nolimits_{1}\left(  \operatorname*{res}\nolimits_{4}%
+\left(  \operatorname*{res}\nolimits_{2}T\right)  \right)  \right)  \right)
+\right)  $ has no more conflicts, and thus is final. So $\operatorname*{norm}%
+\left(  T\right)  =\operatorname*{res}\nolimits_{2}\left(  \operatorname*{res}%
+\nolimits_{3}\left(  \operatorname*{res}\nolimits_{2}\left(
+\operatorname*{res}\nolimits_{1}\left(  \operatorname*{res}\nolimits_{4}%
+\left(  \operatorname*{res}\nolimits_{2}T\right)  \right)  \right)  \right)
+\right)  $.
+
+Notice that we have needed six steps to compute $\operatorname*{norm}\left(
+T\right)  $, although $T$ only had $4$ conflicts. So the number of conflicts
+does not always decrease when we resolve a conflict. (It is easy to construct
+an example where it can actually increase.) This is why we could not have used
+a function $\ell:\mathbf{S}\rightarrow\mathbb{N}$ that counts the number of
+conflicts to satisfy the length-decrease condition.
+\end{example}
+\end{verlong}
 
 \subsection{Definition of $\mathbf{B}$}
 
-We can now finally prove Lemma \ref{lem.BK}. Indeed, let us define a map
-$\mathbf{B}:\mathbf{R}\rightarrow\mathbf{R}$ as follows:
+We can now finally prove Lemma \ref{lem.BK}
+
+\begin{definition}
+Let us define a map $\mathbf{B}:\mathbf{R}\rightarrow\mathbf{R}$ as follows:
 
 Let $T\in\mathbf{R}$. Then, $T\in\mathbf{R}\subseteq\mathbf{S}$. Hence,
 $\operatorname*{flip}\left(  T\right)  \in\mathbf{S}$ is well-defined, and
@@ -7265,11 +9238,12 @@ thus $\operatorname*{norm}\left(  \operatorname*{flip}\left(  T\right)
 \right)  \in\mathbf{R}$ is well-defined. We define $\mathbf{B}\left(
 T\right)  $ to be $\operatorname*{norm}\left(  \operatorname*{flip}\left(
 T\right)  \right)  $.
+\end{definition}
 
 Thus, the map $\mathbf{B}$ is defined. In order to complete the proof of Lemma
 \ref{lem.BK}, we need to show that this map $\mathbf{B}$ is an involution and
 that, for every $S\in\mathbf{R}$, the equalities (\ref{eq.lem.BK.ceq}) and
-(\ref{eq.lem.BK.ircont}) hold. This all is easy by now:
+(\ref{eq.lem.BK.ircont}) hold. At this point, all of this is easy:
 
 \textit{Proof that }$\mathbf{B}$ \textit{is an involution:} Let $T\in
 \mathbf{R}$. The definition of $\mathbf{B}$ yields $\mathbf{B}\left(
@@ -7325,7 +9299,7 @@ we obtain $\left(  \mathbf{B}\circ\mathbf{B}\right)  \left(  T\right)  =T$.
 
 Let us now forget that we fixed $T$. We thus have shown that $\left(
 \mathbf{B}\circ\mathbf{B}\right)  \left(  T\right)  =T$ for every
-$T\in\mathbf{S}$. In other words, $\mathbf{B}\circ\mathbf{B}%
+$T\in\mathbf{R}$. In other words, $\mathbf{B}\circ\mathbf{B}%
 =\operatorname*{id}$. In other words, $\mathbf{B}$ is an involution.
 
 \textit{Proof of the equality (\ref{eq.lem.BK.ceq}) for every }$S\in
@@ -7403,7 +9377,7 @@ proofs; we can summarize it as follows:
 \begin{itemize}
 \item The main step of the construction was the construction of the involution
 $\mathbf{B}:\mathbf{R}\rightarrow\mathbf{R}$ in Lemma \ref{lem.BK} (for a
-given finite convex subset $Z$ of $\mathbb{N}_{+}$). This is an involution
+given finite convex subset $Z$ of $\mathbb{N}_{+}^{2}$). This is an involution
 which sends 12-rpps of shape $Z$ to 12-rpps of the same shape $Z$, and it was
 constructed as follows: Given a 12-rpp $T$ of shape $Z$, we set $\mathbf{B}%
 \left(  T\right)  =\operatorname*{norm}\left(  \operatorname*{flip}\left(
@@ -7417,7 +9391,7 @@ resolving conflicts until no conflicts remain.)
 \item Having constructed this map $\mathbf{B}:\mathbf{R}\rightarrow\mathbf{R}%
 $, we can construct the involution $\mathbf{B}_{Z}:\mathbf{R}_{Z}%
 \rightarrow\mathbf{R}_{Z}$ in Lemma \ref{lem.BKi} (for a given finite convex
-subset $Z$ of $\mathbb{N}_{+}$) as follows: Given an rpp $S$ of shape $Z$
+subset $Z$ of $\mathbb{N}_{+}^{2}$) as follows: Given an rpp $S$ of shape $Z$
 whose entries are $i$'s and $\left(  i+1\right)  $'s, we first replace these
 entries by $1$'s and $2$'s (respectively), so that we obtain a 12-rpp; then,
 we apply the involution $\mathbf{B}:\mathbf{R}\rightarrow\mathbf{R}$ to this
@@ -7501,6 +9475,8 @@ And we do this for every $k\in\mathbb{N}_{+}$ (simultaneously or consecutively
 -- it does not matter). At the end, we have obtained a new semistandard
 tableau of shape $Y\left(  \lambda/\mu\right)  $. We define $B_{i}\left(
 T\right)  $ to be this new tableau.
+
+\Needspace{25\baselineskip}
 
 \begin{example}
 \label{exa.BKclassical}Let us give an example of this construction of $B_{i}$.
@@ -7637,7 +9613,7 @@ relabelling these entries $i$ and $i+1$ as $1$ and $2$). Similarly, the map
 $B_{i}:\operatorname*{SST}\left(  \lambda/\mu\right)  \rightarrow
 \operatorname*{SST}\left(  \lambda/\mu\right)  $ can be constructed from the
 maps $B:R\rightarrow R$ for every finite convex subset $Z$ of $\mathbb{N}%
-_{+}^{2}$ (essentially by forgetting all entries of an rpp except for the
+_{+}^{2}$ (essentially by forgetting all entries of an sst except for the
 entries $i$ and $i+1$ and relabelling these entries $i$ and $i+1$ as $1$ and
 $2$). Thus, in order to prove that $B_{i}\left(  T\right)  =\mathbf{B}%
 _{i}\left(  T\right)  $ for every $T\in\operatorname*{SST}\left(  \lambda
@@ -7676,7 +9652,7 @@ T=%
 2
 \end{ytableau}
 %EndExpansion
-.\label{pf.prop.BK=BK.exampleT}%
+. \label{pf.prop.BK=BK.exampleT}%
 \end{equation}
 It satisfies%
 \begin{equation}
@@ -7688,7 +9664,7 @@ B\left(  T\right)  =%
 %\none& \none& \none& 1 & 1 & 2 & 2 \\
 %1 & 1 \\
 %2
-%\end{ytableau}}}%
+%\end{ytableau}} }%
 %BeginExpansion
 \ytableausetup{notabloids}
 \begin{ytableau}
@@ -7697,7 +9673,7 @@ B\left(  T\right)  =%
 \none& \none& \none& 1 & 1 & 2 & 2 \\
 1 & 1 \\
 2
-\end{ytableau}%
+\end{ytableau}
 %EndExpansion
 \label{pf.prop.BK=BK.exampleBT}%
 \end{equation}
@@ -7711,7 +9687,7 @@ and%
 %\none& \none& \none& 2 & 1 & 1 & 2 \\
 %1 & 1 \\
 %2
-%\end{ytableau}}}%
+%\end{ytableau}} }%
 %BeginExpansion
 \ytableausetup{notabloids}
 \begin{ytableau}
@@ -7720,7 +9696,7 @@ and%
 \none& \none& \none& 2 & 1 & 1 & 2 \\
 1 & 1 \\
 2
-\end{ytableau}%
+\end{ytableau}
 %EndExpansion
 \label{pf.prop.BK=BK.exampleflipT}%
 \end{equation}
@@ -7780,22 +9756,26 @@ ignored\textquotedblright\ entries in $T$ appear in $\operatorname*{flip}%
 \left(  T\right)  $ unchanged). So we can restate the construction of
 $\operatorname*{flip}\left(  T\right)  $ as follows:
 
-To construct $\operatorname*{flip}\left(  T\right)  $ from $T$, do the
+\begin{itemize}
+\item To construct $\operatorname*{flip}\left(  T\right)  $ from $T$, do the
 following: In every row of $T$, let $r$ be the number of $1$'s which are not
 \textquotedblleft ignored\textquotedblright, and let $s$ be the number of
 $2$'s which are not \textquotedblleft ignored\textquotedblright. We replace
 these $r$ many $1$'s and $s$ many $2$'s by $r$ many $2$'s and $s$ many $1$'s
 (in this order). This we do for every row; the resulting 12-table is
 $\operatorname*{flip}\left(  T\right)  $.
+\end{itemize}
 
 Compare this to our construction of $B\left(  T\right)  $:
 
-To construct $B\left(  T\right)  $ from $T$, do the following: In every row of
-$T$, let $r$ be the number of $1$'s which are not \textquotedblleft
+\begin{itemize}
+\item To construct $B\left(  T\right)  $ from $T$, do the following: In every
+row of $T$, let $r$ be the number of $1$'s which are not \textquotedblleft
 ignored\textquotedblright, and let $s$ be the number of $2$'s which are not
 \textquotedblleft ignored\textquotedblright. We replace these $r$ many $1$'s
 and $s$ many $2$'s by $s$ many $1$'s and $r$ many $2$'s (in this order). This
 we do for every row; the resulting 12-sst is $B\left(  T\right)  $.
+\end{itemize}
 
 Comparing these two constructions makes it clear that each row of $B\left(
 T\right)  $ differs from the corresponding row of $\operatorname*{flip}\left(
