@@ -9865,24 +9865,29 @@ influence.)
 In this section, we let $\kk$ be the polynomial ring
 $\Z\left[t_1, t_2, t_3, \ldots\right]$ in countably many
 indeterminates, and we restrict ourselves to the
-two-variable dual-stable Grothendieck polynomial
+two-variable dual stable Grothendieck polynomial
 $\g_\lm(x_1,x_2,0,0,\dots;\t)$ defined as the result of
 substituting $0, 0, 0, \ldots$ for $x_3, x_4, x_5, \ldots$
 in $\g_\lm$. We can represent it as a polynomial in
 $\t$ with coefficients in $\Z[x_1,x_2]$:
-$$\g_\lm(x_1,x_2,0,0,\dots;\t)=\sum_{\ceqvar\in \N^{\N_+}}\t^\ceqvar Q_\ceqvar(x_1,x_2).$$
-We show that each $Q_\ceqvar(x_1,x_2)$ is either zero or has a form
-$$Q_\ceqvar(x_1,x_2)=(x_1x_2)^{M} P_{n_0}(x_1,x_2)P_{n_1}(x_1,x_2)\dots P_{n_r}(x_1,x_2) ,$$
+$$\g_\lm(x_1,x_2,0,0,\dots;\t)=\sum_{\ceqvar\in \N^{\N_+}}\t^\ceqvar Q_\ceqvar(x_1,x_2),$$
+where the sum ranges over all weak compositions $\alpha$,
+and all but finitely many $Q_\ceqvar(x_1,x_2)$ are $0$.
+(The $Q_\ceqvar(x_1,x_2)$ here belong to $\Z[x_1, x_2]$.)
+
+We shall show that each $Q_\ceqvar(x_1,x_2)$ is either zero or has the form
+$$Q_\ceqvar(x_1,x_2)=(x_1x_2)^{M} P_{n_0}(x_1,x_2)P_{n_1}(x_1,x_2)\cdots P_{n_r}(x_1,x_2) ,$$
 where $M,r$ and $n_0,n_1,\dots,n_{r}$ are integers naturally associated to $\ceqvar$ and $\lm$ and 
 $$P_n(x_1,x_2)=(x_1^{n+1}-x_2^{n+1})/(x_1-x_2)=x_1^{n}+x_1^{n-1}x_2+\dots+x_1x_2^{n-1}+x_2^n.$$
-We fix the skew partition $\lm$ throughout the whole section and let $W(\lm)$ be the number of columns in $\lm$.
+We fix the skew partition $\lm$ throughout the whole section.
 Abusing notation, we shall abbreviate $Y\left(\lm\right)$ as $\lm$.
+Let $W(\lm)$ be the number of nonempty columns in $\lm$.
 We will have a running example with $\lambda=(7,7,7,4,4)$ and $\mu=(5,3,2)$.
 
 
 
 \subsection{Irreducible components}
-Given a rpp $T$, consider the set $\NS(T)$ of all cells $(i,j)\in \lm$ such that $T(i,j)=1$ but $T(i+1,j)=2$ (in other words, $\NS(T)$ is the set of all non-stagnant cells in $T$ filled with a $1$). Clearly, $\NS(T)$ contains at most one cell from each column; thus, let us write $\NS(T)=\{(i_1,j_1),(i_2,j_2),\dots,(i_s,j_s)\}$ with $j_1<j_2<\dots<j_s$. Because $T$ is a 12-rpp, it follows that the numbers $i_1,i_2,\dots,i_s$ decrease weakly, therefore they form a partition which we call \textit{the cut-partition of} $T$ and denote 
+Given an rpp $T$, consider the set $\NS(T)$ of all cells $(i,j)\in \lm$ such that $T(i,j)=1$ but $T(i+1,j)=2$ (in other words, $\NS(T)$ is the set of all non-stagnant cells in $T$ filled with a $1$). Clearly, $\NS(T)$ contains at most one cell from each column; thus, let us write $\NS(T)=\{(i_1,j_1),(i_2,j_2),\dots,(i_s,j_s)\}$ with $j_1<j_2<\dots<j_s$. Because $T$ is a 12-rpp, it follows that the numbers $i_1,i_2,\dots,i_s$ decrease weakly, therefore they form a partition which we call \textit{the cut-partition of} $T$ and denote 
 $$\cut(T):=(i_1,i_2,\dots,i_s).$$ 
 An example of calculation of $\cut(T)$ and $\NS(T)$ is illustrated on Figure \ref{fig:cut}.
 
@@ -9915,7 +9920,7 @@ $\cut(T_1)=(4,3,3,2)$ & $\cut(T_2)=(4,3,3,2)$
 
 
 
-We would like to answer the following question: for which partitions $\cutvar=(i_1\geq \dots\geq i_s>0)$ there exists a rpp $T$ of shape $\lm$ such that $\cut(T)=\cutvar$?
+We would like to answer the following question: for which partitions $\cutvar=(i_1\geq \dots\geq i_s>0)$ there exists an rpp $T$ of shape $\lm$ such that $\cut(T)=\cutvar$?
 
 A trivial necessary condition for this to happen is that there should exist some numbers $j_1<j_2<\dots<j_s$ such that 
 \begin{equation}\label{cond:necessary}
@@ -9939,7 +9944,7 @@ We introduce several definitions: a partition $\cutvar=(i_1\geq \dots\geq i_s>0)
 
 For example, $\cutvar=(4,3,3,2)$ is representable but reducible because we have $\nuxy{3}{5}=(3,3)$ so $\#\nuxy{3}{5}=2=5-3$.
 
-Note that these notions depend on the skew-shape, so when we want to use a skew-shape $\widetilde\lm$ rather than $\lm$, we will write that $\cutvar$ is non-representable/irreducible/etc \textit{with respect to $\widetilde\lm$}, and we denote the corresponding partitions by $\nuab^{\widetilde{\lm}}$.
+Note that these notions depend on the skew partition; thus, when we want to use a skew partition $\widetilde\lm$ rather than $\lm$, we will write that $\cutvar$ is non-representable/irreducible/etc \textit{with respect to $\widetilde\lm$}, and we denote the corresponding partitions by $\nuab^{\widetilde{\lm}}$.
 
 These definitions can be motivated as follows. Suppose that a partition $\cutvar$ is non-representable, so there exist integers $a<b$ such that $\#\nuab>b-a$. Recall that $\nuab=:(i_r,i_{r+1},\dots,i_{r+q})$ contains all entries of $\cutvar$ whose support is a subset of $[a,b)$. Thus in order for condition (\ref{cond:necessary}) to be true there must exist some integers $j_r<j_{r+1}<\dots<j_{r+q}$ such that 
 $$(i_r, j_r),\dots,(i_{r+q},j_{r+q})\in\lm.$$
@@ -9947,7 +9952,7 @@ From the other hand, by the defintion of the support, we must have $j_k\in \supp
 
 Suppose now that a partition $\cutvar$ is reducible, so for some $a<b$ we get an equality $\#\nuab=b-a$. Then these integers $j_r<\dots<j_{r+q}$ should still all belong to $[a,b)$ and there are exactly $b-a$ of them, hence 
 $$j_r=a,j_{r+1}=a+1,\dots,j_{r+q}=a+q=b-1.$$
-Because $\supp(i_r)\subset[a,b)$, we have $(i_r,a-1)\notin\lm$ so placing a one into $(i_r,a)$ and twos into $(i_r+1,a),(i_r+2,a),\dots$ does not put any resrtictions on entries in columns $1,\dots, a-1$. And the same is true for columns $b,b+1,\dots$. Thus, if a partition $\cutvar$ is reducible then the filling of columns $a,a+1,\dots, b-1$ is uniquely determined and the filling of the rest can be arbitrary -- the problem of existence of and 12-rpp $T$ such that $\cut(T)=\cutvar$ reduces to two smaller independent problems of the same kind. One can continue this reduction process and end up with several independent irreducible components separated from each other by mixed columns. An illustration of this phenomenon can be seen on Figure \ref{fig:cut}: the columns $3$ and $4$ must be mixed for any 12-rpps $T$ with $\cut(T)=(4,3,3,2)$. We summarize our observations in the follwing lemma:
+Because $\supp(i_r)\subset[a,b)$, we have $(i_r,a-1)\notin\lm$ so placing a one into $(i_r,a)$ and twos into $(i_r+1,a),(i_r+2,a),\dots$ does not put any restictions on entries in columns $1,\dots, a-1$. And the same is true for columns $b,b+1,\dots$. Thus, if a partition $\cutvar$ is reducible then the filling of columns $a,a+1,\dots, b-1$ is uniquely determined and the filling of the rest can be arbitrary -- the problem of existence of and 12-rpp $T$ such that $\cut(T)=\cutvar$ reduces to two smaller independent problems of the same kind. One can continue this reduction process and end up with several independent irreducible components separated from each other by mixed columns. An illustration of this phenomenon can be seen on Figure \ref{fig:cut}: the columns $3$ and $4$ must be mixed for any 12-rpps $T$ with $\cut(T)=(4,3,3,2)$. We summarize our observations in the follwing lemma:
 \begin{lemma}
 \label{lemma:irreducible}
  For a partition $\cutvar$, there exist unique numbers $(1=b_0\leq a_1<b_1<a_2<b_2<\dots<a_r<b_r\leq a_{r+1}=W(\lm)+1)$ such that 
@@ -9955,7 +9960,7 @@ Because $\supp(i_r)\subset[a,b)$, we have $(i_r,a-1)\notin\lm$ so placing a one 
   \item for all $1\leq k\leq r$, $\#\nuxy{a_k}{b_k} =b_k-a_k$;
   \item for all $0\leq k \leq r$, $\nuxy{b_k}{a_{k+1}}$ is irreducible with respect to $\lm\big|_{[b_k,a_{k+1})}$,
  \end{itemize}
- where $\lm\big|_{[b_k,a_{k+1})}$ is a skew-shape $\lm$ with columns $1,2,\dots,b_k-1,a_{k+1},a_{k+2},\dots$ removed.
+ where $\lm\big|_{[b_k,a_{k+1})}$ is the skew partition $\lm$ with columns $1,2,\dots,b_k-1,a_{k+1},a_{k+2},\dots$ removed.
 \end{lemma}\qed
 \begin{definition}
  In the context of Lemma \ref{lemma:irreducible}, for $0\leq k\leq r$ the subpartitions $\nuxy{b_k}{a_{k+1}}$ are called \textit{the irreducible components of $\cutvar$} and the numbers $n_k:=a_{k+1}-b_k-\#\nuxy{b_k}{a_{k+1}}$ are called their \textit{degrees}  (for $T$ with $\cut(T)=\cutvar$, the $k$-th degree $n_k$ is equal to the number of pure columns of $T$ inside the corresponding $k$-th irreducible component).
