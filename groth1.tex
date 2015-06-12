@@ -9883,7 +9883,6 @@ where $M,r$ and $n_0,n_1,\dots,n_{r}$ are nonnegative integers naturally associa
 $$P_n(x_1,x_2)=(x_1^{n+1}-x_2^{n+1})/(x_1-x_2)=x_1^{n}+x_1^{n-1}x_2+\dots+x_1x_2^{n-1}+x_2^n.$$
 We fix the skew partition $\lm$ throughout the whole section.
 Abusing notation, we shall abbreviate $Y\left(\lm\right)$ as $\lm$.
-Let $\lambda_1$ be the number of nonempty columns in $\lm$.
 We will have a running example with $\lambda=(7,7,7,4,4)$ and $\mu=(5,3,2)$.
 
 
@@ -9932,7 +9931,7 @@ A trivial necessary condition for this to happen is that there should exist some
 \begin{equation}\label{cond:necessary}
 (i_1,j_1),(i_1+1,j_1),(i_2,j_2),(i_2+1,j_2),\dots,(i_s,j_s),(i_s+1,j_s)\in \lm. 
 \end{equation}
-We say that a partition $\seplistvar$ is \textit{admissible} if it satisfies (\ref{cond:necessary}).
+We say that a partition $\seplistvar$ is \textit{admissible} if such $j_1<j_2<\dots<j_s$ exist.
 
 \newcommand{\nuxy}[2]{\seplistvar\big|_{\subseteq[#1,#2)}}
 \newcommand{\nuxycap}[2]{\seplistvar\big|_{\cap[#1,#2)}}
@@ -9944,7 +9943,7 @@ We say that a partition $\seplistvar$ is \textit{admissible} if it satisfies (\r
 
 For each integer $i$ the set of all integers $j$ such that $(i,j),(i+1,j)\in\lm$ is just an interval $[\mu_{i}+1,\lambda_{i+1}]$, which we call \textit{the support of $i$} and denote $\supp(i):=[\mu_{i}+1,\lambda_{i+1}]$.
 
-Assume that $\seplistvar$ is an admissible partition. For two integers $a< b$, by $\nuab$ we denote the subpartition $(i_r,i_{r+1},\dots,i_{r+q})$ of $\seplistvar$ such that for $r\leq k\leq r+q$ we have $\supp(i_k)\subseteq [a,b)$. In this case, we put $\#\nuab:=q+1$ which is just the number of entries in $\nuab$. Similarly, we put $\nuabcap$ to be the subpartition $(i_r,i_{r+1},\dots,i_{r+q})$ of $\seplistvar$ such that for $r\leq k\leq r+q$ we have $\supp(i_k)\cap [a,b)\neq\emptyset$.
+Assume that $\seplistvar = \left(i_1 \geq \cdots \geq i_s > 0\right)$ is an admissible partition. Then, $\supp(i_k)$ is nonempty for each $k$. For two integers $a< b$, by $\nuab$ we denote the subpartition $(i_r,i_{r+1},\dots,i_{r+q})$ of $\seplistvar$ such that for $r\leq k\leq r+q$ we have $\supp(i_k)\subseteq [a,b)$. In this case, we put $\#\nuab:=q+1$ which is just the number of entries in $\nuab$. Similarly, we put $\nuabcap$ to be the subpartition $(i_r,i_{r+1},\dots,i_{r+q})$ of $\seplistvar$ such that for $r\leq k\leq r+q$ we have $\supp(i_k)\cap [a,b)\neq\emptyset$.
 For example, for $\seplistvar=(4,3,3,2)$ and $\lm$ as on Figure \ref{fig:seplist}, we have 
 $$\supp(3)=[3,4],\ \supp(2)=[4,7],\ \supp(4)=[1,4],$$ 
 $$\nuxy{2}{7}=(3,3),\ \nuxy{2}{8}=(3,3,2),\ \nuxy{4}{8}=(2),\ \nuxycap{4}{5}=(4,3,3,2),\ \#\nuxy{2}{7}=2.$$
@@ -9976,7 +9975,7 @@ Suppose now that a partition $\seplistvar$ is reducible, so for some $a<b$ we ge
 j_r=a,\ j_{r+1}=a+1,\ \dots,\ j_{r+q}=a+q=b-1 .
 \label{eq.reducible.mixblock-j}
 \end{equation}
-Because $\supp(i_r)\subseteq[a,b)$ but $\supp(i_r)\neq\varnothing$ (since $\nu$ is admissible), we have $(i_r,a-1)\notin\lm$. Thus, placing a $1$ into $(i_r,a)$ and $2$'s into $(i_r+1,a),(i_r+2,a),\dots$ does not put any restrictions on entries in columns $1,\dots, a-1$. And the same is true for columns $b,b+1,\dots$ when we place a $2$ into $(i_{r+q}+1,b-1)$ and $1$'s into all cells above. Thus, if a partition $\seplistvar$ is reducible, then the filling of columns $a,a+1,\dots, b-1$ is uniquely determined (by (\ref{eq.reducible.mixblock-j})), and the filling of the rest can be arbitrary -- the problem of existence of a 12-rpp $T$ such that $\seplist(T)=\seplistvar$ reduces to two smaller independent problems of the same kind (one for the columns $1,2,\ldots,a-1$, the other for the columns $b,b+1,\ldots,\lambda_1$). One can continue this reduction process and end up with several independent irreducible components separated from each other by mixed columns. An illustration of this phenomenon can be seen on Figure \ref{fig:seplist}: the columns $3$ and $4$ must be mixed for any 12-rpps $T$ with $\seplist(T)=(4,3,3,2)$.
+Because $\supp(i_r)\subseteq[a,b)$ but $\supp(i_r)\neq\varnothing$ (since $\nu$ is admissible), we have $(i_r,a-1)\notin\lm$. Thus, placing a $1$ into $(i_r,a)$ and $2$'s into $(i_r+1,a),(i_r+2,a),\dots$ does not put any restrictions on entries in columns $1,\dots, a-1$. And the same is true for columns $b,b+1,\dots$ when we place a $2$ into $(i_{r+q}+1,b-1)$ and $1$'s into all cells above. Thus, if a partition $\seplistvar$ is reducible, then the filling of columns $a,a+1,\dots, b-1$ is uniquely determined (by (\ref{eq.reducible.mixblock-j})), and the filling of the rest can be arbitrary -- the problem of existence of a 12-rpp $T$ such that $\seplist(T)=\seplistvar$ reduces to two smaller independent problems of the same kind (one for the columns $1,2,\ldots,a-1$, the other for the columns\footnote{Recall that a 12-rpp of shape $\lm$ cannot have any nonempty column beyond the $\lambda_1$'th one.} $b,b+1,\ldots,\lambda_1$). One can continue this reduction process and end up with several independent irreducible components separated from each other by mixed columns. An illustration of this phenomenon can be seen on Figure \ref{fig:seplist}: the columns $3$ and $4$ must be mixed for any 12-rpps $T$ with $\seplist(T)=(4,3,3,2)$.
 
 More explicitly, we have thus shown that every interval $\left[a,b\right) \subseteq \left[1, \lambda_1+1\right)$ satisfying $\#\nuab = b-a$ splits our problem into two independent subproblems. But if two such intervals $\left[a,b\right)$ and $\left[c,d\right)$ intersect, then their union is another such interval\footnote{\textit{Proof.} Assume that two intervals $\left[a,b\right)$ and $\left[c,d\right)$ satisfying $\#\nuab = b-a$ and $\#\nuxy{c}{d} = d-c$ intersect. We need to show that their union is another such interval.
 \par We WLOG assume that $a \leq c$. Then, $c \leq b$ (since the intervals intersect). If $b > d$, then the union of the two intervals is simply $\left[a,b\right)$, which makes our claim obvious. Hence, we WLOG assume that $b \leq d$. Thus, $a \leq c \leq b \leq d$. The union of the two intervals is therefore $\left[a, d\right)$, and we must show that $\#\nuxy{a}{d} = d-a$.
@@ -9984,8 +9983,8 @@ A set of positive integers is a subset of both $\left[a, b\right)$ and $\left[c,
 \[
 \#\nuxy{a}{d} \geq \underbrace{\#\nuab}_{=b-a} + \underbrace{\#\nuxy{c}{d}}_{=d-c} - \underbrace{\#\nuxy{c}{b}}_{\leq b-c} \geq \left(b-a\right) + \left(d-c\right) - \left(b-c\right) = d-a.
 \]
-Combined with $\#\nuxy{a}{d} \leq d-a$ (since $\seplistvar$ is representable), this yields $\#\nuxy{a}{d} = d-a$, qed.}. Hence, those among all such intervals that are maximal under inclusion are pairwise disjoint and separated from each other by at least a distance of $1$.
-We summarize our observations in the follwing lemma:
+Combined with $\#\nuxy{a}{d} \leq d-a$ (since $\seplistvar$ is representable), this yields $\#\nuxy{a}{d} = d-a$, qed.}. Hence, the maximal (with respect to inclusion) among all such intervals are pairwise disjoint and separated from each other by at least a distance of $1$.
+We summarize our observations in the following lemma:
 \begin{lemma}
 \label{lemma:irreducible}
  For a representable partition $\seplistvar$, there exist unique numbers $(1=b_0\leq a_1<b_1<a_2<b_2<\dots<a_r<b_r\leq a_{r+1}=\lambda_1+1)$ such that 
