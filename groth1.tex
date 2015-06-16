@@ -173,9 +173,7 @@ $\widetilde{g}_{\lambda/\mu}$ is a symmetric function (in the $x_{1}%
 
 We prove this result (thus obtaining a new proof of \cite[Theorem 9.1]%
 {LamPyl}) first using an elaborate generalization of the classical
-Bender-Knuth involutions to reverse plane partitions; these generalized
-involutions are constructed using a form of the \textit{diamond lemma} (Lemma
-\ref{lem.diamond}).
+Bender-Knuth involutions to reverse plane partitions.
 
 \begin{todo}
 Pavel: advertise your section here? It sort-of gives some justification for
@@ -189,11 +187,8 @@ the dual stable Grothendieck polynomials $\widetilde{g}_{\lambda/\mu}$, state
 our main result (that they are symmetric functions), and do the first steps of
 its proof (by reducing it to a purely combinatorial statement about the
 existence of an involution with certain properties). In Section
-\ref{sect.diamond}, we state and (for the sake of completeness) prove the
-version of the diamond lemma we need, and we digress to give an elementary
-application of it that serves to demonstrate its use. In Section
 \ref{sect.proof}, we prove our main result by constructing the required
-involution using the diamond lemma. In Section \ref{sect.BKclassical}, we
+involution. In Section \ref{sect.BKclassical}, we
 recapitulate the definition of the classical Bender-Knuth involution, and
 sketch the proof that our involution is a generalization of the latter.
 
@@ -1381,533 +1376,6 @@ they are. Thus,%
 \end{proof}
 
 
-\section{\label{sect.diamond}A diamond lemma}
-
-\subsection{The lemma}
-
-By now we have derived Theorem \ref{thm.BK} from Lemma \ref{lem.BKi}, and
-Lemma \ref{lem.BKi} from Lemma \ref{lem.BK}. In order to complete the puzzle,
-we need to prove Lemma \ref{lem.BK}. To do so, let us first state a simple lemma.
-
-\begin{lemma}
-\label{lem.diamond}Let $\mathbf{S}$ be a finite set. Let $\ell:\mathbf{S}%
-\rightarrow\mathbb{N}$ be a map. Let $\Rrightarrow$ be a binary relation on
-the set $\mathbf{S}$. (We shall write this relation in infix form; i.e., we
-will write \textquotedblleft$a\Rrightarrow b$\textquotedblright\ to mean
-\textquotedblleft$\left(  a,b\right)  $ belongs to the relation $\Rrightarrow
-$\textquotedblright.)
-
-Define a new binary relation $\overset{\ast}{\Rrightarrow}$ on $\mathbf{S}$
-(also written in infix form) as follows: For two elements $a\in\mathbf{S}$ and
-$b\in\mathbf{S}$, we set $a\overset{\ast}{\Rrightarrow}b$ if and only if there
-exists a sequence $\left(  a_{0},a_{1},\ldots,a_{n}\right)  $ of elements of
-$\mathbf{S}$ such that $a_{0}=a$ and $a_{n}=b$ and such that every
-$i\in\left\{  0,1,\ldots,n-1\right\}  $ satisfies $a_{i}\Rrightarrow a_{i+1}$.
-(In other words, we define $\overset{\ast}{\Rrightarrow}$ as the
-reflexive-and-transitive closure of the relation $\Rrightarrow$.)
-
-Assume that the following two hypotheses are true:
-
-\begin{itemize}
-\item The \textit{local confluence hypothesis}: If $a$, $b$ and $c$ are three
-elements of $\mathbf{S}$ satisfying $a\Rrightarrow b$ and $a\Rrightarrow c$,
-then there exists a $d\in\mathbf{S}$ such that $b\overset{\ast}{\Rrightarrow
-}d$ and $c\overset{\ast}{\Rrightarrow}d$.
-
-\item The \textit{length-decrease hypothesis}: If $a\in\mathbf{S}$ and
-$b\in\mathbf{S}$ are two elements satisfying $a\Rrightarrow b$, then
-$\ell\left(  a\right)  >\ell\left(  b\right)  $.
-\end{itemize}
-
-We say that an element $a\in\mathbf{S}$ is \textit{final} if there exists no
-$b\in\mathbf{S}$ satisfying $a\Rrightarrow b$.
-
-Then, for every $a\in\mathbf{S}$, there exists a unique final element
-$b\in\mathbf{S}$ such that $a\overset{\ast}{\Rrightarrow}b$.
-\end{lemma}
-
-Lemma \ref{lem.diamond} is an easy particular case of what is called
-\textit{Newman's lemma} (see, e.g., \cite{BezCoq}, or \cite[Lemma 2.7.2 + Fact
-2.1.7]{BaaNip98}).\footnote{In the general version, the finiteness of
-$\mathbf{S}$ and the length-decrease hypothesis are replaced by a requirement
-that there exist no infinite sequences $\left(  a_{0},a_{1},a_{2}%
-,\ldots\right)  \in\mathbf{S}^{\infty}$ such that every $i\in\mathbb{N}$
-satisfies $a_{i}\Rrightarrow a_{i+1}$. The proof of this generalization is
-harder than that of Lemma \ref{lem.diamond}, and not constructive. While there
-is a constructive reformulation of this generalization (presented in
-\cite[Lemma 3.3]{BezCoq}), we do not have a use for it in this paper.} (Some
-authors refer to Newman's lemma as the \textit{diamond lemma}, but the latter
-name is shared with at least one different fact.)
-
-For the sake of completeness, we shall give the simple proof of Lemma
-\ref{lem.diamond}.
-
-\begin{proof}
-[Proof of Lemma \ref{lem.diamond}.]The relation $\overset{\ast}{\Rrightarrow}$
-is the reflexive-and-transitive closure of the relation $\Rrightarrow$. This
-yields the following properties (all of which are easy to check):
-
-\begin{itemize}
-\item The relation $\overset{\ast}{\Rrightarrow}$ is reflexive and transitive
-and extends the relation $\Rrightarrow$.
-
-\item If $a\in\mathbf{S}$ and $b\in\mathbf{S}$ are elements satisfying
-$a\overset{\ast}{\Rrightarrow}b$ and $a\neq b$, then%
-\begin{equation}
-\text{there exists a }c\in\mathbf{S}\text{ such that }a\Rrightarrow c\text{
-and }c\overset{\ast}{\Rrightarrow}b. \label{pf.lem.diamond.short.lem1}%
-\end{equation}
-
-
-\item We have%
-\begin{equation}
-\ell\left(  a\right)  \geq\ell\left(  b\right)  \ \ \ \ \ \ \ \ \ \ \text{for
-any }a\in\mathbf{S}\text{ and }b\in\mathbf{S}\text{ satisfying }%
-a\overset{\ast}{\Rrightarrow}b \label{pf.lem.diamond.short.lem2}%
-\end{equation}
-(because of the length-decrease hypothesis).
-\end{itemize}
-
-Now, we need to show that, for every $a\in\mathbf{S}$,
-\begin{equation}
-\text{there exists a unique final element }b\in\mathbf{S}\text{ such that
-}a\overset{\ast}{\Rrightarrow}b\text{.} \label{pf.lem.diamond.short.goal}%
-\end{equation}
-
-
-\textit{Proof of (\ref{pf.lem.diamond.short.goal}):} We shall prove
-(\ref{pf.lem.diamond.short.goal}) by strong induction over $\ell\left(
-a\right)  $.
-
-\textit{Induction step:} Let $N\in\mathbb{N}$. Assume (as the induction
-hypothesis) that (\ref{pf.lem.diamond.short.goal}) is proven for every
-$a\in\mathbf{S}$ satisfying $\ell\left(  a\right)  <N$. We need to prove that
-(\ref{pf.lem.diamond.short.goal}) holds for every $a\in\mathbf{S}$ satisfying
-$\ell\left(  a\right)  =N$.
-
-Let $a\in\mathbf{S}$ be such that $\ell\left(  a\right)  =N$. We need to show
-that (\ref{pf.lem.diamond.short.goal}) holds for this $a$.
-
-If there exists no $c\in\mathbf{S}$ satisfying $a\Rrightarrow c$, then
-(\ref{pf.lem.diamond.short.goal}) holds\footnote{\textit{Proof.} Assume that
-there exists no $c\in\mathbf{S}$ satisfying $a\Rrightarrow c$. Then, $a$
-itself is final. Hence, there exists a final element $b\in\mathbf{S}$ such
-that $a\overset{\ast}{\Rrightarrow}b$ (namely, $b=a$). This $b$ is unique,
-because (\ref{pf.lem.diamond.short.lem1}) shows that every $b\in\mathbf{S}$
-satisfying $a\overset{\ast}{\Rrightarrow}b$ and $a\neq b$ would have to
-satisfy $a\Rrightarrow c$. This proves (\ref{pf.lem.diamond.short.goal}).}.
-Hence, for the rest of this proof, we WLOG assume that there exists some
-$c\in\mathbf{S}$ satisfying $a\Rrightarrow c$. Let us denote this $c$ by
-$c_{1}$. Thus, $c_{1}\in\mathbf{S}$ and\textbf{ }$a\Rrightarrow c_{1}$.
-Applying the length-decrease hypothesis to $b=c_{1}$, we thus obtain
-$\ell\left(  a\right)  >\ell\left(  c_{1}\right)  $, so that $\ell\left(
-c_{1}\right)  <\ell\left(  a\right)  =N$. Thus, we can apply
-(\ref{pf.lem.diamond.short.goal}) to $c_{1}$ instead of $a$ (according to the
-induction hypothesis). As a result, we conclude that there exists a unique
-final element $b\in\mathbf{S}$ such that $c_{1}\overset{\ast}{\Rrightarrow}b$.
-Let us denote this $b$ by $b_{1}$. Thus, $b_{1}$ is a final element of
-$\mathbf{S}$ such that $c_{1}\overset{\ast}{\Rrightarrow}b_{1}$.
-
-Since $a\Rrightarrow c_{1}$, we have $a\overset{\ast}{\Rrightarrow}c_{1}$
-(since the relation $\overset{\ast}{\Rrightarrow}$ extends the relation
-$\Rrightarrow$). Combining this with $c_{1}\overset{\ast}{\Rrightarrow}b_{1}$,
-we obtain $a\overset{\ast}{\Rrightarrow}b_{1}$ (since the relation
-$\overset{\ast}{\Rrightarrow}$ is transitive). Thus, there exists a final
-element $b\in\mathbf{S}$ such that $a\overset{\ast}{\Rrightarrow}b$ (namely,
-$b=b_{1}$). We shall now prove that such a $b$ is unique.
-
-Indeed, let $b_{2}$ be any final element $b\in\mathbf{S}$ such that
-$a\overset{\ast}{\Rrightarrow}b$. Thus, $b_{2}$ is a final element of
-$\mathbf{S}$ such that $a\overset{\ast}{\Rrightarrow}b_{2}$. We will prove
-that $b_{2}=b_{1}$.
-
-It is easy to see that $a\neq b_{2}$ (because $a\Rrightarrow c_{1}$ shows that
-$a$ is not final, but $b_{2}$ is final). Hence,
-(\ref{pf.lem.diamond.short.lem1}) (applied to $b=b_{2}$) yields that there
-exists a $c\in\mathbf{S}$ such that $a\Rrightarrow c$ and $c\overset{\ast
-}{\Rrightarrow}b_{2}$. Let us denote this $c$ by $c_{2}$. Then, $c_{2}$ is an
-element of $\mathbf{S}$ such that $a\Rrightarrow c_{2}$ and $c_{2}%
-\overset{\ast}{\Rrightarrow}b_{2}$.
-
-The local confluence hypothesis (applied to $c_{1}$ and $c_{2}$ instead of $b$
-and $c$) shows that there exists a $d\in\mathbf{S}$ such that $c_{1}%
-\overset{\ast}{\Rrightarrow}d$ and $c_{2}\overset{\ast}{\Rrightarrow}d$.
-Consider such a $d$. Applying (\ref{pf.lem.diamond.short.lem2}) to $c_{1}$ and
-$d$ instead of $a$ and $b$, we obtain $\ell\left(  c_{1}\right)  \geq
-\ell\left(  d\right)  $, so that $\ell\left(  d\right)  \leq\ell\left(
-c_{1}\right)  <N$. Hence, we can apply (\ref{pf.lem.diamond.short.goal}) to
-$d$ instead of $a$ (according to the induction hypothesis). As a result, we
-conclude that there exists a unique final element $b\in\mathbf{S}$ such that
-$d\overset{\ast}{\Rrightarrow}b$. Let us denote this $b$ by $e$. Thus, $e$ is
-a final element of $\mathbf{S}$ such that $d\overset{\ast}{\Rrightarrow}e$.
-
-We have $c_{1}\overset{\ast}{\Rrightarrow}d$ and $d\overset{\ast
-}{\Rrightarrow}e$. Hence, $c_{1}\overset{\ast}{\Rrightarrow}e$ (since the
-relation $\overset{\ast}{\Rrightarrow}$ is transitive). Thus, $e$ is a final
-element of $\mathbf{S}$ such that $c_{1}\overset{\ast}{\Rrightarrow}e$. In
-other words, $e$ is a final element $b\in\mathbf{S}$ such that $c_{1}%
-\overset{\ast}{\Rrightarrow}b$. Since we already know that $b_{1}$ is the
-unique such element $b$ (in fact, this how we defined $b_{1}$), this shows
-that $e=b_{1}$.
-
-We have $c_{2}\overset{\ast}{\Rrightarrow}d$ and $d\overset{\ast
-}{\Rrightarrow}e$. Hence, $c_{2}\overset{\ast}{\Rrightarrow}e$ (since the
-relation $\overset{\ast}{\Rrightarrow}$ is transitive). In other words,
-$c_{2}\overset{\ast}{\Rrightarrow}b_{1}$ (since $e=b_{1}$). Hence, $b_{1}$ is
-a final element of $\mathbf{S}$ such that $c_{2}\overset{\ast}{\Rrightarrow
-}b_{1}$. In other words, $b_{1}$ is a final element $b\in\mathbf{S}$ such that
-$c_{2}\overset{\ast}{\Rrightarrow}b$. Also, $b_{2}$ is a final element
-$b\in\mathbf{S}$ such that $c_{2}\overset{\ast}{\Rrightarrow}b$ (since $b_{2}$
-is final and since $c_{2}\overset{\ast}{\Rrightarrow}b_{2}$).
-
-But applying the length-decrease hypothesis to $b=c_{2}$, we obtain
-$\ell\left(  a\right)  >\ell\left(  c_{2}\right)  $ (since $a\Rrightarrow
-c_{2}$), so that $\ell\left(  c_{2}\right)  <\ell\left(  a\right)  =N$. Thus,
-we can apply (\ref{pf.lem.diamond.short.goal}) to $c_{2}$ instead of $a$
-(according to the induction hypothesis). As a result, we conclude that there
-exists a unique final element $b\in\mathbf{S}$ such that $c_{2}\overset{\ast
-}{\Rrightarrow}b$. The \textquotedblleft uniqueness\textquotedblright\ part of
-this result gives us $b_{2}=b_{1}$ (since both $b_{2}$ and $b_{1}$ are final
-elements $b\in\mathbf{S}$ such that $c_{2}\overset{\ast}{\Rrightarrow}b$).
-
-Now let us forget that we fixed $b_{2}$. We thus have shown that if $b_{2}$ is
-any final element $b\in\mathbf{S}$ such that $a\overset{\ast}{\Rrightarrow}b$,
-then $b_{2}=b_{1}$. Hence, there exists at most one final element
-$b\in\mathbf{S}$ such that $a\overset{\ast}{\Rrightarrow}b$. As a consequence,
-there exists a unique final element $b\in\mathbf{S}$ such that $a\overset{\ast
-}{\Rrightarrow}b$ (because we already know that there exists such a $b$). In
-other words, (\ref{pf.lem.diamond.short.goal}) holds. This completes the
-induction step. The induction proof of (\ref{pf.lem.diamond.short.goal}) is
-thus complete. In other words, Lemma \ref{lem.diamond} is proven.
-\end{proof}
-
-
-\subsection{\label{subsect.bubble}Example: Sorting $n$-tuples by local
-transpositions}
-
-Let us give a simple example of an application of Lemma \ref{lem.diamond}.
-This example (which will take up the whole Subsection~\ref{subsect.bubble})
-will not be used in the rest of the paper, but it serves as a kind of
-prototype that our proof of Lemma \ref{lem.BK} imitates, and so might help
-clarifying the latter proof.
-
-All of the definitions and conventions that will be made in this
-Subsection~\ref{subsect.bubble} are supposed to stand only for this
-Subsection. (In particular, the meanings of the letter $\mathbf{S}$ and the
-symbol $\Rrightarrow$ will later be used for completely different things.)
-
-For the rest of Subsection~\ref{subsect.bubble}, we fix $n\in\mathbb{N}$, and
-we fix a poset $P$.
-
-For any $n$-tuple $z\in P^{n}$ and every $i\in\left\{  1,2,\ldots,n\right\}
-$, we use the notation $z_{i}$ to denote the $i$-th entry of $z$. (Thus,
-$z=\left(  z_{1},z_{2},\ldots,z_{n}\right)  $ for every $z\in P^{n}$.)
-
-Before we go into further details, let us informally explain what we will
-prove in the following. Imagine that we start with some $n$-tuple $z=\left(
-z_{1},z_{2},\ldots,z_{n}\right)  $ of elements of $P$, and we want to
-\textquotedblleft sort it in nondecreasing order\textquotedblright. We do
-this\ by repeatedly picking an index $k\in\left\{  1,2,\ldots,n-1\right\}  $
-satisfying $z_{k}>z_{k+1}$, and switching the entries $z_{k}$ and $z_{k+1}$ in
-the tuple, and continuing in the same way until we can no longer find such a
-$k$.\ \ \ \ \footnote{Here is an example: If $P$ is the four-element poset
-$\left\{  a,b,c,d\right\}  $ with relations $a<b<d$ and $a<c<d$, if $n=6$, and
-if $z=\left(  d,b,d,c,a,b\right)  $, then our sorting process can look as
-follows:%
-\begin{align*}
-\left(  \underline{d,b},d,c,a,b\right)   &  \rightarrow\left(
-b,d,\underline{d,c},a,b\right)  \rightarrow\left(  b,\underline{d,c}%
-,d,a,b\right)  \rightarrow\left(  b,c,d,\underline{d,a},b\right)
-\rightarrow\left(  b,c,\underline{d,a},d,b\right) \\
-&  \rightarrow\left(  b,\underline{c,a},d,d,b\right)  \rightarrow\left(
-\underline{b,a},c,d,d,b\right)  \rightarrow\left(  a,b,c,d,\underline{d,b}%
-\right)  \rightarrow\left(  a,b,c,\underline{d,b},d\right) \\
-&  \rightarrow\left(  a,b,c,b,d,d\right)
-\end{align*}
-(where an underline under two adjacent entries of a tuple means that these
-entries are going to be switched in the nearest step). The final result
-$\left(  a,b,c,b,d,d\right)  $ is \textquotedblleft sorted\textquotedblright%
-\ in the sense that we can no longer find a $k\in\left\{  1,2,\ldots
-,n-1\right\}  $ such that $z_{k}>z_{k+1}$.
-\par
-We notice that we had some freedom in performing our sorting process: e.g., we
-could have started out by switching the $d$ with the $c$ in the $\left(
-d,b,d,c,a,b\right)  $ rather than by switching the $d$ with the $b$.
-\par
-This is similar to the bubble sort algorithm, but there are two differences:
-Firstly, $P$ is now a poset, not a totally ordered set (so we cannot hope to
-get our $n$-tuple $z$ to satisfy $z_{1}\leq z_{2}\leq\cdots\leq z_{n}$ in the
-end). Secondly, we are allowed to pick an index $k\in\left\{  1,2,\ldots
-,n-1\right\}  $ satisfying $z_{k}>z_{k+1}$ arbitrarily (so our process is
-nondeterministic), rather than having to scan the $n$-tuple from left to right
-(in multiple passes) as in the classical bubble sort algorithm.} It is easy to
-see that this process will eventually terminate, leaving behind an $n$-tuple
-$z$ such that no $k\in\left\{  1,2,\ldots,n-1\right\}  $ satisfies
-$z_{k}>z_{k+1}$ (although, in general, it will not satisfy $z_{1}\leq
-z_{2}\leq\cdots\leq z_{n}$, as $P$ is only partially ordered). But a priori,
-it is not clear whether this resulting $n$-tuple could depend on the choices
-we made in the \textquotedblleft sorting\textquotedblright%
-\ process\footnote{Namely, at every step of our process, we had to choose an
-index $k\in\left\{  1,2,\ldots,n-1\right\}  $ satisfying $z_{k}>z_{k+1}$.
-Whenever this index $k$ was not unique, we had freedom in choosing one of them
-to start with. These choices have an effect on the \textquotedblleft
-sorting\textquotedblright\ process, and so it would not be surprising if the
-final result would depend on them too.}. It turns out that it does not, but
-this is not completely trivial. We shall now formalize this fact. We prefer
-not to talk about processes, nor to regard $z$ as mutable; instead, we will
-introduce a binary relation on the set of all permutations of a given
-$n$-tuple, which will model the idea of a \textquotedblleft
-step\textquotedblright\ of our \textquotedblleft sorting\textquotedblright\ process.
-
-For every $k\in\left\{  1,2,\ldots,n-1\right\}  $, let $s_{k}$ be the
-transposition $\left(  k,k+1\right)  \in\mathfrak{S}_{n}$. The group
-$\mathfrak{S}_{n}$ acts on $P^{n}$ by permuting the coordinates:%
-\[
-\sigma\cdot z=\left(  z_{\sigma^{-1}\left(  1\right)  },z_{\sigma^{-1}\left(
-2\right)  },\ldots,z_{\sigma^{-1}\left(  n\right)  }\right)
-\ \ \ \ \ \ \ \ \ \ \text{for all }\sigma\in\mathfrak{S}_{n}\text{ and }z\in
-P^{n}.
-\]
-In particular, for each $k\in\left\{  1,2,\ldots,n-1\right\}  $ and $z\in
-P^{n}$, the $n$-tuple $s_{k}\cdot z$ is obtained from $z$ by switching the
-$k$-th and the $\left(  k+1\right)  $-th entries.
-
-\begin{definition}
-Fix $w\in P^{n}$. Let $\mathbf{S}$ be the set of all permutations of $w$.
-Clearly, $\mathbf{S}$ is a finite set (having at most $n!$ elements).
-Moreover, $\mathbf{S}$ is an $\mathfrak{S}_{n}$-subset of the $\mathfrak{S}%
-_{n}$-set $P^{n}$.
-
-Let us define a binary relation $\Rrightarrow$ on this set $\mathbf{S}$ as
-follows: Let $a\in\mathbf{S}$ and $b\in\mathbf{S}$. If $k\in\left\{
-1,2,\ldots,n-1\right\}  $, then we write $a\underset{k}{\Rrightarrow}b$ if and
-only if $a_{k}>a_{k+1}$ and $b=s_{k}\cdot a$. We write $a\Rrightarrow b$ if
-and only if there exists an $k\in\left\{  1,2,\ldots,n-1\right\}  $ such that
-$a\underset{k}{\Rrightarrow}b$. (In other words, we write $a\Rrightarrow b$ if
-and only if the $n$-tuple $b$ can be obtained from $a$ by switching two
-adjacent entries which are out of order in $a$. Here, we say that two entries
-of $a$ are \textit{out of order} if the left one is greater than the right
-one.) Thus, the relation $\Rrightarrow$ is defined.
-\end{definition}
-
-For example, if $n=5$, $P=\mathbb{Z}$ and $w=\left(  3,1,6,3,5\right)  $, then
-$\left(  1,6,3,5,3\right)  \underset{2}{\Rrightarrow}\left(  1,3,6,5,3\right)
-$ (and thus $\left(  1,6,3,5,3\right)  \Rrightarrow\left(  1,3,6,5,3\right)
-$) but not $\left(  1,6,3,5,3\right)  \underset{3}{\Rrightarrow}\left(
-1,6,5,3,3\right)  $ (since we required $a_{k}>a_{k+1}$ when defining
-$a\underset{k}{\Rrightarrow}b$).
-
-We define a binary relation $\overset{\ast}{\Rrightarrow}$ on $\mathbf{S}$ as
-in Lemma \ref{lem.diamond}. This relation $\overset{\ast}{\Rrightarrow}$ is
-the reflexive-and-transitive closure of the relation $\Rrightarrow$. Thus, the
-relation $\overset{\ast}{\Rrightarrow}$ is reflexive and transitive and
-extends the relation $\Rrightarrow$.
-
-We also define the notion of a \textquotedblleft final\textquotedblright%
-\ element of $\mathbf{S}$ as in Lemma \ref{lem.diamond}. Now, it is easy to
-see that an element $u\in\mathbf{S}$ is final if and only if no $k\in\left\{
-1,2,\ldots,n-1\right\}  $ satisfies $u_{k}>u_{k+1}$.
-
-
-Now, we claim:
-
-\begin{proposition}
-\label{prop.diamond.example.poset}For every $a\in\mathbf{S}$, there exists a
-unique final element $b\in\mathbf{S}$ such that $a\overset{\ast}{\Rrightarrow
-}b$.
-\end{proposition}
-
-In words, Proposition \ref{prop.diamond.example.poset} says that if we start
-with some $n$-tuple $a\in\mathbf{S}$ and repeatedly switch adjacent entries of
-$a$ which are out of order, then the procedure eventually terminates (i.e.,
-eventually we will arrive at an $n$-tuple which has no two adjacent entries
-that are out of order) and the resulting $n$-tuple does not depend on the
-choices we made in the process (i.e., even if there were several choices of
-adjacent entries to switch, they all lead to the same final
-result).\footnote{Strictly speaking, Proposition
-\ref{prop.diamond.example.poset} does not really say that the procedure
-eventually terminates; but this will follow from the length-decrease
-hypothesis in its proof below.} The only reason why we are working in
-$\mathbf{S}$ instead of the whole set $P^{n}$ is that $\mathbf{S}$ is always
-finite, which will make it easier for us to apply Lemma \ref{lem.diamond}.
-
-\begin{remark}
-It is important that we are switching adjacent entries of $a$. If we start
-with some $n$-tuple $a\in\mathbf{S}$ and repeatedly switch entries of $a$
-which are out of order but \textbf{not necessarily} adjacent, then the result
-of this procedure (once it has terminated) might well depend on our choices.
-(For instance, if $P$ is the poset $\left\{  1,2,2^{\prime}\right\}  $ with
-relations $1<2$ and $1<2^{\prime}$, and if $n=3$ and $a=\left(  2,2^{\prime
-},1\right)  $, then switching the first and the third entries leads to
-$\left(  1,2^{\prime},2\right)  $, whereas switching the second and the third
-entries and then switching the first and the second entries yields $\left(
-1,2,2^{\prime}\right)  $; and these two results are both final and
-nevertheless distinct.)
-\end{remark}
-
-Proposition \ref{prop.diamond.example.poset} is rather obvious in the case
-when $P$ is totally ordered (indeed, in this case, the unique final element
-$b\in\mathbf{S}$ such that $a\overset{\ast}{\Rrightarrow}b$ will simply be the
-$n$-tuple obtained by rearranging $a$ in nondecreasing order). But let us
-prove Proposition \ref{prop.diamond.example.poset} in the general case using
-Lemma \ref{lem.diamond}.
-
-\begin{proof}
-[Proof of Proposition \ref{prop.diamond.example.poset}.]If $z\in P^{n}$, then
-an \textit{inversion} of $z$ means a pair $\left(  i,j\right)  \in\left\{
-1,2,\ldots,n\right\}  ^{2}$ with $i<j$ and $z_{i}>z_{j}$. For instance, if
-$n=5$ and $P=\mathbb{Z}$ (as posets, where $\mathbb{Z}$ is equipped with the
-usual order), then the inversions of $\left(  3,1,6,3,5\right)  $ are $\left(
-1,2\right)  $, $\left(  3,4\right)  $ and $\left(  3,5\right)  $.
-
-Define a map $\ell:P^{n}\rightarrow\mathbb{N}$ as follows: For every $z\in
-P^{n}$, let $\ell\left(  z\right)  $ be the number of inversions of $z$.
-Clearly, $\ell\left(  z\right)  \in\mathbb{N}$ and $\ell\left(  z\right)
-\leq\dbinom{n}{2}$.
-
-We need to show that for every $a\in\mathbf{S}$, there exists a unique final
-element $b\in\mathbf{S}$ such that $a\overset{\ast}{\Rrightarrow}b$. According
-to Lemma \ref{lem.diamond}, it is enough to check that the local confluence
-hypothesis and the length-decrease hypothesis are satisfied\footnote{Both of
-these hypotheses were stated in Lemma \ref{lem.diamond}.}.
-
-\textit{Proof that the length-decrease hypothesis is satisfied:} Let
-$a\in\mathbf{S}$ and $b\in\mathbf{S}$ be such that $a\Rrightarrow b$. Then,
-there exists a $k\in\left\{  1,2,\ldots,n-1\right\}  $ such that
-$a\underset{k}{\Rrightarrow}b$ (since $a\Rrightarrow b$). Consider this $k$.
-We have $a\underset{k}{\Rrightarrow}b$; in other words, $a_{k}>a_{k+1}$ and
-$b=s_{k}\cdot a$. In other words, the $n$-tuple $b$ is obtained from $a$ by
-switching the $k$-th and the $\left(  k+1\right)  $-th entry, which were out
-of order in $a$. Thus, the pair $\left(  k,k+1\right)  $ is an inversion of
-$a$, but not an inversion of $b$. Furthermore, $b_{s_{k}\left(  u\right)
-}=a_{u}$ for every $u\in\left\{  1,2,\ldots,n\right\}  $ (since $b=s_{k}\cdot
-a$), and furthermore, for any $\left(  i,j\right)  \in\left\{  1,2,\ldots
-,n\right\}  ^{2}$ satisfying $i<j$, we have $s_{k}\left(  i\right)
-<s_{k}\left(  j\right)  $ if $\left(  i,j\right)  \neq\left(  k,k+1\right)  $
-(this is easy to prove by checking all possible cases). From the last two
-observations, we can easily conclude that the inversions of $b$ are precisely
-the pairs of the form $\left(  s_{k}\left(  i\right)  ,s_{k}\left(  j\right)
-\right)  $ with $\left(  i,j\right)  $ being an inversion of $a$ satisfying
-$\left(  i,j\right)  \neq\left(  k,k+1\right)  $. Thus, the number of
-inversions of $b$ is one less than the number of inversions of $a$ (because
-$\left(  k,k+1\right)  $ is an inversion of $a$, and thus its exclusion lowers
-the count by $1$). In other words, $\ell\left(  b\right)  =\ell\left(
-a\right)  -1$ (because $\ell\left(  z\right)  $ means the number of inversions
-of $z$ whenever $z\in P^{n}$). Thus, $\ell\left(  a\right)  >\ell\left(
-b\right)  $. Hence, the length-decrease hypothesis is proven.
-
-
-\textit{Proof that the local confluence hypothesis is satisfied:} Let $a$, $b$
-and $c$ be three elements of $\mathbf{S}$ satisfying $a\Rrightarrow b$ and
-$a\Rrightarrow c$. We need to show that there exists a $d\in\mathbf{S}$ such
-that $b\overset{\ast}{\Rrightarrow}d$ and $c\overset{\ast}{\Rrightarrow}d$.
-
-We have $a\Rrightarrow b$. In other words, the $n$-tuple $b$ can be obtained
-from $a$ by switching two adjacent entries which are out of order in $a$. In
-other words, we can write $a$ and $b$ in the forms%
-\begin{equation}
-a=\left(  \ldots,p,q,\ldots\right)  \ \ \ \ \ \ \ \ \ \ \text{and}%
-\ \ \ \ \ \ \ \ \ \ b=\left(  \ldots,q,p,\ldots\right)
-\label{pf.prop.diamond.example.poset.short.a-b}%
-\end{equation}
-for some $p\in P$ and $q\in P$ satisfying $p>q$, where the \textquotedblleft%
-$\ldots$\textquotedblright\ stand for strings\footnote{These strings are
-allowed to be empty.} of entries of $a$ that appear unchanged in $b$.
-Similarly, we can write $a$ and $c$ in the forms%
-\begin{equation}
-a=\left(  \ldots,r,t,\ldots\right)  \ \ \ \ \ \ \ \ \ \ \text{and}%
-\ \ \ \ \ \ \ \ \ \ c=\left(  \ldots,t,r,\ldots\right)
-\label{pf.prop.diamond.example.poset.short.a-c}%
-\end{equation}
-for some $r\in P$ and $t\in P$ satisfying $r>t$, where the \textquotedblleft%
-$\ldots$\textquotedblright\ stand for strings of entries of $a$ that appear
-unchanged in $c$. Consider the $p$ and $q$ from
-(\ref{pf.prop.diamond.example.poset.short.a-b}), and the $r$ and $t$ from
-(\ref{pf.prop.diamond.example.poset.short.a-c}). Also, let $u$ and $u+1$ be
-the positions of $p$ and $q$ in $a$ in
-(\ref{pf.prop.diamond.example.poset.short.a-b}). Furthermore, let $v$ and
-$v+1$ be the positions of $r$ and $t$ in $a$ in
-(\ref{pf.prop.diamond.example.poset.short.a-c}).
-
-We WLOG assume that $u\leq v$, because otherwise we can simply switch $b$ with
-$c$ (thus forcing $u$ to switch with $v$). Moreover, we can WLOG assume that
-$u\neq v$ (because if $u=v$, then finding a $d\in\mathbf{S}$ such that
-$b\overset{\ast}{\Rrightarrow}d$ and $c\overset{\ast}{\Rrightarrow}d$ is
-trivial\footnote{\textit{Proof.} Assume that $u=v$. Thus, the $p$ and $q$ in
-(\ref{pf.prop.diamond.example.poset.short.a-b}) appear in the same positions
-as the $r$ and $t$ in (\ref{pf.prop.diamond.example.poset.short.a-c}). Hence,
-both $b$ and $c$ are obtained from $a$ in one and the same way (namely, by
-switching the entries in these positions). Hence, $b=c$. Thus, we can find a
-$d\in\mathbf{S}$ such that $b\overset{\ast}{\Rrightarrow}d$ and
-$c\overset{\ast}{\Rrightarrow}d$ just by setting $d=b=c$, qed.}). Thus, $u<v$
-(since $u\leq v$).
-
-Let us now try to combine the representations
-(\ref{pf.prop.diamond.example.poset.short.a-b}) for $a$ and $b$ with the
-representations (\ref{pf.prop.diamond.example.poset.short.a-c}) for $a$ and
-$c$ into a set of representations for $a$, $b$ and $c$ in which both the
-changes from $a$ to $b$ and the changes from $a$ to $c$ are visible at the
-same time. We must be in one of the following two cases:
-
-\textit{Case 1:} We have $u<v-1$.
-
-\textit{Case 2:} We have $u=v-1$.
-
-Let us first consider Case 1. In this case, we can merge the representations
-(\ref{pf.prop.diamond.example.poset.short.a-b}) and
-(\ref{pf.prop.diamond.example.poset.short.a-c}) as follows:%
-\[
-a=\left(  \ldots,p,q,\ldots,r,t,\ldots\right)  ,\ \ \ \ \ \ \ \ \ \ b=\left(
-\ldots,q,p,\ldots,r,t,\ldots\right)  ,\ \ \ \ \ \ \ \ \ \ c=\left(
-\ldots,p,q,\ldots,t,r,\ldots\right)  ,
-\]
-where the \textquotedblleft$\ldots$\textquotedblright\ stand for strings of
-entries of $a$ that appear unchanged in both $b$ and $c$. Thus, we can find a
-$d\in\mathbf{S}$ such that $b\overset{\ast}{\Rrightarrow}d$ and
-$c\overset{\ast}{\Rrightarrow}d$: namely, set%
-\[
-d=\left(  \ldots,q,p,\ldots,t,r,\ldots\right)
-\]
-(where the \textquotedblleft$\ldots$\textquotedblright\ have the same meaning
-as before). Thus, the local confluence hypothesis is proven in Case 1.
-
-Let us now consider Case 2. In this case, $u=v-1$. Hence, $u+1=v$. Now, $q$ is
-the $\left(  u+1\right)  $-th entry of $a$, that is, the $v$-th entry of $a$
-(since $u+1=v$); but $r$ is also the $v$-th entry of $a$. Hence, $q=r$, so
-that $p>q=r>t$. Now, we can merge the representations
-(\ref{pf.prop.diamond.example.poset.short.a-b}) and
-(\ref{pf.prop.diamond.example.poset.short.a-c}) as follows:%
-\[
-a=\left(  \ldots,p,q,t,\ldots\right)  ,\ \ \ \ \ \ \ \ \ \ b=\left(
-\ldots,q,p,t,\ldots\right)  ,\ \ \ \ \ \ \ \ \ \ c=\left(  \ldots
-,p,t,q,\ldots\right)  ,
-\]
-where the \textquotedblleft$\ldots$\textquotedblright\ stand for strings of
-entries of $a$ that appear unchanged in both $b$ and $c$. Let us now set%
-\[
-e=\left(  \ldots,q,t,p,\ldots\right)  ,\ \ \ \ \ \ \ \ \ \ f=\left(
-\ldots,t,p,q,\ldots\right)  ,\ \ \ \ \ \ \ \ \ \ d=\left(  \ldots
-,t,q,p,\ldots\right)
-\]
-(where the \textquotedblleft$\ldots$\textquotedblright\ have the same meaning
-as before). Then, $b\Rrightarrow e$ and $e\Rrightarrow d$; thus,
-$b\overset{\ast}{\Rrightarrow}d$ (since $\overset{\ast}{\Rrightarrow}$ is the
-reflexive-and-transitive closure of $\Rrightarrow$). Also, $c\Rrightarrow f$
-and $f\Rrightarrow d$; thus, $c\overset{\ast}{\Rrightarrow}d$ (since
-$\overset{\ast}{\Rrightarrow}$ is the reflexive-and-transitive closure of
-$\Rrightarrow$). Hence, we have found a $d\in\mathbf{S}$ such that
-$b\overset{\ast}{\Rrightarrow}d$ and $c\overset{\ast}{\Rrightarrow}d$. Thus,
-the local confluence hypothesis is proven in Case 2 as well.
-
-The local confluence hypothesis thus holds (because it is proven in both Cases
-1 and 2).
-
-
-We now know that both the local confluence hypothesis and the length-decrease
-hypothesis are satisfied. This completes the proof of Proposition
-\ref{prop.diamond.example.poset}.
-\end{proof}
-
 \section{\label{sect.proof}Proof of Lemma \ref{lem.BK}}
 
 We now come to the actual proof of Lemma \ref{lem.BK}. For the whole Section
@@ -1981,16 +1449,15 @@ $, the $h$-th column of $T$ is empty).} For instance, if $T=%
 $, then $\ell\left(  T\right)  =1\cdot0+2\cdot1+3\cdot2+4\cdot0+5\cdot
 2+6\cdot0+7\cdot0+8\cdot0+\cdots=18$.
 
-\subsection{Conflicts of 12-tables}
+\subsection{Descents of 12-tables}
 
-If $T$ is a 12-table, then we define a \textit{conflict} of $T$ to be a pair
-$\left(  i,j\right)  $ of positive integers satisfying $i<j$ such that there
-exists an $r\in\mathbb{N}_{+}$ satisfying $\left(  r,i\right)  \in Z$,
-$\left(  r,j\right)  \in Z$, $T\left(  r,i\right)  =2$ and $T\left(
-r,j\right)  =1$. (Speaking visually, a conflict of $T$ is a pair $\left(
-i,j\right)  $ of positive integers such that the filling $T$ has an entry $2$
-in column $i$ lying due west of an entry $1$ in column $j$.) For instance, the
-conflicts of the 12-table $%
+If $T$ is a 12-table, then we define a \textit{descent} of $T$ to be a
+positive integer $i$ such that there exists an $r\in\mathbb{N}_{+}$ satisfying
+$\left(  r,i\right)  \in Z$, $\left(  r,i+1\right)  \in Z$, $T\left(
+r,i\right)  =2$ and $T\left(  r,i+1\right)  =1$. (Speaking visually, a descent
+of $T$ is an $i\in\mathbb{N}_{+}$ such that the filling $T$ has an entry $2$
+in column $i$ lying due west of an entry $1$ in column $i+1$.) For instance,
+the descents of the 12-table $%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& 1 & 2 & 1 & 2 \\
@@ -2007,144 +1474,17 @@ conflicts of the 12-table $%
 2 & 2
 \end{ytableau}%
 %EndExpansion
-$ are $\left(  1,2\right)  $, $\left(  1,3\right)  $ and $\left(  4,5\right)
-$.
-
-(The notion of a conflict of $T$ is in some sense analogous to that of an
-inversion of $z$ in Subsection \ref{subsect.bubble}.)
+$ are $1$ and $4$.
 
 Clearly, a 12-rpp of shape $Z$ is the same as a 12-table which has no
-conflicts.\footnote{Indeed, the conflicts of a 12-table stem from the failures
+descents.\footnote{Indeed, the descents of a 12-table stem from the failures
 of its entries to be weakly increasing along rows.}
 
+\subsection{\label{subsection:benign}Benign 12-tables and separators}
 
-We notice a simple fact which we will not use until much later:
-
-\begin{proposition}
-\label{prop.conflict.transitive}Let $T$ be a 12-table. Let $a$, $b$ and $c$ be
-positive integers such that $\left(  a,b\right)  $ and $\left(  b,c\right)  $
-are conflicts of $T$. Then, $\left(  a,c\right)  $ also is a conflict of $T$.
-\end{proposition}
-
-\begin{example}
-If $T=%
-%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
-%\begin{ytableau}
-%\none& \none& 1 \\
-%2 & 1 & 1 \\
-%2 & 2 & 1
-%\end{ytableau}}}%
-%BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& \none& 1 \\
-2 & 1 & 1 \\
-2 & 2 & 1
-\end{ytableau}%
-%EndExpansion
-$, then $\left(  1,2\right)  $ and $\left(  2,3\right)  $ are conflicts of
-$T$, and so is $\left(  1,3\right)  $. One can notice that every row which
-\textquotedblleft witnesses\textquotedblright\ the conflict $\left(
-1,2\right)  $ will also \textquotedblleft witness\textquotedblright\ the
-conflict $\left(  1,3\right)  $ (where we say that the $r$-th row
-\textit{witnesses} a conflict $\left(  i,j\right)  $ if and only if $\left(
-r,i\right)  \in Z$, $\left(  r,j\right)  \in Z$, $T\left(  r,i\right)  =2$ and
-$T\left(  r,j\right)  =1$).
-
-\end{example}
-
-\begin{proof}
-[\nopunct]Since we shall not use Proposition \ref{prop.conflict.transitive},
-we leave its proof (which is an instructive exercise on the definition of
-conflicts and on the use of the convexity of $Z$) to the reader.
-\end{proof}
-
-\begin{remark}
-\label{rmk.conflict.transitive.anti}Proposition \ref{prop.conflict.transitive}
-has an analogue for \textquotedblleft non-conflicts\textquotedblright: Let $T$
-be a 12-table. Let $a$, $b$ and $c$ be positive integers such that $\left(
-a,c\right)  $ is a conflict of $T$ and such that $a<b<c$. Then, at least one
-of the pairs $\left(  a,b\right)  $ and $\left(  b,c\right)  $ is a conflict
-of $T$. We shall not use this fact, however.
-\end{remark}
-
-\begin{todo}
-Proposition \ref{prop.conflict.transitive} shows that every 12-table $T$ gives
-rise to a \textit{conflict poset}: the set $\mathbb{N}_{+}$ can be endowed
-with a partial order whose smaller relation $\prec$ is given by%
-\[
-\left(  i\prec j\right)  \ \Longleftrightarrow\ \left(  \left(  i,j\right)
-\text{ is a conflict of }T\right)  .
-\]
-Does this have any interesting properties? What exactly happens to this poset
-when we resolve a conflict? What kinds of posets can be obtained this way?
-
-Viviane Pons says that Proposition \ref{prop.conflict.transitive} and Remark
-\ref{rmk.conflict.transitive.anti} yield that there exists a permutation
-$\sigma\in\mathfrak{S}_{\left(  \infty\right)  }$ such that $\left(
-i,j\right)  $ is a conflict of $T$ if and only if $\left(  i<j\text{ and
-}\sigma\left(  i\right)  >\sigma\left(  j\right)  \right)  $. This, I think,
-is not hard to prove by induction. Conversely, inversion posets of
-permutations in $\mathfrak{S}_{\left(  \infty\right)  }$ can be represented as
-conflict posets of 12-tables (though not necessarily benign 12-tables).
-
-I am wondering: What permutations in $\mathfrak{S}_{\left(  \infty\right)  }$
-have the property that their inversion poset can be written as a conflict
-poset of a benign 12-table?
-\end{todo}
-
-\subsection{Benign 12-tables and separators}
-\label{subsection:benign}
-We say that a 12-table $T$ is \textit{benign} if there exists no conflict
-$\left(  i,j\right)  $ of $T$ such that the $i$-th column of $T$ and the
-$j$-th column of $T$ both are mixed. (Remember that columns are sequences.)
-For instance, the 12-table $%
-%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
-%\begin{ytableau}
-%\none& 1 & 1 & 2 & 1 \\
-%1 & 1 & 1 \\
-%1 & 2 & 1 \\
-%1 & 2 \\
-%2
-%\end{ytableau}}}%
-%BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& 1 & 1 & 2 & 1 \\
-1 & 1 & 1 \\
-1 & 2 & 1 \\
-1 & 2 \\
-2
-\end{ytableau}%
-%EndExpansion
-$ is benign (despite having $\left(  2,3\right)  $ and $\left(  4,5\right)  $
-as conflicts), while the 12-table $%
-%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
-%\begin{ytableau}
-%\none& 1 & 1 & 2 & 1 \\
-%1 & 1 & 1 \\
-%1 & 2 & 1 \\
-%1 & 2 & 2\\
-%2
-%\end{ytableau}}}%
-%BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& 1 & 1 & 2 & 1 \\
-1 & 1 & 1 \\
-1 & 2 & 1 \\
-1 & 2 & 2\\
-2
-\end{ytableau}%
-%EndExpansion
-$ is not (its conflict $\left(  2,3\right)  $ has the property that the $2$-nd
-column and the $3$-rd column both are mixed). Notice that 12-rpps are benign
-12-tables, but the converse is not true.
-
-Let us give an alternative description of benign 12-tables. Namely, if $T$ is
-a 12-table, and if $k\in\mathbb{N}_{+}$ is such that the $k$-th column of $T$
-is mixed, then we define $\operatorname*{sep}\nolimits_{k}T$ to be the
-smallest $r\in\mathbb{N}_{+}$ such that $\left(  r,k\right)  \in Z$ and
+If $T$ is a 12-table, and if $k\in\mathbb{N}_{+}$ is such that the $k$-th
+column of $T$ is mixed, then we define $\operatorname*{sep}\nolimits_{k}T$ to
+be the smallest $r\in\mathbb{N}_{+}$ such that $\left(  r,k\right)  \in Z$ and
 $T\left(  r,k\right)  =2$.\ \ \ \ \footnote{Such an $r$ exists since the
 $k$-th column of $T$ contains at least one $2$ (in fact, it is mixed).}
 (Speaking visually, the integer $\operatorname*{sep}\nolimits_{k}T$ tells us
@@ -2166,7 +1506,6 @@ T\left(  r,k\right)  =\left\{
 \right.  \label{pf.lem.BK.Tsep}%
 \end{equation}
 (because the $k$-th column of $T$ is weakly increasing).
-
 
 If $T$ is a 12-table, then we let $\operatorname*{seplist}T$ denote the list
 of all values $\operatorname*{sep}\nolimits_{k}T$ (in the order of increasing
@@ -2194,31 +1533,69 @@ $\operatorname*{sep}\nolimits_{5}T=2$ (and there are no other $k\in
 \mathbb{N}_{+}$ for which $\operatorname*{sep}\nolimits_{k}T$ is defined), so
 that $\operatorname*{seplist}T=\left(  4,4,2\right)  $.
 
-What do the numbers $\operatorname*{sep}\nolimits_{k}T$ have to do with being benign?
-
-It is easy to see that if $T$ is a 12-table, and $i$ and $j$ are two positive
-integers such that the $i$-th column of $T$ and the $j$-th column of $T$ both
-are mixed, then $\left(  i,j\right)  $ is a conflict of $T$ if and only if we
-have $i<j$ and $\operatorname*{sep}\nolimits_{i}T<\operatorname*{sep}%
-\nolimits_{j}T$.
-
-
-Hence, the definition of a \textquotedblleft benign\textquotedblright%
-\ 12-table rewrites as follows: A 12-table $T$ is benign if and only if there
-exists no pair $\left(  i,j\right)  $ of positive integers such that the
-$i$-th column of $T$ and the $j$-th column of $T$ both are mixed and such that
-$i<j$ and $\operatorname*{sep}\nolimits_{i}T<\operatorname*{sep}%
-\nolimits_{j}T$. In other words, a 12-table $T$ is benign if and only if the
-list $\operatorname*{seplist}T$ is weakly decreasing. We will refer to this
-fact as the \textquotedblleft separational definition of
-benignity\textquotedblright.
-
+We say that a 12-table $T$ is \textit{benign} if the list
+$\operatorname*{seplist}T$ is weakly decreasing. For instance, the 12-table
+$T=%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& 1 & 1 & 2 & 1 \\
+%1 & 1 & 1 \\
+%1 & 2 & 1 \\
+%1 & 2 \\
+%2
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+\none& 1 & 1 & 2 & 1 \\
+1 & 1 & 1 \\
+1 & 2 & 1 \\
+1 & 2 \\
+2
+\end{ytableau}%
+%EndExpansion
+$ is benign (since it has $\operatorname*{seplist}T=\left(  5,3\right)  $),
+while the 12-table $T=%
+%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& 1 & 1 & 2 & 1 \\
+%1 & 1 & 1 \\
+%1 & 2 & 1 \\
+%1 & 2 & 2\\
+%2
+%\end{ytableau}}}%
+%BeginExpansion
+\ytableausetup{notabloids}
+\begin{ytableau}
+\none& 1 & 1 & 2 & 1 \\
+1 & 1 & 1 \\
+1 & 2 & 1 \\
+1 & 2 & 2\\
+2
+\end{ytableau}%
+%EndExpansion
+$ is not (since it has $\operatorname*{seplist}T=\left(  5,3,4\right)  $).
+Notice that 12-rpps are benign 12-tables, but the converse is not true. We
+notice that if $T$ is a benign 12-table, then%
+\begin{align}
+&  \text{there exists no descent }k\text{ of }T\text{ such that both the
+}k\text{-th column of }T\nonumber\\
+&  \text{and the }\left(  k+1\right)  \text{-th column of }T\text{ are mixed.}
+\label{eq.benign.not-both-mixed}%
+\end{align}
+\footnote{\textit{Proof.} Let $T$ be a benign 12-table. Assume the contrary
+(to (\ref{eq.benign.not-both-mixed})). Thus, there exists a descent $k$ of $T$
+such that both the $k$-th column of $T$ and the $\left(  k+1\right)  $-th
+column of $T$ are mixed. Consider this $k$. We have $\operatorname*{sep}%
+\nolimits_{k}T<\operatorname*{sep}\nolimits_{k+1}T$ (because $k$ is a descent
+of $T$). The sequence $\operatorname*{seplist}T$ is thus not weakly
+decreasing. In other words, $T$ is not benign. But this contradicts the fact
+that $T$ is benign. Hence, our assumption was wrong, qed.}
 
 Let $\mathbf{S}$ denote the set of all benign 12-tables.\footnote{We recall
 that $Z$ is fixed, and all 12-tables have to have $Z$ as their domain.} Then,
 $\mathbf{S}$ is a finite set, and we have $\mathbf{R}\subseteq\mathbf{S}$
 (since every 12-rpp of shape $Z$ is a benign 12-table).
-
 
 \subsection{The $\operatorname*{flip}$ map on benign 12-tables}
 
@@ -2319,7 +1696,6 @@ $\operatorname*{flip}\left(  T\right)  $ contains $1$ are precisely the $k
 \in\mathbb{N}_{+}$ for which the $k$-th column of $T$ contains $2$, and vice versa.)
 \end{proof}
 
-
 We notice that, when the map $\operatorname*{flip}$ acts on a benign 12-table
 $T$, it transforms every column of $T$ independently. Thus, we have the following:
 
@@ -2346,63 +1722,45 @@ into them in detail. The map $\operatorname*{flip}:\mathbf{S}\rightarrow
 \mathbf{S}$ does not generally send 12-rpps to 12-rpps (i.e., it does not
 restrict to a map $\mathbf{R}\rightarrow\mathbf{R}$). However, we shall amend
 this by defining a way to transform any benign 12-table into a 12-rpp by what
-we call \textquotedblleft resolving conflicts\textquotedblright. The process
-of \textquotedblleft resolving conflicts\textquotedblright\ will be a stepwise
+we call \textquotedblleft resolving descents\textquotedblright. The process of
+\textquotedblleft resolving descents\textquotedblright\ will be a stepwise
 process, and will be formalized in terms of a binary relation $\Rrightarrow$
 on the set $\mathbf{S}$ which we will soon introduce. The intuition behind
 saying \textquotedblleft$P\Rrightarrow Q$\textquotedblright\ is that the
-benign 12-table $P$ has a \textquotedblleft resolvable\textquotedblright%
-\ conflict, resolving which yields the benign 12-table $Q$. By
-\textquotedblleft resolvable conflict\textquotedblright, we mean a conflict
-$\left(  i,j\right)  $ with $j=i+1$. (The relation $\Rrightarrow$ is similar
-to the relation $\Rrightarrow$ from Subsection \ref{subsect.bubble}.
-\textquotedblleft Resolving\textquotedblright\ a resolvable conflict in a
-benign 12-table $P$ is an analogue of switching two adjacent entries of an
-$n$-tuple $z$ which are out of order.) Starting with a benign 12-table $P$, we
-can repeatedly resolve \textquotedblleft resolvable\textquotedblright%
-\ conflicts until this is no longer possible\footnote{This will eventually
-happen; i.e., we will eventually rearch a state where resolving conflicts will
-no longer be possible because there will be no resolvable conflicts left. In
-fact, we will show that if \textquotedblleft resolving\textquotedblright\ a
-conflict in $P$ yields a new 12-table $Q$, then $\ell\left(  P\right)
->\ell\left(  Q\right)  $ using the notations of Subsection
-\ref{subsect.fourtypes}; thus, we cannot go on resolving conflicts
-indefinitely (because the value of $\ell\left(  T\right)  $ cannot go on
-decreasing indefinitely). The function $\ell$ thus plays the same role as the
-function $\ell$ in Subsection \ref{subsect.bubble}.}. We have some freedom in
+benign 12-table $P$ has a descent, resolving which yields the benign 12-table
+$Q$. Starting with a benign 12-table $P$, we can repeatedly resolve descents
+until this is no longer possible\footnote{This will eventually happen; i.e.,
+we will eventually rearch a state where resolving descents will no longer be
+possible because there will be no descents left. In fact, we will
+show that if \textquotedblleft resolving\textquotedblright\ a descent in $P$
+yields a new 12-table $Q$, then $\ell\left(  P\right)  >\ell\left(  Q\right)
+$ using the notations of Subsection \ref{subsect.fourtypes}; thus, we cannot
+go on resolving descents indefinitely (because the value of $\ell\left(
+T\right)  $ cannot go on decreasing indefinitely).}. We have some freedom in
 performing this process, because at any step there can be a choice of several
-resolvable conflicts to resolve; but we will see (using Lemma
-\ref{lem.diamond}) that the final result does not depend on the process.
-Hence, the final result can be regarded as a function of $P$. We will denote
-it by $\operatorname*{norm}P$, and we will see that it is a 12-rpp. We will
-then define a map $\mathbf{B}:\mathbf{R}\rightarrow\mathbf{R}$ by
-$\mathbf{B}\left(  T\right)  =\operatorname*{norm}\left(  \operatorname*{flip}%
-T\right)  $, and show that it is an involution satisfying the properties that
-we want it to satisfy.
+descents to resolve; but we will see that the final result does not depend on
+the process. Hence, the final result can be regarded as a function of $P$. We
+will denote it by $\operatorname*{norm}P$, and we will see that it is a
+12-rpp. We will then define a map $\mathbf{B}:\mathbf{R}\rightarrow\mathbf{R}$
+by $\mathbf{B}\left(  T\right)  =\operatorname*{norm}\left(
+\operatorname*{flip}T\right)  $, and show that it is an involution satisfying
+the properties that we want it to satisfy.
 
-\subsection{\label{subsect.resolving}Resolving conflicts}
+\subsection{\label{subsect.resolving}Resolving descents}
 
 Now we come to the details.
 
 Let $k\in\mathbb{N}_{+}$. Let $P\in\mathbf{S}$. Thus, $P$ is a benign
-12-table. Assume (for the whole Subsection \ref{subsect.resolving}) that
-$\left(  k,k+1\right)  $ is a conflict of $P$. In this case, we say that
-$\left(  k,k+1\right)  $ is a \textit{resolvable conflict} of $P$ (and, in a
-moment, we will explain what it means to \textquotedblleft
-resolve\textquotedblright\ it). Since $\left(  k,k+1\right)  $ is a conflict
-of $P$, it is clear that the $k$-th column of $P$ must contain at least one
+12-table. Assume (for the whole Subsection \ref{subsect.resolving}) that $k$
+is a descent of $P$. Thus, the $k$-th column of $P$ must contain at least one
 $2$. Hence, the $k$-th column of $P$ is either mixed or 2-pure. Similarly, the
 $\left(  k+1\right)  $-th column of $P$ is either mixed or 1-pure. But the
 $k$-th and the $\left(  k+1\right)  $-th columns of $P$ cannot both be mixed
-at the same time\footnote{This is because there exists no conflict $\left(
-i,j\right)  $ of $P$ such that the $i$-th column of $P$ and the $j$-th column
-of $P$ both are mixed (since $P$ is benign), but $\left(  k,k+1\right)  $
-would be such a conflict if the $k$-th and the $\left(  k+1\right)  $-th
-columns of $P$ both were mixed.}. Hence, if the $k$-th column of $P$ is mixed,
-then the $\left(  k+1\right)  $-th column of $P$ cannot be mixed, and thus
-this $\left(  k+1\right)  $-th column must be 1-pure\footnote{since the
-$\left(  k+1\right)  $-th column of $P$ is either mixed or 1-pure}. Thus we
-introduce the following notations:
+at the same time\footnote{by (\ref{eq.benign.not-both-mixed}), applied to
+$T=P$}. Hence, if the $k$-th column of $P$ is mixed, then the $\left(
+k+1\right)  $-th column of $P$ cannot be mixed, and thus this $\left(
+k+1\right)  $-th column must be 1-pure\footnote{since the $\left(  k+1\right)
+$-th column of $P$ is either mixed or 1-pure}. Thus we introduce the following notations:
 
 \begin{itemize}
 \item We say that the 12-table $P$ has $k$\textit{-type M1} if the $k$-th
@@ -2458,10 +1816,10 @@ If $P=%
 2 & 2
 \end{ytableau}%
 %EndExpansion
-$ and $k=2$, then $\left(  k,k+1\right)  $ is a conflict of $P$, and we have
-$\operatorname*{sep}\nolimits_{k}P=5$ (since $P\left(  4,k\right)  =P\left(
-4,2\right)  =1$ and $P\left(  5,k\right)  =P\left(  5,2\right)  =2$) and
-$\operatorname*{res}\nolimits_{k}P=%
+$ and $k=2$, then $k$ is a descent of $P$, and we have $\operatorname*{sep}%
+\nolimits_{k}P=5$ (since $P\left(  4,k\right)  =P\left(  4,2\right)  =1$ and
+$P\left(  5,k\right)  =P\left(  5,2\right)  =2$) and $\operatorname*{res}%
+\nolimits_{k}P=%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& 1 & 1 \\
@@ -2525,8 +1883,8 @@ resulting $\left(  k+1\right)  $-th column of $\operatorname*{res}%
 that both cells $\left(  \operatorname*{sep}\nolimits_{k}P,k+1\right)  $ and
 $\left(  \operatorname*{sep}\nolimits_{k}P+1,k+1\right)  $ belong to $Z$ (here
 it is necessary to invoke the convexity of $Z$ and the existence of the
-conflict $\left(  k,k+1\right)  $ in $P$), and that these cells have entries
-$1$ and $2$ in $\operatorname*{res}\nolimits_{k}P$, respectively.}
+descent $k$ in $P$), and that these cells have entries $1$ and $2$ in
+$\operatorname*{res}\nolimits_{k}P$, respectively.}
 
 \item If $P$ has $k$-type 2M, then we let $\operatorname*{res}_{k}P$ be the
 12-table defined as follows: The $k$-th column of $\operatorname*{res}_{k}P$
@@ -2547,12 +1905,10 @@ is 1-pure; the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
 In either case, $\operatorname*{res}\nolimits_{k}P$ is a well-defined
 12-table. It is furthermore clear that $\operatorname*{seplist}\left(
 \operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{seplist}P$. Thus,
-using the \textquotedblleft separational definition of
-benignity\textquotedblright, we see that $\operatorname*{res}\nolimits_{k}P$
-is benign (since $P$ is benign); that is, $\operatorname*{res}\nolimits_{k}%
-P\in\mathbf{S}$. We say that $\operatorname*{res}\nolimits_{k}P$ is the
-12-table obtained by \textit{resolving} the conflict $\left(  k,k+1\right)  $
-in $P$. Let us give some examples:
+$\operatorname*{res}\nolimits_{k}P$ is benign (since $P$ is benign); that is,
+$\operatorname*{res}\nolimits_{k}P\in\mathbf{S}$. We say that
+$\operatorname*{res}\nolimits_{k}P$ is the 12-table obtained by
+\textit{resolving} the descent $k$ in $P$. Let us give some examples:
 
 \Needspace{14\baselineskip}
 
@@ -2577,15 +1933,10 @@ in $P$. Let us give some examples:
 \end{ytableau}%
 %EndExpansion
 $. Then, $P$ is a benign 12-table (with only one mixed column), and its
-conflicts are $\left(  1,2\right)  $, $\left(  1,3\right)  $, $\left(
-2,3\right)  $ and $\left(  4,5\right)  $. Out of these conflicts, $\left(
-1,2\right)  $, $\left(  2,3\right)  $ and $\left(  4,5\right)  $ are
-resolvable (as they have the form $\left(  k,k+1\right)  $ for various $k$).
-We have $\operatorname*{sep}\nolimits_{2}P=4$.
+descents are $1$, $2$ and $4$. We have $\operatorname*{sep}\nolimits_{2}P=4$.
 
-If we set $k=1$, then $P$ has $k$-type 2M, and resolving the conflict $\left(
-k,k+1\right)  =\left(  1,2\right)  $ gives us the 12-table
-$\operatorname*{res}\nolimits_{1}P=%
+If we set $k=1$, then $P$ has $k$-type 2M, and resolving the descent $k=1$
+gives us the 12-table $\operatorname*{res}\nolimits_{1}P=%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& 1 & 2 & 1 \\
@@ -2606,9 +1957,8 @@ $\operatorname*{res}\nolimits_{1}P=%
 %EndExpansion
 $.
 
-If we instead set $k=2$, then $P$ has $k$-type M1, and resolving the conflict
-$\left(  k,k+1\right)  =\left(  2,3\right)  $ gives us the 12-table
-$\operatorname*{res}\nolimits_{2}P=%
+If we instead set $k=2$, then $P$ has $k$-type M1, and resolving the descent
+$k=2$ gives us the 12-table $\operatorname*{res}\nolimits_{2}P=%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& 1 & 2 & 1 \\
@@ -2629,9 +1979,8 @@ $\operatorname*{res}\nolimits_{2}P=%
 %EndExpansion
 $.
 
-If we instead set $k=4$, then $P$ has $k$-type 21, and resolving the conflict
-$\left(  k,k+1\right)  =\left(  4,5\right)  $ gives us the 12-table
-$\operatorname*{res}\nolimits_{4}P=%
+If we instead set $k=4$, then $P$ has $k$-type 21, and resolving the descent
+$k=4$ gives us the 12-table $\operatorname*{res}\nolimits_{4}P=%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& 1 & 1 & 2 \\
@@ -2654,13 +2003,12 @@ $.
 
 We notice that each of the three 12-tables $\operatorname*{res}\nolimits_{1}%
 P$, $\operatorname*{res}\nolimits_{2}P$ and $\operatorname*{res}%
-\nolimits_{4}P$ still has conflicts\footnotemark, and again some of these
-conflicts are resolvable. In order to get a 12-rpp from $P$, we will have to
-keep resolving these conflicts until none remain.
+\nolimits_{4}P$ still has descents\footnotemark. In order to get a 12-rpp from
+$P$, we will have to keep resolving these descents until none remain.
 \end{example}
 
-\footnotetext{Actually, each of these three 12-tables has fewer conflicts than
-$P$ (in particular, the conflict that was resolved is now gone). But this does
+\footnotetext{Actually, each of these three 12-tables has fewer descents than
+$P$ (in particular, the descent that was resolved is now gone). But this does
 not generalize. For instance, if $P=%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
@@ -2674,9 +2022,8 @@ not generalize. For instance, if $P=%
 2 & 1
 \end{ytableau}%
 %EndExpansion
-$ and $k=1$, then resolving the conflict $\left(  k,k+1\right)  =\left(
-1,2\right)  $ (which is the only conflict of $P$) leads to the 12-table
-$\operatorname*{res}\nolimits_{1}P=%
+$ and $k=1$, then resolving the descent $k=1$ (which is the only descent of
+$P$) leads to the 12-table $\operatorname*{res}\nolimits_{1}P=%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& 2 & 1 \\
@@ -2689,14 +2036,13 @@ $\operatorname*{res}\nolimits_{1}P=%
 1 & 2
 \end{ytableau}%
 %EndExpansion
-$, which has as many conflicts as $P$ did.}
-
+$, which has as many descents as $P$ did.}
 
 We now observe some further properties of $\operatorname*{res}\nolimits_{k}P$:
 
 \begin{proposition}
-\label{prop.conflict-resolution-props}Let $P\in\mathbf{S}$ and $k\in
-\mathbb{N}_{+}$ be such that $\left(  k,k+1\right)  $ is a conflict of $P$.
+\label{prop.descent-resolution-props}Let $P\in\mathbf{S}$ and $k\in
+\mathbb{N}_{+}$ be such that $k$ is a descent of $P$.
 
 \textbf{(a)} The 12-table $\operatorname*{res}\nolimits_{k}P$ differs from $P$
 only in columns $k$ and $k+1$. In other words,%
@@ -2716,7 +2062,7 @@ k+1\right)  $-th columns of $P$. In other words, if $Q$ is a further benign
 }h\text{-th column of }P\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \text{for each }h\in\left\{  k,k+1\right\}  ,
 \end{align*}
-then $\left(  k,k+1\right)  $ is a conflict of $Q$ and we have%
+then $k$ is a descent of $Q$ and we have%
 \begin{align}
 \left(  \text{the }h\text{-th column of }\operatorname*{res}\nolimits_{k}%
 Q\right)   &  =\left(  \text{the }h\text{-th column of }\operatorname*{res}%
@@ -2772,15 +2118,6 @@ P\left(  r,i\right)  =\left(  \operatorname*{res}\nolimits_{k}P\right)
 \end{equation}
 
 
-\textbf{(f)} If $\left(  i,j\right)  $ is a conflict of $P$ such that $\left(
-i,j\right)  \neq\left(  k,k+1\right)  $, then
-\begin{equation}
-\left(  s_{k}\left(  i\right)  ,s_{k}\left(  j\right)  \right)  \text{ is a
-conflict of }\operatorname*{res}\nolimits_{k}P.
-\label{pf.lem.BK.res.conflict1}%
-\end{equation}
-
-
 \textbf{(g)} The benign 12-tables $\operatorname*{flip}\left(  P\right)  $ and
 $\operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)  $ have
 the property that%
@@ -2788,8 +2125,8 @@ the property that%
 \left(
 \begin{array}
 [c]{c}%
-\left(  k,k+1\right)  \text{ is a conflict of }\operatorname*{flip}\left(
-\operatorname*{res}\nolimits_{k}P\right)  \text{,}\\
+k\text{ is a descent of }\operatorname*{flip}\left(  \operatorname*{res}%
+\nolimits_{k}P\right)  \text{,}\\
 \text{and we have }\operatorname*{flip}\left(  P\right)  =\operatorname*{res}%
 \nolimits_{k}\left(  \operatorname*{flip}\left(  \operatorname*{res}%
 \nolimits_{k}P\right)  \right)
@@ -2808,18 +2145,13 @@ have
 
 \end{proposition}
 
-Notice that the converse of Proposition \ref{prop.conflict-resolution-props}
-\textbf{(f)} does not generally hold.
-
 \begin{proof}
-[Proof of Proposition \ref{prop.conflict-resolution-props}.]Most of
-Proposition \ref{prop.conflict-resolution-props} succumbs to straightforward
-arguments using the definitions of $\operatorname*{res}_{k}$ and
-$\operatorname*{flip}$ coupled with a thorough case analysis, with an
-occasional use of the convexity of $Z$ and of the formula
-(\ref{pf.lem.BK.Tsep}). Merely the parts \textbf{(c)} and \textbf{(f)} require
-a bit more thinking. We shall only give the proof for part \textbf{(c)}, since
-part \textbf{(f)} will not be used in the following.
+[Proof of Proposition \ref{prop.descent-resolution-props}.]Most of Proposition
+\ref{prop.descent-resolution-props} succumbs to straightforward arguments
+using the definitions of $\operatorname*{res}_{k}$ and $\operatorname*{flip}$
+coupled with a thorough case analysis, with an occasional use of the convexity
+of $Z$ and of the formula (\ref{pf.lem.BK.Tsep}). Merely part \textbf{(c)}
+requires a bit more thinking.
 
 \textbf{(c)} A cell $\left(  i,j\right)  $ in $Z$ will be called \textit{good}
 if the cell $\left(  i+1,j\right)  $ also belongs to $Z$. Notice that every
@@ -2850,31 +2182,27 @@ These two numbers are equal, because $\operatorname*{seplist}\left(
 explained above, this completes the proof of (\ref{pf.lem.BK.res.ceq}).
 \end{proof}
 
-
-
-\subsection{The conflict-resolution relation $\Rrightarrow$}
+\subsection{The descent-resolution relation $\Rrightarrow$}
 
 \begin{definition}
 Let us now define a binary relation $\Rrightarrow$ on the set $\mathbf{S}$ as
 follows: Let $P\in\mathbf{S}$ and $Q\in\mathbf{S}$. If $k\in\mathbb{N}_{+}$,
-then we write $P\underset{k}{\Rrightarrow}Q$ if and only if $\left(
-k,k+1\right)  $ is a conflict of $P$ and we have $Q=\operatorname*{res}%
-\nolimits_{k}P$. (In other words, if $k\in\mathbb{N}_{+}$, then we write
-$P\underset{k}{\Rrightarrow}Q$ if and only if $\left(  k,k+1\right)  $ is a
-conflict of $P$ and the 12-table $Q$ is obtained from $P$ by resolving this
-conflict.) We write $P\Rrightarrow Q$ if and only if there exists a
-$k\in\mathbb{N}_{+}$ such that $P\underset{k}{\Rrightarrow}Q$. (In other
-words, we write $P\Rrightarrow Q$ if and only if the 12-table $Q$ is obtained
-from $P$ by resolving a conflict of the form $\left(  k,k+1\right)  $ with
-$k\in\mathbb{N}_{+}$.) Thus, the relation $\Rrightarrow$ is defined.
+then we write $P\underset{k}{\Rrightarrow}Q$ if and only if $k$ is a descent
+of $P$ and we have $Q=\operatorname*{res}\nolimits_{k}P$. (In other words, if
+$k\in\mathbb{N}_{+}$, then we write $P\underset{k}{\Rrightarrow}Q$ if and only
+if $k$ is a descent of $P$ and the 12-table $Q$ is obtained from $P$ by
+resolving this descent.) We write $P\Rrightarrow Q$ if and only if there
+exists a $k\in\mathbb{N}_{+}$ such that $P\underset{k}{\Rrightarrow}Q$. (In
+other words, we write $P\Rrightarrow Q$ if and only if the 12-table $Q$ is
+obtained from $P$ by resolving a descent.) Thus, the relation $\Rrightarrow$
+is defined.
 \end{definition}
 
 Some of what was shown above translates into properties of this relation
 $\Rrightarrow$:
 
-
 \begin{lemma}
-\label{lem.conflict-resolution-props}Let $P\in\mathbf{S}$ and $Q\in\mathbf{S}$
+\label{lem.descent-resolution-props}Let $P\in\mathbf{S}$ and $Q\in\mathbf{S}$
 be such that $P\Rrightarrow Q$. Then:
 
 \textbf{(a)} We have $\operatorname*{ceq}\left(  Q\right)
@@ -2892,59 +2220,57 @@ P\right)  $.
 \end{lemma}
 
 \begin{proof}
-[Proof of Lemma \ref{lem.conflict-resolution-props}.]We have $P\Rrightarrow
-Q$. In other words, there exists a $k\in\mathbb{N}_{+}$ such that
+[Proof of Lemma \ref{lem.descent-resolution-props}.]We have $P\Rrightarrow Q$.
+In other words, there exists a $k\in\mathbb{N}_{+}$ such that
 $P\underset{k}{\Rrightarrow}Q$. Consider this $k$. We have
-$P\underset{k}{\Rrightarrow}Q$. In other words, $\left(  k,k+1\right)  $ is a
-conflict of $P$ and we have $Q=\operatorname*{res}\nolimits_{k}P$.
+$P\underset{k}{\Rrightarrow}Q$. In other words, $k$ is a descent of $P$ and we
+have $Q=\operatorname*{res}\nolimits_{k}P$.
 
 \textbf{(a)} We have $\operatorname*{ceq}\left(  \underbrace{Q}%
 _{=\operatorname*{res}\nolimits_{k}P}\right)  =\operatorname*{ceq}\left(
 \operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{ceq}\left(
 P\right)  $ (by (\ref{pf.lem.BK.res.ceq})). This proves Lemma
-\ref{lem.conflict-resolution-props} \textbf{(a)}.
+\ref{lem.descent-resolution-props} \textbf{(a)}.
 
 \textbf{(b)} This follows similarly from (\ref{pf.lem.BK.res.irconts}).
 
-\textbf{(c)} From (\ref{pf.lem.BK.res.flip}), we know that $\left(
-k,k+1\right)  $ is a conflict of $\operatorname*{flip}\left(
-\operatorname*{res}\nolimits_{k}P\right)  $, and we have $\operatorname*{flip}%
-\left(  P\right)  =\operatorname*{res}\nolimits_{k}\left(
-\operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)  \right)
-$. In other words, $\operatorname*{flip}\left(  \operatorname*{res}%
-\nolimits_{k}P\right)  \underset{k}{\Rrightarrow}\operatorname*{flip}\left(
-P\right)  $. Thus, $\operatorname*{flip}\left(  \operatorname*{res}%
-\nolimits_{k}P\right)  \Rrightarrow\operatorname*{flip}\left(  P\right)  $. In
-other words, $\operatorname*{flip}\left(  Q\right)  \Rrightarrow
-\operatorname*{flip}\left(  P\right)  $ (since $Q=\operatorname*{res}%
-\nolimits_{k}P$). This proves Lemma \ref{lem.conflict-resolution-props}
-\textbf{(c)}.
+\textbf{(c)} From (\ref{pf.lem.BK.res.flip}), we know that $k$ is a descent of
+$\operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)  $, and
+we have $\operatorname*{flip}\left(  P\right)  =\operatorname*{res}%
+\nolimits_{k}\left(  \operatorname*{flip}\left(  \operatorname*{res}%
+\nolimits_{k}P\right)  \right)  $. In other words, $\operatorname*{flip}%
+\left(  \operatorname*{res}\nolimits_{k}P\right)  \underset{k}{\Rrightarrow
+}\operatorname*{flip}\left(  P\right)  $. Thus, $\operatorname*{flip}\left(
+\operatorname*{res}\nolimits_{k}P\right)  \Rrightarrow\operatorname*{flip}%
+\left(  P\right)  $. In other words, $\operatorname*{flip}\left(  Q\right)
+\Rrightarrow\operatorname*{flip}\left(  P\right)  $ (since
+$Q=\operatorname*{res}\nolimits_{k}P$). This proves Lemma
+\ref{lem.descent-resolution-props} \textbf{(c)}.
 
 \textbf{(d)} From (\ref{pf.lem.BK.res.lendec}), we have $\ell\left(  P\right)
 >\ell\left(  \underbrace{\operatorname*{res}\nolimits_{k}P}_{=Q}\right)
-=\ell\left(  Q\right)  $. This proves Lemma
-\ref{lem.conflict-resolution-props} \textbf{(d)}.
+=\ell\left(  Q\right)  $. This proves Lemma \ref{lem.descent-resolution-props} \textbf{(d)}.
 \end{proof}
 
-
-We furthermore define a relation $\overset{\ast}{\Rrightarrow}$ as in Lemma
-\ref{lem.diamond}. In other words, $\overset{\ast}{\Rrightarrow}$ is the
-reflexive-and-transitive closure of the relation $\Rrightarrow$. In
-particular, the relation $\overset{\ast}{\Rrightarrow}$ is reflexive and
-transitive, and extends the relation $\Rrightarrow$.
-
-If $P\in\mathbf{S}$ and $Q\in\mathbf{S}$, then the relation \textquotedblleft%
-$P\overset{\ast}{\Rrightarrow}Q$\textquotedblright\ can be interpreted as
-\textquotedblleft$Q$ can be obtained from $P$ by repeatedly resolving
-conflicts\textquotedblright\ (because $P\Rrightarrow Q$ holds if and only if
-$Q$ is obtained from $P$ by resolving a resolvable conflict).
-
-It is easy to derive from Lemma \ref{lem.conflict-resolution-props} the
-following fact:
+We now define $\overset{\ast}{\Rrightarrow}$ to be the
+reflexive-and-transitive closure of the relation $\Rrightarrow$%
+\ \ \ \ \footnote{Explicitly, this means that $\overset{\ast}{\Rrightarrow}$
+is defined as follows: For two elements $P\in\mathbf{S}$ and $Q\in\mathbf{S}$,
+we have $P\overset{\ast}{\Rrightarrow}Q$ if and only if there exists a
+sequence $\left(  a_{0},a_{1},\ldots,a_{n}\right)  $ of elements of
+$\mathbf{S}$ such that $a_{0}=P$ and $a_{n}=Q$ and such that every
+$i\in\left\{  0,1,\ldots,n-1\right\}  $ satisfies $a_{i}\Rrightarrow a_{i+1}%
+$.}. This relation $\overset{\ast}{\Rrightarrow}$ is reflexive and transitive,
+and extends the relation $\Rrightarrow$. If $P\in\mathbf{S}$ and
+$Q\in\mathbf{S}$, then the relation \textquotedblleft$P\overset{\ast
+}{\Rrightarrow}Q$\textquotedblright\ can be interpreted as \textquotedblleft%
+$Q$ can be obtained from $P$ by repeatedly resolving
+descents\textquotedblright\ (because $P\Rrightarrow Q$ holds if and only if
+$Q$ is obtained from $P$ by resolving a descent).
 
 \begin{lemma}
-\label{lem.conflict-resolution-*props}Let $P\in\mathbf{S}$ and $Q\in
-\mathbf{S}$ be such that $P\overset{\ast}{\Rrightarrow}Q$. Then:
+\label{lem.descent-resolution-*props}Let $P\in\mathbf{S}$ and $Q\in\mathbf{S}$
+be such that $P\overset{\ast}{\Rrightarrow}Q$. Then:
 
 \textbf{(a)} We have $\operatorname*{ceq}\left(  Q\right)
 =\operatorname*{ceq}\left(  P\right)  $.
@@ -2956,16 +2282,16 @@ following fact:
 $\operatorname*{flip}\left(  Q\right)  $ have the property that
 $\operatorname*{flip}\left(  Q\right)  \overset{\ast}{\Rrightarrow
 }\operatorname*{flip}\left(  P\right)  $.
+
+\textbf{(d)} We have $\ell\left(  P\right)  \geq\ell\left(  Q\right)  $.
 \end{lemma}
 
 \begin{proof}
-[Proof of Lemma \ref{lem.conflict-resolution-*props}.]Recalling that
+[Proof of Lemma \ref{lem.descent-resolution-*props}.]Recalling that
 $\overset{\ast}{\Rrightarrow}$ is the reflexive-and-transitive closure of the
-relation $\Rrightarrow$, we see that Lemma
-\ref{lem.conflict-resolution-*props} follows by induction using Lemma
-\ref{lem.conflict-resolution-props}.
+relation $\Rrightarrow$, we see that Lemma \ref{lem.descent-resolution-*props}
+follows by induction using Lemma \ref{lem.descent-resolution-props}.
 \end{proof}
-
 
 In Subsection \ref{subsect.fourtypes}, we defined a nonnegative integer
 $\ell\left(  T\right)  $ for every 12-table $T$. In particular, $\ell\left(
@@ -2973,46 +2299,26 @@ T\right)  $ is defined for every $T\in\mathbf{S}$. We thus have a map
 $\ell:\mathbf{S}\rightarrow\mathbb{N}$ which sends every $T\in\mathbf{S}$ to
 $\ell\left(  T\right)  $.
 
-Our goal is now to apply Lemma \ref{lem.diamond} to our set $\mathbf{S}$, our
-map $\ell$ and our relation $\Rrightarrow$. In order to do so, we need to
-check the following fact:
+We now state the following crucial lemma:
 
-\begin{proposition}
-\label{prop.conflict-resolution-hyps}The local confluence hypothesis and the
-length-decrease hypothesis are satisfied for our set $\mathbf{S}$, our map
-$\ell$ and our relation $\Rrightarrow$. (See Lemma \ref{lem.diamond} for the
-statements of these two hypotheses.)
-\end{proposition}
+\begin{lemma}
+\label{prop.descent-resolution-hyps}Let $A$, $B$ and $C$ be three elements of
+$\mathbf{S}$ satisfying $A\Rrightarrow B$ and $A\Rrightarrow C$. Then, there
+exists a $D\in\mathbf{S}$ such that $B\overset{\ast}{\Rrightarrow}D$ and
+$C\overset{\ast}{\Rrightarrow}D$.
+\end{lemma}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.conflict-resolution-hyps}.]The length-decrease
-hypothesis is clearly satisfied (indeed, it is just Lemma
-\ref{lem.conflict-resolution-props} \textbf{(d)}, with $P$ and $Q$ renamed as
-$a$ and $b$). It thus remains only to prove that the local confluence
-hypothesis is satisfied. In other words, it remains to prove that if $a$, $b$
-and $c$ are three elements of $\mathbf{S}$ satisfying $a\Rrightarrow b$ and
-$a\Rrightarrow c$, then there exists a $d\in\mathbf{S}$ such that
-$b\overset{\ast}{\Rrightarrow}d$ and $c\overset{\ast}{\Rrightarrow}d$. Let us
-rename the bound variables $a$, $b$, $c$ and $d$ as $A$, $B$, $C$ and $D$ in
-this sentence. Thus, it remains to prove that if $A$, $B$ and $C$ are three
-elements of $\mathbf{S}$ satisfying $A\Rrightarrow B$ and $A\Rrightarrow C$,
-then there exists a $D\in\mathbf{S}$ such that $B\overset{\ast}{\Rrightarrow
-}D$ and $C\overset{\ast}{\Rrightarrow}D$.
-
-So let $A$, $B$ and $C$ be three elements of $\mathbf{S}$ satisfying
-$A\Rrightarrow B$ and $A\Rrightarrow C$. We need to prove that there exists a
-$D\in\mathbf{S}$ such that $B\overset{\ast}{\Rrightarrow}D$ and
-$C\overset{\ast}{\Rrightarrow}D$. If $B=C$, then we can simply choose $D=B=C$
-and be done with it; thus, we WLOG assume that $B\neq C$.
+[Proof of Lemma \ref{prop.descent-resolution-hyps}.]If $B=C$, then we can
+simply choose $D=B=C$ and be done with it; thus, we WLOG assume that $B\neq C$.
 
 We have $A\Rrightarrow B$. In other words, there exists a $k\in\mathbb{N}_{+}$
 such that $A\underset{k}{\Rrightarrow}B$. Let us denote this $k$ by $u$. Thus,
-$A\underset{u}{\Rrightarrow}B$. In other words, $\left(  u,u+1\right)  $ is a
-conflict of $A$ and we have $B=\operatorname*{res}\nolimits_{u}A$ (due to the
-definition of \textquotedblleft$A\underset{u}{\Rrightarrow}B$%
-\textquotedblright). Similarly, we can find a $v\in\mathbb{N}_{+}$ such that
-$\left(  v,v+1\right)  $ is a conflict of $A$ and we have
-$C=\operatorname*{res}\nolimits_{v}A$. Consider this $v$ as well.
+$A\underset{u}{\Rrightarrow}B$. In other words, $u$ is a descent of $A$ and we
+have $B=\operatorname*{res}\nolimits_{u}A$ (due to the definition of
+\textquotedblleft$A\underset{u}{\Rrightarrow}B$\textquotedblright). Similarly,
+we can find a $v\in\mathbb{N}_{+}$ such that $v$ is a descent of $A$ and we
+have $C=\operatorname*{res}\nolimits_{v}A$. Consider this $v$ as well.
 
 We have $\operatorname*{res}\nolimits_{u}A=B\neq C=\operatorname*{res}%
 \nolimits_{v}A$ and thus $u\neq v$. Hence, either $u<v$ or $u>v$. We WLOG
@@ -3027,55 +2333,52 @@ Let us deal with Case 2 first (since it is the simpler of the two). In this
 case, $u<v-1$, so that $\left\{  u,u+1\right\}  \cap\left\{  v,v+1\right\}
 =\varnothing$.
 
-Now, the operation of resolving the conflict $\left(  u,u+1\right)  $ in $A$
-(that is, the passage from $A$ to $\operatorname*{res}\nolimits_{u}A$) only
-affects the columns $u$ and $u+1$, and thus it preserves the conflict $\left(
-v,v+1\right)  $ (since $\left\{  u,u+1\right\}  \cap\left\{  v,v+1\right\}
-=\varnothing$). Hence, $\operatorname*{res}\nolimits_{v}\left(
-\operatorname*{res}\nolimits_{u}A\right)  $ is well-defined. Similarly,
-$\operatorname*{res}\nolimits_{u}\left(  \operatorname*{res}\nolimits_{v}%
-A\right)  $ is well-defined.
+Now, the operation of resolving the descent $u$ in $A$ (that is, the passage
+from $A$ to $\operatorname*{res}\nolimits_{u}A$) only affects the columns $u$
+and $u+1$, and thus it preserves the descent $v$ (since $\left\{
+u,u+1\right\}  \cap\left\{  v,v+1\right\}  =\varnothing$). Hence,
+$\operatorname*{res}\nolimits_{v}\left(  \operatorname*{res}\nolimits_{u}%
+A\right)  $ is well-defined. Similarly, $\operatorname*{res}\nolimits_{u}%
+\left(  \operatorname*{res}\nolimits_{v}A\right)  $ is well-defined.
 
 Recall again that $\left\{  u,u+1\right\}  \cap\left\{  v,v+1\right\}
-=\varnothing$. Thus, the operation of resolving the conflict $\left(
-u,u+1\right)  $ and the operation of resolving the conflict $\left(
-v,v+1\right)  $ \textquotedblleft do not interact\textquotedblright\ (in the
-sense that the former only changes the columns $u$ and $u+1$, and changes them
-in a way that does not depend on any of the other columns; and similarly for
-the latter). Therefore, the two operations can be applied one after the other
-in any order; the results will be the same. In other words,
-$\operatorname*{res}\nolimits_{u}\left(  \operatorname*{res}\nolimits_{v}%
-A\right)  =\operatorname*{res}\nolimits_{v}\left(  \operatorname*{res}%
-\nolimits_{u}A\right)  $. Now, set $D=\operatorname*{res}\nolimits_{u}\left(
+=\varnothing$. Thus, the operation of resolving the descent $u$ and the
+operation of resolving the descent $v$ \textquotedblleft do not
+interact\textquotedblright\ (in the sense that the former only changes the
+columns $u$ and $u+1$, and changes them in a way that does not depend on any
+of the other columns; and similarly for the latter). Therefore, the two
+operations can be applied one after the other in any order; the results will
+be the same. In other words, $\operatorname*{res}\nolimits_{u}\left(
 \operatorname*{res}\nolimits_{v}A\right)  =\operatorname*{res}\nolimits_{v}%
-\left(  \operatorname*{res}\nolimits_{u}A\right)  $. Then,
-$D=\operatorname*{res}\nolimits_{u}\underbrace{\left(  \operatorname*{res}%
-\nolimits_{v}A\right)  }_{=C}=\operatorname*{res}\nolimits_{u}C$ and thus
-$C\underset{u}{\Rrightarrow}D$, so that $C\Rrightarrow D$, therefore
-$C\overset{\ast}{\Rrightarrow}D$. Similarly, $B\overset{\ast}{\Rrightarrow}D$.
-Hence, we have found a $D\in\mathbf{S}$ such that $B\overset{\ast
-}{\Rrightarrow}D$ and $C\overset{\ast}{\Rrightarrow}D$. This completes the
-proof of the local confluence hypothesis in Case 2.
+\left(  \operatorname*{res}\nolimits_{u}A\right)  $. Now, set
+$D=\operatorname*{res}\nolimits_{u}\left(  \operatorname*{res}\nolimits_{v}%
+A\right)  =\operatorname*{res}\nolimits_{v}\left(  \operatorname*{res}%
+\nolimits_{u}A\right)  $. Then, $D=\operatorname*{res}\nolimits_{u}%
+\underbrace{\left(  \operatorname*{res}\nolimits_{v}A\right)  }_{=C}%
+=\operatorname*{res}\nolimits_{u}C$ and thus $C\underset{u}{\Rrightarrow}D$,
+so that $C\Rrightarrow D$, therefore $C\overset{\ast}{\Rrightarrow}D$.
+Similarly, $B\overset{\ast}{\Rrightarrow}D$. Hence, we have found a
+$D\in\mathbf{S}$ such that $B\overset{\ast}{\Rrightarrow}D$ and
+$C\overset{\ast}{\Rrightarrow}D$. This completes the proof of Lemma
+\ref{prop.descent-resolution-hyps} in Case 2.
 
-Now, let us consider Case 1. In this case, $u=v-1$. Hence, $\left(
-v-1,v\right)  $ is a conflict of $A$ (since $\left(  u,u+1\right)  $ is a
-conflict of $A$), and we have $B=\operatorname*{res}\nolimits_{u}%
-A=\operatorname*{res}\nolimits_{v-1}A$ (since $u=v-1$).
+Now, let us consider Case 1. In this case, $u=v-1$. Hence, $v-1$ is a descent
+of $A$ (since $u$ is a descent of $A$), and we have $B=\operatorname*{res}%
+\nolimits_{u}A=\operatorname*{res}\nolimits_{v-1}A$ (since $u=v-1$).
 
-The $v$-th column of $A$ must contain a $1$ (since $\left(  v-1,v\right)  $ is
-a conflict of $A$) and a $2$ (since $\left(  v,v+1\right)  $ is a conflict of
-$A$). Hence, the $v$-th column of $A$ is mixed. The $\left(  v-1\right)  $-th
-column of $A$ is 2-pure\footnote{\textit{Proof.} Assume the contrary. Then,
-the $\left(  v-1\right)  $-th column of $A$ contains a $2$ (because $\left(
-v-1,v\right)  $ is a conflict of $A$) but is not 2-pure. Hence, this column is
-mixed. But $A$ is benign. In other words, there exists no conflict $\left(
-i,j\right)  $ of $A$ such that the $i$-th column of $A$ and the $j$-th column
-of $A$ both are mixed. This flies in the face of the fact that $\left(
-v-1,v\right)  $ is exactly such a conflict (since both the $\left(
-v-1\right)  $-th and the $v$-th columns of $A$ are mixed). This contradiction
-proves that our assumption was wrong, qed.}, and the $\left(  v+1\right)  $-th
-column of $A$ is 1-pure\footnote{This follows similarly.}. We can thus
-semiotically represent the 12-table $A$ as follows:%
+The $v$-th column of $A$ must contain a $1$ (since $v-1$ is a descent of $A$)
+and a $2$ (since $v$ is a descent of $A$). Hence, the $v$-th column of $A$ is
+mixed. The $\left(  v-1\right)  $-th column of $A$ is
+2-pure\footnote{\textit{Proof.} Assume the contrary. Then, the $\left(
+v-1\right)  $-th column of $A$ contains a $2$ (because $v-1$ is a descent of
+$A$) but is not 2-pure. Hence, this column is mixed. But $A$ is benign. Hence,
+(\ref{eq.benign.not-both-mixed}) (applied to $T=A$) yields that there exists
+no descent $k$ of $A$ such that both the $k$-th column of $A$ and the $\left(
+k+1\right)  $-th column of $A$ are mixed. But $v-1$ is such a descent (since
+both the $\left(  v-1\right)  $-th and the $v$-th columns of $A$ are mixed).
+This contradiction proves that our assumption was wrong, qed.}, and the
+$\left(  v+1\right)  $-th column of $A$ is 1-pure\footnote{This follows
+similarly.}. We can thus semiotically represent the 12-table $A$ as follows:%
 \begin{equation}
 A=%
 %TCIMACRO{\TeXButton{tabular}{\begin{tabular}{ccc}
@@ -3106,7 +2409,7 @@ A=%
 \cline{1-1}
 \end{tabular}%
 %EndExpansion
-. \label{pf.prop.conflict-resolution.hyps.short.A}%
+. \label{pf.prop.descent-resolution.hyps.short.A}%
 \end{equation}
 In this representation, we only draw the $\left(  v-1\right)  $-th, the $v$-th
 and the $\left(  v+1\right)  $-th columns (since the remaining columns are
@@ -3122,26 +2425,26 @@ Let $s=\operatorname*{sep}\nolimits_{v}A$. Then, $\left(  s,v\right)  $ and
 $\left(  s+1,v\right)  $ belong to $Z$ and satisfy $A\left(  s,v\right)  =1$
 and $A\left(  s+1,v\right)  =2$ (by the definition of $\operatorname*{sep}%
 \nolimits_{v}A$). Also, $\left(  s,v-1\right)  $ must belong to $Z$%
-\ \ \ \ \footnote{\textit{Proof.} We know that $\left(  v-1,v\right)  $ is a
-conflict of $A$. Hence, there exists an $r\in\mathbb{N}_{+}$ such that
-$\left(  r,v-1\right)  \in Z$, $\left(  r,v\right)  \in Z$, $A\left(
-r,v-1\right)  =2$ and $A\left(  r,v\right)  =1$. Consider this $r$. If we had
-$s+1\leq r$, then we would have $A\left(  s+1,v\right)  \leq A\left(
-r,v\right)  $ (since the entries of $A$ are weakly decreasing down columns),
-which would contradict $A\left(  r,v\right)  =1<2=A\left(  s+1,v\right)  $.
-Therefore, we cannot have $s+1\leq r$. Hence, $r<s+1$, so that $r\leq s$.
-Hence, (\ref{eq.convex}) (applied to $r$, $s$, $s$, $v-1$, $v-1$ and $v$
-instead of $i$, $i^{\prime}$, $i^{\prime\prime}$, $j$, $j^{\prime}$ and
-$j^{\prime\prime}$) yields $\left(  s,v-1\right)  \in Z$, qed.}. Hence,
-$\left(  s+1,v-1\right)  $ must belong to $Z$ as well\footnote{by
-(\ref{eq.convex}) (applied to $s$, $s+1$, $s+1$, $v-1$, $v-1$ and $v$ instead
-of $i$, $i^{\prime}$, $i^{\prime\prime}$, $j$, $j^{\prime}$ and $j^{\prime
-\prime}$)}. Similarly, $\left(  s+1,v+1\right)  $ and $\left(  s,v+1\right)  $
-belong to $Z$. Altogether, we thus know that all six squares $\left(
-s,v\right)  $, $\left(  s+1,v\right)  $, $\left(  s,v-1\right)  $, $\left(
-s+1,v-1\right)  $, $\left(  s+1,v+1\right)  $ and $\left(  s,v+1\right)  $
-belong to $Z$. We shall denote these six squares as the \textquotedblleft core
-squares\textquotedblright. The restriction of $A$ to the core squares is $%
+\ \ \ \ \footnote{\textit{Proof.} We know that $v-1$ is a descent of $A$.
+Hence, there exists an $r\in\mathbb{N}_{+}$ such that $\left(  r,v-1\right)
+\in Z$, $\left(  r,v\right)  \in Z$, $A\left(  r,v-1\right)  =2$ and $A\left(
+r,v\right)  =1$. Consider this $r$. If we had $s+1\leq r$, then we would have
+$A\left(  s+1,v\right)  \leq A\left(  r,v\right)  $ (since the entries of $A$
+are weakly decreasing down columns), which would contradict $A\left(
+r,v\right)  =1<2=A\left(  s+1,v\right)  $. Therefore, we cannot have $s+1\leq
+r$. Hence, $r<s+1$, so that $r\leq s$. Hence, (\ref{eq.convex}) (applied to
+$r$, $s$, $s$, $v-1$, $v-1$ and $v$ instead of $i$, $i^{\prime}$,
+$i^{\prime\prime}$, $j$, $j^{\prime}$ and $j^{\prime\prime}$) yields $\left(
+s,v-1\right)  \in Z$, qed.}. Hence, $\left(  s+1,v-1\right)  $ must belong to
+$Z$ as well\footnote{by (\ref{eq.convex}) (applied to $s$, $s+1$, $s+1$,
+$v-1$, $v-1$ and $v$ instead of $i$, $i^{\prime}$, $i^{\prime\prime}$, $j$,
+$j^{\prime}$ and $j^{\prime\prime}$)}. Similarly, $\left(  s+1,v+1\right)  $
+and $\left(  s,v+1\right)  $ belong to $Z$. Altogether, we thus know that all
+six squares $\left(  s,v\right)  $, $\left(  s+1,v\right)  $, $\left(
+s,v-1\right)  $, $\left(  s+1,v-1\right)  $, $\left(  s+1,v+1\right)  $ and
+$\left(  s,v+1\right)  $ belong to $Z$. We shall denote these six squares as
+the \textquotedblleft core squares\textquotedblright. The restriction of $A$
+to the core squares is $%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %2 & 1 & 1 \\
@@ -3161,9 +2464,9 @@ the $\left(  v-1\right)  $-th column of $A$ is 2-pure); and the two core
 squares in the $\left(  v+1\right)  $-th column have entries $1$ (since the
 $\left(  v+1\right)  $-th column of $A$ is 1-pure).}.
 
-Now, $A$ has $\left(  v-1\right)  $-type 2M, and resolving the conflict
-$\left(  v-1,v\right)  $ of $A$ yields $\operatorname*{res}\nolimits_{v-1}%
-A=B$. Hence, $B$ is represented semiotically as follows:%
+Now, $A$ has $\left(  v-1\right)  $-type 2M, and resolving the descent $v-1$
+of $A$ yields $\operatorname*{res}\nolimits_{v-1}A=B$. Hence, $B$ is
+represented semiotically as follows:%
 \[
 B=%
 %TCIMACRO{\TeXButton{tabular}{\begin{tabular}{ccc}
@@ -3209,10 +2512,9 @@ and the restriction of $B$ to the core squares is $%
 2 & 2 & 1
 \end{ytableau}%
 %EndExpansion
-$. This shows that $\left(  v,v+1\right)  $ is a conflict of $B$, and that $B$
-has $v$-type 21. Hence, resolving this conflict in $B$ yields a 12-table
-$\operatorname*{res}\nolimits_{v}B$ which is represented semiotically as
-follows:%
+$. This shows that $v$ is a descent of $B$, and that $B$ has $v$-type 21.
+Hence, resolving this descent in $B$ yields a 12-table $\operatorname*{res}%
+\nolimits_{v}B$ which is represented semiotically as follows:%
 \[
 \operatorname*{res}\nolimits_{v}B=%
 %TCIMACRO{\TeXButton{tabular}{\begin{tabular}{ccc}
@@ -3259,12 +2561,12 @@ is $%
 2 & 1 & 2
 \end{ytableau}%
 %EndExpansion
-$. This, in turn, shows that $\left(  v-1,v\right)  $ is a conflict of
-$\operatorname*{res}\nolimits_{v}B$, and that $\operatorname*{res}%
-\nolimits_{v}B$ has $\left(  v-1\right)  $-type M1. Thus, resolving this
-conflict in $\operatorname*{res}\nolimits_{v}B$ yields a 12-table
-$\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
-B\right)  $ which is represented semiotically as follows:%
+$. This, in turn, shows that $v-1$ is a descent of $\operatorname*{res}%
+\nolimits_{v}B$, and that $\operatorname*{res}\nolimits_{v}B$ has $\left(
+v-1\right)  $-type M1. Thus, resolving this descent in $\operatorname*{res}%
+\nolimits_{v}B$ yields a 12-table $\operatorname*{res}\nolimits_{v-1}\left(
+\operatorname*{res}\nolimits_{v}B\right)  $ which is represented semiotically
+as follows:%
 \begin{equation}
 \operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
 B\right)  =%
@@ -3296,7 +2598,7 @@ B\right)  =%
 \cline{1-1}
 \end{tabular}%
 %EndExpansion
-, \label{pf.prop.conflict-resolution.hyps.short.D}%
+, \label{pf.prop.descent-resolution.hyps.short.D}%
 \end{equation}
 and the restriction of $\operatorname*{res}\nolimits_{v-1}\left(
 \operatorname*{res}\nolimits_{v}B\right)  $ to the core squares is $%
@@ -3314,15 +2616,14 @@ and the restriction of $\operatorname*{res}\nolimits_{v-1}\left(
 %EndExpansion
 $.
 
-On the other hand, $A$ has $v$-type M1. Resolving the conflict $\left(
-v,v+1\right)  $ of $A$ yields $\operatorname*{res}\nolimits_{v}A=C$. Thus, we
-can represent $C$ semiotically and find its restriction to the core squares.
-This shows us that $C$ has $\left(  v-1,v\right)  $ as a conflict and has
-$\left(  v-1\right)  $-type 21. Resolving this conflict yields a 12-table
-$\operatorname*{res}\nolimits_{v-1}C$ which we can again represent
-semiotically and find its restriction to the core squares. Doing this, we
-observe that $\operatorname*{res}\nolimits_{v-1}C$ has $\left(  v,v+1\right)
-$ as a conflict and has $v$-type 2M. Resolving this conflict yields a 12-table
+On the other hand, $A$ has $v$-type M1. Resolving the descent $v$ of $A$
+yields $\operatorname*{res}\nolimits_{v}A=C$. Thus, we can represent $C$
+semiotically and find its restriction to the core squares. This shows us that
+$C$ has $v-1$ as a descent and has $\left(  v-1\right)  $-type 21. Resolving
+this descent yields a 12-table $\operatorname*{res}\nolimits_{v-1}C$ which we
+can again represent semiotically and find its restriction to the core squares.
+Doing this, we observe that $\operatorname*{res}\nolimits_{v-1}C$ has $v$ as a
+descent and has $v$-type 2M. Resolving this descent yields a 12-table
 $\operatorname*{res}\nolimits_{v}\left(  \operatorname*{res}\nolimits_{v-1}%
 C\right)  $ whose semiotic representation and restriction to the core squares
 can again be found. We leave the details of this argument to the reader, but
@@ -3346,7 +2647,7 @@ changes under $\operatorname*{res}\nolimits_{v}$ or $\operatorname*{res}%
 \par
 For $h=v-1$, this is again obvious (because the semiotic representation of
 $\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
-B\right)  $ given in (\ref{pf.prop.conflict-resolution.hyps.short.D}) shows
+B\right)  $ given in (\ref{pf.prop.descent-resolution.hyps.short.D}) shows
 that the $\left(  v-1\right)  $-th column of $\operatorname*{res}%
 \nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}B\right)  $ is 1-pure,
 and the same can be said of the $\left(  v-1\right)  $-th column of
@@ -3355,7 +2656,7 @@ C\right)  $).
 \par
 For $h=v+1$, this is also obvious (because the semiotic representation of
 $\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
-B\right)  $ given in (\ref{pf.prop.conflict-resolution.hyps.short.D}) shows
+B\right)  $ given in (\ref{pf.prop.descent-resolution.hyps.short.D}) shows
 that the $\left(  v+1\right)  $-th column of $\operatorname*{res}%
 \nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}B\right)  $ is 2-pure,
 and the same can be said of the $\left(  v+1\right)  $-th column of
@@ -3368,7 +2669,7 @@ to prove that the $v$-th column of $\operatorname*{res}\nolimits_{v}\left(
 $\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
 B\right)  $.
 \par
-We know from (\ref{pf.prop.conflict-resolution.hyps.short.D}) that the $v$-th
+We know from (\ref{pf.prop.descent-resolution.hyps.short.D}) that the $v$-th
 column of $\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}%
 \nolimits_{v}B\right)  $ is mixed. Moreover, the restriction of
 $\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
@@ -3414,109 +2715,175 @@ words, $C\overset{\ast}{\Rrightarrow}D$ (since $D=\operatorname*{res}%
 \nolimits_{v}\left(  \operatorname*{res}\nolimits_{v-1}C\right)  $).
 Similarly, $B\overset{\ast}{\Rrightarrow}D$. Thus, we have found a
 $D\in\mathbf{S}$ such that $B\overset{\ast}{\Rrightarrow}D$ and
-$C\overset{\ast}{\Rrightarrow}D$. This completes the proof of the local
-confluence hypothesis in Case 1.
-
-Now, the local confluence hypothesis is proven (since we have shown it in both
-Cases 1 and 2), and with it, Proposition \ref{prop.conflict-resolution-hyps}.
+$C\overset{\ast}{\Rrightarrow}D$. This completes the proof of Lemma
+\ref{prop.descent-resolution-hyps} in Case 1.
 \end{proof}
-
-
-Now, let us define the notion of a \textquotedblleft final\textquotedblright%
-\ element of $\mathbf{S}$ as in Lemma \ref{lem.diamond}. Then, the following
-is almost obvious:
-
-\begin{proposition}
-\label{prop.finality}Let $P\in\mathbf{S}$. Then, the element $P$ of
-$\mathbf{S}$ is final if and only if $P$ is a 12-rpp.
-\end{proposition}
-
-\begin{proof}
-[Proof of Proposition \ref{prop.finality}.]Let us first assume that $P$ is
-final. We shall show that $P$ is a 12-rpp.
-
-Indeed, assume the contrary. Then, $P$ is not a 12-rpp. But $P$ is an element
-of $\mathbf{S}$, thus a benign 12-table. The entries of $P$ are weakly
-increasing down columns (since $P$ is a 12-table). Thus, the entries of $P$
-are not weakly increasing along rows (because otherwise, $P$ would be a
-12-rpp). In other words, there exists an $r\in\mathbb{N}_{+}$ such that the
-$r$-th row of $P$ is not weakly increasing. Consider this $r$. The $r$-th row
-of $P$ is not weakly increasing; hence, there exist two adjacent entries of
-this row such that the left one is larger than the right one. In other words,
-there exists a $k\in\mathbb{N}_{+}$ such that $\left(  r,k\right)  \in Z$,
-$\left(  r,k+1\right)  \in Z$ and $P\left(  r,k\right)  >P\left(
-r,k+1\right)  $. Consider this $k$. Both $P\left(  r,k\right)  $ and $P\left(
-r,k+1\right)  $ belong to $\left\{  1,2\right\}  $. Hence, from $P\left(
-r,k\right)  >P\left(  r,k+1\right)  $, we obtain $P\left(  r,k\right)  =2$ and
-$P\left(  r,k+1\right)  =1$. Therefore, $\left(  k,k+1\right)  $ is a conflict
-of $P$ (due to the definition of a \textquotedblleft
-conflict\textquotedblright). Consequently, $\operatorname*{res}\nolimits_{k}P$
-is well-defined, and we have $P\underset{k}{\Rrightarrow}\operatorname*{res}%
-\nolimits_{k}P$ (due to the definition of \textquotedblleft%
-$P\underset{k}{\Rrightarrow}\operatorname*{res}\nolimits_{k}P$%
-\textquotedblright), so that $P\Rrightarrow\operatorname*{res}\nolimits_{k}P$
-(due to the definition of the relation $\Rrightarrow$).
-
-But recall that $P$ is final. In other words, there exists no $b\in\mathbf{S}$
-satisfying $P\Rrightarrow b$ (according to the definition of \textquotedblleft
-final\textquotedblright). This contradicts the fact that $\operatorname*{res}%
-\nolimits_{k}P$ is such a $b$ (since $P\Rrightarrow\operatorname*{res}%
-\nolimits_{k}P$ and $\operatorname*{res}\nolimits_{k}P\in\mathbf{S}$). This
-contradiction proves that our assumption was wrong. So we have shown that $P$
-is a 12-rpp.
-
-Now, let us forget that we assumed that $P$ is final. Thus, we have proven
-that if $P$ is final, then $P$ is a 12-rpp. It remains to prove the converse.
-In other words, it remains to prove that if $P$ is a 12-rpp, then $P$ is final.
-
-So let us assume that $P$ is a 12-rpp. Let $b\in\mathbf{S}$ be such that
-$P\Rrightarrow b$. Then, there exists a $k\in\mathbb{N}_{+}$ such that
-$P\underset{k}{\Rrightarrow}b$ (by the definition of the relation
-$\Rrightarrow$). Consider this $k$. We have $P\underset{k}{\Rrightarrow}b$. In
-other words, $\left(  k,k+1\right)  $ is a conflict of $P$ and we have
-$b=\operatorname*{res}\nolimits_{k}P$. But $P$ is a 12-rpp of shape $Z$, and
-thus has no conflicts (since a 12-rpp of shape $Z$ is the same as a 12-table
-which has no conflicts). So $\left(  k,k+1\right)  $ is a conflict of $P$, but
-$P$ has no conflicts. This is a contradiction.
-
-Now, let us forget that we fixed $b$. We thus have found a contradiction for
-every $b\in\mathbf{S}$ satisfying $P\Rrightarrow b$. Hence, there exists no
-$b\in\mathbf{S}$ satisfying $P\Rrightarrow b$. In other words, $P$ is final
-(according to the definition of \textquotedblleft final\textquotedblright).
-This completes our proof of Proposition \ref{prop.finality}.
-\end{proof}
-
 
 \subsection{The normalization map}
+
+The following proposition is the most important piece in our puzzle:
+
+\begin{proposition}
+\label{prop.BK.norm}For every $T\in\mathbf{S}$, there exists a unique
+$N\in\mathbf{R}$ such that $T\overset{\ast}{\Rrightarrow}N$.
+\end{proposition}
+
+Before we come to the proof of this proposition, let us translate it into
+words in order to illuminate its meaning. Recall that $\mathbf{R}$ is the set
+of all 12-rpps (of shape $Z$), that $\mathbf{S}$ is the set of all benign
+12-tables, and that the relation \textquotedblleft$P\overset{\ast
+}{\Rrightarrow}Q$\textquotedblright\ can be interpreted as \textquotedblleft%
+$Q$ can be obtained from $P$ by repeatedly resolving
+descents\textquotedblright. Hence, Proposition \ref{prop.BK.norm} says that,
+for every benign 12-table $T$, there exists a unique 12-rpp $N$ which can be
+obtained from $T$ by repeatedly resolving descents. We can actually make a
+slightly stronger claim\footnote{which will fall out of the proof of
+Proposition \ref{prop.BK.norm} given below}: If we start with a 12-table $T$
+and repeatedly resolve descents until no more descents remain, then the
+process of resolving descents eventually stops\footnote{This is fairly clear:
+Every time we resolve a descent, the nonnegative integer $\ell\left(
+T\right)  $ decreases (due to (\ref{pf.lem.BK.res.lendec})); but a nonnegative
+integer cannot keep decreasing forever.}, and the result is a 12-rpp, which is
+independent of the choices made in the process (the choices of what descents
+we resolve). This is actually a familiar instance of what is called
+\textit{confluence} of a rewriting system, and our proof uses a tactic known
+as \textquotedblleft diamond lemma\textquotedblright\ or \textquotedblleft
+Newman lemma\textquotedblright\ (see, e.g., \cite{BezCoq}, or \cite[Lemma
+2.7.2 + Fact 2.1.7]{BaaNip98}); however, the tactic is simple enough that we
+found it easier to integrate it into the proof rather than state it as a lemma.
+
+\begin{proof}
+[Proof of Proposition \ref{prop.BK.norm}.] For every $T\in\mathbf{S}$, let
+$\operatorname*{Norm}\left(  T\right)  $ denote the set%
+\[
+\left\{  N\in\mathbf{R}\ \mid\ T\overset{\ast}{\Rrightarrow}N\right\}  .
+\]
+Thus, in order to prove Proposition \ref{prop.BK.norm}, it is clearly enough
+to show that, for every $T\in\mathbf{S}$, this set $\operatorname*{Norm}%
+\left(  T\right)  $ is a one-element set.
+
+We shall prove this by strong induction on $\ell\left(  T\right)  $. So we fix
+some $T\in\mathbf{S}$, and we assume that we already know that
+\begin{equation}
+\operatorname*{Norm}\left(  S\right)  \text{ is a one-element set for every
+}S\in\mathbf{S}\text{ satisfying }\ell\left(  S\right)  <\ell\left(  T\right)
+\text{.}\label{pf.prop.BK.norm.indhyp}%
+\end{equation}
+We then need to prove that $\operatorname*{Norm}\left(  T\right)  $ is a
+one-element set.
+
+Let $\mathbf{Z}$ denote the set $\left\{  S\in\mathbf{S}\ \mid\ T\Rrightarrow
+S\right\}  $. In other words, $\mathbf{Z}$ is the set of all benign 12-tables
+$S$ which can be obtained from $T$ by resolving one single descent. If
+$\mathbf{Z}$ is empty, then we are done\footnote{\textit{Proof.} Assume that
+$\mathbf{Z}$ is empty. Thus, the benign 12-table $S$ has no descent (since any
+descent could be resolved and then would yield a 12-table in $\mathbf{Z}$). In
+other words, $S$ is a 12-rpp (since a 12-rpp of shape $Z$ is the same as a
+12-table which has no descents). In other words, $S\in\mathbf{R}$. Hence, the
+set $\operatorname*{Norm}\left(  T\right)  =\left\{  N\in\mathbf{R}%
+\ \mid\ T\overset{\ast}{\Rrightarrow}N\right\}  $ has \textbf{at least} one
+element (namely, $S$). This set also clearly has \textbf{at most} one element
+(since $S$ has no descent, and thus the only 12-table that can be obtained
+from $S$ by resolving descents is $S$ itself). Hence, this set has exactly one
+element. In other words, $\operatorname*{Norm}\left(  T\right)  $ is a
+one-element set. This is exactly what we wanted to prove.}. Hence, we WLOG
+assume that $\mathbf{Z}$ is nonempty. Therefore, the 12-table $T$ has at least
+one descent. Consequently, $T$ is not a 12-rpp\footnote{since a 12-rpp of
+shape $Z$ is the same as a 12-table which has no descents}. In other words,
+$T\notin\mathbf{R}$.
+
+Now, we recall that $\overset{\ast}{\Rrightarrow}$ is the
+reflexive-and-transitive closure of $\Rrightarrow$. Hence,%
+\[
+\left\{  N\in\mathbf{S}\ \mid\ T\overset{\ast}{\Rrightarrow}N\right\}
+=\left\{  T\right\}  \cup\bigcup_{Z\in\mathbf{Z}}\left\{  N\in\mathbf{S}%
+\ \mid\ Z\overset{\ast}{\Rrightarrow}N\right\}  .
+\]
+Intersecting both sides of this identity with the set $\mathbf{R}$, we obtin%
+\begin{align*}
+\left\{  N\in\mathbf{R}\ \mid\ T\overset{\ast}{\Rrightarrow}N\right\}    &
+=\underbrace{\left(  \left\{  T\right\}  \cap\mathbf{R}\right)  }%
+_{\substack{=\varnothing\\\text{(since }T\notin\mathbf{R}\text{)}}}\cup
+\bigcup_{Z\in\mathbf{Z}}\underbrace{\left\{  N\in\mathbf{R}\ \mid
+\ Z\overset{\ast}{\Rrightarrow}N\right\}  }_{\substack{=\operatorname*{Norm}%
+\left(  Z\right)  \\\text{(by the definition of }\operatorname*{Norm}\left(
+Z\right)  \text{)}}}\\
+& =\bigcup_{Z\in\mathbf{Z}}\operatorname*{Norm}\left(  Z\right)  .
+\end{align*}
+Thus,
+\begin{equation}
+\operatorname*{Norm}\left(  T\right)  =\left\{  N\in\mathbf{R}\ \mid
+\ T\overset{\ast}{\Rrightarrow}N\right\}  =\bigcup_{Z\in\mathbf{Z}%
+}\operatorname*{Norm}\left(  Z\right)  .\label{pf.prop.BK.norm.union}%
+\end{equation}
+
+
+Let us now notice that:
+
+\begin{itemize}
+\item For every $Z\in\mathbf{Z}$, the set $\operatorname*{Norm}\left(
+Z\right)  $ is a one-element set\footnote{\textit{Proof.} Let $Z\in\mathbf{Z}%
+$. Then, $Z\in\mathbf{Z}=\left\{  S\in\mathbf{S}\ \mid\ T\Rrightarrow
+S\right\}  $, so that $T\Rrightarrow Z$. Lemma
+\ref{lem.descent-resolution-props} \textbf{(d)} (applied to $P=T$ and $Q=Z$)
+thus yields $\ell\left(  T\right)  >\ell\left(  Z\right)  $. Hence,
+(\ref{pf.prop.BK.norm.indhyp}) (applied to $S=Z$) yields that
+$\operatorname*{Norm}\left(  Z\right)  $ is a one-element set, qed.}.
+
+\item For every $B\in\mathbf{Z}$ and $C\in\mathbf{Z}$, we have
+$\operatorname*{Norm}\left(  B\right)  \cap\operatorname*{Norm}\left(
+C\right)  \neq\varnothing$\ \ \ \ \footnote{\textit{Proof.} Let $B\in
+\mathbf{Z}$ and $C\in\mathbf{Z}$. We have $B\in\mathbf{Z}=\left\{
+S\in\mathbf{S}\ \mid\ T\Rrightarrow S\right\}  $, so that $T\Rrightarrow B$.
+Lemma \ref{lem.descent-resolution-props} \textbf{(d)} (applied to $P=T$ and
+$Q=B$) thus yields $\ell\left(  T\right)  >\ell\left(  B\right)  $.
+\par
+We have $T\Rrightarrow C$ (similarly to $T\Rrightarrow B$). Hence, Lemma
+\ref{prop.descent-resolution-hyps} (applied to $A=T$) yields that there exists
+a $D\in\mathbf{S}$ such that $B\overset{\ast}{\Rrightarrow}D$ and
+$C\overset{\ast}{\Rrightarrow}D$. Consider this $D$. Lemma
+\ref{lem.descent-resolution-*props} \textbf{(d)} (applied to $P=B$ and $Q=D$)
+yields $\ell\left(  B\right)  \geq\ell\left(  D\right)  $. Thus, $\ell\left(
+T\right)  >\ell\left(  B\right)  \geq\ell\left(  D\right)  $. Hence,
+$\operatorname*{Norm}\left(  D\right)  $ is a one-element set (by
+(\ref{pf.prop.BK.norm.indhyp}), applied to $S=D$).
+\par
+But $B\overset{\ast}{\Rrightarrow}D$. Thus, every $N\in\mathbf{R}$ satisfying
+$D\overset{\ast}{\Rrightarrow}N$ also satisfies $B\overset{\ast}{\Rrightarrow
+}N$ (since the relation $\overset{\ast}{\Rrightarrow}$ is transitive). In
+other words, every element of $\operatorname*{Norm}\left(  D\right)  $ is also
+an element of $\operatorname*{Norm}\left(  B\right)  $. In other words,
+$\operatorname*{Norm}\left(  D\right)  \subseteq\operatorname*{Norm}\left(
+B\right)  $. Similarly, $\operatorname*{Norm}\left(  D\right)  \subseteq
+\operatorname*{Norm}\left(  C\right)  $. Hence, $\operatorname*{Norm}\left(
+D\right)  \subseteq\operatorname*{Norm}\left(  B\right)  \cap
+\operatorname*{Norm}\left(  C\right)  $. Hence, $\operatorname*{Norm}\left(
+B\right)  \cap\operatorname*{Norm}\left(  C\right)  \neq\varnothing$ (since
+$\operatorname*{Norm}\left(  D\right)  $ is a one-element set), qed.}.
+\end{itemize}
+
+Hence, (\ref{pf.prop.BK.norm.union}) shows that $\operatorname*{Norm}\left(
+T\right)  $ is a union of one-element sets, any two of which have a nonempty
+intersection (i.e., are identical, because they are one-element sets).
+Moreover, this union is nonempty (since $\mathbf{Z}$ is nonempty). Hence,
+$\operatorname*{Norm}\left(  T\right)  $ itself is a one-element set. This
+completes our induction.
+\end{proof}
 
 \begin{definition}
 We now define a map $\operatorname*{norm}:\mathbf{S}\rightarrow\mathbf{R}$ as follows:
 
-Let $T\in\mathbf{S}$. Proposition \ref{prop.conflict-resolution-hyps} shows
-that the local confluence hypothesis and the length-decrease hypothesis are
-satisfied for our set $\mathbf{S}$, our map $\ell$ and our relation
-$\Rrightarrow$. Thus, Lemma \ref{lem.diamond} shows that for every
-$a\in\mathbf{S}$, there exists a unique final element $b\in\mathbf{S}$ such
-that $a\overset{\ast}{\Rrightarrow}b$. Applying this to $a=T$, we conclude
-that there exists a unique final element $b\in\mathbf{S}$ such that
-$T\overset{\ast}{\Rrightarrow}b$. Denote this $b$ by $P$. Then, $P$ is a final
-element of $\mathbf{S}$ and satisfies $T\overset{\ast}{\Rrightarrow}P$. But
-Proposition \ref{prop.finality} shows that $P$ is final if and only if $P$ is
-a 12-rpp. Hence, $P$ is a 12-rpp (since $P$ is final). In other words,
-$P\in\mathbf{R}$ (since $\mathbf{R}$ is the set of all 12-rpps). We define
-$\operatorname*{norm}\left(  T\right)  $ to be $P$.
+Let $T\in\mathbf{S}$. Proposition \ref{prop.BK.norm} shows that there exists a
+unique $N\in\mathbf{R}$ such that $T\overset{\ast}{\Rrightarrow}N$. We define
+$\operatorname*{norm}\left(  T\right)  $ to be this $N$.
 
-Thus, for every $T\in\mathbf{S}$, we have defined $\operatorname*{norm}\left(
-T\right)  $ to be the unique final element $b\in\mathbf{S}$ such that
-$T\overset{\ast}{\Rrightarrow}b$. As a consequence, for every $T\in\mathbf{S}%
-$, we have
+Thus, the map $\operatorname*{norm}:\mathbf{S}\rightarrow\mathbf{R}$ is
+defined, and satisfies
 \begin{equation}
-T\overset{\ast}{\Rrightarrow}\operatorname*{norm}\left(  T\right)  .
-\label{pf.lem.BK.norm.=>}%
+T\overset{\ast}{\Rrightarrow}\operatorname*{norm}\left(  T\right)
+\ \ \ \ \ \ \ \ \ \ \text{for every }T\in\mathbf{S}.\label{pf.lem.BK.norm.=>}%
 \end{equation}
 
-
-Thus, the map $\operatorname*{norm}:\mathbf{S}\rightarrow\mathbf{R}$ is defined.
 \end{definition}
 
 \begin{example}
@@ -3544,21 +2911,21 @@ T=%
 %EndExpansion
 .
 \]
-Then, $\operatorname*{norm}\left(  T\right)  $ is the unique final element
-$b\in\mathbf{S}$ such that $T\overset{\ast}{\Rrightarrow}b$. Thus, we can
-obtain $\operatorname*{norm}\left(  T\right)  $ from $T$ by repeatedly
-resolving conflicts until no more conflicts are left (because
-\textquotedblleft$T\overset{\ast}{\Rrightarrow}b$\textquotedblright\ means
-\textquotedblleft$b$ can be obtained from $T$ by repeatedly resolving
-conflicts\textquotedblright). The word \textquotedblleft
+Then, $\operatorname*{norm}\left(  T\right)  $ is the unique $N\in\mathbf{R}$
+such that $T\overset{\ast}{\Rrightarrow}N$. Thus, we can obtain
+$\operatorname*{norm}\left(  T\right)  $ from $T$ by repeatedly resolving
+descents until no more descents are left (because \textquotedblleft%
+$T\overset{\ast}{\Rrightarrow}N$\textquotedblright\ means \textquotedblleft$N$
+can be obtained from $T$ by repeatedly resolving descents\textquotedblright,
+and \textquotedblleft$N\in\mathbf{R}$\textquotedblright\ is equivalent to the
+statement that $N$ has no descents). The word \textquotedblleft
 unique\textquotedblright\ here implies that, in whatever order we resolve
-conflicts, the result will always be the same. And the procedure will
+descents, the result will always be the same. And the procedure will
 eventually come to an end because the nonnegative integer $\ell\left(
-T\right)  $ decreases every time we resolve a conflict in $T$ (by Lemma
-\ref{lem.conflict-resolution-props} \textbf{(d)}).
+T\right)  $ decreases every time we resolve a descent in $T$ (by Lemma
+\ref{lem.descent-resolution-props} \textbf{(d)}).
 
-Let us first resolve the conflict $\left(  2,3\right)  $ in $T$. This gives us
-the 12-table%
+Let us first resolve the descent $2$ in $T$. This gives us the 12-table%
 \[
 \operatorname*{res}\nolimits_{2}T=%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
@@ -3582,8 +2949,8 @@ the 12-table%
 .
 \]
 (In fact, we have seen this in Example \ref{exa.resolve.short} already, but we
-denoted the 12-table by $P$ there.) Next, resolving the conflict $\left(
-4,5\right)  $ in $\operatorname*{res}\nolimits_{2}T$, we obtain the 12-table%
+denoted the 12-table by $P$ there.) Next, resolving the descent $4$ in
+$\operatorname*{res}\nolimits_{2}T$, we obtain the 12-table%
 \[
 \operatorname*{res}\nolimits_{4}\left(  \operatorname*{res}\nolimits_{2}%
 T\right)  =%
@@ -3607,9 +2974,8 @@ T\right)  =%
 %EndExpansion
 .
 \]
-We go on by resolving the conflict $\left(  1,2\right)  $ in
-$\operatorname*{res}\nolimits_{4}\left(  \operatorname*{res}\nolimits_{2}%
-T\right)  $, and thus obtain%
+We go on by resolving the descent $1$ in $\operatorname*{res}\nolimits_{4}%
+\left(  \operatorname*{res}\nolimits_{2}T\right)  $, and thus obtain%
 \[
 \operatorname*{res}\nolimits_{1}\left(  \operatorname*{res}\nolimits_{4}%
 \left(  \operatorname*{res}\nolimits_{2}T\right)  \right)  =%
@@ -3633,9 +2999,9 @@ T\right)  $, and thus obtain%
 %EndExpansion
 .
 \]
-Next, we resolve the conflict $\left(  2,3\right)  $ in $\operatorname*{res}%
-\nolimits_{1}\left(  \operatorname*{res}\nolimits_{4}\left(
-\operatorname*{res}\nolimits_{2}T\right)  \right)  $, and obtain%
+Next, we resolve the descent $2$ in $\operatorname*{res}\nolimits_{1}\left(
+\operatorname*{res}\nolimits_{4}\left(  \operatorname*{res}\nolimits_{2}%
+T\right)  \right)  $, and obtain%
 \[
 \operatorname*{res}\nolimits_{2}\left(  \operatorname*{res}\nolimits_{1}%
 \left(  \operatorname*{res}\nolimits_{4}\left(  \operatorname*{res}%
@@ -3660,10 +3026,10 @@ Next, we resolve the conflict $\left(  2,3\right)  $ in $\operatorname*{res}%
 %EndExpansion
 .
 \]
-Next, we resolve the conflict $\left(  3,4\right)  $ in $\operatorname*{res}%
-\nolimits_{2}\left(  \operatorname*{res}\nolimits_{1}\left(
-\operatorname*{res}\nolimits_{4}\left(  \operatorname*{res}\nolimits_{2}%
-T\right)  \right)  \right)  $, and this leads us to%
+Next, we resolve the descent $3$ in $\operatorname*{res}\nolimits_{2}\left(
+\operatorname*{res}\nolimits_{1}\left(  \operatorname*{res}\nolimits_{4}%
+\left(  \operatorname*{res}\nolimits_{2}T\right)  \right)  \right)  $, and
+this leads us to%
 \[
 \operatorname*{res}\nolimits_{3}\left(  \operatorname*{res}\nolimits_{2}%
 \left(  \operatorname*{res}\nolimits_{1}\left(  \operatorname*{res}%
@@ -3689,11 +3055,11 @@ T\right)  \right)  \right)  $, and this leads us to%
 %EndExpansion
 .
 \]
-Finally, we resolve the conflict $\left(  2,3\right)  $ in
-$\operatorname*{res}\nolimits_{3}\left(  \operatorname*{res}\nolimits_{2}%
-\left(  \operatorname*{res}\nolimits_{1}\left(  \operatorname*{res}%
-\nolimits_{4}\left(  \operatorname*{res}\nolimits_{2}T\right)  \right)
-\right)  \right)  $, and thus obtain%
+Finally, we resolve the descent $2$ in $\operatorname*{res}\nolimits_{3}%
+\left(  \operatorname*{res}\nolimits_{2}\left(  \operatorname*{res}%
+\nolimits_{1}\left(  \operatorname*{res}\nolimits_{4}\left(
+\operatorname*{res}\nolimits_{2}T\right)  \right)  \right)  \right)  $, and
+thus obtain%
 \[
 \operatorname*{res}\nolimits_{2}\left(  \operatorname*{res}\nolimits_{3}%
 \left(  \operatorname*{res}\nolimits_{2}\left(  \operatorname*{res}%
@@ -3724,25 +3090,17 @@ This 12-table $\operatorname*{res}\nolimits_{2}\left(  \operatorname*{res}%
 \nolimits_{3}\left(  \operatorname*{res}\nolimits_{2}\left(
 \operatorname*{res}\nolimits_{1}\left(  \operatorname*{res}\nolimits_{4}%
 \left(  \operatorname*{res}\nolimits_{2}T\right)  \right)  \right)  \right)
-\right)  $ has no more conflicts, and thus is final. So $\operatorname*{norm}%
+\right)  $ has no more descents, and thus is final. So $\operatorname*{norm}%
 \left(  T\right)  =\operatorname*{res}\nolimits_{2}\left(  \operatorname*{res}%
 \nolimits_{3}\left(  \operatorname*{res}\nolimits_{2}\left(
 \operatorname*{res}\nolimits_{1}\left(  \operatorname*{res}\nolimits_{4}%
 \left(  \operatorname*{res}\nolimits_{2}T\right)  \right)  \right)  \right)
 \right)  $.
-
-Notice that we have needed six steps to compute $\operatorname*{norm}\left(
-T\right)  $, although $T$ only had $4$ conflicts. So the number of conflicts
-does not always decrease when we resolve a conflict. (It is easy to construct
-an example where it can actually increase.) This is why we could not have used
-a function $\ell:\mathbf{S}\rightarrow\mathbb{N}$ that counts the number of
-conflicts to satisfy the length-decrease condition.
 \end{example}
-
 
 \subsection{Definition of $\mathbf{B}$}
 
-We can now finally prove Lemma \ref{lem.BK}
+We can now finally prove Lemma \ref{lem.BK}.
 
 \begin{definition}
 Let us define a map $\mathbf{B}:\mathbf{R}\rightarrow\mathbf{R}$ as follows:
@@ -3770,39 +3128,32 @@ T\right)  \overset{\ast}{\Rrightarrow}\operatorname*{norm}\left(
 $\operatorname*{flip}\left(  T\right)  \overset{\ast}{\Rrightarrow}%
 \mathbf{B}\left(  T\right)  $ (since $\mathbf{B}\left(  T\right)
 =\operatorname*{norm}\left(  \operatorname*{flip}\left(  T\right)  \right)
-$). Lemma \ref{lem.conflict-resolution-*props} \textbf{(c)} (applied to
+$). Lemma \ref{lem.descent-resolution-*props} \textbf{(c)} (applied to
 $P=\operatorname*{flip}\left(  T\right)  $ and $Q=\mathbf{B}\left(  T\right)
 $) thus yields $\operatorname*{flip}\left(  \mathbf{B}\left(  T\right)
 \right)  \overset{\ast}{\Rrightarrow}\operatorname*{flip}\left(
 \operatorname*{flip}T\right)  $. Since $\operatorname*{flip}\left(
 \operatorname*{flip}T\right)  =\underbrace{\left(  \operatorname*{flip}%
 \circ\operatorname*{flip}\right)  }_{\substack{=\operatorname*{id}\\\text{(by
-Proposition \ref{prop.flip} \textbf{(a)})}}}\left(  T\right)
-=\operatorname*{id}\left(  T\right)  =T$, this rewrites as
-$\operatorname*{flip}\left(  \mathbf{B}\left(  T\right)  \right)
+Proposition \ref{prop.flip} \textbf{(a)})}}}\left(  T\right)  =T$, this
+rewrites as $\operatorname*{flip}\left(  \mathbf{B}\left(  T\right)  \right)
 \overset{\ast}{\Rrightarrow}T$.
 
-But $T\in\mathbf{R}$. In other words, $T$ is a 12-rpp (since $\mathbf{R}$ is
-the set of all 12-rpps of shape $Z$). Thus, $T$ is final (because Proposition
-\ref{prop.finality} (applied to $P=T$) yields that $T$ is final if and only if
-$T$ is a 12-rpp).
-
-Now, recall that $\operatorname*{norm}\left(  T\right)  $ is the unique final
-element $b\in\mathbf{S}$ such that $T\overset{\ast}{\Rrightarrow}b$ (by the
-definition of $\operatorname*{norm}\left(  T\right)  $). Applying this to
+But $\operatorname*{norm}\left(  T\right)  $ is the unique $N\in\mathbf{R}$
+such that $T\overset{\ast}{\Rrightarrow}N$ (by the definition of
+$\operatorname*{norm}\left(  T\right)  $). Applying this to
 $\operatorname*{flip}\left(  \mathbf{B}\left(  T\right)  \right)  $ instead of
 $T$, we see that $\operatorname*{norm}\left(  \operatorname*{flip}\left(
-\mathbf{B}\left(  T\right)  \right)  \right)  $ is the unique final element
-$b\in\mathbf{S}$ such that $\operatorname*{flip}\left(  \mathbf{B}\left(
-T\right)  \right)  \overset{\ast}{\Rrightarrow}b$. Hence, every final element
-$b\in\mathbf{S}$ such that $\operatorname*{flip}\left(  \mathbf{B}\left(
-T\right)  \right)  \overset{\ast}{\Rrightarrow}b$ must satisfy
-$b=\operatorname*{norm}\left(  \operatorname*{flip}\left(  \mathbf{B}\left(
-T\right)  \right)  \right)  $. Applying this to $b=T$, we obtain
-$T=\operatorname*{norm}\left(  \operatorname*{flip}\left(  \mathbf{B}\left(
-T\right)  \right)  \right)  $ (since $T$ is a final element of $\mathbf{S}$
-satisfying $\operatorname*{flip}\left(  \mathbf{B}\left(  T\right)  \right)
-\overset{\ast}{\Rrightarrow}T$).
+\mathbf{B}\left(  T\right)  \right)  \right)  $ is the unique $N\in\mathbf{R}$
+such that $\operatorname*{flip}\left(  \mathbf{B}\left(  T\right)  \right)
+\overset{\ast}{\Rrightarrow}N$. Hence, every $N\in\mathbf{R}$ such that
+$\operatorname*{flip}\left(  \mathbf{B}\left(  T\right)  \right)
+\overset{\ast}{\Rrightarrow}N$ must satisfy $N=\operatorname*{norm}\left(
+\operatorname*{flip}\left(  \mathbf{B}\left(  T\right)  \right)  \right)  $.
+Applying this to $N=T$, we obtain $T=\operatorname*{norm}\left(
+\operatorname*{flip}\left(  \mathbf{B}\left(  T\right)  \right)  \right)  $
+(since $T\in\mathbf{R}$ and $\operatorname*{flip}\left(  \mathbf{B}\left(
+T\right)  \right)  \overset{\ast}{\Rrightarrow}T$).
 
 But $\left(  \mathbf{B}\circ\mathbf{B}\right)  \left(  T\right)
 =\mathbf{B}\left(  \mathbf{B}\left(  T\right)  \right)  =\operatorname*{norm}%
@@ -3827,7 +3178,7 @@ $\operatorname*{flip}\left(  S\right)  \overset{\ast}{\Rrightarrow
 This rewrites as $\operatorname*{flip}\left(  S\right)  \overset{\ast
 }{\Rrightarrow}\mathbf{B}\left(  S\right)  $ (since $\mathbf{B}\left(
 S\right)  =\operatorname*{norm}\left(  \operatorname*{flip}\left(  S\right)
-\right)  $). Lemma \ref{lem.conflict-resolution-*props} \textbf{(a)} (applied
+\right)  $). Lemma \ref{lem.descent-resolution-*props} \textbf{(a)} (applied
 to $P=\operatorname*{flip}\left(  S\right)  $ and $Q=\mathbf{B}\left(
 S\right)  $) thus yields
 \[
@@ -3848,7 +3199,7 @@ $\operatorname*{flip}\left(  S\right)  \overset{\ast}{\Rrightarrow
 This rewrites as $\operatorname*{flip}\left(  S\right)  \overset{\ast
 }{\Rrightarrow}\mathbf{B}\left(  S\right)  $ (since $\mathbf{B}\left(
 S\right)  =\operatorname*{norm}\left(  \operatorname*{flip}\left(  S\right)
-\right)  $). Lemma \ref{lem.conflict-resolution-*props} \textbf{(b)} (applied
+\right)  $). Lemma \ref{lem.descent-resolution-*props} \textbf{(b)} (applied
 to $P=\operatorname*{flip}\left(  S\right)  $ and $Q=\mathbf{B}\left(
 S\right)  $) thus yields
 \[
@@ -3867,11 +3218,6 @@ Thus, Lemma \ref{lem.BKi} is proven (since we have proven it using Lemma
 derived it from Lemma \ref{lem.BKi}). This, in turn, finishes the proof of
 Theorem \ref{thm.gtilde.symm} (since we have proven Theorem
 \ref{thm.gtilde.symm} using Theorem \ref{thm.BK}).
-
-\begin{todo}
-This argument reminds me of partially commutative monoids and heaps. Maybe
-they have something to do with it?
-\end{todo}
 
 \section{\label{sect.BKclassical}The classical Bender-Knuth involutions}
 
@@ -3901,7 +3247,7 @@ fills all the 1-pure columns of $T$ with $2$'s while simultaneously filling
 all the 2-pure columns of $T$ with $1$'s. Recall furthermore that
 $\operatorname*{norm}\left(  \operatorname*{flip}\left(  T\right)  \right)  $
 is obtained from $\operatorname*{flip}\left(  T\right)  $ by repeatedly
-resolving conflicts until no conflicts remain.)
+resolving descents until no descents remain.)
 
 \item Having constructed this map $\mathbf{B}:\mathbf{R}\rightarrow\mathbf{R}%
 $, we can construct the involution $\mathbf{B}_{Z}:\mathbf{R}_{Z}%
@@ -4248,8 +3594,8 @@ by $s$ many $1$'s and $r$ many $2$'s. This we do for every row; the resulting
 which are mixed. Then, we replace all entries of all 1-pure columns by $1$'s,
 while simultaneously replacing all entries of all 2-pure columns by $2$'s. The
 resulting 12-table is denoted $\operatorname*{flip}\left(  T\right)  $. Then,
-we repeatedly resolve conflicts in $\operatorname*{flip}\left(  T\right)  $
-until no more conflicts remain. The resulting 12-table $\operatorname*{norm}%
+we repeatedly resolve descents in $\operatorname*{flip}\left(  T\right)  $
+until no more descents remain. The resulting 12-table $\operatorname*{norm}%
 \left(  \operatorname*{flip}\left(  T\right)  \right)  $ is a 12-rpp, and is
 denoted $\mathbf{B}\left(  T\right)  $.
 \end{itemize}
@@ -4307,19 +3653,19 @@ in each row.
 Now, let us notice that every pair of a non-\textquotedblleft
 ignored\textquotedblright\ $2$ and a non-\textquotedblleft
 ignored\textquotedblright\ $1$ lying in the same row of $\operatorname*{flip}%
-\left(  T\right)  $ cause a conflict\footnote{More precisely: If
-$r\in\mathbb{N}_{+}$, $i\in\mathbb{N}_{+}$ and $j\in\mathbb{N}_{+}$ are such
-that $\left(  \operatorname*{flip}T\right)  \left(  r,i\right)  $ is a
+\left(  T\right)  $ cause a descent\footnote{More precisely: If $r\in
+\mathbb{N}_{+}$, $i\in\mathbb{N}_{+}$ and $j\in\mathbb{N}_{+}$ are such that
+$\left(  \operatorname*{flip}T\right)  \left(  r,i\right)  $ is a
 non-\textquotedblleft ignored\textquotedblright\ $2$ and that $\left(
 \operatorname*{flip}T\right)  \left(  r,j\right)  $ is a non-\textquotedblleft
-ignored\textquotedblright\ $1$, then $\left(  i,j\right)  $ is a conflict of
-$\operatorname*{flip}T$.}. Conversely, all conflicts of $\operatorname*{flip}%
+ignored\textquotedblright\ $1$, then $\left(  i,j\right)  $ is a descent of
+$\operatorname*{flip}T$.}. Conversely, all descents of $\operatorname*{flip}%
 \left(  T\right)  $ are caused by a non-\textquotedblleft
 ignored\textquotedblright\ $2$ and a non-\textquotedblleft
 ignored\textquotedblright\ $1$ lying in the same row (because all
 \textquotedblleft ignored\textquotedblright\ entries are carried over from $T$
-without change and thus cannot take part in conflicts). We can resolve these
-conflicts one after the other (starting with the $2$ and the $1$ that are
+without change and thus cannot take part in descents). We can resolve these
+descents one after the other (starting with the $2$ and the $1$ that are
 adjacent to each other), until none are left. The result is a 12-rpp. What is
 this 12-rpp?
 
@@ -4327,16 +3673,16 @@ this 12-rpp?
 \item On the one hand, this 12-rpp is $\operatorname*{norm}\left(
 \operatorname*{flip}\left(  T\right)  \right)  $, because
 $\operatorname*{norm}\left(  \operatorname*{flip}\left(  T\right)  \right)  $
-is defined as what results when all conflicts of $\operatorname*{flip}\left(
+is defined as what results when all descents of $\operatorname*{flip}\left(
 T\right)  $ are resolved.
 
 \item On the other hand, this 12-rpp is $B\left(  T\right)  $. In fact,
-resolving a conflict caused by a non-\textquotedblleft
+resolving a descent caused by a non-\textquotedblleft
 ignored\textquotedblright\ $2$ and a non-\textquotedblleft
 ignored\textquotedblright\ $1$ lying in the same row results in this $2$
 getting switched with the $1$ (while no other entries get moved\footnote{This
 is because every non-\textquotedblleft ignored\textquotedblright\ entry is
-alone in its column.}). Hence, when we resolve the conflicts, we just sort all
+alone in its column.}). Hence, when we resolve the descents, we just sort all
 non-\textquotedblleft ignored\textquotedblright\ entries into increasing order
 in each row. But as we know, the 12-table obtained from $\operatorname*{flip}%
 \left(  T\right)  $ by sorting all non-\textquotedblleft
@@ -4352,8 +3698,7 @@ proof of Proposition \ref{prop.BK=BK}.
 \end{proof}
 
 \begin{todo}
-Can you follow the above argument? (Preferrably at 3AM and/or under the
-influence.)
+Can you follow the above argument? (Preferrably at 3AM and/or under the influence.)
 \end{todo}
 
 
