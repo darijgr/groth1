@@ -9845,6 +9845,7 @@ influence.)
 
 
 \section{The structure of 12-rpps}
+\label{sect.structure}
 \def\seplist{{\operatorname*{seplist}}} % what would be a good notation here? same question for the below:
 \def\ceq{{\operatorname*{ceq}}}
 \def\ircont{{\operatorname*{ircont}}}
@@ -9884,7 +9885,6 @@ $$P_n(x_1,x_2)=(x_1^{n+1}-x_2^{n+1})/(x_1-x_2)=x_1^{n}+x_1^{n-1}x_2+\dots+x_1x_2
 We fix the skew partition $\lm$ throughout the whole section.
 Abusing notation, we shall abbreviate $Y\left(\lm\right)$ as $\lm$.
 We will have a running example with $\lambda=(7,7,7,4,4)$ and $\mu=(5,3,2)$.
-
 
 
 \subsection{Irreducible components}
@@ -9933,8 +9933,28 @@ A trivial necessary condition for this to happen is that there should exist some
 \end{equation}
 We say that a partition $\seplistvar$ is \textit{admissible} if such $j_1<j_2<\dots<j_s$ exist.
 
+Until the end of Section \ref{sect.structure}, we make one further
+assumption: namely, that the skew partition $\lm$ is
+connected\footnote{By this, we mean that $\lm$ has at least one
+cell, and cannot be represented
+as a disjoint union of two nonempty skew partitions $\alpha/\beta$
+and $\gamma/\delta$ such that no cell of $\alpha/\beta$ is adjacent
+to any cell of $\gamma/\delta$. This is a harmless assumption,
+since every skew partition $\lm$ can be written as a disjoint union
+of such connected skew partitions, and these ``connected
+components'' do not interact when it comes to studying rpps:
+Choosing a 12-rpp of shape $\lm$ is tantamount to choosing
+a 12-rpp for each of these components; and choosing a 12-rpp of
+shape $\lm$ with seplist-partition equal to a given partition
+$\seplistvar$ is tantamount to choosing a 12-rpp for each of the
+components with seplist-partition equal to the ``appropriate piece''
+of $\seplistvar$. (What an ``appropriate piece'' is should be
+clear enough, since two distinct connected components are supported
+on different rows.)}.
+
 \newcommand{\nuxy}[2]{\seplistvar\big|_{\subseteq[#1,#2)}}
 \newcommand{\nuxycap}[2]{\seplistvar\big|_{\cap[#1,#2)}}
+\newcommand{\nupxy}[2]{\seplistvar^{\prime}\big|_{\subseteq[#1,#2)}}
 
 \def\nuab{\nuxy{a}{b}}
 \def\nuabcap{\nuxycap{a}{b}}
@@ -9984,24 +10004,45 @@ A set of positive integers is a subset of both $\left[a, b\right)$ and $\left[c,
 \#\nuxy{a}{d} \geq \underbrace{\#\nuab}_{=b-a} + \underbrace{\#\nuxy{c}{d}}_{=d-c} - \underbrace{\#\nuxy{c}{b}}_{\leq b-c} \geq \left(b-a\right) + \left(d-c\right) - \left(b-c\right) = d-a.
 \]
 Combined with $\#\nuxy{a}{d} \leq d-a$ (since $\seplistvar$ is representable), this yields $\#\nuxy{a}{d} = d-a$, qed.}. Hence, the maximal (with respect to inclusion) among all such intervals are pairwise disjoint and separated from each other by at least a distance of $1$.
-We summarize our observations in the following lemma:
+This yields part \textbf{(a)} of the following lemma:
 \begin{lemma}
 \label{lemma:irreducible}
- For a representable partition $\seplistvar$, there exist unique numbers $(1=b_0\leq a_1<b_1<a_2<b_2<\dots<a_r<b_r\leq a_{r+1}=\lambda_1+1)$ such that 
+ Let $\seplistvar$ be a representable partition.
+
+\textbf{(a)} There exist unique integers $(1=b_0\leq a_1<b_1<a_2<b_2<\dots<a_r<b_r\leq a_{r+1}=\lambda_1+1)$ satisfying the following two conditions:
  \begin{enumerate}
-  \item for all $1\leq k\leq r$, we have $\#\nuxy{a_k}{b_k} =b_k-a_k$;
-  \item The set $\bigcup_{k=0}^{r}[b_k,a_{k+1})$ is minimal by inclusion among all sequences $(1=b_0\leq a_1<b_1<a_2<b_2<\dots<a_r<b_r\leq a_{r+1}=\lambda_1+1)$ satisfying property 1.
+  \item For all $1\leq k\leq r$, we have $\#\nuxy{a_k}{b_k} =b_k-a_k$.
+  \item The set $\bigcup_{k=0}^{r}[b_k,a_{k+1})$ is minimal (with respect to inclusion) among all sequences $(1=b_0\leq a_1<b_1<a_2<b_2<\dots<a_r<b_r\leq a_{r+1}=\lambda_1+1)$ satisfying property 1.
  \end{enumerate}
- In this case, the partitions $\nuxycap{b_k}{a_{k+1}}$ are irreducible with respect to $\lm\big|_{[b_k,a_{k+1})}$,
+
+Furthermore, for these integers, we have:
+
+\textbf{(b)} The partition $\nu$ is the concatenation
+\[
+\left(\nuxycap{b_0}{a_1}\right) \left(\nuxy{a_1}{b_1}\right) \left(\nuxycap{b_1}{a_2}\right) \left(\nuxy{a_2}{b_2}\right) \cdots \left(\nuxycap{b_r}{a_{r+1}}\right)
+\]
+(where we regard a partition as a sequence of positive integers, with no trailing zeroes).
+
+\textbf{(c)} The partitions $\nuxycap{b_k}{a_{k+1}}$ are irreducible with respect to $\lm\big|_{[b_k,a_{k+1})}$,
  which is the skew partition $\lm$ with columns $1,2,\dots,b_k-1,a_{k+1},a_{k+1}+1,\dots$ removed.
-\end{lemma}\qed
+\end{lemma}
+
+\begin{proof}
+Part \textbf{(a)} has already been proven.
+
+\textbf{(b)} [Fill me in]
+
+To verify the second claim, we need to show that if $\left[c,d\right)$ is a nonempty interval contained in $\left[b_k, a_{k+1}\right)$ for some $k$, then $\#\nupxy{c}{d}^{J} < d-c$, where $J$ denotes the restricted skew partition $\lm\big|_{[b_k,a_{k+1})}$, and where $\seplistvar^{\prime} = \nuxycap{b_k}{a_{k+1}}$.
+[Fill me in]
+\end{proof}
+
 \begin{definition}
  
  In the context of Lemma \ref{lemma:irreducible}, for $0\leq k\leq r$ the subpartitions $\nuxycap{b_k}{a_{k+1}}$ are called \textit{the irreducible components of $\seplistvar$} and the numbers $n_k:=a_{k+1}-b_k-\#\nuxycap{b_k}{a_{k+1}}$ are called their \textit{degrees}  (for $T$ with $\seplist(T)=\seplistvar$, the $k$-th degree $n_k$ is equal to the number of pure columns of $T$ inside the corresponding $k$-th irreducible component).
 \end{definition}
-\begin{remark}
- Note that the conditions on $b_0,a_1,\dots,a_{r+1}$ guarantee that $\seplistvar$ is just a concatenation of partitions $\nuxycap{b_0}{a_1},\nuxy{a_1}{b_1},\dots,\nuxycap{b_r}{a_{r+1}}$. 
-\end{remark}
+%\begin{remark}
+% Note that the conditions on $b_0,a_1,\dots,a_{r+1}$ guarantee that $\seplistvar$ is just a concatenation of partitions %$\nuxycap{b_0}{a_1},\nuxy{a_1}{b_1},\dots,\nuxycap{b_r}{a_{r+1}}$. 
+%\end{remark}
 
 \begin{example}
  For $\seplistvar=(4,3,3,2)$ we have $r=1,b_0=1,a_1=3,b_1=5,a_2=8$. The irreducible components of $\seplistvar$ are $(4)$ and $(2)$ and their degrees are $3-1-1=1$ and $8-5-1=2$ respectively. We have $\nuxycap{1}{3}=(4),\nuxy{3}{5}=(3,3),\nuxycap{5}{8}=(2)$.
@@ -10077,7 +10118,7 @@ After decomposing into irreducible components, we can obtain a formula for gener
 \begin{corollary}
  The polynomials $\g_\lm \in \kk\left[x_1, x_2, x_3, \ldots\right]$ are symmetric.
 \end{corollary}
- This holds for any $\kk$ and any $t_1, t_2, t_3, \ldots \in \kk$, since the case we have considered (where $t_1, t_2, t_3, \ldots$ are polynomial indeterminates over $\Z$) is universal.
+ This holds for any $\kk$ and any $t_1, t_2, t_3, \ldots \in \kk$, since the case we have considered (where $t_1, t_2, t_3, \ldots$ are polynomial indeterminates over $\Z$) is universal.\footnote{Of course, our standing assumption that $\lm$ is connected can be lifted here, because in general, $\g_\lm$ is the product of the analogous power series corresponding to the connected components of $\lm$. So we have obtained a new proof of Theorem \ref{thm.gtilde.symm}.}
 
 Another application of Theorem \ref{thm:12rpps} is a complete description of Bender-Knuth involutions on rpps.
 
@@ -10135,11 +10176,11 @@ Rewriting and All That}, Cambridge University Press 1998.
 \bibitem[BezCoq03]{BezCoq}Marc Bezem, Thierry Coquand, \textit{Newman's Lemma
 -- a Case Study in Proof Automation and Geometric Logic}, Bulletin of the
 European Association for Theoretical Computer Science, February 2003.\newline%
-\texttt{\href{http://www.ii.uib.no/~bezem/NL/}{http://www.ii.uib.no/\symbol{126}%
-bezem/NL/}}
+\texttt{\url{http://www.ii.uib.no/~bezem/NL/}}
 
 \bibitem[FomGre06]{FomGre}Sergey Fomin, Curtis Greene, \textit{Noncommutative
 Schur functions and their applications}, Discrete Mathematics 306 (2006) 1080--1096.
+doi:10.1016/S0012-365X(98)00140-X.
 
 \bibitem[Fulton97]{Fulton97}William Fulton, \textit{Young Tableaux}, London
 Mathematical Society Student Texts 35, Cambridge University Press 1997.
