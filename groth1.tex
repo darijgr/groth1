@@ -21,6 +21,7 @@
 \usepackage{amssymb}
 \usepackage{framed}
 \usepackage{amsmath}
+\usepackage{comment}
 \usepackage{needspace}
 \usepackage{color}
 \usepackage{hyperref}
@@ -88,6 +89,14 @@
 \iffalse
 \newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
 \fi
+%\newenvironment{verlong}{}{}
+%\newenvironment{vershort}{}{}
+\newenvironment{noncompile}{}{}
+\newenvironment{obsolete}{}{}
+%\excludecomment{verlong}
+%\includecomment{vershort}
+\excludecomment{noncompile}
+\excludecomment{obsolete}
 \newcommand{\kk}{\mathbf{k}}
 \newcommand{\id}{\operatorname{id}}
 \newcommand{\ev}{\operatorname{ev}}
@@ -104,6 +113,30 @@
 \pagestyle{fancy}
 \lhead{Refined dual stable Grothendieck polynomials}
 \rhead{\today}
+
+
+\def\seplist{{\operatorname*{seplist}}} % what would be a good notation here? same question for the below:
+\def\ceq{{\operatorname*{ceq}}}
+\def\ircont{{\operatorname*{ircont}}}
+\def\cont{{\operatorname*{cont}}}
+\def\ceqvar{{{\alpha}}} %??
+\def\seplistvar{{{\nu}}} % ???
+\def\supp{{\operatorname*{supp}}}
+\def\NS{{\operatorname*{NS}}}
+\def\g{{\widetilde{g}}}
+\def\t{{\mathbf{t}}}
+\def\x{{\mathbf{x}}}
+\def\lm{{\lambda/\mu}}
+\def\lmp{{(\lambda/\mu)}}
+\def\N{{\mathbb{N}}}
+\def\Z{\mathbb{Z}}
+\def\B{{\mathbf{B}}}
+
+\def\OneTwoRPP{{\operatorname*{RPP}^{12}\left(  \lambda/\mu\right)}}
+\def\OneTwoRPPCutvar{{\operatorname*{RPP}^{12}\left(  \lambda/\mu ;\seplistvar \right)}}
+\def\flip{{\operatorname*{flip}}}
+
+
 \begin{document}
 
 \title{Refined dual stable Grothendieck polynomials and generalized Bender-Knuth involutions}
@@ -116,25 +149,33 @@
 Thomas Lam and Pavlo Pylyavskyy, in \cite[\S 9.1]{LamPyl}, (and earlier Mark
 Shimozono and Mike Zabrocki in unpublished work of 2003) studied \textit{dual
 stable Grothendieck polynomials}, a deformation (in a sense) of the Schur
-functions. Let us briefly recount their definition.\footnote{All definitions
+functions. Let us briefly recount their definition.
+\begin{comment}
+ 
+\footnote{All definitions
 that will be made in this introduction are provisional. Every notion that will
 be used in the paper is going to be defined in more detail and precision in
 one of the sections below; thus, a reader not already familiar with Schur
 functions and partitions should start reading from Section
 \ref{sect.notations} on.}
 
+\end{comment}
+
 Let $\lambda/\mu$ be a skew partition. The Schur function $s_{\lambda/\mu}$ is
 a multivariate generating function for the semistandard tableaux of shape
 $\lambda/\mu$. In the same vein, the dual stable Grothendieck
-polynomial\footnote{The word \textquotedblleft polynomial\textquotedblright%
+polynomial 
+\begin{comment}
+\footnote{The word \textquotedblleft polynomial\textquotedblright%
 \ is a stretch: $g_{\lambda/\mu}$ is a bounded-degree power series in
-infinitely many indeterminates (like $s_{\lambda/\mu}$).} $g_{\lambda/\mu}$ is
+infinitely many indeterminates (like $s_{\lambda/\mu}$).} 
+\end{comment}
+$g_{\lambda/\mu}$ is
 a generating function for the reverse plane partitions of shape $\lambda/\mu$;
 these, unlike semistandard tableaux, are only required to have their entries
 increase \textit{weakly} down columns (and along rows). More precisely,
 $g_{\lambda/\mu}$ is a formal power series in countably many commuting
-indeterminates $x_{1},x_{2},x_{3},\ldots$ (over an arbitrary commutative ring
-$\mathbf{k}$) defined by%
+indeterminates $x_{1},x_{2},x_{3},\ldots$ defined by
 \[
 g_{\lambda/\mu}=\sum_{\substack{T\text{ is a reverse plane}\\\text{partition
 of shape }\lambda/\mu}}\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  },
@@ -152,8 +193,7 @@ Grassmannians (\cite[\S 9.5]{LamPyl}).
 
 We devise a common generalization of the dual stable Grothendieck polynomial
 $g_{\lambda/\mu}$ and the classical skew Schur function $s_{\lambda/\mu}$.
-Namely, if $t_{1},t_{2},t_{3},\ldots$ are countably many fixed elements of the
-base ring $\mathbf{k}$ (e.g., polynomial indeterminates, or integers), then we
+Namely, if $t_{1},t_{2},t_{3},\ldots$ are countably many indeterminates, then we
 set%
 \[
 \widetilde{g}_{\lambda/\mu}=\sum_{\substack{T\text{ is a reverse
@@ -165,15 +205,17 @@ $t_{1}^{b_{1}}t_{2}^{b_{2}}t_{3}^{b_{3}}\cdots$ whose $i$-th exponent $b_{i}$
 is the number of cells in the $i$-th row of $T$ whose entry equals the entry
 of their neighbor cell directly below them. This $\widetilde{g}_{\lambda/\mu}$
 becomes $g_{\lambda/\mu}$ when all the $t_{i}$ are set to $1$, and becomes
-$s_{\lambda/\mu}$ when all the $t_{i}$ are set to $0$; but keeping the $t_{i}$
-arbitrary offers infinitely many degrees of freedom which are so far
-unexplored. Our main result, Theorem \ref{thm.gtilde.symm}, states that
+$s_{\lambda/\mu}$ when all the $t_{i}$ are set to $0$.
+
+Our main result, Theorem \ref{thm.gtilde.symm}, states that
 $\widetilde{g}_{\lambda/\mu}$ is a symmetric function (in the $x_{1}%
 ,x_{2},x_{3},\ldots$).
 
 We prove this result (thus obtaining a new proof of \cite[Theorem 9.1]%
 {LamPyl}) first using an elaborate generalization of the classical
-Bender-Knuth involutions to reverse plane partitions.
+Bender-Knuth involutions to reverse plane partitions; these generalized
+involutions are constructed using a form of the \textit{diamond lemma} (Lemma
+\ref{lem.diamond}).
 
 \begin{todo}
 Pavel: advertise your section here? It sort-of gives some justification for
@@ -187,13 +229,19 @@ the dual stable Grothendieck polynomials $\widetilde{g}_{\lambda/\mu}$, state
 our main result (that they are symmetric functions), and do the first steps of
 its proof (by reducing it to a purely combinatorial statement about the
 existence of an involution with certain properties). In Section
+\ref{sect.diamond}, we state and (for the sake of completeness) prove the
+version of the diamond lemma we need, and we digress to give an elementary
+application of it that serves to demonstrate its use. In Section
 \ref{sect.proof}, we prove our main result by constructing the required
-involution. In Section \ref{sect.BKclassical}, we
+involution using the diamond lemma. In Section \ref{sect.BKclassical}, we
 recapitulate the definition of the classical Bender-Knuth involution, and
 sketch the proof that our involution is a generalization of the latter.
 
 \begin{todo}
 Pavel: your last section should also be summarized here.
+\end{todo}
+\begin{todo}
+Rewrite this after the shortening process is finished.
 \end{todo}
 
 \begin{todo}
@@ -233,274 +281,75 @@ from algebraic combinatorics).
 \subsection{Partitions and tableaux}
 
 We set $\mathbb{N}=\left\{  0,1,2,\ldots\right\}  $ and $\mathbb{N}%
-_{+}=\left\{  1,2,3,\ldots\right\}  $. A \textit{weak composition} will mean a
-sequence $\left(  \alpha_{1},\alpha_{2},\alpha_{3},\ldots\right)
-\in\mathbb{N}^{\mathbb{N}_{+}}$ of nonnegative integers such that all but
-finitely many $i\in\mathbb{N}_{+}$ satisfy $\alpha_{i}=0$. Given a weak
-composition $\alpha=\left(  \alpha_{1},\alpha_{2},\alpha_{3},\ldots\right)  $,
-we denote the sum $\alpha_{1}+\alpha_{2}+\alpha_{3}+\cdots$ (which is finite
-and an element of $\mathbb{N}$) by $\left\vert \alpha\right\vert $ and call it
-the \textit{size} of $\alpha$. Given a weak composition $\alpha$ and a
-positive integer $i$, we let $\alpha_{i}$ denote the $i$-th entry of $\alpha$
-(so that every weak composition $\alpha$ automatically satisfies
-$\alpha=\left(  \alpha_{1},\alpha_{2},\alpha_{3},\ldots\right)  $).
+_{+}=\left\{  1,2,3,\ldots\right\}  $. 
 
-A \textit{partition} means a weak composition $\left(  \alpha_{1},\alpha
+
+ A sequence $\alpha=\left(\alpha_{1},\alpha_{2},\alpha_{3},\ldots\right)$ of nonnegative integers is called a \textit{weak composition} if the sum of its entries (denoted $\left\vert \alpha\right\vert$) is finite.
+
+
+
+A \textit{partition} is a weak composition $\left(  \alpha_{1},\alpha
 _{2},\alpha_{3},\ldots\right)  $ satisfying $\alpha_{1}\geq\alpha_{2}%
-\geq\alpha_{3}\geq\cdots$. We identify every partition $\left(  \alpha
-_{1},\alpha_{2},\alpha_{3},\ldots\right)  $ with the (truncated) sequence
-$\left(  \alpha_{1},\alpha_{2},\ldots,\alpha_{m}\right)  $ whenever $m$ is a
-nonnegative integer such that $\alpha_{m+1}=\alpha_{m+2}=\alpha_{m+3}%
-=\cdots=0$. In particular, the partition $\left(  0,0,0,\ldots\right)  $ is
-thus identified with the empty sequence $\left(  {}\right)  $ (but also, for
-example, with $\left(  0,0,0\right)  $). We denote the latter partition by
-$\varnothing$, and call it the \textit{empty partition}.
+\geq\alpha_{3}\geq\cdots$. 
 
 We let $\operatorname*{Par}$ denote the set of all partitions.
+\begin{todo}
+ Come up with a better notation for Par, ircont, stagnant.
+\end{todo}
 
-The \textit{Young diagram}\footnote{also known as the \textit{Ferrers
-diagram}} of a partition $\lambda$ is defined to be the subset $\left\{
-\left(  i,j\right)  \in\mathbb{N}_{+}^{2}\ \mid\ j\leq\lambda_{i}\right\}  $
-of $\mathbb{N}_{+}^{2}$. It is denoted by $Y\left(  \lambda\right)  $, and has
-size $\left\vert Y\left(  \lambda\right)  \right\vert =\lambda_{1}+\lambda
-_{2}+\lambda_{3}+\cdots=\left\vert \lambda\right\vert $.
+We identify each partition $\lambda$ with the subset of $\mathbb{N}_{+}^{2}$ (called \textit{the Young diagram of $\lambda$}) cotaining all pairs $(i,j)$ with $j\leq \lambda_i$ for all $i\in \Nplus$.
 
-We draw every subset of $\mathbb{N}_{+}^{2}$ (for example, the Young diagram
-of a partition) as a set of boxes in the plane, according to the following
-convention (known as the \textit{English notation}, or also as the
-\textit{matrix notation}): We imagine an infinite table, whose rows are
-labelled $1,2,3,\ldots$ (from left to right) and whose columns are labelled
-$1,2,3,\ldots$ as well (from top to bottom). We represent every element
-$\left(  i,j\right)  $ of $\mathbb{N}_{+}^{2}$ as a box in this table --
-namely, as the box at the intersection of row $i$ with column $j$. In order to
-draw a subset $Z$ of $\mathbb{N}_{+}^{2}$, we simply chart (the borders of)
-the boxes corresponding to all the $\left(  i,j\right)  \in Z$. For instance,
-the Young diagram of the partition $\left(  4,2,1\right)  $ is the subset
-$\left\{  \left(  1,1\right)  ,\left(  1,2\right)  ,\left(  1,3\right)
-,\left(  1,4\right)  ,\left(  2,1\right)  ,\left(  2,2\right)  ,\left(
-3,1\right)  \right\}  $ of $\mathbb{N}_{+}^{2}$, and we draw it as $%
-%TCIMACRO{\TeXButton{y}{\ydiagram{0+4,0+2,0+1}}}%
-%BeginExpansion
-\ydiagram{0+4,0+2,0+1}%
-%EndExpansion
-$. We refer to elements of $\mathbb{N}_{+}^{2}$ as \textit{cells} (since we
-draw them as boxes in the plane).
+We draw this subset in \textit{English notation} (also known as the
+\textit{matrix notation}), so the box $(1,1)$ is in the top-left corner while the box $(2,1)$ is direcly below it.
 
-If $\mu$ and $\lambda$ are two partitions, then we say that $\mu
-\subseteq\lambda$ if and only if every $i\in\mathbb{N}_{+}$ satisfies $\mu
-_{i}\leq\lambda_{i}$. Equivalently, $\mu\subseteq\lambda$ if and only if
-$Y\left(  \mu\right)  \subseteq Y\left(  \lambda\right)  $. This defines a
-partial order $\subseteq$ on the set $\operatorname*{Par}$ of all partitions.
-A \textit{skew partition} shall denote a pair $\left(  \mu,\lambda\right)  $
-of two partitions $\mu$ and $\lambda$ satisfying $\mu\subseteq\lambda$; this
-pair will also be denoted by $\lambda/\mu$. Given a skew partition
-$\lambda/\mu$, we define the \textit{(skew) Young diagram} $Y\left(
-\lambda/\mu\right)  $ of this skew partition to be the subset $Y\left(
-\lambda\right)  \setminus Y\left(  \mu\right)  $ of $\mathbb{N}_{+}^{2}$.
-Again, this Young diagram is drawn as above; for instance, the Young diagram
-of $\left(  4,3,1\right)  /\left(  2,1\right)  $ is $%
-%TCIMACRO{\TeXButton{y}{\ydiagram{2+2,2+1,0+1}}}%
-%BeginExpansion
-\ydiagram{2+2,2+1,0+1}%
-%EndExpansion
-$.
 
-A subset $Z$ of $\mathbb{N}_{+}^{2}$ is said to be \textit{convex} if it has
-the following property: If $\left(  i,j\right)  \in Z$, $\left(  i^{\prime
-},j^{\prime}\right)  \in\mathbb{N}_{+}^{2}$ and $\left(  i^{\prime\prime
-},j^{\prime\prime}\right)  \in Z$ are such that $i\leq i^{\prime}\leq
-i^{\prime\prime}$ and $j\leq j^{\prime}\leq j^{\prime\prime}$, then
-\begin{equation}
-\left(  i^{\prime},j^{\prime}\right)  \in Z. \label{eq.convex}%
-\end{equation}
-It is clear that the Young diagram $Y\left(  \lambda/\mu\right)  $ is convex
-whenever $\lambda/\mu$ is a skew partition. It is easy to show that,
-conversely, every finite convex subset of $\mathbb{N}_{+}^{2}$ has the form
-$Y\left(  \lambda/\mu\right)  $ for some skew partition $\lambda/\mu$.
+A \textit{skew-partition} $\lambda/\mu$ is a pair of partitions satisfying $\mu\subset\lambda$ (as subsets of the plane) and it is identified with the set-theoretic difference of $\lambda$ and $\mu$.
 
-If $Z$ is a subset of $\mathbb{N}_{+}^{2}$ (for instance, a Young diagram),
-then a \textit{filling} of $Z$ means a map $T:Z\rightarrow\mathbb{N}_{+}$.
-Such a filling can be visually represented by drawing the elements of $Z$ as
-boxes (following the convention above) and, for every $c\in Z$, inserting the
-value $T\left(  c\right)  $ into the box corresponding to $c$. For instance, $%
-%TCIMACRO{\TeXButton{Y}{\ytableausetup{centertableaux}
-%\begin{ytableau}
-%3 & 2 \\
-%4 \\
-%2
-%\end{ytableau}}}%
-%BeginExpansion
-\ytableausetup{centertableaux}
+ If $\lm$ is a skew partition, then a \textit{filling} of $\lm$ means a map $T:\lm\rightarrow\Nplus$. Three examples of a filling can be found on Figure \ref{fig:fillings}.
+ 
+
+ A filling $T:\lm\rightarrow\Nplus$ of $\lm$ is called a \textit{reverse plane partition of shape $\lm$} if its values increase weakly in each row of $\lm$ from left to right and in each column of $\lm$ from top to bottom. If, in addition, the values of $T$ increase strictly down each column then $T$ is called a \textit{semistandard tableau of shape $\lm$} (see \cite{Fulton97} for an exposition of properties and applications of semistandard tableaux). We denote the set of all reverse plane partitions of shape $\lm$ by $\operatorname*{RPP}\left(  \lambda/\mu\right)$.  We abbreviate reverse plane partitions as \textit{rpps}. We define a \textit{12-rpp} to be an rpp whose entries all belong to the set $\left\{  1,2\right\}  $ and denote the set of all 12-rpps of shape $\lm$ by  $\OneTwoRPP$. 
+ 
+ Examples of an rpp, a 12-rpp and of a semistandard tableau can be found on Figure \ref{fig:fillings}.
+ 
+ 
+\begin{figure}
+\begin{center}
+ 
+\begin{tabular}{c|c|c|c}
+ & & & \\
 \begin{ytableau}
-3 & 2 \\
-4 \\
-2
-\end{ytableau}%
-%EndExpansion
-$ is one possible filling of $Y\left(  \left(  2,1,1\right)  \right)  $;
-formally speaking, it is the map $Y\left(  \left(  2,1,1\right)  \right)
-\rightarrow\mathbb{N}_{+}$ which sends $\left(  1,1\right)  $, $\left(
-1,2\right)  $, $\left(  2,1\right)  $ and $\left(  3,1\right)  $ to $3$, $2$,
-$4$ and $2$, respectively. When $T$ is a filling of $Z$ and when $c$ is a cell
-in $Z$, we refer to the integer $T\left(  c\right)  \in\mathbb{N}_{+}$ as the
-\textit{entry} of $T$ in the cell $c$. For varying $c$, these integers are
-called the \textit{entries} of $T$.
-
-Given a finite convex subset $Z$ of $\mathbb{N}_{+}^{2}$, we define a
-\textit{reverse plane partition of shape }$Z$ to be a filling $T:Z\rightarrow
-\mathbb{N}_{+}^{2}$ of $Z$ satisfying the following two requirements:
-
-\begin{itemize}
-\item The entries of $T$ are \textit{weakly increasing along rows} (speaking
-in terms of the picture). In more precise terms: If $\left(  i,j\right)  $ and
-$\left(  i,j^{\prime}\right)  $ are two elements of $Z$ such that
-$j<j^{\prime}$, then $T\left(  i,j\right)  \leq T\left(  i,j^{\prime}\right)
-$.
-
-\item The entries of $T$ are \textit{weakly increasing down columns}. In more
-precise terms: If $\left(  i,j\right)  $ and $\left(  i^{\prime},j\right)  $
-are two elements of $Z$ such that $i<i^{\prime}$, then $T\left(  i,j\right)
-\leq T\left(  i^{\prime},j\right)  $.
-\end{itemize}
-
-Generally, a \textit{reverse plane partition} is defined to be a map which is
-a reverse plane partition of shape $Z$ for some finite convex subset $Z$ of
-$\mathbb{N}_{+}^{2}$. Notice that $Z$ is uniquely determined by the map (in
-fact, it is the domain of the map).
-
-We shall abbreviate the term \textquotedblleft reverse plane
-partition\textquotedblright\ as \textquotedblleft\textit{rpp}%
-\textquotedblright. For instance, $%
-%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
-%\begin{ytableau}
-%\none& 3 & 3 \\
-%2 & 3 \\
-%3 & 4
-%\end{ytableau}}}%
-%BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& 3 & 3 \\
-2 & 3 \\
-3 & 4
-\end{ytableau}%
-%EndExpansion
-$ is an rpp of shape $Y\left(  \left(  3,2,2\right)  /\left(  1\right)
-\right)  $.
-
-A well-known class of rpps are the \textit{semistandard tableaux} (also known
-as column-strict tableaux). To define this class, it is enough to change
-\textquotedblleft weakly increasing down columns\textquotedblright\ into
-\textquotedblleft strictly increasing down columns\textquotedblright\ (and,
-correspondingly, change \textquotedblleft$T\left(  i,j\right)  \leq T\left(
-i^{\prime},j\right)  $\textquotedblright\ into \textquotedblleft$T\left(
-i,j\right)  <T\left(  i^{\prime},j\right)  $\textquotedblright) in the above
-definition of an rpp. For instance, $%
-%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
-%\begin{ytableau}
-%\none& 3 & 3 \\
-%2 & 3 \\
-%3 & 4
-%\end{ytableau}}}%
-%BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& 3 & 3 \\
-2 & 3 \\
-3 & 4
-\end{ytableau}%
-%EndExpansion
-$ is not a semistandard tableau due to having two $3$'s in its second column,
-but $%
-%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
-%\begin{ytableau}
-%\none& 3 & 3 \\
-%2 & 4 \\
-%3 & 7
-%\end{ytableau}}}%
-%BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& 3 & 3 \\
+\none& 6 & 3\\
 2 & 4 \\
-3 & 7
-\end{ytableau}%
-%EndExpansion
-$ is a semistandard tableau. Semistandard tableaux have been studied for
-decades; an exposition of their properties and applications can be found in
-Fulton's \cite{Fulton97}.
+3 & 4\\
+\end{ytableau} &
+\begin{ytableau}
+\none& 3 & 3\\
+2 & 3 \\
+3 & 4\\
+\end{ytableau} &
+\begin{ytableau}
+\none& 3 & 3\\
+2 & 4 \\
+3 & 7\\
+\end{ytableau} &
+\begin{ytableau}
+\none& 1 & 2\\
+1 & 1 \\
+1 & 2\\
+\end{ytableau}\\
+(a) & (b) & (c) & (d)\\
+\end{tabular}\\
+\caption{\label{fig:fillings} Fillings of $(3,2,2)/(1)$: (a) is not an rpp as it has a $4$ below a $6$, (b) is an rpp but not a semistandard tableau as it has a $3$ below a $3$, (c) is a semistandard tableau (and hence also an rpp), (d) is a 12-rpp.}
+\end{center}
 
-\begin{remark}
-Let $\lambda/\mu$ be a skew partition. What we call a semistandard tableau of
-shape $Y\left(  \lambda/\mu\right)  $ is usually called a \textit{semistandard
-tableau of shape }$\lambda/\mu$. (However, unlike the ``semistandard
-tableaux'' defined by some other authors, our semistandard tableaux of shape
-$Y\left(  \lambda/ \mu\right)  $ do not ``store'' the skew partition $\lambda/
-\mu$ as part of their data.)
-\end{remark}
-
+\end{figure}
 
 
 
 \subsection{Symmetric functions}
 
-We now come to the algebraic part of our definitions.
-
-We let $\mathbf{k}$ be an arbitrary commutative ring with unity.\footnote{Many
-authors, such as those of \cite{LamPyl}, set $\mathbf{k}=\mathbb{Z}$.} We
-consider the ring $\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
-\right]  $ of formal power series in countably many indeterminates
-$x_{1},x_{2},x_{3},\ldots$. Given a weak composition $\alpha$, we let
-$\mathbf{x}^{\alpha}$ be the monomial $x_{1}^{\alpha_{1}}x_{2}^{\alpha_{2}%
-}x_{3}^{\alpha_{3}}\cdots$.
-
-
-A formal power series $f\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3}%
-,\ldots\right]  \right]  $ is said to be \textit{bounded-degree} if there
-exists an $N\in\mathbb{N}$ such that every monomial $\mathbf{x}^{\alpha}$
-which occurs (with nonzero coefficient) in $f$ satisfies $\left\vert
-\alpha\right\vert \leq N$. (Notice that $\left\vert \alpha\right\vert $ is the
-degree of $\mathbf{x}^{\alpha}$.) The set of all bounded-degree power series
-in $\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]  \right]  $ is a
-$\mathbf{k}$-subalgebra of $\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3}%
-,\ldots\right]  \right]  $, and will be denoted by $\mathbf{k}\left[  \left[
-x_{1},x_{2},x_{3},\ldots\right]  \right]  _{\operatorname*{bdd}}$.
-
-We let $\mathfrak{S}_{\left(  \infty\right)  }$ denote the group of all
-permutations $\pi$ of the set $\mathbb{N}_{+}$ such that all but finitely many
-$i\in\mathbb{N}_{+}$ satisfy $\pi\left(  i\right)  =i$. This is a subgroup of
-the group $\mathfrak{S}_{\infty}$ of \textit{all} permutations of
-$\mathbb{N}_{+}$. The group $\mathfrak{S}_{\left(  \infty\right)  }$ is
-generated by the subset $\left\{  s_{1},s_{2},s_{3},\ldots\right\}  $, where
-each $s_{i}$ is the transposition $\left(  i,i+1\right)  $%
-.\ \ \ \ \footnote{To prove this result, it is enough to notice that the
-finite symmetric groups $\mathfrak{S}_{n}$ for all $n\in\mathbb{N}$ can be
-canonically embedded into $\mathfrak{S}_{\left(  \infty\right)  }$, and
-$\mathfrak{S}_{\left(  \infty\right)  }$ becomes their direct limit.} The
-group $\mathfrak{S}_{\infty}$ (and thus, also its subgroup $\mathfrak{S}%
-_{\left(  \infty\right)  }$) acts on the set of all weak compositions by the
-rule%
-\begin{align*}
-\pi\cdot\left(  \alpha_{1},\alpha_{2},\alpha_{3},\ldots\right)   &  =\left(
-\alpha_{\pi^{-1}\left(  1\right)  },\alpha_{\pi^{-1}\left(  2\right)  }%
-,\alpha_{\pi^{-1}\left(  3\right)  },\ldots\right) \\
-&  \ \ \ \ \ \ \ \ \ \ \text{for every }\pi\in\mathfrak{S}_{\infty}\text{
-and}\\
-&  \ \ \ \ \ \ \ \ \ \ \text{ every weak composition }\left(  \alpha
-_{1},\alpha_{2},\alpha_{3},\ldots\right)  .
-\end{align*}
-
-
-A formal power series $f\in\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3}%
-,\ldots\right]  \right]  $ is said to be \textit{symmetric} if it has the
-following property: Whenever $\alpha$ and $\beta$ are two weak compositions in
-the same $\mathfrak{S}_{\left(  \infty\right)  }$-orbit, the coefficients of
-$f$ before $\mathbf{x}^{\alpha}$ and before $\mathbf{x}^{\beta}$ are
-equal.\footnote{Notice that this definition does not change if $\mathfrak{S}%
-_{\left(  \infty\right)  }$ is replaced by $\mathfrak{S}_{\infty}$. But it is
-customary (and useful to our purposes) to define it using $\mathfrak{S}%
-_{\left(  \infty\right)  }$.}
-
+\begin{comment}
 The \textit{symmetric functions} over $\mathbf{k}$ are defined to be the
 symmetric bounded-degree power series $f\in\mathbf{k}\left[  \left[
 x_{1},x_{2},x_{3},\ldots\right]  \right]  $. They form a $\mathbf{k}%
@@ -513,57 +362,46 @@ $-algebra by $\operatorname*{Sym}$, while using the notation $\Lambda$ for the
 set which we call $\operatorname*{Par}$.) Symmetric functions are a classical
 field of research, and are closely related to Young diagrams and tableaux; see
 \cite[Chapter 7]{Stan99}, \cite{Macdon95} and \cite[Chapter 2]{GriRei15} for expositions.
+\end{comment}
+
+\begin{todo}
+ Decide whether we want to work over $\Z$ or over an arbitrary commutative field $\mathbf{k}$ with unity. 
+\end{todo}
+
+
+A \textit{symmetric function} is defined to be a
+bounded-degree power series in $x_1,x_2,\dots$ that is invariant under (finite) permutations of $x_1,x_2,\dots$.
+
+The symmetric functions form a ring that is called the \textit{ring of
+symmetric functions} and denoted by $\Lambda$.
+(In \cite{LamPyl} this ring is denoted by $\operatorname*{Sym}$, while the notation $\Lambda$ is reserved for the
+set which we call $\operatorname*{Par}$.) Symmetric functions are a classical
+field of research, and are closely related to Young diagrams and tableaux; see
+\cite[Chapter 7]{Stan99}, \cite{Macdon95} and \cite[Chapter 2]{GriRei15} for expositions. 
+
 
 \begin{todo}
 Update Grinberg-Reiner reference to whatever is most recent.
 \end{todo}
 
-Another equivalent way to define the notion of symmetric functions\ is the
-following: The group $\mathfrak{S}_{\infty}$ acts $\mathbf{k}$-linearly and
-continuously on the $\mathbf{k}$-module $\mathbf{k}\left[  \left[  x_{1}%
-,x_{2},x_{3},\ldots\right]  \right]  $ by the rule%
-\[
-\pi\mathbf{x}^{\alpha}=\mathbf{x}^{\pi\cdot\alpha}%
-\ \ \ \ \ \ \ \ \ \ \text{for every }\pi\in\mathfrak{S}_{\infty}\text{ and
-every weak composition }\alpha\text{.}%
-\]
-The subgroup $\mathfrak{S}_{\left(  \infty\right)  }$ of $\mathfrak{S}%
-_{\infty}$ thus also acts on $\mathbf{k}\left[  \left[  x_{1},x_{2}%
-,x_{3},\ldots\right]  \right]  $ by restriction. Both $\mathfrak{S}_{\infty}$
-and $\mathfrak{S}_{\left(  \infty\right)  }$ preserve the $\mathbf{k}%
-$-submodule $\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
-\right]  _{\operatorname*{bdd}}$, and thus act on $\mathbf{k}\left[  \left[
-x_{1},x_{2},x_{3},\ldots\right]  \right]  _{\operatorname*{bdd}}$ as well.
-Now,%
-\[
-\Lambda=\left(  \mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]
-\right]  _{\operatorname*{bdd}}\right)  ^{\mathfrak{S}_{\infty}}=\left(
-\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]  \right]
-_{\operatorname*{bdd}}\right)  ^{\mathfrak{S}_{\left(  \infty\right)  }}.
-\]
 
 
-\subsection{Schur functions}
-
-Given a subset $Z$ of $\mathbb{N}_{+}^{2}$ and a filling $T$ of $Z$, we define
-a weak composition $\operatorname*{cont}\left(  T\right)  $ by setting%
-\begin{align*}
-\left(  \operatorname*{cont}\left(  T\right)  \right)  _{i}  &  =\left\vert
-T^{-1}\left(  i\right)  \right\vert =\left(  \text{the number of entries of
-}T\text{ equal to }i\right) \\
-&  \ \ \ \ \ \ \ \ \ \ \text{for every }i\in\mathbb{N}_{+}.
-\end{align*}
-We call $\operatorname*{cont}\left(  T\right)  $ the \textit{content} of $T$.
-Notice that $\mathbf{x}^{\operatorname*{cont}\left(  T\right)  }=\prod_{c\in
-Z}x_{T\left(  c\right)  }$.
-
-
-Given a skew partition $\lambda/\mu$, we define the \textit{Schur function}
-$s_{\lambda/\mu}$ to be the formal power series $\sum_{\substack{T\text{ is a
+ Given a filling $T$ of $\lm$, its \textit{content} is a weak composition $\operatorname*{cont}\left(  T\right)=(r_1,r_2,\dots)$ where $r_i=|T^{-1}(i)|$ is the number of entries of $T$ equal to $i$. For a skew partition $\lambda/\mu$, we define the \textit{Schur function}
+$s_{\lambda/\mu}$ to be the formal power series 
+$$s_\lm(x_1,x_2,\dots)=\sum_{\substack{T\text{ is a
 semistandard}\\\text{tableau of shape }Y\left(  \lambda/\mu\right)
-}}\mathbf{x}^{\operatorname*{cont}\left(  T\right)  }$. A nontrivial property
+}}\mathbf{x}^{\operatorname*{cont}\left(  T\right)  }.$$ 
+A nontrivial property
 of these Schur functions is that they are symmetric:
 
+ %a skew partition $\lm$, the corresponding Schur function denoted $s_\lm(x_1,x_2,\dots)$ is defined as the generating function for semistandard tableaux of shape $\lm$:
+%  $$
+% \left(  \operatorname*{cont}\left(  T\right)  \right)  _{i}  &  =\left\vert
+% T^{-1}\left(  i\right)  \right\vert =\left(  \text{the number of entries of
+% }T\text{ equal to }i\right) \\
+% &  \ \ \ \ \ \ \ \ \ \ \text{for every }i\in\mathbb{N}_{+}.
+% $$
+ 
 \begin{proposition}
 \label{prop.schur.symm}We have $s_{\lambda/\mu}\in\Lambda$ for every skew
 partition $\lambda/\mu$.
@@ -574,80 +412,24 @@ This result appears, e.g., in \cite[Theorem 7.10.2]{Stan99} and
 so-called \textit{Bender-Knuth involutions}. We shall recall the definitions
 of these involutions in Section \ref{sect.BKclassical}.
 
-One might attempt to replace \textquotedblleft semistandard
-tableau\textquotedblright\ by \textquotedblleft rpp\textquotedblright\ in the
-definition of a Schur function. However, the resulting power series are (in
-general) no longer symmetric (for instance, $\sum_{\substack{T\text{ is an
-rpp}\\\text{of shape }Y\left(  \left(  2,1\right)  \right)  }}\mathbf{x}%
-^{\operatorname*{cont}\left(  T\right)  }\notin\Lambda$). Nevertheless, Lam
+
+ Replacing ``semistandard
+tableau'' by ``rpp'' in the
+definition of a Schur function in general gives a non-symmetric function. Nevertheless, Lam
 and Pylyavskyy \cite[\S 9]{LamPyl} have noticed that it is possible to define
 symmetric functions from rpps, albeit it requires replacing the content
-$\operatorname*{cont}\left(  T\right)  $ by a subtler construction. Let us now
-discuss their definition.
-
-\subsection{Dual stable Grothendieck polynomials}
-
-If $Z$ is a convex subset of $\mathbb{N}_{+}^{2}$, if $T$ is a filling of $Z$,
-and if $k\in\mathbb{N}_{+}$, then:
-
-\begin{itemize}
-\item The $k$\textit{-th column of }$T$ will mean the sequence of all entries
-of $T$ in cells of the form $\left(  i,k\right)  $ with $i\in\mathbb{N}_{+}$
-(in the order of increasing $i$).
-
-\item The $k$\textit{-th row of }$T$ will mean the sequence of all entries of
-$T$ in cells of the form $\left(  k,i\right)  $ with $i\in\mathbb{N}_{+}$ (in
-the order of increasing $i$).
-\end{itemize}
-
-Notice that (due to $Z$ being convex) there are no \textquotedblleft
-gaps\textquotedblright\ in these rows and columns: If $Z$ is a convex subset
-of $\mathbb{N}_{+}^{2}$, and if $k\in\mathbb{N}_{+}$, then the positive
-integers $i$ satisfying $\left(  i,k\right)  \in Z$ form a (possibly empty)
-interval, and so do the positive integers $i$ satisfying $\left(  k,i\right)
-\in Z$.
-
-If $Z$ is a convex subset of $\mathbb{N}_{+}^{2}$, and if $T$ is a filling of
-$Z$, then we define a weak composition $\operatorname*{ircont}\left(
-T\right)  $ by setting%
-\begin{align*}
-&  \left(  \operatorname*{ircont}\left(  T\right)  \right)  _{i}=\left(
-\text{the number of }k\in\mathbb{N}_{+}\text{ such that the }k\text{-th column
-of }T\text{ contains }i\right) \\
-&  \ \ \ \ \ \ \ \ \ \ \text{for every }i\in\mathbb{N}_{+}.
-\end{align*}
-(In more colloquial terms, $\left(  \operatorname*{ircont}\left(  T\right)
-\right)  _{i}$ is the number of columns of $T$ which contain $i$.) We refer to
-$\operatorname*{ircont}\left(  T\right)  $ as the \textit{irredundant content}
-of $T$. For instance, if $T=%
-%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
-%\begin{ytableau}
-%\none& 3 & 3 \\
-%2 & 3 \\
-%3 & 4
-%\end{ytableau}}}%
-%BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& 3 & 3 \\
-2 & 3 \\
-3 & 4
-\end{ytableau}%
-%EndExpansion
-$, then $\operatorname*{ircont}\left(  T\right)  =\left(  0,1,3,1,0,0,0,\ldots
-\right)  $ (since $1$ is contained in $0$ columns of $T$, while $2$ is
-contained in $1$ column, $3$ in $3$ columns, etc.).
-
-Notice that
-\begin{equation}
-\operatorname*{ircont}\left(  T\right)  =\operatorname*{cont}\left(  T\right)
-\ \ \ \ \ \ \ \ \ \ \text{if }T\text{ is a semistandard tableau.}
-\label{eq.ircont=cont}%
-\end{equation}
+$\operatorname*{cont}\left(  T\right)  $ by a subtler construction.
 
 
-Indeed, (\ref{eq.ircont=cont}) follows by noticing that in every given column
-of a semistandard tableau, every positive integer occurs at most once.
+
+  Namely, for a filling $T$ of a skew partition $\lm$, we define its \textit{irredundant content} as a weak composition $\operatorname*{ircont}\left(
+T\right) =(r_1,r_2,\dots)$ where $r_i$ is the number of \emph{columns} (rather than cells) of $T$ that contain an entry equal to $i$. For instance, if $T_a$, $T_b$, $T_c$ and $T_d$ are the fillings from Figure \ref{fig:fillings}, then their irredundant contents are given by
+$$\ircont(T_a)=(0,1,2,1,0,1),\ \ircont(T_b)=(0,1,3,1),\ \ircont(T_c)=(0,1,3,1,0,0,1),\ \ircont(T_d)=(2,2),$$
+because, for example, $T_a$ has one column with a $4$ in it (so we set $(\ircont{T_a})_4:=1$) and $T_b$ contains three columns with a $3$ (so we set $(\ircont{T_b})_3:=3$).
+
+Notice that if $T$ is a semistandard tableau, then $\cont(T)$ and $\ircont(T)$ coincide.
+
+
 
 
 For the rest of this section, we fix a skew partition $\lambda/\mu$. Now, the
@@ -657,13 +439,9 @@ be the formal power series%
 \sum_{\substack{T\text{ is an rpp}\\\text{of shape }Y\left(  \lambda
 /\mu\right)  }}\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }.
 \]
-It is easy to see that $g_{\lambda/\mu}$ is a well-defined formal power series
-(i.e., the infinite sum $\sum_{\substack{T\text{ is an rpp}\\\text{of shape
-}Y\left(  \lambda/\mu\right)  }}\mathbf{x}^{\operatorname*{ircont}\left(
-T\right)  }$ converges in the usual topology on the ring $\mathbf{k}\left[
-\left[  x_{1},x_{2},x_{3},\ldots\right]  \right]  $).\ \ \ \ \footnote{Be
-warned that $g_{\lambda/\mu}$ is (despite its name) not a polynomial (barring
-trivial cases).} Unlike the Schur function $s_{\lambda/\mu}$, it is (in
+
+
+Unlike the Schur function $s_{\lambda/\mu}$, it is (in
 general) not homogeneous, because whenever a column of an rpp $T$ contains an
 entry several times, the corresponding monomial $\mathbf{x}%
 ^{\operatorname*{ircont}\left(  T\right)  }$ \textquotedblleft
@@ -680,6 +458,7 @@ Lam and Pylyavskyy, in \cite[\S 9.1]{LamPyl}, have shown the following fact:
 partition $\lambda/\mu$.
 \end{proposition}
 
+
 They prove this proposition using generalized plactic algebras \cite[Lemma
 3.1]{FomGre} (and also give a second, combinatorial proof for the case
 $\mu=\varnothing$ by explicitly expanding $g_{\lambda/\varnothing}$ as a sum
@@ -688,180 +467,71 @@ of Schur functions).
 
 In the next section, we shall introduce a refinement of these $g_{\lambda/\mu
 }$, and later we will reprove Proposition \ref{prop.g.symm} in a
-self-contained and elementary way.
+%self-contained
+bijective 
+and elementary way.
 
 \section{\label{sect.def}Refined dual stable Grothendieck polynomials}
 
 \subsection{Definition}
 
-We fix arbitrary elements $t_{1},t_{2},t_{3},\ldots$ of $\mathbf{k}$. (For
-instance, $\mathbf{k}$ can be a polynomial ring in infinitely many variables
-over another ring $\mathbf{m}$, and $t_{1},t_{2},t_{3},\ldots$ can then be
-these variables.) For every weak composition $\alpha$, we set $\mathbf{t}%
-^{\alpha}=t_{1}^{\alpha_{1}}t_{2}^{\alpha_{2}}t_{3}^{\alpha_{3}}\cdots
-\in\mathbf{k}$.
-
-If $Z$ is a subset of $\mathbb{N}_{+}^{2}$, and if $T$ is a filling of $Z$,
-then a \textit{stagnant cell} of $T$ will mean a cell $\left(  i,j\right)  $
-of $Z$ such that $\left(  i+1,j\right)  $ is also a cell of $Z$ and satisfies
+ Let $\t=(t_{1},t_{2},t_{3},\ldots)$ be a vector of indeterminates. If $T$ is a filling of a skew-shape $\lm$,
+then a \textit{stagnant cell} of $T$ is a cell of $\lm$ whose entry is equal to the entry directly below it. That is, a cell $\left(  i,j\right)  $
+of $\lm$ is stagnant if $\left(  i+1,j\right)  $ is also a cell of $\lm$ and 
 $T\left(  i,j\right)  =T\left(  i+1,j\right)  $. Notice that a semistandard
 tableau is the same thing as an rpp which has no stagnant
-cells\footnote{\textit{Proof.} Recall that the difference between a
-semistandard tableau and an rpp is that the entries of a semistandard tableau
-have to be strictly increasing down columns, whereas the entries of an rpp
-have to be merely weakly increasing down columns. Thus, a semistandard tableau
-is the same thing as an rpp whose every column has no adjacent equal entries.
-In other words, a semistandard tableau is the same thing as an rpp which has
-no stagnant cells (because having two adjacent equal entries in a column is
-tantamount to having a stagnant cell).}.
+cells.
 
 
-If $Z$ is a subset of $\mathbb{N}_{+}^{2}$, and if $T$ is a filling of $Z$,
-then we define a weak composition $\operatorname*{ceq}\left(  T\right)  $ by%
-\begin{align}
-&  \left(  \operatorname*{ceq}\left(  T\right)  \right)  _{i}=\left(
-\text{the number of }j\in\mathbb{N}_{+}\text{ such that }\left(  i,j\right)
-\text{ is a stagnant cell of }T\right) \label{eq.gtilde.ceq.def}\\
-&  \ \ \ \ \ \ \ \ \ \ \text{for every }i\in\mathbb{N}_{+}.\nonumber
-\end{align}
-(Visually speaking, $\left(  \operatorname*{ceq}\left(  T\right)  \right)
+ If $T$ is a filling of $\lm$,
+then we define the \textit{column equalities vector} of $T$ to be a weak composition $\operatorname*{ceq}\left(  T\right)=(c_1,c_2,\dots)$ 
+where $c_i$ is the number number of $j\in\mathbb{N}_{+}$ such that $\left(  i,j\right)$ is a stagnant cell of $T$. Visually speaking, $\left(  \operatorname*{ceq}\left(  T\right)  \right)
 _{i}$ is the number of columns of $T$ whose entry in the $i$-th row equals
-their entry in the $\left(  i+1\right)  $-th row.) We call
-$\operatorname*{ceq}\left(  T\right)  $ the \textit{column-equalities counter}
-of $T$. Notice that%
-\begin{equation}
-\left\vert \operatorname*{ceq}\left(  T\right)  \right\vert =\left(  \text{the
-number of all stagnant cells of }T\right)  \label{eq.gtilde.ceq.abs}%
+their entry in the $\left(  i+1\right)  $-th row. For instance, for fillings $T_a,$ $T_b,$ $T_c,$ $T_d$ from Figure \ref{fig:fillings} we have $\ceq(T_a)=(0,1),\ \ceq(T_b)=(1,0),\ \ceq(T_c)=(0)$ and $\ceq(T_d)=(1,1)$. 
+
+Notice that $|\ceq(T)|$ is equal to the number of stagnant cells in $T$, so we have 
+\begin{equation}\label{eq:sum.of.ceq.and.ircont}
+ |\ceq(T)|+|\ircont(T)|=|\lm|
 \end{equation}
-for every rpp $T$. For instance, if $T=%
-%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
-%\begin{ytableau}
-%\none& 3 & 3 \\
-%2 & 3 \\
-%3 & 4
-%\end{ytableau}}}%
-%BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& 3 & 3 \\
-2 & 3 \\
-3 & 4
-\end{ytableau}%
-%EndExpansion
-$, then $\operatorname*{ceq}\left(  T\right)  =\left(  1,0,0,0,\ldots\right)
-$ (since the $1$-st and $2$-nd rows of $T$ have equal entries in one column,
-while for every $i>1$, the $i$-th and $\left(  i+1\right)  $-th rows of $T$ do
-not have equal entries in any column).
+ for all rpps $T$ of shape $\lm$. 
+
+
 
 
 Let now $\lambda/\mu$ be a skew partition. We set%
 \[
-\widetilde{g}_{\lambda/\mu}=\sum_{\substack{T\text{ is an rpp}\\\text{of shape
-}Y\left(  \lambda/\mu\right)  }}\mathbf{t}^{\operatorname*{ceq}\left(
+\widetilde{g}_{\lambda/\mu}(\mathbf{x};\t)=\sum_{\substack{T\text{ is an rpp}\\\text{of shape
+}\lm  }}\mathbf{t}^{\operatorname*{ceq}\left(
 T\right)  }\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }.
 \]
-This $\widetilde{g}_{\lambda/\mu}$ is a well-defined formal power series in
-$\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]  \right]
-$\ \ \ \ \footnote{\textit{Proof.} We need to show that the infinite sum
-$\sum_{\substack{T\text{ is an rpp}\\\text{of shape }Y\left(  \lambda
-/\mu\right)  }}\mathbf{t}^{\operatorname*{ceq}\left(  T\right)  }%
-\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }$ converges with respect
-to the standard topology on $\mathbf{k}\left[  \left[  x_{1},x_{2}%
-,x_{3},\ldots\right]  \right]  $. In other words, we need to show that every
-monomial $\mathbf{x}^{\alpha}$ occurs only finitely often in this sum. But
-this is fairly clear: Given a monomial $\mathbf{x}^{\alpha}$, there exist only
-finitely many $i\in\mathbb{N}_{+}$ satisfying $\alpha_{i}>0$. These finitely
-many $i$ are the only entries that can occur in an rpp $T$ of shape $Y\left(
-\lambda/\mu\right)  $ which satisfies $\operatorname*{ircont}\left(  T\right)
-=\alpha$. Hence, there are only finitely many such rpps. This means that there
-are only finitely many terms in the sum $\sum_{\substack{T\text{ is an
-rpp}\\\text{of shape }Y\left(  \lambda/\mu\right)  }}\mathbf{t}%
-^{\operatorname*{ceq}\left(  T\right)  }\mathbf{x}^{\operatorname*{ircont}%
-\left(  T\right)  }$ in which the monomial $\mathbf{x}^{\alpha}$ occurs,
-qed.}, and moreover belongs to $\mathbf{k}\left[  \left[  x_{1},x_{2}%
-,x_{3},\ldots\right]  \right]  _{\operatorname*{bdd}}$ (since $\left\vert
-\operatorname*{ircont}\left(  T\right)  \right\vert \leq\left\vert Y\left(
-\lambda/\mu\right)  \right\vert =\left\vert \lambda\right\vert -\left\vert
-\mu\right\vert $ for every rpp $T$ of shape $Y\left(  \lambda/\mu\right)  $).
+
 
 
 Let us give some examples of $\widetilde{g}_{\lambda/\mu}$.
 
 \begin{example}
-\label{exa.gtilde.1}\textbf{(a)} Let $n\in\mathbb{N}$, let $\lambda=\left(
-n\right)  $ and let $\mu=\varnothing$. Then, the rpps $T$ of shape $Y\left(
-\lambda/\mu\right)  $ have the form $%
-%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
-%\begin{ytableau}
-%a_1 & a_2 & \cdots& a_n
-%\end{ytableau}}}%
-%BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-a_1 & a_2 & \cdots& a_n
-\end{ytableau}%
-%EndExpansion
-$ with $a_{1}\leq a_{2}\leq\cdots\leq a_{n}$. Each such rpp $T$ satisfies
-$\operatorname*{ceq}\left(  T\right)  =\varnothing$ and $\mathbf{x}%
-^{\operatorname*{ircont}\left(  T\right)  }=x_{a_{1}}x_{a_{2}}\cdots x_{a_{n}%
-}$. Thus, the definition of $\widetilde{g}_{\lambda/\mu}$ yields
-\begin{align*}
-\widetilde{g}_{\lambda/\mu}  &  =\sum_{\substack{T\text{ is an rpp}\\\text{of
-shape }Y\left(  \lambda/\mu\right)  }}\mathbf{t}^{\operatorname*{ceq}\left(
-T\right)  }\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }=\sum
-_{a_{1}\leq a_{2}\leq\cdots\leq a_{n}}\underbrace{\mathbf{t}^{\varnothing}%
-}_{=1}x_{a_{1}}x_{a_{2}}\cdots x_{a_{n}}\\
-&  =\sum_{a_{1}\leq a_{2}\leq\cdots\leq a_{n}}x_{a_{1}}x_{a_{2}}\cdots
-x_{a_{n}}.
-\end{align*}
-This is the so-called $n$-th complete homogeneous symmetric function $h_{n}$.
+\label{exa.gtilde.1}\textbf{(a)} 
 
-\textbf{(b)} Let now $n\in\mathbb{N}$, let $\lambda=\underbrace{\left(
-1,1,\ldots,1\right)  }_{n\text{ times}}$ and let $\mu=\varnothing$. Then, the
-rpps $T$ of shape $Y\left(  \lambda/\mu\right)  $ have the form $%
-%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
-%\begin{ytableau}
-%a_1 \\
-%a_2 \\
-%\vdots\\
-%a_n
-%\end{ytableau}}}%
-%BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-a_1 \\
-a_2 \\
-\vdots\\
-a_n
-\end{ytableau}%
-%EndExpansion
-$ with $a_{1}\leq a_{2}\leq\cdots\leq a_{n}$. Each such rpp $T$ satisfies
-$\mathbf{t}^{\operatorname*{ceq}\left(  T\right)  }=\prod_{\substack{i\in
-\left\{  1,2,\ldots,n\right\}  ;\\a_{i}=a_{i+1}}}t_{i}$ and $\mathbf{x}%
-^{\operatorname*{ircont}\left(  T\right)  }=\prod_{\substack{i\in\left\{
-1,2,\ldots,n\right\}  ;\\a_{i}<a_{i+1}}}x_{i}$, where we set $a_{n+1}=\infty$
-in order to simplify our notations. Thus, the definition of $\widetilde{g}%
-_{\lambda/\mu}$ yields
-\begin{align*}
-\widetilde{g}_{\lambda/\mu}  &  =\sum_{\substack{T\text{ is an rpp}\\\text{of
-shape }Y\left(  \lambda/\mu\right)  }}\mathbf{t}^{\operatorname*{ceq}\left(
-T\right)  }\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }=\sum
-_{a_{1}\leq a_{2}\leq\cdots\leq a_{n}}\left(  \prod_{\substack{i\in\left\{
-1,2,\ldots,n\right\}  ;\\a_{i}=a_{i+1}}}t_{i}\right)  \left(  \prod
-_{\substack{i\in\left\{  1,2,\ldots,n\right\}  ;\\a_{i}<a_{i+1}}}x_{i}\right)
-\\
-&  =\sum_{k=0}^{n}e_{k}\left(  t_{1},t_{2},\ldots,t_{n-1}\right)
-e_{n-k}\left(  x_{1},x_{2},x_{3},\ldots\right)  ,
-\end{align*}
+ If $\lm$ is a single row with $n$ cells, then for each rpp $T$ of shape $\lm$ we have $\ceq(T)=(0,0,\dots)$ and $\ircont(T)=\cont(T)$ (in fact, any rpp of shape $\lm$ is a semistandard tableau in this case). Therefore we get 
+ $$\g_\lm(\x;\t)=h_n(\x)=\sum_{a_1\leq a_2\leq\dots\leq a_n} x_{a_1}x_{a_2}\dots x_{a_n}.$$
+ Here $h_n(\x)$ is the $n$-th complete homogeneous symmetric function.
+
+
+
+
+\textbf{(b)} If $\lm$ is a single column with $n$ cells then by (\ref{eq:sum.of.ceq.and.ircont}) for all rpps $T$ of shape $\lm$ we have $|\ceq(T)|+|\ircont(T)|=n$ so in this case 
+$$\g_\lm(\x;\t)=e_n(t_1,t_2,\dots,t_{n-1},x_1,x_2,\dots)=\sum_{k=0}^{n}e_{k}\left(  t_{1},t_{2},\ldots,t_{n-1}\right)
+e_{n-k}\left(  x_{1},x_{2},\ldots\right),$$
 where $e_{i}\left(  \xi_{1},\xi_{2},\xi_{3},\ldots\right)  $ denotes the
 $i$-th elementary symmetric function in the indeterminates $\xi_{1},\xi
-_{2},\xi_{3},\ldots$. It is possible to rewrite this as%
-\[
-\widetilde{g}_{\lambda/\mu}=e_{n}\left(  t_{1},t_{2},\ldots,t_{n-1}%
-,x_{1},x_{2},x_{3},\ldots\right)  .
-\]
+_{2},\xi_{3},\ldots$. 
 
 
+\begin{todo}
+ Do we really need the third example here? (the one with $\lambda=(2,1)$)
+\end{todo}
+
+\begin{comment}
 \textbf{(c)} Let now $n=3$, let $\lambda=\left(  2,1\right)  $ and let
 $\mu=\varnothing$. Then, the rpps $T$ of shape $Y\left(  \lambda/\mu\right)  $
 have the form $%
@@ -912,131 +582,51 @@ x_{a}x_{b},\ \text{if }a=c
 &  =\sum_{a\leq b;\ a<c}x_{a}x_{b}x_{c}+t_{1}\sum_{a\leq b}x_{a}x_{b}.
 \end{align*}
 
+\end{comment}
+
+
 \end{example}
 
 The power series $\widetilde{g}_{\lambda/\mu}$ generalize the power series
-$g_{\lambda/\mu}$ and $s_{\lambda/\mu}$ studied before:
+$g_{\lambda/\mu}$ and $s_{\lambda/\mu}$ studied before. The following proposition is clear:
 
 \begin{proposition}
 \label{prop.gtilde.gener}Let $\lambda/\mu$ be a skew partition.
 
-\textbf{(a)} If $\left(  t_{1},t_{2},t_{3},\ldots\right)  =\left(
-1,1,1,\ldots\right)  $, then $\widetilde{g}_{\lambda/\mu}=g_{\lambda/\mu}$.
+\textbf{(a)} Specifying $\t=\left(
+1,1,1,\ldots\right)  $ yields $\widetilde{g}_{\lambda/\mu}(\x;\t)=g_{\lambda/\mu}(\x)$.
 
-\textbf{(b)} If $\left(  t_{1},t_{2},t_{3},\ldots\right)  =\left(
-0,0,0,\ldots\right)  $, then $\widetilde{g}_{\lambda/\mu}=s_{\lambda/\mu}$.
-\end{proposition}
+\textbf{(b)} Specifying $\t =\left(
+0,0,0,\ldots\right)  $ yields $\widetilde{g}_{\lambda/\mu}(\x;\t)=s_{\lambda/\mu}(\x)$.
+\end{proposition} \qed
 
-\begin{proof}
-[Proof of Proposition \ref{prop.gtilde.gener}.]\textbf{(a)} Let $\left(
-t_{1},t_{2},t_{3},\ldots\right)  =\left(  1,1,1,\ldots\right)  $. Then,
-$\mathbf{t}^{\alpha}=1$ for every weak composition $\alpha$. Thus,
-$\mathbf{t}^{\operatorname*{ceq}\left(  T\right)  }=1$ for every rpp $T$. Now,
-the definition of $\widetilde{g}_{\lambda/\mu}$ yields $\widetilde{g}%
-_{\lambda/\mu}=\sum_{\substack{T\text{ is an rpp}\\\text{of shape }Y\left(
-\lambda/\mu\right)  }}\underbrace{\mathbf{t}^{\operatorname*{ceq}\left(
-T\right)  }}_{=1}\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }%
-=\sum_{\substack{T\text{ is an rpp}\\\text{of shape }Y\left(  \lambda
-/\mu\right)  }}\mathbf{x}^{\operatorname*{ircont}\left(  T\right)
-}=g_{\lambda/\mu}$. This proves Proposition \ref{prop.gtilde.gener}
-\textbf{(a)}.
-
-\textbf{(b)} Let $\left(  t_{1},t_{2},t_{3},\ldots\right)  =\left(
-0,0,0,\ldots\right)  $. Then, if $T$ is an rpp which has at least one stagnant
-cell, then $\mathbf{t}^{\operatorname*{ceq}\left(  T\right)  }=0$ (because
-$\operatorname*{ceq}\left(  T\right)  $ has at least one nonzero entry in this
-case). Therefore, the sum $\sum_{\substack{T\text{ is an rpp}\\\text{of shape
-}Y\left(  \lambda/\mu\right)  }}\mathbf{t}^{\operatorname*{ceq}\left(
-T\right)  }\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }$ does not
-change if we discard all addends for which $T$ has at least one stagnant cell.
-Thus,%
-\begin{align*}
-\sum_{\substack{T\text{ is an rpp}\\\text{of shape }Y\left(  \lambda
-/\mu\right)  }}\mathbf{t}^{\operatorname*{ceq}\left(  T\right)  }%
-\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }  &  =\sum
-_{\substack{T\text{ is an rpp}\\\text{of shape }Y\left(  \lambda/\mu\right)
-;\\T\text{ has no stagnant cells}}}\mathbf{t}^{\operatorname*{ceq}\left(
-T\right)  }\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }\\
-&  =\sum_{\substack{T\text{ is a semistandard}\\\text{tableau of shape
-}Y\left(  \lambda/\mu\right)  }}\mathbf{t}^{\operatorname*{ceq}\left(
-T\right)  }\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }%
-\end{align*}
-(since a semistandard tableau of shape $Y\left(  \lambda/\mu\right)  $ is the
-same thing as an rpp of shape $Y\left(  \lambda/\mu\right)  $ which has no
-stagnant cells). Now, the definition of $\widetilde{g}_{\lambda/\mu}$ yields%
-\begin{align*}
-\widetilde{g}_{\lambda/\mu}  &  =\sum_{\substack{T\text{ is an rpp}\\\text{of
-shape }Y\left(  \lambda/\mu\right)  }}\mathbf{t}^{\operatorname*{ceq}\left(
-T\right)  }\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }%
-=\sum_{\substack{T\text{ is a semistandard}\\\text{tableau of shape }Y\left(
-\lambda/\mu\right)  }}\underbrace{\mathbf{t}^{\operatorname*{ceq}\left(
-T\right)  }}_{\substack{=1\\\text{(since }\operatorname*{ceq}\left(  T\right)
-=\varnothing\text{)}}}\underbrace{\mathbf{x}^{\operatorname*{ircont}\left(
-T\right)  }}_{\substack{=\mathbf{x}^{\operatorname*{cont}\left(  T\right)
-}\\\text{(by (\ref{eq.ircont=cont}))}}}\\
-&  =\sum_{\substack{T\text{ is a semistandard}\\\text{tableau of shape
-}Y\left(  \lambda/\mu\right)  }}\mathbf{x}^{\operatorname*{cont}\left(
-T\right)  }=s_{\lambda/\mu}.
-\end{align*}
-
-
-\end{proof}
 
 \subsection{The symmetry statement}
 
 Our main result is now the following:
 
 \begin{theorem}
-\label{thm.gtilde.symm}Let $\lambda/\mu$ be a skew partition. Then,
-$\widetilde{g}_{\lambda/\mu}\in\Lambda$.
+\label{thm.gtilde.symm}Let $\lambda/\mu$ be a skew partition. Then
+$\widetilde{g}_{\lambda/\mu}(\x,\t)$ is symmetric in $\x$.
 \end{theorem}
 
-It is clear that Proposition \ref{prop.schur.symm} and Proposition
-\ref{prop.g.symm} are particular cases of Theorem \ref{thm.gtilde.symm} (due
-to Proposition \ref{prop.gtilde.gener}).
+
+Clearly, this implies the symmetry of $g_\lm$ and $s_\lm$ due to Proposition \ref{prop.gtilde.gener}.
+
 
 We shall prove Theorem \ref{thm.gtilde.symm} bijectively. The core of our
-proof will be the following fact:
+proof will be the following restatement of Theorem \ref{thm.gtilde.symm}:
 
+
+ 
 \begin{theorem}
-\label{thm.BK}Let $\lambda/\mu$ be a skew partition. Let $i\in\mathbb{N}_{+}$.
-Let $\operatorname*{RPP}\left(  \lambda/\mu\right)  $ denote the set of all
-rpps of shape $Y\left(  \lambda/\mu\right)  $. Then, there exists an
+\label{thm.BK}Let $\lambda/\mu$ be a skew partition and let $i\in\mathbb{N}_{+}$. Then, there exists an
 involution $\mathbf{B}_{i}:\operatorname*{RPP}\left(  \lambda/\mu\right)
-\rightarrow\operatorname*{RPP}\left(  \lambda/\mu\right)  $ which has the
-following property: For every $T\in\operatorname*{RPP}\left(  \lambda
-/\mu\right)  $, we have%
-\begin{equation}
-\operatorname*{ceq}\left(  \mathbf{B}_{i}\left(  T\right)  \right)
-=\operatorname*{ceq}\left(  T\right)  \label{eq.thm.BK.ceq}%
-\end{equation}
-and%
-\begin{equation}
-\operatorname*{ircont}\left(  \mathbf{B}_{i}\left(  T\right)  \right)
-=s_{i}\cdot\operatorname*{ircont}\left(  T\right)  . \label{eq.thm.BK.ircont}%
-\end{equation}
-\footnotemark\ (Here,
-$s_{i}\cdot\operatorname*{ircont}\left(  T\right)  $ means
-the result of the transposition $s_{i}=\left(  i,i+1\right)  \in
-\mathfrak{S}_{\left(  \infty\right)  }$ acting on the weak composition
-$\operatorname*{ircont}\left(  T\right)  $.)
+\rightarrow\operatorname*{RPP}\left(  \lambda/\mu\right)  $ which preserves the $\ceq$ statistics and acts on $\ircont$ by the transposition of its $i$-th and $i+1$-th entries.
 \end{theorem}
 
-\footnotetext{We notice that the equality (\ref{eq.thm.BK.ircont}) says the
-following:
-\par
-\begin{itemize}
-\item The number of columns of $\mathbf{B}_{i}\left(  T\right)  $ containing
-the entry $i$ equals the number of columns of $T$ containing the entry $i+1$.
-\par
-\item The number of columns of $\mathbf{B}_{i}\left(  T\right)  $ containing
-the entry $i+1$ equals the number of columns of $T$ containing the entry $i$.
-\par
-\item For every $h\in\mathbb{N}_{+}\setminus\left\{  i,i+1\right\}  $, the
-number of columns of $\mathbf{B}_{i}\left(  T\right)  $ containing the entry
-$h$ equals the number of columns of $T$ containing the entry $h$.
-\end{itemize}
-}This involution $\mathbf{B}_{i}$ is a generalization of the $i$-th
+
+This involution $\mathbf{B}_{i}$ is a generalization of the $i$-th
 Bender-Knuth involution defined for semistandard tableaux (see, e.g.,
 \cite[proof of Proposition 2.11]{GriRei15}), but its definition is more
 complicated than that of the latter.\footnote{We will compare our involution
@@ -1044,337 +634,30 @@ $\mathbf{B}_{i}$ with the $i$-th Bender-Knuth involution in Section
 \ref{sect.BKclassical}.} Defining it and proving its properties will take a
 significant part of this paper.
 
-Let us first see how Theorem \ref{thm.BK} implies Theorem
-\ref{thm.gtilde.symm}:
-
-\begin{proof}
-[Proof of Theorem \ref{thm.gtilde.symm} using Theorem \ref{thm.BK}.]We know
-that $\widetilde{g}_{\lambda/\mu}\in\mathbf{k}\left[  \left[  x_{1}%
-,x_{2},x_{3},\ldots\right]  \right]  _{\operatorname*{bdd}}$. Hence, in order
-to prove that $\widetilde{g}_{\lambda/\mu}\in\Lambda$, it is enough to prove
-that $\widetilde{g}_{\lambda/\mu}$ is invariant under the action of
-$\mathfrak{S}_{\left(  \infty\right)  }$ (since $\Lambda=\left(
-\mathbf{k}\left[  \left[  x_{1},x_{2},x_{3},\ldots\right]  \right]
-_{\operatorname*{bdd}}\right)  ^{\mathfrak{S}_{\left(  \infty\right)  }}$). To
-show this, it is enough to prove that $\widetilde{g}_{\lambda/\mu}$ is
-invariant under the action of $s_{i}\in\mathfrak{S}_{\left(  \infty\right)  }$
-for every $i\in\mathbb{N}_{+}$ (because the group $\mathfrak{S}_{\left(
-\infty\right)  }$ is generated by the subset $\left\{  s_{1},s_{2}%
-,s_{3},\ldots\right\}  $). In other words, it is enough to prove that
-$s_{i}\cdot\widetilde{g}_{\lambda/\mu}=\widetilde{g}_{\lambda/\mu}$ for every
-$i\in\mathbb{N}_{+}$. So let us prove this.
-
-Fix $i\in\mathbb{N}_{+}$. Theorem \ref{thm.BK} gives us an involution
-$\mathbf{B}_{i}:\operatorname*{RPP}\left(  \lambda/\mu\right)  \rightarrow
-\operatorname*{RPP}\left(  \lambda/\mu\right)  $ satisfying the property
-described in Theorem \ref{thm.BK}. Now, the definition of $\widetilde{g}%
-_{\lambda/\mu}$ yields $\widetilde{g}_{\lambda/\mu}=\sum_{T\in
-\operatorname*{RPP}\left(  \lambda/\mu\right)  }\mathbf{t}%
-^{\operatorname*{ceq}\left(  T\right)  }\mathbf{x}^{\operatorname*{ircont}%
-\left(  T\right)  }$, so that%
-\[
-s_{i}\cdot\widetilde{g}_{\lambda/\mu}=\sum_{T\in\operatorname*{RPP}\left(
-\lambda/\mu\right)  }\mathbf{t}^{\operatorname*{ceq}\left(  T\right)
-}\underbrace{\left(  s_{i}\cdot\mathbf{x}^{\operatorname*{ircont}\left(
-T\right)  }\right)  }_{=\mathbf{x}^{s_{i}\cdot\operatorname*{ircont}\left(
-T\right)  }}=\sum_{T\in\operatorname*{RPP}\left(  \lambda/\mu\right)
-}\mathbf{t}^{\operatorname*{ceq}\left(  T\right)  }\mathbf{x}^{s_{i}%
-\cdot\operatorname*{ircont}\left(  T\right)  }.
-\]
-Compared with%
-\begin{align*}
-\widetilde{g}_{\lambda/\mu}  &  =\sum_{T\in\operatorname*{RPP}\left(
-\lambda/\mu\right)  }\mathbf{t}^{\operatorname*{ceq}\left(  T\right)
-}\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }=\sum_{T\in
-\operatorname*{RPP}\left(  \lambda/\mu\right)  }\underbrace{\mathbf{t}%
-^{\operatorname*{ceq}\left(  \mathbf{B}_{i}\left(  T\right)  \right)  }%
-}_{\substack{=\mathbf{t}^{\operatorname*{ceq}\left(  T\right)  }\\\text{(by
-(\ref{eq.thm.BK.ceq}))}}}\underbrace{\mathbf{x}^{\operatorname*{ircont}\left(
-\mathbf{B}_{i}\left(  T\right)  \right)  }}_{\substack{=\mathbf{x}^{s_{i}%
-\cdot\operatorname*{ircont}\left(  T\right)  }\\\text{(by
-(\ref{eq.thm.BK.ircont}))}}}\\
-&  \ \ \ \ \ \ \ \ \ \ \left(
-\begin{array}
-[c]{c}%
-\text{here, we have substituted }\mathbf{B}_{i}\left(  T\right)  \text{ for
-}T\text{ in the sum}\\
-\text{(since }\mathbf{B}_{i}:\operatorname*{RPP}\left(  \lambda/\mu\right)
-\rightarrow\operatorname*{RPP}\left(  \lambda/\mu\right)  \text{ is a
-bijection)}%
-\end{array}
-\right) \\
-&  =\sum_{T\in\operatorname*{RPP}\left(  \lambda/\mu\right)  }\mathbf{t}%
-^{\operatorname*{ceq}\left(  T\right)  }\mathbf{x}^{s_{i}\cdot
-\operatorname*{ircont}\left(  T\right)  },
-\end{align*}
-this yields $s_{i}\cdot\widetilde{g}_{\lambda/\mu}=\widetilde{g}_{\lambda/\mu
-}$, and this completes our proof.
-
-\end{proof}
-
 \subsection{Reduction to 12-rpps}
 
 We shall make one further simplification before we step to the actual proof of
 Theorem \ref{thm.BK}.
 
-We define a \textit{12-rpp} to be an rpp whose entries all belong to the set
-$\left\{  1,2\right\}  $. For instance, $%
-%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
-%\begin{ytableau}
-%\none& \none& 1 & 1 & 2 \\
-%\none& \none& 1 & 2 & 2 \\
-%\none& 1 & 2 & 2 \\
-%1 & 1 & 2
-%\end{ytableau}}}%
-%BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& \none& 1 & 1 & 2 \\
-\none& \none& 1 & 2 & 2 \\
-\none& 1 & 2 & 2 \\
-1 & 1 & 2
-\end{ytableau}%
-%EndExpansion
-$ is a 12-rpp of shape $\left(  5,5,4,3\right)  /\left(  2,2,1\right)  $.
-
-Clearly, every column of a 12-rpp is a sequence of $1$'s followed by a
-sequence of $2$'s (where each of these sequences can be empty). The same holds
-for every row of a 12-rpp.
-
-We now claim:
-
 \begin{lemma}
-\label{lem.BK}Let $Z$ be a finite convex subset of $\mathbb{N}_{+}^{2}$. Let
-$\mathbf{R}$ denote the set of all 12-rpps of shape $Z$. Then, there exists an
-involution $\mathbf{B}:\mathbf{R}\rightarrow\mathbf{R}$ (defined canonically
-in terms of $Z$) which has the following property: For every $S\in\mathbf{R}$,
-the equalities%
-\begin{equation}
-\operatorname*{ceq}\left(  \mathbf{B}\left(  S\right)  \right)
-=\operatorname*{ceq}\left(  S\right)  \label{eq.lem.BK.ceq}%
-\end{equation}
-and%
-\begin{equation}
-\operatorname*{ircont}\left(  \mathbf{B}\left(  S\right)  \right)  =s_{1}%
-\cdot\operatorname*{ircont}\left(  S\right)  \label{eq.lem.BK.ircont}%
-\end{equation}
-hold.
+\label{lem.BK} There exists an
+involution $\mathbf{B}:\OneTwoRPP\rightarrow\OneTwoRPP$ (defined canonically
+in terms of $\lm$) which preserves the $\ceq$ statistics and switches the number of columns containing a $1$ with the number of columns containing a $2$ (i.e. acts as a transposition of $1$ and $2$ on $\ircont$).
 \end{lemma}
 
-Before we prove this lemma, we will show how Theorem \ref{thm.BK} can be
-derived from this lemma. But first of all, let us rewrite the lemma as follows:
-
-\begin{lemma}
-\label{lem.BKi}Let $Z$ be a finite convex subset of $\mathbb{N}_{+}^{2}$. Let
-$i\in\mathbb{N}_{+}$. Let $\mathbf{R}_{Z}$ denote the set of all rpps of shape
-$Z$ whose entries all belong to the set $\left\{  i,i+1\right\}  $. Then,
-there exists an involution $\mathbf{B}_{Z}:\mathbf{R}_{Z}\rightarrow
-\mathbf{R}_{Z}$ (defined canonically in terms of $Z$) which has the following
-property: For every $P\in\mathbf{R}_{Z}$, the equalities%
-\begin{equation}
-\operatorname*{ceq}\left(  \mathbf{B}_{Z}\left(  P\right)  \right)
-=\operatorname*{ceq}\left(  P\right)  \label{eq.lem.BKi.ceq}%
-\end{equation}
-and%
-\begin{equation}
-\operatorname*{ircont}\left(  \mathbf{B}_{Z}\left(  P\right)  \right)
-=s_{i}\cdot\operatorname*{ircont}\left(  P\right)  \label{eq.lem.BKi.ircont}%
-\end{equation}
-hold.
-\end{lemma}
-
-\begin{proof}
-[Proof of Lemma \ref{lem.BKi} using Lemma \ref{lem.BK}.]The only difference
-between Lemma \ref{lem.BK} and Lemma \ref{lem.BKi} is that the entries $1$ and
-$2$ in Lemma \ref{lem.BK} have been relabelled as $i$ and $i+1$ in Lemma
-\ref{lem.BKi}. Thus, the two lemmas are equivalent, so that the latter follows
-from the former.
-
-(More formally: Define $\mathbf{R}$ as in Lemma \ref{lem.BK}. Then, we can
-define a bijection $\Phi:\mathbf{R}\rightarrow\mathbf{R}_{Z}$ as follows: For
-every $T\in\mathbf{R}$, let $\Phi\left(  T\right)  $ be the filling of $Z$
-which is obtained from $T$ by replacing all $1$'s and $2$'s by $i$'s and
-$\left(  i+1\right)  $'s, respectively. Now, an involution $\mathbf{B}_{Z}$
-satisfying the claim of Lemma \ref{lem.BKi} can be constructed from an
-involution $\mathbf{B}$ satisfying the claim of Lemma \ref{lem.BK} by the
-formula $\mathbf{B}_{Z}=\Phi\circ\mathbf{B}\circ\Phi^{-1}$.)
-\end{proof}
 
 
-\begin{proof}
-[Proof of Theorem \ref{thm.BK} using Lemma \ref{lem.BKi}.]Let us define a map
-$\mathbf{B}_{i}:\operatorname*{RPP}\left(  \lambda/\mu\right)  \rightarrow
-\operatorname*{RPP}\left(  \lambda/\mu\right)  $.
 
-Indeed, let $T\in\operatorname*{RPP}\left(  \lambda/\mu\right)  $. Then,
-$T^{-1}\left(  \left\{  i,i+1\right\}  \right)  $ is a finite convex subset of
-$Y\left(  \lambda/\mu\right)  $. We denote this subset by $Z$. Let
-$\mathbf{R}_{Z}$ denote the set of all rpps of shape $Z$ whose entries all
-belong to the set $\left\{  i,i+1\right\}  $. Lemma \ref{lem.BKi} yields that
-there exists an involution $\mathbf{B}_{Z}:\mathbf{R}_{Z}\rightarrow
-\mathbf{R}_{Z}$ (defined canonically in terms of $Z$) which has the following
-property: For every $P\in\mathbf{R}_{Z}$, the equalities (\ref{eq.lem.BKi.ceq}%
-) and (\ref{eq.lem.BKi.ircont}) hold. Consider this involution $\mathbf{B}%
-_{Z}$. Clearly, $T\mid_{Z}\in\mathbf{R}_{Z}$. Hence, the involution
-$\mathbf{B}_{Z}:\mathbf{R}_{Z}\rightarrow\mathbf{R}_{Z}$ gives rise to a
-$\mathbf{B}_{Z}\left(  T\mid_{Z}\right)  \in\mathbf{R}_{Z}$. Now, we define a
-new filling $T^{\prime}$ of $Y\left(  \lambda/\mu\right)  $ as follows:%
-\[
-T^{\prime}\left(  c\right)  =\left\{
-\begin{array}
-[c]{c}%
-\left(  \mathbf{B}_{Z}\left(  T\mid_{Z}\right)  \right)  \left(  c\right)
-,\ \ \ \ \ \ \ \ \ \ \text{if }c\in Z;\\
-T\left(  c\right)  ,\ \ \ \ \ \ \ \ \ \ \text{if }c\notin Z
-\end{array}
-\right.  \ \ \ \ \ \ \ \ \ \ \text{for every cell }c\text{ of }Y\left(
-\lambda/\mu\right)  .
-\]
-In other words, $T^{\prime}$ is obtained from $T$ by:
-
-\begin{itemize}
-\item replacing all entries of the restriction $T\mid_{Z}$ (that is, all
-entries in cells $c\in Z$) by the respective entries of $\mathbf{B}_{Z}\left(
-T\mid_{Z}\right)  $, and
-
-\item leaving all other entries as they are.
-\end{itemize}
-
-Notice that $T^{\prime}\mid_{Z}=\mathbf{B}_{Z}\left(  T\mid_{Z}\right)  $ and
-$T^{\prime}\mid_{Y\left(  \lambda/\mu\right)  \setminus Z}=T\mid_{Y\left(
-\lambda/\mu\right)  \setminus Z}$. These two equalities determine $T^{\prime}%
-$. It is easy to see that $T^{\prime}$ is an rpp of shape $Y\left(
-\lambda/\mu\right)  $. That is, $T^{\prime}\in\operatorname*{RPP}\left(
-\lambda/\mu\right)  $. We now define $\mathbf{B}_{i}\left(  T\right)
-=T^{\prime}$. Thus, a map $\mathbf{B}_{i}:\operatorname*{RPP}\left(
-\lambda/\mu\right)  \rightarrow\operatorname*{RPP}\left(  \lambda/\mu\right)
-$ is defined.
-
-The reader can easily verify that this map $\mathbf{B}_{i}$ is an involution,
-and that every $T\in\operatorname*{RPP}\left(  \lambda/\mu\right)  $ satisfies
-(\ref{eq.thm.BK.ceq}) and (\ref{eq.thm.BK.ircont}). (Essentially, these
-properties follow from the analogous properties of the map $\mathbf{B}_{Z}$,
-once one realizes that every $T\in\operatorname*{RPP}\left(  \lambda
-/\mu\right)  $ satisfies%
-\[
-\left(  \mathbf{B}_{i}\left(  T\right)  \right)  ^{-1}\left(  \left\{
-i,i+1\right\}  \right)  =T^{-1}\left(  \left\{  i,i+1\right\}  \right)  ,
-\]
-\[
-\operatorname*{ceq}\left(  T\right)  =\operatorname*{ceq}\left(  T\mid
-_{Z}\right)  +\operatorname*{ceq}\left(  T\mid_{Y\left(  \lambda/\mu\right)
-\setminus Z}\right)
-\]
-and%
-\[
-\operatorname*{ircont}\left(  T\right)  =\operatorname*{ircont}\left(
-T\mid_{Z}\right)  +\underbrace{\operatorname*{ircont}\left(  T\mid_{Y\left(
-\lambda/\mu\right)  \setminus Z}\right)  }_{\substack{\text{This composition
-is invariant under }s_{i}\\\text{(because its }i\text{-th and }\left(
-i+1\right)  \text{-th entries are zero).}}}.
-\]
-) \Needspace{14\baselineskip}
-
-\begin{example}
-Let us give an example of how $\mathbf{B}_{i}$ acts on an rpp. Assume for this
-example that $\lambda=\left(  9,8,8,7\right)  $ and $\mu=\left(
-4,3,2,1\right)  $, and let $T$ be the filling%
-\[%
-%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
-%\begin{ytableau}
-%\none& \none& \none& \none& 1 & 3 & 3 & 4 & 5 \\
-%\none& \none& \none& 1 & 1 & 3 & 4 & 6 \\
-%\none& \none& 1 & 2 & 3 & 3 & 5 & 6 \\
-%\none& 1 & 1 & 2 & 3 & 4 & 8
-%\end{ytableau}}}%
-%BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& \none& \none& \none& 1 & 3 & 3 & 4 & 5 \\
-\none& \none& \none& 1 & 1 & 3 & 4 & 6 \\
-\none& \none& 1 & 2 & 3 & 3 & 5 & 6 \\
-\none& 1 & 1 & 2 & 3 & 4 & 8
-\end{ytableau}%
-%EndExpansion
-\]
-(there is an invisible empty $1$-st column here). Set $i=3$. Then, the
-$\left(  i,i+1\right)  $-domain $Z$ of $T$ is the set%
-\[
-\left\{  \left(  1,6\right)  ,\left(  1,7\right)  ,\left(  1,8\right)
-,\left(  2,6\right)  ,\left(  2,7\right)  ,\left(  3,5\right)  ,\left(
-3,6\right)  ,\left(  4,5\right)  ,\left(  4,6\right)  \right\}  .
-\]
-The rpp $T\mid_{Z}$ is%
-\[%
-%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
-%\begin{ytableau}
-%\none& \none& \none& \none& \none& 3 & 3 & 4 \\
-%\none& \none& \none& \none& \none& 3 & 4 \\
-%\none& \none& \none& \none& 3 & 3\\
-%\none& \none& \none& \none& 3 & 4
-%\end{ytableau}}}%
-%BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& \none& \none& \none& \none& 3 & 3 & 4 \\
-\none& \none& \none& \none& \none& 3 & 4 \\
-\none& \none& \none& \none& 3 & 3\\
-\none& \none& \none& \none& 3 & 4
-\end{ytableau}%
-%EndExpansion
-\]
-(with the first four columns being empty and invisible). We have not defined
-$\mathbf{B}_{Z}$ yet, but let us assume that $\mathbf{B}_{Z}$ maps this rpp
-$T\mid_{Z}$ to%
-\[
-\mathbf{B}_{Z}\left(  T\mid_{Z}\right)  =%
-%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
-%\begin{ytableau}
-%\none& \none& \none& \none& \none& 3 & 3 & 4 \\
-%\none& \none& \none& \none& \none& 3 & 4 \\
-%\none& \none& \none& \none& 3 & 3 \\
-%\none& \none& \none& \none& 3 & 4
-%\end{ytableau}}}%
-%BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& \none& \none& \none& \none& 3 & 3 & 4 \\
-\none& \none& \none& \none& \none& 3 & 4 \\
-\none& \none& \none& \none& 3 & 3 \\
-\none& \none& \none& \none& 3 & 4
-\end{ytableau}%
-%EndExpansion
-.
-\]
-(This is, in fact, what the map $\mathbf{B}_{Z}$ defined below does to
-$T\mid_{Z}$.) Then, $\mathbf{B}_{i}\left(  T\right)  $ is obtained from $T$ by
-replacing the entries of $T\mid_{Z}$ by the respective entries of
-$\mathbf{B}_{Z}\left(  T\mid_{Z}\right)  $, while leaving all other entries as
-they are. Thus,%
-\[
-\mathbf{B}_{i}\left(  T\right)  =%
-%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
-%\begin{ytableau}
-%\none& \none& \none& \none& 1 & 3 & 3 & 4 & 5 \\
-%\none& \none& \none& 1 & 1 & 3 & 4 & 6 \\
-%\none& \none& 1 & 2 & 3 & 3 & 5 & 6 \\
-%\none& 1 & 1 & 2 & 3 & 4 & 8
-%\end{ytableau}}}%
-%BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& \none& \none& \none& 1 & 3 & 3 & 4 & 5 \\
-\none& \none& \none& 1 & 1 & 3 & 4 & 6 \\
-\none& \none& 1 & 2 & 3 & 3 & 5 & 6 \\
-\none& 1 & 1 & 2 & 3 & 4 & 8
-\end{ytableau}%
-%EndExpansion
-.
-\]
-
-\end{example}
-\end{proof}
-
+ This Lemma implies Theorem \ref{thm.BK}: for any $i\in\Nplus$ and for $T$ an rpp of shape $\lm$, we construct $\B_i(T)$ as follows: 
+ \begin{itemize}
+  \item Ignore all entries of $T$ not equal to $i$ or $i+1$. 
+  \item Replace all occurences of $i$ by $1$ and all occurences of $i+1$ by $2$. We get a 12-rpp $T'$ of some smaller shape.
+  \item Replace $T'$ by $\B(T')$.
+  \item In $T'$, replace back all occurences of $1$ by $i$ and all occurences of $2$ by $i+1$. 
+  \item Finally, restore the remaining entries of $T$ that were ignored on the first step.
+ \end{itemize}
+ 
+ It is clear that this operation acts on $\ircont(T)$ by a transposition of the $i$-th and $i+1$-th entries. The fact that it does not change $\ceq(T)$ is also not hard to show: the number column equalities with both entries equal to $i$ or with both entries equal to $i+1$ in each row does not change by the properties of $\B$ while the number of column equalities with both entries equal to something other than $i$ or $i+1$ in each row does not change because the values in the corresponding cells remain unchanged.
 
 \section{\label{sect.proof}Proof of Lemma \ref{lem.BK}}
 
