@@ -213,9 +213,7 @@ $\widetilde{g}_{\lambda/\mu}$ is a symmetric function (in the $x_{1}%
 
 We prove this result (thus obtaining a new proof of \cite[Theorem 9.1]%
 {LamPyl}) first using an elaborate generalization of the classical
-Bender-Knuth involutions to reverse plane partitions; these generalized
-involutions are constructed using a form of the \textit{diamond lemma} (Lemma
-\ref{lem.diamond}).
+Bender-Knuth involutions to reverse plane partitions.
 
 \begin{todo}
 Pavel: advertise your section here? It sort-of gives some justification for
@@ -229,11 +227,8 @@ the dual stable Grothendieck polynomials $\widetilde{g}_{\lambda/\mu}$, state
 our main result (that they are symmetric functions), and do the first steps of
 its proof (by reducing it to a purely combinatorial statement about the
 existence of an involution with certain properties). In Section
-\ref{sect.diamond}, we state and (for the sake of completeness) prove the
-version of the diamond lemma we need, and we digress to give an elementary
-application of it that serves to demonstrate its use. In Section
 \ref{sect.proof}, we prove our main result by constructing the required
-involution using the diamond lemma. In Section \ref{sect.BKclassical}, we
+involution. In Section \ref{sect.BKclassical}, we
 recapitulate the definition of the classical Bender-Knuth involution, and
 sketch the proof that our involution is a generalization of the latter.
 
@@ -285,30 +280,49 @@ _{+}=\left\{  1,2,3,\ldots\right\}  $.
 
 
  A sequence $\alpha=\left(\alpha_{1},\alpha_{2},\alpha_{3},\ldots\right)$ of nonnegative integers is called a \textit{weak composition} if the sum of its entries (denoted $\left\vert \alpha\right\vert$) is finite.
+ We shall always write $\alpha_i$ for the $i$-th entry of a weak composition $\alpha$.
 
 
 
 A \textit{partition} is a weak composition $\left(  \alpha_{1},\alpha
-_{2},\alpha_{3},\ldots\right)  $ satisfying $\alpha_{1}\geq\alpha_{2}%
+_{2},\alpha_{3},\ldots\right)  $ satisfying $\alpha_{1}\geq\alpha_{2}
 \geq\alpha_{3}\geq\cdots$. 
 
-We let $\operatorname*{Par}$ denote the set of all partitions.
 \begin{todo}
- Come up with a better notation for Par, ircont, stagnant.
+ Come up with a better notation for ircont, stagnant.
 \end{todo}
 
-We identify each partition $\lambda$ with the subset of $\mathbb{N}_{+}^{2}$ (called \textit{the Young diagram of $\lambda$}) cotaining all pairs $(i,j)$ with $j\leq \lambda_i$ for all $i\in \Nplus$.
+\begin{todo}
+ Tell the reader that trailing zeroes can be omitted when writing a
+ partition.
+\end{todo}
 
-We draw this subset in \textit{English notation} (also known as the
-\textit{matrix notation}), so the box $(1,1)$ is in the top-left corner while the box $(2,1)$ is direcly below it.
+We identify each partition $\lambda$ with the subset
+$\left\{ \left( i, j \right) \in \Nplus^2 \mid j \leq \lambda_i \right\}$
+of $\Nplus^{2}$ (called \textit{the Young diagram of $\lambda$}).
+We draw this subset as a Young diagram (which is a left-aligned table of
+empty boxes, where the box $(1,1)$ is in the top-left corner while the
+box $(2,1)$ is direcly below it; this is the \textit{English notation},
+also known as the \textit{matrix notation}).
 
 
-A \textit{skew-partition} $\lambda/\mu$ is a pair of partitions satisfying $\mu\subset\lambda$ (as subsets of the plane) and it is identified with the set-theoretic difference of $\lambda$ and $\mu$.
+\begin{todo}
+What is the easiest place to refer the reader to for Young diagram basics,
+which uses notations compatible with ours (such as "filling" and "skew
+partition")?
+\end{todo}
 
- If $\lm$ is a skew partition, then a \textit{filling} of $\lm$ means a map $T:\lm\rightarrow\Nplus$. Three examples of a filling can be found on Figure \ref{fig:fillings}.
+A \textit{skew partition} $\lambda/\mu$ is a pair of partitions satisfying $\mu\subset\lambda$ (as subsets of the plane). In this case, we shall also often use the notation $\lambda/\mu$ for the set-theoretic difference of $\lambda$ and $\mu$.
+% We cannot *identify* the pair with the set-theoretic difference since this assignment fails to be injective.
+
+ If $\lm$ is a skew partition, then a \textit{filling} of $\lm$ means a map $T:\lm\rightarrow\Nplus$. It is visually represented by drawing $\lm$ and filling each box $c$ with the entry $T(c)$. Three examples of a filling can be found on Figure \ref{fig:fillings}.
  
 
- A filling $T:\lm\rightarrow\Nplus$ of $\lm$ is called a \textit{reverse plane partition of shape $\lm$} if its values increase weakly in each row of $\lm$ from left to right and in each column of $\lm$ from top to bottom. If, in addition, the values of $T$ increase strictly down each column then $T$ is called a \textit{semistandard tableau of shape $\lm$} (see \cite{Fulton97} for an exposition of properties and applications of semistandard tableaux). We denote the set of all reverse plane partitions of shape $\lm$ by $\operatorname*{RPP}\left(  \lambda/\mu\right)$.  We abbreviate reverse plane partitions as \textit{rpps}. We define a \textit{12-rpp} to be an rpp whose entries all belong to the set $\left\{  1,2\right\}  $ and denote the set of all 12-rpps of shape $\lm$ by  $\OneTwoRPP$. 
+ A filling $T:\lm\rightarrow\Nplus$ of $\lm$ is called a \textit{reverse plane partition of shape $\lm$} if its values increase weakly in each row of $\lm$ from left to right and in each column of $\lm$ from top to bottom. If, in addition, the values of $T$ increase strictly down each column, then $T$ is called a \textit{semistandard tableau of shape $\lm$}. (See \cite{Fulton97} for an exposition of properties and applications of semistandard tableaux.) We denote the set of all reverse plane partitions of shape $\lm$ by $\operatorname*{RPP}\left(  \lambda/\mu\right)$.  We abbreviate reverse plane partitions as \textit{rpps}. We define a \textit{12-rpp} to be an rpp whose entries all belong to the set $\left\{  1,2\right\}  $ and denote the set of all 12-rpps of shape $\lm$ by  $\OneTwoRPP$. 
+ 
+\begin{todo}
+ The notion of a 12-rpp is technical, at least in my part of the paper. Should we really introduce it here in this section?
+\end{todo}
  
  Examples of an rpp, a 12-rpp and of a semistandard tableau can be found on Figure \ref{fig:fillings}.
  
@@ -359,7 +373,7 @@ symmetric functions over }$\mathbf{k}$; it will be denoted by $\Lambda$ or
 (when $\mathbf{k}$ is not clear from the context) by $\Lambda_{\mathbf{k}}$.
 (The reader shall be warned that \cite{LamPyl} denotes this $\mathbf{k}%
 $-algebra by $\operatorname*{Sym}$, while using the notation $\Lambda$ for the
-set which we call $\operatorname*{Par}$.) Symmetric functions are a classical
+set of all partitions.) Symmetric functions are a classical
 field of research, and are closely related to Young diagrams and tableaux; see
 \cite[Chapter 7]{Stan99}, \cite{Macdon95} and \cite[Chapter 2]{GriRei15} for expositions.
 \end{comment}
@@ -372,10 +386,15 @@ field of research, and are closely related to Young diagrams and tableaux; see
 A \textit{symmetric function} is defined to be a
 bounded-degree power series in $x_1,x_2,\dots$ that is invariant under (finite) permutations of $x_1,x_2,\dots$.
 
-The symmetric functions form a ring that is called the \textit{ring of
+\begin{todo}
+ Define bounded-degree or refer to some place (e.g., GriRei15)? Make ground ring explicit (even if it is $\Z$.)
+ Define finite permutations.
+\end{todo}
+
+The symmetric functions form a ring, which is called the \textit{ring of
 symmetric functions} and denoted by $\Lambda$.
 (In \cite{LamPyl} this ring is denoted by $\operatorname*{Sym}$, while the notation $\Lambda$ is reserved for the
-set which we call $\operatorname*{Par}$.) Symmetric functions are a classical
+set of all partitions.) Symmetric functions are a classical
 field of research, and are closely related to Young diagrams and tableaux; see
 \cite[Chapter 7]{Stan99}, \cite{Macdon95} and \cite[Chapter 2]{GriRei15} for expositions. 
 
@@ -386,11 +405,13 @@ Update Grinberg-Reiner reference to whatever is most recent.
 
 
 
- Given a filling $T$ of $\lm$, its \textit{content} is a weak composition $\operatorname*{cont}\left(  T\right)=(r_1,r_2,\dots)$ where $r_i=|T^{-1}(i)|$ is the number of entries of $T$ equal to $i$. For a skew partition $\lambda/\mu$, we define the \textit{Schur function}
+ Given a filling $T$ of a skew partition $\lm$, its \textit{content} is a weak composition $\operatorname*{cont}\left(  T\right)=\left(r_1,r_2,\dots\right)$ where $r_i=\left|T^{-1}(i)\right|$ is the number of entries of $T$ equal to $i$. For a skew partition $\lambda/\mu$, we define the \textit{Schur function}
 $s_{\lambda/\mu}$ to be the formal power series 
-$$s_\lm(x_1,x_2,\dots)=\sum_{\substack{T\text{ is a
-semistandard}\\\text{tableau of shape }Y\left(  \lambda/\mu\right)
-}}\mathbf{x}^{\operatorname*{cont}\left(  T\right)  }.$$ 
+\[
+s_\lm(x_1,x_2,\dots)
+= \sum_{\substack{T\text{ is a semistandard}\\\text{tableau of shape }Y\left(  \lambda/\mu\right)}}
+\mathbf{x}^{\operatorname*{cont}\left(  T\right)  }.
+\]
 A nontrivial property
 of these Schur functions is that they are symmetric:
 
@@ -423,9 +444,12 @@ $\operatorname*{cont}\left(  T\right)  $ by a subtler construction.
 
 
   Namely, for a filling $T$ of a skew partition $\lm$, we define its \textit{irredundant content} as a weak composition $\operatorname*{ircont}\left(
-T\right) =(r_1,r_2,\dots)$ where $r_i$ is the number of \emph{columns} (rather than cells) of $T$ that contain an entry equal to $i$. For instance, if $T_a$, $T_b$, $T_c$ and $T_d$ are the fillings from Figure \ref{fig:fillings}, then their irredundant contents are given by
-$$\ircont(T_a)=(0,1,2,1,0,1),\ \ircont(T_b)=(0,1,3,1),\ \ircont(T_c)=(0,1,3,1,0,0,1),\ \ircont(T_d)=(2,2),$$
-because, for example, $T_a$ has one column with a $4$ in it (so we set $(\ircont{T_a})_4:=1$) and $T_b$ contains three columns with a $3$ (so we set $(\ircont{T_b})_3:=3$).
+T\right) = \left(r_1,r_2,\dots\right)$ where $r_i$ is the number of \emph{columns} (rather than cells) of $T$ that contain an entry equal to $i$. For instance, if $T_a$, $T_b$, $T_c$ and $T_d$ are the fillings from Figure \ref{fig:fillings}, then their irredundant contents are given by
+\begin{align*}
+\ircont(T_a)=(0,1,2,1,0,1),\ \qquad \ircont(T_b)=(0,1,3,1), \\
+\ircont(T_c)=(0,1,3,1,0,0,1),\ \qquad \ircont(T_d)=(2,2),
+\end{align*}
+because, for example, $T_a$ has one column with a $4$ in it (so $(\ircont{T_a})_4=1$) and $T_b$ contains three columns with a $3$ (so $(\ircont{T_b})_3=3$).
 
 Notice that if $T$ is a semistandard tableau, then $\cont(T)$ and $\ircont(T)$ coincide.
 
@@ -475,7 +499,9 @@ and elementary way.
 
 \subsection{Definition}
 
- Let $\t=(t_{1},t_{2},t_{3},\ldots)$ be a vector of indeterminates. If $T$ is a filling of a skew-shape $\lm$,
+ Let $\t=\left(t_{1},t_{2},t_{3},\ldots\right)$ be a sequence of indeterminates. For any weak composition $\alpha$, we define $\t^\alpha$ to be the monomial $t_1^{\alpha_1} t_2^{\alpha_2} t_3^{\alpha_3} \cdots$.
+
+ If $T$ is a filling of a skew partition $\lm$,
 then a \textit{stagnant cell} of $T$ is a cell of $\lm$ whose entry is equal to the entry directly below it. That is, a cell $\left(  i,j\right)  $
 of $\lm$ is stagnant if $\left(  i+1,j\right)  $ is also a cell of $\lm$ and 
 $T\left(  i,j\right)  =T\left(  i+1,j\right)  $. Notice that a semistandard
@@ -484,14 +510,14 @@ cells.
 
 
  If $T$ is a filling of $\lm$,
-then we define the \textit{column equalities vector} of $T$ to be a weak composition $\operatorname*{ceq}\left(  T\right)=(c_1,c_2,\dots)$ 
+then we define the \textit{column equalities vector} of $T$ to be a weak composition $\operatorname*{ceq}\left(  T\right)=\left(c_1,c_2,\dots\right)$ 
 where $c_i$ is the number number of $j\in\mathbb{N}_{+}$ such that $\left(  i,j\right)$ is a stagnant cell of $T$. Visually speaking, $\left(  \operatorname*{ceq}\left(  T\right)  \right)
 _{i}$ is the number of columns of $T$ whose entry in the $i$-th row equals
 their entry in the $\left(  i+1\right)  $-th row. For instance, for fillings $T_a,$ $T_b,$ $T_c,$ $T_d$ from Figure \ref{fig:fillings} we have $\ceq(T_a)=(0,1),\ \ceq(T_b)=(1,0),\ \ceq(T_c)=(0)$ and $\ceq(T_d)=(1,1)$. 
 
-Notice that $|\ceq(T)|$ is equal to the number of stagnant cells in $T$, so we have 
+Notice that $\left|\ceq(T)\right|$ is the number of stagnant cells in $T$, so we have 
 \begin{equation}\label{eq:sum.of.ceq.and.ircont}
- |\ceq(T)|+|\ircont(T)|=|\lm|
+ \left|\ceq(T)\right|+\left|\ircont(T)\right|=\left|\lm\right|
 \end{equation}
  for all rpps $T$ of shape $\lm$. 
 
@@ -513,15 +539,19 @@ Let us give some examples of $\widetilde{g}_{\lambda/\mu}$.
 \label{exa.gtilde.1}\textbf{(a)} 
 
  If $\lm$ is a single row with $n$ cells, then for each rpp $T$ of shape $\lm$ we have $\ceq(T)=(0,0,\dots)$ and $\ircont(T)=\cont(T)$ (in fact, any rpp of shape $\lm$ is a semistandard tableau in this case). Therefore we get 
- $$\g_\lm(\x;\t)=h_n(\x)=\sum_{a_1\leq a_2\leq\dots\leq a_n} x_{a_1}x_{a_2}\dots x_{a_n}.$$
+\[
+\g_\lm(\x;\t)=h_n(\x)=\sum_{a_1\leq a_2\leq\dots\leq a_n} x_{a_1}x_{a_2}\dots x_{a_n}.
+\]
  Here $h_n(\x)$ is the $n$-th complete homogeneous symmetric function.
 
 
 
 
 \textbf{(b)} If $\lm$ is a single column with $n$ cells then by (\ref{eq:sum.of.ceq.and.ircont}) for all rpps $T$ of shape $\lm$ we have $|\ceq(T)|+|\ircont(T)|=n$ so in this case 
-$$\g_\lm(\x;\t)=e_n(t_1,t_2,\dots,t_{n-1},x_1,x_2,\dots)=\sum_{k=0}^{n}e_{k}\left(  t_{1},t_{2},\ldots,t_{n-1}\right)
-e_{n-k}\left(  x_{1},x_{2},\ldots\right),$$
+\[
+\g_\lm(\x;\t)=e_n(t_1,t_2,\dots,t_{n-1},x_1,x_2,\dots)=\sum_{k=0}^{n}e_{k}\left(  t_{1},t_{2},\ldots,t_{n-1}\right)
+e_{n-k}\left(  x_{1},x_{2},\ldots\right),
+\]
 where $e_{i}\left(  \xi_{1},\xi_{2},\xi_{3},\ldots\right)  $ denotes the
 $i$-th elementary symmetric function in the indeterminates $\xi_{1},\xi
 _{2},\xi_{3},\ldots$. 
@@ -529,6 +559,7 @@ _{2},\xi_{3},\ldots$.
 
 \begin{todo}
  Do we really need the third example here? (the one with $\lambda=(2,1)$)
+ DG: I expected both of you to care more about these examples than I did.
 \end{todo}
 
 \begin{comment}
