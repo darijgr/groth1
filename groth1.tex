@@ -509,7 +509,7 @@ cells.
 
  If $T$ is a filling of $\lm$,
 then we define the \textit{column equalities vector} of $T$ to be a weak composition $\operatorname*{ceq}\left(  T\right)=\left(c_1,c_2,\dots\right)$ 
-where $c_i$ is the number number of $j\in\mathbb{N}_{+}$ such that $\left(  i,j\right)$ is a stagnant cell of $T$. Visually speaking, $\left(  \operatorname*{ceq}\left(  T\right)  \right)
+where $c_i$ is the number of $j\in\mathbb{N}_{+}$ such that $\left(  i,j\right)$ is a stagnant cell of $T$. Visually speaking, $\left(  \operatorname*{ceq}\left(  T\right)  \right)
 _{i}$ is the number of columns of $T$ whose entry in the $i$-th row equals
 their entry in the $\left(  i+1\right)  $-th row. For instance, for fillings $T_a,$ $T_b,$ $T_c,$ $T_d$ from Figure \ref{fig:fillings} we have $\ceq(T_a)=(0,1),\ \ceq(T_b)=(1,0),\ \ceq(T_c)=(0)$ and $\ceq(T_d)=(1,1)$. 
 
@@ -680,13 +680,15 @@ in terms of $\lm$) which preserves the $\ceq$ statistics and switches the number
  This Lemma implies Theorem \ref{thm.BK}: for any $i\in\Nplus$ and for $T$ an rpp of shape $\lm$, we construct $\B_i(T)$ as follows: 
  \begin{itemize}
   \item Ignore all entries of $T$ not equal to $i$ or $i+1$. 
-  \item Replace all occurences of $i$ by $1$ and all occurences of $i+1$ by $2$. We get a 12-rpp $T'$ of some smaller shape.
+  \item Replace all occurrences of $i$ by $1$ and all occurrences of $i+1$ by $2$. We get a 12-rpp $T'$ of some smaller shape (which is still a skew partition).
   \item Replace $T'$ by $\B(T')$.
-  \item In $T'$, replace back all occurences of $1$ by $i$ and all occurences of $2$ by $i+1$. 
+  \item In $\B(T')$, replace back all occurrences of $1$ by $i$ and all occurrences of $2$ by $i+1$.
   \item Finally, restore the remaining entries of $T$ that were ignored on the first step.
  \end{itemize}
  
- It is clear that this operation acts on $\ircont(T)$ by a transposition of the $i$-th and $i+1$-th entries. The fact that it does not change $\ceq(T)$ is also not hard to show: the number column equalities with both entries equal to $i$ or with both entries equal to $i+1$ in each row does not change by the properties of $\B$ while the number of column equalities with both entries equal to something other than $i$ or $i+1$ in each row does not change because the values in the corresponding cells remain unchanged.
+ It is clear that this operation acts on $\ircont(T)$ by a transposition of the $i$-th and $i+1$-th entries. The fact that it does not change $\ceq(T)$ is also not hard to show: The set of stagnant cells remains the same.
+% This is one of the rare cases where my writing is shorter :) Also, we never defined what a "column equality" is. -- DG
+% the number column equalities with both entries equal to $i$ or with both entries equal to $i+1$ in each row does not change by the properties of $\B$ while the number of column equalities with both entries equal to something other than $i$ or $i+1$ in each row does not change because the values in the corresponding cells remain unchanged.
 
 \section{\label{sect.proof}Proof of Lemma \ref{lem.BK}}
 
@@ -886,15 +888,21 @@ every nonempty column of $T$, we
 transform the column as follows:
 
 \begin{itemize}
-\item If the column is 1-pure, we replace all its entries by $2$'s.
+\item \textbf{If} this column is 1-pure, we replace all its entries by $2$'s
+(so that it becomes 2-pure).
 
-\item If the column is 2-pure, we replace all its entries by $1$'s.
+\textbf{Otherwise}, if this column is 2-pure, we replace all its entries by
+$1$'s (so that it becomes 1-pure).
 
-\item Otherwise we do not change it.
+\textbf{Otherwise} (i.e., if this column is mixed), we do not change it.
 \end{itemize}
+% Stet the above structure (1 item, with 3 cases, as opposed to 3
+% items). This is a single-step procedure (for each particular column)
+% which has three cases, rather than a three-step procedure.
 
 Once these transformations are made, the resulting filling of $Z$
-is a 12-table which is still benign. We define $\operatorname*{flip}\left(
+is a 12-table which is still benign (in fact, it has the same mixed
+columns as $T$). We define $\operatorname*{flip}\left(
 T\right)  $ to be this resulting 12-table. Thus, the map
 $\operatorname*{flip}:\mathbf{S}\rightarrow\mathbf{S}$ is defined.
 
@@ -939,6 +947,7 @@ then $\operatorname*{flip}\left(  T\right)$ is
 2
 \end{ytableau}
 %EndExpansion
+.
 \]
 
 The following proposition gathers some easy properties of
@@ -1024,7 +1033,9 @@ Let $k\in\mathbb{N}_{+}$. Let $P\in\mathbf{S}$. Assume (for the whole Subsection
 is a descent of $P$. Thus, the $k$-th column of $P$ must contain at least one
 $2$. Hence, the $k$-th column of $P$ is either mixed or 2-pure. Similarly, the
 $\left(  k+1\right)  $-th column of $P$ is either mixed or 1-pure. But the
-$k$-th and the $\left(  k+1\right)  $-th columns of $P$ cannot both be mixed because $P$ is benign. Thus we introduce the following notations:
+$k$-th and the $\left(  k+1\right)  $-th columns of $P$ cannot both be mixed
+(by (\ref{eq.benign.not-both-mixed}), because $P$ is benign). Thus we
+introduce the following notations:
 
 \begin{itemize}
 \item We say that the 12-table $P$ has $k$\textit{-type M1} if the $k$-th
@@ -1036,6 +1047,9 @@ column of $P$ is 2-pure and the $\left(  k+1\right)  $-th column of $P$ is mixed
 \item We say that the 12-table $P$ has $k$\textit{-type 21} if the $k$-th
 column of $P$ is 2-pure and the $\left(  k+1\right)  $-th column of $P$ is 1-pure.
 \end{itemize}
+
+Then, the 12-table $P$ always either has $k$-type M1, or has $k$-type 2M, or
+has $k$-type 21 (as follows from the discussion in the preceding paragraph).
 
 Now, we define a new 12-table $\operatorname*{res}\nolimits_{k}P$ as follows:
 
@@ -1189,7 +1203,7 @@ Then $P$ is a benign 12-table, and its
 descents are $1$, $2$ and $4$. We have $\operatorname*{sep}\nolimits_{2}P=4$.
 
 If we set $k=1$, then $P$ has $k$-type 2M, and resolving the descent $k=1$
-gives us the 12-table $\operatorname*{res}\nolimits_{1}P$:
+gives us the 12-table $\operatorname*{res}\nolimits_{1}P$, which is
 \[
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
@@ -1212,7 +1226,7 @@ gives us the 12-table $\operatorname*{res}\nolimits_{1}P$:
 \]
 
 If we instead set $k=2$, then $P$ has $k$-type M1, and resolving the descent
-$k=2$ gives us the 12-table $\operatorname*{res}\nolimits_{2}P$:
+$k=2$ gives us the 12-table $\operatorname*{res}\nolimits_{2}P$, which is
 \[
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
@@ -1235,7 +1249,7 @@ $k=2$ gives us the 12-table $\operatorname*{res}\nolimits_{2}P$:
 \]
 
 If we instead set $k=4$, then $P$ has $k$-type 21, and resolving the descent
-$k=4$ gives us the 12-table $\operatorname*{res}\nolimits_{4}P$:
+$k=4$ gives us the 12-table $\operatorname*{res}\nolimits_{4}P$, which is
 \[
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
