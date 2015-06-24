@@ -1,0 +1,25 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Acknowledgments}{section.1}% 2
+\BOOKMARK [1][-]{section.2}{Notations and definitions}{}% 3
+\BOOKMARK [2][-]{subsection.2.1}{Partitions and tableaux}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.2}{Symmetric functions}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Refined dual stable Grothendieck polynomials}{}% 6
+\BOOKMARK [2][-]{subsection.3.1}{Definition}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.2}{The symmetry statement}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.3}{Reduction to 12-rpps}{section.3}% 9
+\BOOKMARK [1][-]{section.4}{Proof of Lemma 3.6}{}% 10
+\BOOKMARK [2][-]{subsection.4.1}{12-tables and the four types of their columns}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.2}{Descents, separators, and benign 12-tables}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.3}{The *flip map on benign 12-tables}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.4}{Plan of the proof}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.5}{Resolving descents}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.6}{The descent-resolution relation }{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.7}{The normalization map}{section.4}% 17
+\BOOKMARK [2][-]{subsection.4.8}{Definition of B}{section.4}% 18
+\BOOKMARK [1][-]{section.5}{The classical Bender-Knuth involutions}{}% 19
+\BOOKMARK [2][-]{subsection.5.1}{Recalling the definition of Bi}{section.5}% 20
+\BOOKMARK [2][-]{subsection.5.2}{The Bender-Knuth involutions}{section.5}% 21
+\BOOKMARK [1][-]{section.6}{The structure of 12-rpps}{}% 22
+\BOOKMARK [2][-]{subsection.6.1}{Irreducible components}{section.6}% 23
+\BOOKMARK [2][-]{subsection.6.2}{The structural theorem and its applications}{section.6}% 24
+\BOOKMARK [2][-]{subsection.6.3}{The proof}{section.6}% 25

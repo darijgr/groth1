@@ -697,51 +697,44 @@ We now come to the actual proof of Lemma \ref{lem.BK}. For the whole Section
 columns}
 
 Let $Z$ be a finite convex subset of $\mathbb{N}_{+}^{2}$. We shall keep $Z$
-fix for the rest of Section \ref{sect.proof}. Let $\mathbf{R}$ denote the set
+fixed for the rest of Section \ref{sect.proof}. Let $\mathbf{R}$ denote the set
 of all 12-rpps of shape $Z$.
 
 A \textit{12-table} will mean a map $T:Z\rightarrow\left\{  1,2\right\}  $
 such that the entries of $T$ are weakly increasing down columns. (We do not
 require them to be weakly increasing along rows.) Every column of a 12-table
-is a sequence of the form $\left(  \underbrace{1,1,\ldots,1}_{u\text{ times
-}1},\underbrace{2,2,\ldots,2}_{v\text{ times }2}\right)  $ with $u\in
-\mathbb{N}$ and $v\in\mathbb{N}$. We say that such a sequence is
+is a sequence of the form $(1,1,\ldots,1,2,2,\ldots,2)$. We say that such a sequence is
 
 \begin{itemize}
-\item \textit{1-pure} if it is nonempty and consists purely of $1$'s (that is,
-$u>0$ and $v=0$);
+\item \textit{1-pure} if it is nonempty and consists purely of $1$'s,
 
-\item \textit{2-pure} if it is nonempty and consists purely of $2$'s (that is,
-$u=0$ and $v>0$);
+\item \textit{2-pure} if it is nonempty and consists purely of $2$'s,
 
-\item \textit{mixed} if it contains both $1$'s and $2$'s (that is, $u>0$ and
-$v>0$).
+\item \textit{mixed} if it contains both $1$'s and $2$'s.
 \end{itemize}
 
-Consequently, every column of a 12-table is either empty or 1-pure or 2-pure
-or mixed (and these four cases do not overlap).
-
-Also, if $s$ is a sequence of the form $\left(  \underbrace{1,1,\ldots
-,1}_{u\text{ times }1},\underbrace{2,2,\ldots,2}_{v\text{ times }2}\right)  $
-with $u\in\mathbb{N}$ and $v\in\mathbb{N}$, then we define the
-\textit{signature} of $s$ to be the nonnegative integer $\left\{
+If $s$ is a sequence of the form $(1,1,\ldots,1,2,2,\ldots,2)$, then we define the
+\textit{signature} $\operatorname*{sig}\left(  s\right)
+$ of $s$ to be
+\[
+\operatorname*{sig}\left(  s\right) = \left\{
 \begin{array}
-[c]{c}%
+[c]{l}%
 0,\text{ if }s\text{ is 2-pure or empty;}\\
 1,\text{ if }s\text{ is mixed;}\\
 2,\text{ if }s\text{ is 1-pure}%
 \end{array}
-\right.  $. We denote this signature by $\operatorname*{sig}\left(  s\right)
-$. For any 12-table $T$, we define a nonnegative integer $\ell\left(
+\right.
+\]
+For any 12-table $T$, we define a nonnegative integer $\ell\left(
 T\right)  $ by%
 \[
 \ell\left(  T\right)  =\sum_{h\in\mathbb{N}_{+}}h\cdot\operatorname*{sig}%
 \left(  \text{the }h\text{-th column of }T\right)  .
 \]
-\footnote{This is well-defined, because all but finitely many $h\in
-\mathbb{N}_{+}$ satisfy $\operatorname*{sig}\left(  \text{the }h\text{-th
-column of }T\right)  =0$ (since for all but finitely many $h\in\mathbb{N}_{+}%
-$, the $h$-th column of $T$ is empty).} For instance, if $T=%
+For instance, if $T$ is the 12-table
+\[
+%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& 1 & 2 & 1 & 2 \\
@@ -758,18 +751,19 @@ $, the $h$-th column of $T$ is empty).} For instance, if $T=%
 2 & 2
 \end{ytableau}%
 %EndExpansion
-$, then $\ell\left(  T\right)  =1\cdot0+2\cdot1+3\cdot2+4\cdot0+5\cdot
+\]
+then $\ell\left(  T\right)  =1\cdot0+2\cdot1+3\cdot2+4\cdot0+5\cdot
 2+6\cdot0+7\cdot0+8\cdot0+\cdots=18$.
 
-\subsection{Descents of 12-tables}
+\subsection{\label{subsection:benign}Descents, separators, and benign 12-tables}
 
 If $T$ is a 12-table, then we define a \textit{descent} of $T$ to be a
 positive integer $i$ such that there exists an $r\in\mathbb{N}_{+}$ satisfying
 $\left(  r,i\right)  \in Z$, $\left(  r,i+1\right)  \in Z$, $T\left(
-r,i\right)  =2$ and $T\left(  r,i+1\right)  =1$. (Speaking visually, a descent
-of $T$ is an $i\in\mathbb{N}_{+}$ such that the filling $T$ has an entry $2$
-in column $i$ lying due west of an entry $1$ in column $i+1$.) For instance,
-the descents of the 12-table $%
+r,i\right)  =2$ and $T\left(  r,i+1\right)  =1$. For instance,
+the descents of the 12-table 
+\[
+%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& 1 & 2 & 1 & 2 \\
@@ -786,43 +780,32 @@ the descents of the 12-table $%
 2 & 2
 \end{ytableau}%
 %EndExpansion
-$ are $1$ and $4$.
-
-Clearly, a 12-rpp of shape $Z$ is the same as a 12-table which has no
-descents.\footnote{Indeed, the descents of a 12-table stem from the failures
-of its entries to be weakly increasing along rows.}
-
-\subsection{\label{subsection:benign}Benign 12-tables and separators}
+\]
+are $1$ and $4$. Clearly, a 12-rpp of shape $Z$ is the same as a 12-table which has no
+descents.
 
 If $T$ is a 12-table, and if $k\in\mathbb{N}_{+}$ is such that the $k$-th
 column of $T$ is mixed, then we define $\operatorname*{sep}\nolimits_{k}T$ to
 be the smallest $r\in\mathbb{N}_{+}$ such that $\left(  r,k\right)  \in Z$ and
-$T\left(  r,k\right)  =2$.\ \ \ \ \footnote{Such an $r$ exists since the
-$k$-th column of $T$ contains at least one $2$ (in fact, it is mixed).}
-(Speaking visually, the integer $\operatorname*{sep}\nolimits_{k}T$ tells us
-at what row the $1$'s end\footnote{Our use of the words \textquotedblleft
-end\textquotedblright\ and \textquotedblleft begin\textquotedblright\ always
-assumes that we are reading the columns of our 12-tables from top to bottom.}
-and the $2$'s begin in the $k$-th column of $T$. Or, more sloppily said, it
-separates the $1$'s from the $2$'s in the $k$-th column of $T$; this is why we
-call it $\operatorname*{sep}\nolimits_{k}T$.) Thus, every 12-table $T$, every
+$T\left(  r,k\right)  =2$. Thus, every 12-table $T$, every
 $r\in\mathbb{N}_{+}$ and every $k\in\mathbb{N}_{+}$ such that the $k$-th
 column of $T$ is mixed and such that $\left(  r,k\right)  \in Z$ satisfy%
 \begin{equation}
 T\left(  r,k\right)  =\left\{
 \begin{array}
-[c]{c}%
+[c]{l}%
 1,\ \ \ \ \ \ \ \ \ \ \text{if }r<\operatorname*{sep}\nolimits_{k}T;\\
-2,\ \ \ \ \ \ \ \ \ \ \text{if }r\geq\operatorname*{sep}\nolimits_{k}T
+2,\ \ \ \ \ \ \ \ \ \ \text{if }r\geq\operatorname*{sep}\nolimits_{k}T.
 \end{array}
 \right.  \label{pf.lem.BK.Tsep}%
 \end{equation}
-(because the $k$-th column of $T$ is weakly increasing).
 
 If $T$ is a 12-table, then we let $\operatorname*{seplist}T$ denote the list
 of all values $\operatorname*{sep}\nolimits_{k}T$ (in the order of increasing
 $k$), where $k$ ranges over all positive integers for which the $k$-th column
-of $T$ is mixed. For instance, if $T=%
+of $T$ is mixed. For instance, if $T$ is
+\[
+%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& 1 & 1 & 1 \\
@@ -839,15 +822,14 @@ of $T$ is mixed. For instance, if $T=%
 2 & 2 & 2
 \end{ytableau}%
 %EndExpansion
-$, then $\operatorname*{sep}\nolimits_{1}T=4$ (since $T\left(  1,4\right)  =2$
-and $T\left(  1,3\right)  =1$), and $\operatorname*{sep}\nolimits_{3}T=4$, and
-$\operatorname*{sep}\nolimits_{5}T=2$ (and there are no other $k\in
-\mathbb{N}_{+}$ for which $\operatorname*{sep}\nolimits_{k}T$ is defined), so
-that $\operatorname*{seplist}T=\left(  4,4,2\right)  $.
+\]
+then $\operatorname*{sep}\nolimits_{1}T=4$, $\operatorname*{sep}\nolimits_{3}T=4$, and
+$\operatorname*{sep}\nolimits_{5}T=2$ (and there are no other $k$ for which $\operatorname*{sep}\nolimits_{k}T$ is defined), so that $\operatorname*{seplist}T=\left(  4,4,2\right)  $.
 
 We say that a 12-table $T$ is \textit{benign} if the list
-$\operatorname*{seplist}T$ is weakly decreasing. For instance, the 12-table
-$T=%
+$\operatorname*{seplist}T$ is weakly decreasing. 
+%For instance, the 12-table
+%$T=%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& 1 & 1 & 2 & 1 \\
@@ -857,17 +839,17 @@ $T=%
 %2
 %\end{ytableau}}}%
 %BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& 1 & 1 & 2 & 1 \\
-1 & 1 & 1 \\
-1 & 2 & 1 \\
-1 & 2 \\
-2
-\end{ytableau}%
+%\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& 1 & 1 & 2 & 1 \\
+%1 & 1 & 1 \\
+%1 & 2 & 1 \\
+%1 & 2 \\
+%2
+%\end{ytableau}%
 %EndExpansion
-$ is benign (since it has $\operatorname*{seplist}T=\left(  5,3\right)  $),
-while the 12-table $T=%
+%$ is benign (since it has $\operatorname*{seplist}T=\left(  5,3\right)  $),
+%while the 12-table $T=%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& 1 & 1 & 2 & 1 \\
@@ -877,62 +859,47 @@ while the 12-table $T=%
 %2
 %\end{ytableau}}}%
 %BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& 1 & 1 & 2 & 1 \\
-1 & 1 & 1 \\
-1 & 2 & 1 \\
-1 & 2 & 2\\
-2
-\end{ytableau}%
+%\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& 1 & 1 & 2 & 1 \\
+%1 & 1 & 1 \\
+%1 & 2 & 1 \\
+%1 & 2 & 2\\
+%2
+%\end{ytableau}%
 %EndExpansion
-$ is not (since it has $\operatorname*{seplist}T=\left(  5,3,4\right)  $).
-Notice that 12-rpps are benign 12-tables, but the converse is not true. We
-notice that if $T$ is a benign 12-table, then%
+%$ is not (since it has $\operatorname*{seplist}T=\left(  5,3,4\right)  $).
+Notice that 12-rpps are benign 12-tables, but the converse is not true. If $T$ is a benign 12-table, then%
 \begin{align}
 &  \text{there exists no descent }k\text{ of }T\text{ such that both the
 }k\text{-th column of }T\nonumber\\
 &  \text{and the }\left(  k+1\right)  \text{-th column of }T\text{ are mixed.}
 \label{eq.benign.not-both-mixed}%
 \end{align}
-\footnote{\textit{Proof.} Let $T$ be a benign 12-table. Assume the contrary
-(to (\ref{eq.benign.not-both-mixed})). Thus, there exists a descent $k$ of $T$
-such that both the $k$-th column of $T$ and the $\left(  k+1\right)  $-th
-column of $T$ are mixed. Consider this $k$. We have $\operatorname*{sep}%
-\nolimits_{k}T<\operatorname*{sep}\nolimits_{k+1}T$ (because $k$ is a descent
-of $T$). The sequence $\operatorname*{seplist}T$ is thus not weakly
-decreasing. In other words, $T$ is not benign. But this contradicts the fact
-that $T$ is benign. Hence, our assumption was wrong, qed.}
-
-Let $\mathbf{S}$ denote the set of all benign 12-tables.\footnote{We recall
-that $Z$ is fixed, and all 12-tables have to have $Z$ as their domain.} Then,
-$\mathbf{S}$ is a finite set, and we have $\mathbf{R}\subseteq\mathbf{S}$
-(since every 12-rpp of shape $Z$ is a benign 12-table).
+Let $\mathbf{S}$ denote the set of all benign 12-tables; we have $\mathbf{R}\subseteq\mathbf{S}$.
 
 \subsection{The $\operatorname*{flip}$ map on benign 12-tables}
 
-We can define a map $\operatorname*{flip}:\mathbf{S}\rightarrow\mathbf{S}$ as
-follows: Let $T\in\mathbf{S}$; that is, let $T$ be a benign 12-table. For
-every $k\in\mathbb{N}_{+}$ for which the $k$-th column of $T$ is nonempty, we
-transform the $k$-th column of $T$ as follows:
+We define a map $\operatorname*{flip}:\mathbf{S}\rightarrow\mathbf{S}$ as
+follows: Let $T\in\mathbf{S}$. For
+every nonempty column of $T$, we
+transform the column as follows:
 
 \begin{itemize}
-\item \textbf{If} this column is 1-pure, we replace all its entries by $2$'s
-(so that it becomes 2-pure).
+\item If the column is 1-pure, we replace all its entries by $2$'s.
 
-\textbf{Otherwise}, if this column is 2-pure, we replace all its entries by
-$1$'s (so that it becomes 1-pure).
+\item If the column is 2-pure, we replace all its entries by $1$'s.
 
-\textbf{Otherwise} (i.e., if this column is mixed), we do not change it.
+\item Otherwise we do not change it.
 \end{itemize}
 
-Once these transformations are made for all $k$, the resulting filling of $Z$
-is a 12-table which is still benign (because its mixed columns are precisely
-the mixed columns of the original $T$). We define $\operatorname*{flip}\left(
-T\right)  $ to be this resulting benign 12-table. Thus, the map
+Once these transformations are made, the resulting filling of $Z$
+is a 12-table which is still benign. We define $\operatorname*{flip}\left(
+T\right)  $ to be this resulting 12-table. Thus, the map
 $\operatorname*{flip}:\mathbf{S}\rightarrow\mathbf{S}$ is defined.
 
-For example, if $T=%
+For example, if $T$ is
+\[
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& 1 & 1 & 2 & 1 \\
@@ -949,9 +916,11 @@ For example, if $T=%
 1 & 2 & 1 \\
 1 & 2 \\
 2
-\end{ytableau}%
+\end{ytableau}
 %EndExpansion
-$, then $\operatorname*{flip}\left(  T\right)  =%
+\]
+then $\operatorname*{flip}\left(  T\right)$ is
+\[
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& 1 & 2 & 1 & 2 \\
@@ -968,17 +937,16 @@ $, then $\operatorname*{flip}\left(  T\right)  =%
 1 & 2 & 2 \\
 1 & 2 \\
 2
-\end{ytableau}%
+\end{ytableau}
 %EndExpansion
-$.
+\]
 
 The following proposition gathers some easy properties of
 $\operatorname*{flip}$:
 
 \begin{proposition}
 \label{prop.flip}\textbf{(a)} We have $\operatorname*{flip}\circ
-\operatorname*{flip}=\operatorname*{id}$ (that is, the map
-$\operatorname*{flip}$ is an involution).
+\operatorname*{flip}=\operatorname*{id}$.
 
 \textbf{(b)} Let $T$ be a benign 12-table. When $T$ is transformed into
 $\operatorname*{flip}\left(  T\right)  $, the 1-pure columns of $T$ become
@@ -1002,10 +970,7 @@ and%
 
 \begin{proof}
 [Proof of Proposition \ref{prop.flip}.]All of Proposition \ref{prop.flip} is
-straightforward to prove. (The equality (\ref{pf.lem.BK.flip.ircont}) follows
-from observing that the $k \in\mathbb{N}_{+}$ for which the $k$-th column of
-$\operatorname*{flip}\left(  T\right)  $ contains $1$ are precisely the $k
-\in\mathbb{N}_{+}$ for which the $k$-th column of $T$ contains $2$, and vice versa.)
+straightforward to prove.
 \end{proof}
 
 We notice that, when the map $\operatorname*{flip}$ acts on a benign 12-table
@@ -1041,14 +1006,7 @@ on the set $\mathbf{S}$ which we will soon introduce. The intuition behind
 saying \textquotedblleft$P\Rrightarrow Q$\textquotedblright\ is that the
 benign 12-table $P$ has a descent, resolving which yields the benign 12-table
 $Q$. Starting with a benign 12-table $P$, we can repeatedly resolve descents
-until this is no longer possible\footnote{This will eventually happen; i.e.,
-we will eventually rearch a state where resolving descents will no longer be
-possible because there will be no descents left. In fact, we will
-show that if \textquotedblleft resolving\textquotedblright\ a descent in $P$
-yields a new 12-table $Q$, then $\ell\left(  P\right)  >\ell\left(  Q\right)
-$ using the notations of Subsection \ref{subsect.fourtypes}; thus, we cannot
-go on resolving descents indefinitely (because the value of $\ell\left(
-T\right)  $ cannot go on decreasing indefinitely).}. We have some freedom in
+until this is no longer possible. We have some freedom in
 performing this process, because at any step there can be a choice of several
 descents to resolve; but we will see that the final result does not depend on
 the process. Hence, the final result can be regarded as a function of $P$. We
@@ -1062,17 +1020,11 @@ the properties that we want it to satisfy.
 
 Now we come to the details.
 
-Let $k\in\mathbb{N}_{+}$. Let $P\in\mathbf{S}$. Thus, $P$ is a benign
-12-table. Assume (for the whole Subsection \ref{subsect.resolving}) that $k$
+Let $k\in\mathbb{N}_{+}$. Let $P\in\mathbf{S}$. Assume (for the whole Subsection \ref{subsect.resolving}) that $k$
 is a descent of $P$. Thus, the $k$-th column of $P$ must contain at least one
 $2$. Hence, the $k$-th column of $P$ is either mixed or 2-pure. Similarly, the
 $\left(  k+1\right)  $-th column of $P$ is either mixed or 1-pure. But the
-$k$-th and the $\left(  k+1\right)  $-th columns of $P$ cannot both be mixed
-at the same time\footnote{by (\ref{eq.benign.not-both-mixed}), applied to
-$T=P$}. Hence, if the $k$-th column of $P$ is mixed, then the $\left(
-k+1\right)  $-th column of $P$ cannot be mixed, and thus this $\left(
-k+1\right)  $-th column must be 1-pure\footnote{since the $\left(  k+1\right)
-$-th column of $P$ is either mixed or 1-pure}. Thus we introduce the following notations:
+$k$-th and the $\left(  k+1\right)  $-th columns of $P$ cannot both be mixed because $P$ is benign. Thus we introduce the following notations:
 
 \begin{itemize}
 \item We say that the 12-table $P$ has $k$\textit{-type M1} if the $k$-th
@@ -1085,27 +1037,13 @@ column of $P$ is 2-pure and the $\left(  k+1\right)  $-th column of $P$ is mixed
 column of $P$ is 2-pure and the $\left(  k+1\right)  $-th column of $P$ is 1-pure.
 \end{itemize}
 
-Then, the 12-table $P$ always either has $k$-type M1, or has $k$-type 2M, or
-has $k$-type 21\ \ \ \ \footnote{\textit{Proof.} As we know, the $k$-th column
-of $P$ is either mixed or 2-pure. If it is 2-pure, then $P$ must either have
-$k$-type 2M or have $k$-type 21 (since the $\left(  k+1\right)  $-th column of
-$P$ is either mixed or 1-pure). If it is mixed, then the $\left(  k+1\right)
-$-th column of $P$ must be 1-pure (as we have seen above), and thus $P$ must
-have type M1. In either case, the 12-table $P$ either has $k$-type M1, or has
-$k$-type 2M, or has $k$-type 21. Qed.}.
-
-(Of course, the names \textquotedblleft M1\textquotedblright,
-\textquotedblleft2M\textquotedblright, \textquotedblleft21\textquotedblright%
-\ have been chosen to match the types of the columns: e.g., \textquotedblleft%
-2M\textquotedblright\ stands for \textquotedblleft\textbf{2}-pure and
-\textbf{M}ixed\textquotedblright.)
-
 Now, we define a new 12-table $\operatorname*{res}\nolimits_{k}P$ as follows:
 
 \begin{itemize}
 \item If $P$ has $k$-type M1, then we let $\operatorname*{res}_{k}P$ be the
-12-table defined as follows\footnote{Here is an example for this definition:
-If $P=%
+12-table defined as follows:
+%\footnote{Here is an example for this definition:
+%If $P=%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& 1 & 1 \\
@@ -1117,21 +1055,21 @@ If $P=%
 %2 & 2
 %\end{ytableau}}}%
 %BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& \none& 1 & 1 \\
-\none& \none& 1 & 2 \\
-\none& 1 & 1 & 2 \\
-\none& 1 & 1 \\
-\none& 2 & 1 \\
-1 & 2 & 1 \\
-2 & 2
-\end{ytableau}%
+%\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& 1 & 1 \\
+%\none& \none& 1 & 2 \\
+%\none& 1 & 1 & 2 \\
+%\none& 1 & 1 \\
+%\none& 2 & 1 \\
+%1 & 2 & 1 \\
+%2 & 2
+%\end{ytableau}%
 %EndExpansion
-$ and $k=2$, then $k$ is a descent of $P$, and we have $\operatorname*{sep}%
-\nolimits_{k}P=5$ (since $P\left(  4,k\right)  =P\left(  4,2\right)  =1$ and
-$P\left(  5,k\right)  =P\left(  5,2\right)  =2$) and $\operatorname*{res}%
-\nolimits_{k}P=%
+%$ and $k=2$, then $k$ is a descent of $P$, and we have $\operatorname*{sep}%
+%\nolimits_{k}P=5$ (since $P\left(  4,k\right)  =P\left(  4,2\right)  =1$ and
+%$P\left(  5,k\right)  =P\left(  5,2\right)  =2$) and $\operatorname*{res}%
+%\nolimits_{k}P=%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& 1 & 1 \\
@@ -1143,60 +1081,61 @@ $P\left(  5,k\right)  =P\left(  5,2\right)  =2$) and $\operatorname*{res}%
 %2 & 1
 %\end{ytableau}}}%
 %BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& \none& 1 & 1 \\
-\none& \none& 1 & 2 \\
-\none& 1 & 1 & 2 \\
-\none& 1 & 1 \\
-\none& 1 & 2 \\
-1 & 1 & 2 \\
-2 & 1
-\end{ytableau}%
+%\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& 1 & 1 \\
+%\none& \none& 1 & 2 \\
+%\none& 1 & 1 & 2 \\
+%\none& 1 & 1 \\
+%\none& 1 & 2 \\
+%1 & 1 & 2 \\
+%2 & 1
+%\end{ytableau}%
 %EndExpansion
-$. The $2$'s in the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
-\nolimits_{k}P$ start in row $5$ because the $2$'s in the $k$-th column of $P$
-start in row $5$; this illustrates the equality $\operatorname*{sep}%
-\nolimits_{k+1}\left(  \operatorname*{res}\nolimits_{k}P\right)
-=\operatorname*{sep}\nolimits_{k}P$.
-\par
-See Example \ref{exa.resolve.short} below for another example.}: The $k$-th
-column of $\operatorname*{res}_{k}P$ is 1-pure (i.e., it is filled with
-$1$'s); the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
+%$. The $2$'s in the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
+%\nolimits_{k}P$ start in row $5$ because the $2$'s in the $k$-th column of $P$
+%start in row $5$; this illustrates the equality $\operatorname*{sep}%
+%\nolimits_{k+1}\left(  \operatorname*{res}\nolimits_{k}P\right)
+%=\operatorname*{sep}\nolimits_{k}P$.
+%\par
+%See Example \ref{exa.resolve.short} below for another example.}
+The $k$-th column of $\operatorname*{res}_{k}P$ is 1-pure; the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
 \nolimits_{k}P$ is mixed and satisfies $\operatorname*{sep}\nolimits_{k+1}%
 \left(  \operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{sep}%
 \nolimits_{k}P$; all other columns of $\operatorname*{res}\nolimits_{k}P$ are
 copied over from $P$ unchanged.\footnote{The reader should check that this
-definition is well-defined: It is clear that the requirements that we are
-imposing on $\operatorname*{res}_{k}P$ determine the 12-table
-$\operatorname*{res}_{k}P$ uniquely, but it is not immediately obvious why
-there exists a 12-table $\operatorname*{res}\nolimits_{k}P$ which meets these
-requirements. What could (in theory) go wrong is the requirement that the
-$\left(  k+1\right)  $-th column of $\operatorname*{res}\nolimits_{k}P$ be
-mixed and satisfy $\operatorname*{sep}\nolimits_{k+1}\left(
-\operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{sep}\nolimits_{k}P$.
-We can try to achieve this by setting
-\begin{align*}
-\left(  \operatorname*{res}\nolimits_{k}P\right)  \left(  r,k+1\right)   &
-=\left\{
-\begin{array}
-[c]{c}%
-1,\ \ \ \ \ \ \ \ \ \ \text{if }r<\operatorname*{sep}\nolimits_{k}P;\\
-2,\ \ \ \ \ \ \ \ \ \ \text{if }r\geq\operatorname*{sep}\nolimits_{k}P
-\end{array}
-\right. \\
-&  \ \ \ \ \ \ \ \ \ \ \text{for all }r\in\mathbb{N}_{+}\text{ for which
-}\left(  r,k+1\right)  \in Z.
-\end{align*}
-This (together with the requirements on the other columns) defines a 12-table
-$\operatorname*{res}\nolimits_{k}P$, but we still need to check that the thus
-resulting $\left(  k+1\right)  $-th column of $\operatorname*{res}%
-\nolimits_{k}P$ is actually mixed. To check this, the reader should verify
-that both cells $\left(  \operatorname*{sep}\nolimits_{k}P,k+1\right)  $ and
-$\left(  \operatorname*{sep}\nolimits_{k}P+1,k+1\right)  $ belong to $Z$ (here
-it is necessary to invoke the convexity of $Z$ and the existence of the
-descent $k$ in $P$), and that these cells have entries $1$ and $2$ in
-$\operatorname*{res}\nolimits_{k}P$, respectively.}
+definition is well-defined.
+%It is clear that the requirements that we are
+%imposing on $\operatorname*{res}_{k}P$ determine the 12-table
+%$\operatorname*{res}_{k}P$ uniquely, but it is not immediately obvious why
+%there exists a 12-table $\operatorname*{res}\nolimits_{k}P$ which meets these
+%requirements. What could (in theory) go wrong is the requirement that the
+%$\left(  k+1\right)  $-th column of $\operatorname*{res}\nolimits_{k}P$ be
+%mixed and satisfy $\operatorname*{sep}\nolimits_{k+1}\left(
+%\operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{sep}\nolimits_{k}P$.
+%We can try to achieve this by setting
+%\begin{align*}
+%\left(  \operatorname*{res}\nolimits_{k}P\right)  \left(  r,k+1\right)   &
+%=\left\{
+%\begin{array}
+%[c]{c}%
+%1,\ \ \ \ \ \ \ \ \ \ \text{if }r<\operatorname*{sep}\nolimits_{k}P;\\
+%2,\ \ \ \ \ \ \ \ \ \ \text{if }r\geq\operatorname*{sep}\nolimits_{k}P
+%\end{array}
+%\right. \\
+%&  \ \ \ \ \ \ \ \ \ \ \text{for all }r\in\mathbb{N}_{+}\text{ for which
+%}\left(  r,k+1\right)  \in Z.
+%\end{align*}
+%This (together with the requirements on the other columns) defines a 12-table
+%$\operatorname*{res}\nolimits_{k}P$, but we still need to check that the thus
+%resulting $\left(  k+1\right)  $-th column of $\operatorname*{res}%
+%\nolimits_{k}P$ is actually mixed. To check this, the reader should verify
+%that both cells $\left(  \operatorname*{sep}\nolimits_{k}P,k+1\right)  $ and
+%$\left(  \operatorname*{sep}\nolimits_{k}P+1,k+1\right)  $ belong to $Z$ (here
+%it is necessary to invoke the convexity of $Z$ and the existence of the
+%descent $k$ in $P$), and that these cells have entries $1$ and $2$ in
+%$\operatorname*{res}\nolimits_{k}P$, respectively.
+}
 
 \item If $P$ has $k$-type 2M, then we let $\operatorname*{res}_{k}P$ be the
 12-table defined as follows: The $k$-th column of $\operatorname*{res}_{k}P$
@@ -1205,7 +1144,7 @@ is mixed and satisfies $\operatorname*{sep}\nolimits_{k}\left(
 P$; the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
 \nolimits_{k}P$ is 2-pure (i.e., it is filled with $2$'s); all other columns
 of $\operatorname*{res}\nolimits_{k}P$ are copied over from $P$
-unchanged.\footnote{Again, it is easy to see that this is well-defined.}
+unchanged.
 
 \item If $P$ has $k$-type 21, then we let $\operatorname*{res}_{k}P$ be the
 12-table defined as follows: The $k$-th column of $\operatorname*{res}_{k}P$
@@ -1225,7 +1164,8 @@ $\operatorname*{res}\nolimits_{k}P$ is the 12-table obtained by
 \Needspace{14\baselineskip}
 
 \begin{example}
-\label{exa.resolve.short}Let $P=%
+\label{exa.resolve.short}Let $P$ be
+\[
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& 1 & 2 & 1 \\
@@ -1244,11 +1184,13 @@ $\operatorname*{res}\nolimits_{k}P$ is the 12-table obtained by
 2
 \end{ytableau}%
 %EndExpansion
-$. Then, $P$ is a benign 12-table (with only one mixed column), and its
+\]
+Then $P$ is a benign 12-table, and its
 descents are $1$, $2$ and $4$. We have $\operatorname*{sep}\nolimits_{2}P=4$.
 
 If we set $k=1$, then $P$ has $k$-type 2M, and resolving the descent $k=1$
-gives us the 12-table $\operatorname*{res}\nolimits_{1}P=%
+gives us the 12-table $\operatorname*{res}\nolimits_{1}P$:
+\[
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& 1 & 2 & 1 \\
@@ -1267,10 +1209,11 @@ gives us the 12-table $\operatorname*{res}\nolimits_{1}P=%
 2
 \end{ytableau}%
 %EndExpansion
-$.
+\]
 
 If we instead set $k=2$, then $P$ has $k$-type M1, and resolving the descent
-$k=2$ gives us the 12-table $\operatorname*{res}\nolimits_{2}P=%
+$k=2$ gives us the 12-table $\operatorname*{res}\nolimits_{2}P$:
+\[
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& 1 & 2 & 1 \\
@@ -1289,10 +1232,11 @@ $k=2$ gives us the 12-table $\operatorname*{res}\nolimits_{2}P=%
 2
 \end{ytableau}%
 %EndExpansion
-$.
+\]
 
 If we instead set $k=4$, then $P$ has $k$-type 21, and resolving the descent
-$k=4$ gives us the 12-table $\operatorname*{res}\nolimits_{4}P=%
+$k=4$ gives us the 12-table $\operatorname*{res}\nolimits_{4}P$:
+\[
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& 1 & 1 & 2 \\
@@ -1311,44 +1255,44 @@ $k=4$ gives us the 12-table $\operatorname*{res}\nolimits_{4}P=%
 2
 \end{ytableau}%
 %EndExpansion
-$.
+\]
 
 We notice that each of the three 12-tables $\operatorname*{res}\nolimits_{1}%
 P$, $\operatorname*{res}\nolimits_{2}P$ and $\operatorname*{res}%
-\nolimits_{4}P$ still has descents\footnotemark. In order to get a 12-rpp from
+\nolimits_{4}P$ still has descents. In order to get a 12-rpp from
 $P$, we will have to keep resolving these descents until none remain.
 \end{example}
 
-\footnotetext{Actually, each of these three 12-tables has fewer descents than
-$P$ (in particular, the descent that was resolved is now gone). But this does
-not generalize. For instance, if $P=%
+%\footnotetext{Actually, each of these three 12-tables has fewer descents than
+%$P$ (in particular, the descent that was resolved is now gone). But this does
+%not generalize. For instance, if $P=%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& 1 & 1 \\
 %2 & 1
 %\end{ytableau}}}%
 %BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& 1 & 1 \\
-2 & 1
-\end{ytableau}%
+%\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& 1 & 1 \\
+%2 & 1
+%\end{ytableau}%
 %EndExpansion
-$ and $k=1$, then resolving the descent $k=1$ (which is the only descent of
-$P$) leads to the 12-table $\operatorname*{res}\nolimits_{1}P=%
+%$ and $k=1$, then resolving the descent $k=1$ (which is the only descent of
+%$P$) leads to the 12-table $\operatorname*{res}\nolimits_{1}P=%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& 2 & 1 \\
 %1 & 2
 %\end{ytableau}}}%
 %BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& 2 & 1 \\
-1 & 2
-\end{ytableau}%
+%\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& 2 & 1 \\
+%1 & 2
+%\end{ytableau}%
 %EndExpansion
-$, which has as many descents as $P$ did.}
+%$, which has as many descents as $P$ did.}
 
 We now observe some further properties of $\operatorname*{res}\nolimits_{k}P$:
 
