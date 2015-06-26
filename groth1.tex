@@ -382,11 +382,15 @@ field of research, and are closely related to Young diagrams and tableaux; see
 
 
 A \textit{symmetric function} is defined to be a
-bounded-degree power series in $x_1,x_2,\dots$ that is invariant under (finite) permutations of $x_1,x_2,\dots$.
+bounded-degree\footnote{A power series is said to be \textit{bounded-degree}
+if there is an $N \in \mathbb{N}$ such that only monomials of degree $\leq N$
+appear in the series.}
+power series in $x_1,x_2,\dots$ that is invariant under (finite)
+permutations\footnote{A permutation is \textit{finite} if it fixes all but
+finitely many positive elements.} of $x_1,x_2,\dots$.
 
 \begin{todo}
- Define bounded-degree or refer to some place (e.g., GriRei15)? Make ground ring explicit (even if it is $\Z$.)
- Define finite permutations.
+ Make ground ring explicit (even if it is $\Z$).
 \end{todo}
 
 The symmetric functions form a ring, which is called the \textit{ring of
@@ -534,9 +538,8 @@ T\right)  }\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }.
 Let us give some examples of $\widetilde{g}_{\lambda/\mu}$.
 
 \begin{example}
-\label{exa.gtilde.1}\textbf{(a)} 
-
- If $\lm$ is a single row with $n$ cells, then for each rpp $T$ of shape $\lm$ we have $\ceq(T)=(0,0,\dots)$ and $\ircont(T)=\cont(T)$ (in fact, any rpp of shape $\lm$ is a semistandard tableau in this case). Therefore we get 
+\label{exa.gtilde.1}
+\textbf{(a)} If $\lm$ is a single row with $n$ cells, then for each rpp $T$ of shape $\lm$ we have $\ceq(T)=(0,0,\dots)$ and $\ircont(T)=\cont(T)$ (in fact, any rpp of shape $\lm$ is a semistandard tableau in this case). Therefore we get 
 \[
 \g_\lm(\x;\t)=h_n(\x)=\sum_{a_1\leq a_2\leq\dots\leq a_n} x_{a_1}x_{a_2}\dots x_{a_n}.
 \]
@@ -735,7 +738,7 @@ T\right)  $ by%
 \left(  \text{the }h\text{-th column of }T\right)  .
 \]
 For instance, if $T$ is the 12-table
-\[
+\begin{equation}
 %
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
@@ -753,7 +756,8 @@ For instance, if $T$ is the 12-table
 2 & 2
 \end{ytableau}%
 %EndExpansion
-\]
+\label{eq.example-12-table.1}
+\end{equation}
 then $\ell\left(  T\right)  =1\cdot0+2\cdot1+3\cdot2+4\cdot0+5\cdot
 2+6\cdot0+7\cdot0+8\cdot0+\cdots=18$.
 
@@ -763,26 +767,7 @@ If $T$ is a 12-table, then we define a \textit{descent} of $T$ to be a
 positive integer $i$ such that there exists an $r\in\mathbb{N}_{+}$ satisfying
 $\left(  r,i\right)  \in Z$, $\left(  r,i+1\right)  \in Z$, $T\left(
 r,i\right)  =2$ and $T\left(  r,i+1\right)  =1$. For instance,
-the descents of the 12-table 
-\[
-%
-%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
-%\begin{ytableau}
-%\none& \none& 1 & 2 & 1 & 2 \\
-%\none& 1 & 1 & 2 \\
-%2 & 1 & 1 & 2 \\
-%2 & 2
-%\end{ytableau}}}%
-%BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& \none& 1 & 2 & 1 & 2 \\
-\none& 1 & 1 & 2 \\
-2 & 1 & 1 & 2 \\
-2 & 2
-\end{ytableau}%
-%EndExpansion
-\]
+the descents of the 12-table shown in (\ref{eq.example-12-table.1})
 are $1$ and $4$. Clearly, a 12-rpp of shape $Z$ is the same as a 12-table which has no
 descents.
 
@@ -829,7 +814,11 @@ then $\operatorname*{sep}\nolimits_{1}T=4$, $\operatorname*{sep}\nolimits_{3}T=4
 $\operatorname*{sep}\nolimits_{5}T=2$ (and there are no other $k$ for which $\operatorname*{sep}\nolimits_{k}T$ is defined), so that $\operatorname*{seplist}T=\left(  4,4,2\right)  $.
 
 We say that a 12-table $T$ is \textit{benign} if the list
-$\operatorname*{seplist}T$ is weakly decreasing. 
+$\operatorname*{seplist}T$ is weakly decreasing.\footnote{For
+example, the 12-table in (\ref{eq.example-12-table.1}) is benign,
+but replacing its third column by $\left(1,2,2\right)$ and its
+fourth column by $\left(1,1,2\right)$ would yield a 12-table
+which is not benign.}
 %For instance, the 12-table
 %$T=%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
@@ -906,8 +895,9 @@ columns as $T$). We define $\operatorname*{flip}\left(
 T\right)  $ to be this resulting 12-table. Thus, the map
 $\operatorname*{flip}:\mathbf{S}\rightarrow\mathbf{S}$ is defined.
 
-For example, if $T$ is
+For example,
 \[
+\text{if } T \text { is }
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& 1 & 1 & 2 & 1 \\
@@ -926,9 +916,7 @@ For example, if $T$ is
 2
 \end{ytableau}
 %EndExpansion
-\]
-then $\operatorname*{flip}\left(  T\right)$ is
-\[
+\text{ , then }\operatorname*{flip}\left(  T\right)\text{ is }
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& 1 & 2 & 1 & 2 \\
@@ -2578,7 +2566,8 @@ $'s.}. Some of the entries of this substring are \textquotedblleft
 ignored\textquotedblright; it is easy to see that the \textquotedblleft
 ignored\textquotedblright\ $i$'s are gathered at the left end of the substring
 whereas the \textquotedblleft ignored\textquotedblright\ $\left(  i+1\right)
-$'s are gathered end of the substring. So the substring looks as follows:%
+$'s are gathered at the right end of the substring. So the substring looks
+as follows:
 \[
 \left(  \underbrace{i,i,\ldots,i}_{\substack{a\text{ many }i\text{'s
 which}\\\text{are \textquotedblleft ignored\textquotedblright}}%
@@ -2861,8 +2850,8 @@ by $s$ many $1$'s and $r$ many $2$'s. This we do for every row; the resulting
 
 \item To construct $\mathbf{B}\left(  T\right)  $, we consider $T$ as a
 12-rpp, and we identify which of its columns are 1-pure, which are 2-pure and
-which are mixed. Then, we replace all entries of all 1-pure columns by $1$'s,
-while simultaneously replacing all entries of all 2-pure columns by $2$'s. The
+which are mixed. Then, we replace all entries of all 1-pure columns by $2$'s,
+while simultaneously replacing all entries of all 2-pure columns by $1$'s. The
 resulting 12-table is denoted $\operatorname*{flip}\left(  T\right)  $. Then,
 we repeatedly resolve descents in $\operatorname*{flip}\left(  T\right)  $
 until no more descents remain. The resulting 12-table $\operatorname*{norm}%

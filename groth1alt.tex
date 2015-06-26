@@ -3122,7 +3122,7 @@ b,d,\underline{d,c},a,b\right)  \rightarrow\left(  b,\underline{d,c}%
 &  \rightarrow\left(  a,b,c,b,d,d\right)
 \end{align*}
 (where an underline under two adjacent entries of a tuple means that these
-entries are going to be switched in the nearest step). The final result
+entries are going to be switched in the next step). The final result
 $\left(  a,b,c,b,d,d\right)  $ is \textquotedblleft sorted\textquotedblright%
 \ in the sense that we can no longer find a $k\in\left\{  1,2,\ldots
 ,n-1\right\}  $ such that $z_{k}>z_{k+1}$.
@@ -5068,9 +5068,10 @@ We can try to achieve this by setting
 }\left(  r,k+1\right)  \in Z.
 \end{align*}
 This (together with the requirements on the other columns) defines a 12-table
-$\operatorname*{res}\nolimits_{k}P$, but we still need to check that the thus
-resulting $\left(  k+1\right)  $-th column of $\operatorname*{res}%
-\nolimits_{k}P$ is actually mixed. To check this, the reader should verify
+$\operatorname*{res}\nolimits_{k}P$, but we still need to check that the
+$\left(  k+1\right)  $-th column of the 12-table $\operatorname*{res}%
+\nolimits_{k}P$ constructed in this way is actually mixed.
+To check this, the reader should verify
 that both cells $\left(  \operatorname*{sep}\nolimits_{k}P,k+1\right)  $ and
 $\left(  \operatorname*{sep}\nolimits_{k}P+1,k+1\right)  $ belong to $Z$ (here
 it is necessary to invoke the convexity of $Z$ and the existence of the
@@ -5392,9 +5393,9 @@ setting
 }\left(  r,k+1\right)  \in Z.\nonumber
 \end{align}
 This (together with the requirements on the other columns) defines a 12-table
-$\operatorname*{res}\nolimits_{k}P$, but we still need to check that the thus
-resulting $\left(  k+1\right)  $-th column of $\operatorname*{res}%
-\nolimits_{k}P$ is actually mixed.
+$\operatorname*{res}\nolimits_{k}P$, but we still need to check that the
+$\left(  k+1\right)  $-th column of the 12-table $\operatorname*{res}%
+\nolimits_{k}P$ constructed in this way is actually mixed.
 \par
 Let us denote $\operatorname*{sep}\nolimits_{k}P$ by $s$. We recall that
 $\operatorname*{sep}\nolimits_{k}P$ is the smallest $r\in\mathbb{N}_{+}$ such
@@ -5472,7 +5473,7 @@ Thus, the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
 $2$, it must therefore be mixed. Now, it is clear that $\operatorname*{sep}%
 \nolimits_{k+1}\left(  \operatorname*{res}\nolimits_{k}P\right)
 =\operatorname*{sep}\nolimits_{k}P$ (due to (\ref{eq.def.res.check2})). Thus,
-the tableau $\operatorname*{res}\nolimits_{k}P$ we have constructed actually
+the 12-table $\operatorname*{res}\nolimits_{k}P$ we have constructed actually
 meets the requirements we have imposed on it. This completes the proof of the
 well-definedness.}
 
@@ -5483,7 +5484,130 @@ is mixed and satisfies $\operatorname*{sep}\nolimits_{k}\left(
 P$; the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
 \nolimits_{k}P$ is 2-pure (i.e., it is filled with $2$'s); all other columns
 of $\operatorname*{res}\nolimits_{k}P$ are copied over from $P$
-unchanged.\footnote{Again, it is easy to see that this is well-defined.}
+unchanged.\footnote{
+Let us prove that this is a legitimate definition for $\operatorname*{res}%
+_{k}P$.
+
+First of all, the requirements that we are imposing on $\operatorname*{res}%
+_{k}P$ determine the 12-table $\operatorname*{res}_{k}P$ uniquely: In fact,
+its $\left(  k+1\right)  $-th column is uniquely determined by the requirement
+that it be 2-pure; its $k$-th column is uniquely determined by the requirement
+that it be mixed and that $\operatorname*{sep}\nolimits_{k}\left(
+\operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{sep}\nolimits_{k+1}%
+P$; all its other columns are copied from $P$ unchanged.
+
+But it is not immediately clear that there exists a 12-table
+$\operatorname*{res}\nolimits_{k}P$ which meets these requirements. What could
+(in theory) go wrong is the requirement that the $k$-th column of
+$\operatorname*{res}\nolimits_{k}P$ be mixed and satisfy $\operatorname*{sep}%
+\nolimits_{k}\left(  \operatorname*{res}\nolimits_{k}P\right)
+=\operatorname*{sep}\nolimits_{k+1}P$. We can try to achieve this by setting
+\begin{align}
+\left(  \operatorname*{res}\nolimits_{k}P\right)  \left(  r,k\right)   &
+=\left\{
+\begin{array}
+[c]{c}%
+1,\ \ \ \ \ \ \ \ \ \ \text{if }r<\operatorname*{sep}\nolimits_{k+1}P;\\
+2,\ \ \ \ \ \ \ \ \ \ \text{if }r\geq\operatorname*{sep}\nolimits_{k+1}P
+\end{array}
+\right. \label{eq.def.res.check3}\\
+&  \ \ \ \ \ \ \ \ \ \ \text{for all }r\in\mathbb{N}_{+}\text{ for which
+}\left(  r,k\right)  \in Z.\nonumber
+\end{align}
+This (together with the requirements on the other columns) defines a 12-table
+$\operatorname*{res}\nolimits_{k}P$, but we still need to check that the
+$k$-th column of the 12-table $\operatorname*{res}\nolimits_{k}P$ constructed
+in this way is actually mixed.
+
+Let us denote $\operatorname*{sep}\nolimits_{k+1}P$ by $s$. We recall that
+$\operatorname*{sep}\nolimits_{k+1}P$ is the smallest $r\in\mathbb{N}_{+}$
+such that $\left(  r,k+1\right)  \in Z$ and $P\left(  r,k+1\right)  =2$ (by
+the definition of $\operatorname*{sep}\nolimits_{k+1}P$). Hence, $\left(
+\operatorname*{sep}\nolimits_{k+1}P,k+1\right)  \in Z$ and $P\left(
+\operatorname*{sep}\nolimits_{k+1}P,k+1\right)  =2$. In other words, $\left(
+s,k+1\right)  \in Z$ and $P\left(  s,k+1\right)  =2$ (since
+$s=\operatorname*{sep}\nolimits_{k+1}P$).
+
+We also recall that the $\left(  k+1\right)  $-th column of $P$ is mixed, and
+thus contains a $1$. In other words, there exists a $w\in\mathbb{N}_{+}$ such
+that $\left(  w,k\right)  \in Z$ and $P\left(  w,k+1\right)  =1$. Consider
+this $w$.
+
+If $s\leq w$, then%
+\begin{align*}
+2 &  =P\left(  s,k+1\right)  \leq P\left(  w,k+1\right)
+\ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{since }s\leq w\text{, and since the entries of }P\\
+\text{are weakly increasing down columns}%
+\end{array}
+\right)  \\
+&  =1,
+\end{align*}
+which contradicts $2>1$. Hence, we cannot have $s\leq w$. Thus, $w<s$.
+
+But recall that $\left(  k,k+1\right)  $ is a conflict of $P$. Thus, there
+exists a $q\in\mathbb{N}_{+}$ satisfying $\left(  q,k\right)  \in Z$, $\left(
+q,k+1\right)  \in Z$, $P\left(  q,k\right)  =2$ and $P\left(  q,k+1\right)
+=1$. Consider this $q$. Applying (\ref{pf.lem.BK.Tsep}) to $T$, $k+1$ and $q$
+instead of $P$, $k$ and $r$, we obtain $P\left(  q,k+1\right)  =\left\{
+\begin{array}
+[c]{c}%
+1,\ \ \ \ \ \ \ \ \ \ \text{if }q<\operatorname*{sep}\nolimits_{k+1}P;\\
+2,\ \ \ \ \ \ \ \ \ \ \text{if }q\geq\operatorname*{sep}\nolimits_{k+1}P
+\end{array}
+\right.  $. If $q\geq s$, then we thus have $P\left(  q,k+1\right)  =\left\{
+\begin{array}
+[c]{c}%
+1,\ \ \ \ \ \ \ \ \ \ \text{if }q<\operatorname*{sep}\nolimits_{k+1}P;\\
+2,\ \ \ \ \ \ \ \ \ \ \text{if }q\geq\operatorname*{sep}\nolimits_{k+1}P
+\end{array}
+\right.  =2$ (since $q\geq\operatorname*{sep}\nolimits_{k+1}P=s$), which
+contradicts $P\left(  q,k+1\right)  =1\neq2$. Thus, we cannot have $q\geq s$.
+Therefore, we must have $q<s$.
+
+On the other hand, the set $Z$ is convex, and we have $\left(  q,k\right)  \in
+Z$ and $\left(  s,k+1\right)  \in Z$. Hence, $\left(  s,k\right)  \in Z$ (by
+(\ref{eq.convex}), applied to $q$, $s$, $s$, $k$, $k$ and $k+1$ instead of
+$i$, $i^{\prime}$, $i^{\prime\prime}$, $j$, $j^{\prime}$ and $j^{\prime\prime
+}$). Hence, $\left(  \operatorname*{res}\nolimits_{k}P\right)  \left(
+s,k\right)  $ is well-defined. Moreover, (\ref{eq.def.res.check3}) (applied to
+$r=s$) yields
+\[
+\left(  \operatorname*{res}\nolimits_{k}P\right)  \left(  s,k\right)
+=\left\{
+\begin{array}
+[c]{c}%
+1,\ \ \ \ \ \ \ \ \ \ \text{if }s<\operatorname*{sep}\nolimits_{k+1}P;\\
+2,\ \ \ \ \ \ \ \ \ \ \text{if }s\geq\operatorname*{sep}\nolimits_{k+1}P
+\end{array}
+\right.  =2\ \ \ \ \ \ \ \ \ \ \left(  \text{since }s=\operatorname*{sep}%
+\nolimits_{k+1}P\geq\operatorname*{sep}\nolimits_{k+1}P\right)  .
+\]
+Thus, the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
+\nolimits_{k}P$ contains at least one $2$.
+
+On the other hand, $\left(  q,k\right)  \in Z$. Thus, (\ref{eq.def.res.check3}%
+) (applied to $r=w$) yields
+\[
+\left(  \operatorname*{res}\nolimits_{k}P\right)  \left(  q,k\right)
+=\left\{
+\begin{array}
+[c]{c}%
+1,\ \ \ \ \ \ \ \ \ \ \text{if }q<\operatorname*{sep}\nolimits_{k+1}P;\\
+2,\ \ \ \ \ \ \ \ \ \ \text{if }q\geq\operatorname*{sep}\nolimits_{k+1}P
+\end{array}
+\right.  =1\ \ \ \ \ \ \ \ \ \ \left(  \text{since }q<s=\operatorname*{sep}%
+\nolimits_{k+1}P\right)  .
+\]
+Thus, the $k$-th column of $\operatorname*{res}\nolimits_{k}P$ contains at
+least one $1$. Since it also contains at least one $2$, it must therefore be
+mixed. Now, it is clear that $\operatorname*{sep}\nolimits_{k}\left(
+\operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{sep}\nolimits_{k+1}%
+P$ (due to (\ref{eq.def.res.check3})). Thus, the 12-table $\operatorname*{res}%
+\nolimits_{k}P$ we have constructed actually meets the requirements we have
+imposed on it. This completes the proof of the well-definedness.}
 
 \item If $P$ has $k$-type 21, then we let $\operatorname*{res}_{k}P$ be the
 12-table defined as follows: The $k$-th column of $\operatorname*{res}_{k}P$
@@ -9454,7 +9578,8 @@ $'s.}. Some of the entries of this substring are \textquotedblleft
 ignored\textquotedblright; it is easy to see that the \textquotedblleft
 ignored\textquotedblright\ $i$'s are gathered at the left end of the substring
 whereas the \textquotedblleft ignored\textquotedblright\ $\left(  i+1\right)
-$'s are gathered end of the substring. So the substring looks as follows:%
+$'s are gathered at the right end of the substring. So the substring looks
+as follows:
 \[
 \left(  \underbrace{i,i,\ldots,i}_{\substack{a\text{ many }i\text{'s
 which}\\\text{are \textquotedblleft ignored\textquotedblright}}%
@@ -9737,8 +9862,8 @@ by $s$ many $1$'s and $r$ many $2$'s. This we do for every row; the resulting
 
 \item To construct $\mathbf{B}\left(  T\right)  $, we consider $T$ as a
 12-rpp, and we identify which of its columns are 1-pure, which are 2-pure and
-which are mixed. Then, we replace all entries of all 1-pure columns by $1$'s,
-while simultaneously replacing all entries of all 2-pure columns by $2$'s. The
+which are mixed. Then, we replace all entries of all 1-pure columns by $2$'s,
+while simultaneously replacing all entries of all 2-pure columns by $1$'s. The
 resulting 12-table is denoted $\operatorname*{flip}\left(  T\right)  $. Then,
 we repeatedly resolve conflicts in $\operatorname*{flip}\left(  T\right)  $
 until no more conflicts remain. The resulting 12-table $\operatorname*{norm}%
