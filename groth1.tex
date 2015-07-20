@@ -1302,41 +1302,27 @@ We now observe some further properties of $\operatorname*{res}\nolimits_{k}P$:
 \label{prop.descent-resolution-props}Let $P\in\mathbf{S}$ and $k\in
 \mathbb{N}_{+}$ be such that $k$ is a descent of $P$.
 
-\textbf{(a)} The 12-table $\operatorname*{res}\nolimits_{k}P$ differs from $P$
-only in columns $k$ and $k+1$. In other words,%
-\begin{equation}
-\left(  \text{the }h\text{-th column of }\operatorname*{res}\nolimits_{k}%
-P\right)  =\left(  \text{the }h\text{-th column of }P\right)
-\label{pf.lem.BK.res.loc}%
-\end{equation}
-for every $h\in\mathbb{N}_{+}\setminus\left\{  k,k+1\right\}  $.
+\begin{enumerate}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\textbf{(\theenumi)}}
 
-\textbf{(b)} The $k$-th and the $\left(  k+1\right)  $-th columns of
+\item \label{pf.lem.BK.res.loc}
+The 12-table $\operatorname*{res}\nolimits_{k}P$ differs from $P$
+only in columns $k$ and $k+1$.
+
+\item \label{pf.lem.BK.res.loc2}
+The $k$-th and the $\left(  k+1\right)  $-th columns of
 $\operatorname*{res}\nolimits_{k}P$ depend only on the $k$-th and the $\left(
-k+1\right)  $-th columns of $P$. In other words, if $Q$ is a further benign
-12-table satisfying%
-\begin{align*}
-\left(  \text{the }h\text{-th column of }Q\right)   &  =\left(  \text{the
-}h\text{-th column of }P\right) \\
-&  \ \ \ \ \ \ \ \ \ \ \text{for each }h\in\left\{  k,k+1\right\}  ,
-\end{align*}
-then $k$ is a descent of $Q$ and we have%
-\begin{align}
-\left(  \text{the }h\text{-th column of }\operatorname*{res}\nolimits_{k}%
-Q\right)   &  =\left(  \text{the }h\text{-th column of }\operatorname*{res}%
-\nolimits_{k}P\right) \label{pf.lem.BK.res.loc2}\\
-&  \ \ \ \ \ \ \ \ \ \ \text{for each }h\in\left\{  k,k+1\right\}  .\nonumber
-\end{align}
+k+1\right)  $-th columns of $P$.
 
-
-\textbf{(c)} We have%
+\item
+We have%
 \begin{equation}
 \operatorname*{ceq}\left(  \operatorname*{res}\nolimits_{k}P\right)
-=\operatorname*{ceq}\left(  P\right)  . \label{pf.lem.BK.res.ceq}%
+=\operatorname*{ceq}\left(  P\right) . \label{pf.lem.BK.res.ceq}
 \end{equation}
 
-
-\textbf{(d)} We have%
+\item We have%
 \begin{align}
 &  \left(  \text{the number of }h\in\mathbb{N}_{+}\text{ such that the
 }h\text{-th column of }\operatorname*{res}\nolimits_{k}P\text{ is
@@ -1367,7 +1353,7 @@ and%
 \end{equation}
 
 
-\textbf{(e)} For every $r\in\mathbb{N}_{+}$ and $i\in\mathbb{N}_{+}$
+\item For every $r\in\mathbb{N}_{+}$ and $i\in\mathbb{N}_{+}$
 satisfying $\left(  r,i\right)  \in Z$ and $\left(  r,s_{k}\left(  i\right)
 \right)  \in Z$, we have%
 \begin{equation}
@@ -1376,7 +1362,7 @@ P\left(  r,i\right)  =\left(  \operatorname*{res}\nolimits_{k}P\right)
 \end{equation}
 
 
-\textbf{(g)} The benign 12-tables $\operatorname*{flip}\left(  P\right)  $ and
+\item The benign 12-tables $\operatorname*{flip}\left(  P\right)  $ and
 $\operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)  $ have
 the property that%
 \begin{equation}
@@ -1393,13 +1379,15 @@ k\text{ is a descent of }\operatorname*{flip}\left(  \operatorname*{res}%
 \end{equation}
 
 
-\textbf{(h)} Recall that we defined a nonnegative integer $\ell\left(
+\item Recall that we defined a nonnegative integer $\ell\left(
 T\right)  $ for every 12-table $T$ in Subsection \ref{subsect.fourtypes}. We
 have
 \begin{equation}
 \ell\left(  P\right)  >\ell\left(  \operatorname*{res}\nolimits_{k}P\right)  .
 \label{pf.lem.BK.res.lendec}%
 \end{equation}
+
+\end{enumerate}
 
 \end{proposition}
 
