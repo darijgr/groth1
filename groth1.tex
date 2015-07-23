@@ -1433,15 +1433,9 @@ explained above, this completes the proof of (\ref{pf.lem.BK.res.ceq}).
 \begin{definition}
 Let us now define a binary relation $\Rrightarrow$ on the set $\mathbf{S}$ as
 follows: Let $P\in\mathbf{S}$ and $Q\in\mathbf{S}$. If $k\in\mathbb{N}_{+}$,
-then we write $P\underset{k}{\Rrightarrow}Q$ if and only if $k$ is a descent
-of $P$ and we have $Q=\operatorname*{res}\nolimits_{k}P$. (In other words, if
-$k\in\mathbb{N}_{+}$, then we write $P\underset{k}{\Rrightarrow}Q$ if and only
-if $k$ is a descent of $P$ and the 12-table $Q$ is obtained from $P$ by
-resolving this descent.) We write $P\Rrightarrow Q$ if and only if there
-exists a $k\in\mathbb{N}_{+}$ such that $P\underset{k}{\Rrightarrow}Q$. (In
-other words, we write $P\Rrightarrow Q$ if and only if the 12-table $Q$ is
-obtained from $P$ by resolving a descent.) Thus, the relation $\Rrightarrow$
-is defined.
+then we write $P\underset{k}{\Rrightarrow}Q$ if $k$ is a descent
+of $P$ and we have $Q=\operatorname*{res}\nolimits_{k}P$. We write $P\Rrightarrow Q$ if there
+exists a $k\in\mathbb{N}_{+}$ such that $P\underset{k}{\Rrightarrow}Q$.
 \end{definition}
 
 Some of what was shown above translates into properties of this relation
@@ -1465,54 +1459,49 @@ P\right)  $.
 \textbf{(d)} We have $\ell\left(  P\right)  >\ell\left(  Q\right)  $.
 \end{lemma}
 
-\begin{proof}
-[Proof of Lemma \ref{lem.descent-resolution-props}.]We have $P\Rrightarrow Q$.
-In other words, there exists a $k\in\mathbb{N}_{+}$ such that
-$P\underset{k}{\Rrightarrow}Q$. Consider this $k$. We have
-$P\underset{k}{\Rrightarrow}Q$. In other words, $k$ is a descent of $P$ and we
-have $Q=\operatorname*{res}\nolimits_{k}P$.
+%\begin{proof}
+%[Proof of Lemma \ref{lem.descent-resolution-props}.]We have $P\Rrightarrow Q$.
+%In other words, there exists a $k\in\mathbb{N}_{+}$ such that
+%$P\underset{k}{\Rrightarrow}Q$. Consider this $k$. We have
+%$P\underset{k}{\Rrightarrow}Q$. In other words, $k$ is a descent of $P$ and we
+%have $Q=\operatorname*{res}\nolimits_{k}P$.
 
-\textbf{(a)} We have $\operatorname*{ceq}\left(  \underbrace{Q}%
-_{=\operatorname*{res}\nolimits_{k}P}\right)  =\operatorname*{ceq}\left(
-\operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{ceq}\left(
-P\right)  $ (by (\ref{pf.lem.BK.res.ceq})). This proves Lemma
-\ref{lem.descent-resolution-props} \textbf{(a)}.
+%\textbf{(a)} We have $\operatorname*{ceq}\left(  \underbrace{Q}%
+%_{=\operatorname*{res}\nolimits_{k}P}\right)  =\operatorname*{ceq}\left(
+%\operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{ceq}\left(
+%P\right)  $ (by (\ref{pf.lem.BK.res.ceq})). This proves Lemma
+%\ref{lem.descent-resolution-props} \textbf{(a)}.
 
-\textbf{(b)} This follows similarly from (\ref{pf.lem.BK.res.irconts}).
+%\textbf{(b)} This follows similarly from (\ref{pf.lem.BK.res.irconts}).
 
-\textbf{(c)} From (\ref{pf.lem.BK.res.flip}), we know that $k$ is a descent of
-$\operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)  $, and
-we have $\operatorname*{flip}\left(  P\right)  =\operatorname*{res}%
-\nolimits_{k}\left(  \operatorname*{flip}\left(  \operatorname*{res}%
-\nolimits_{k}P\right)  \right)  $. In other words, $\operatorname*{flip}%
-\left(  \operatorname*{res}\nolimits_{k}P\right)  \underset{k}{\Rrightarrow
-}\operatorname*{flip}\left(  P\right)  $. Thus, $\operatorname*{flip}\left(
-\operatorname*{res}\nolimits_{k}P\right)  \Rrightarrow\operatorname*{flip}%
-\left(  P\right)  $. In other words, $\operatorname*{flip}\left(  Q\right)
-\Rrightarrow\operatorname*{flip}\left(  P\right)  $ (since
-$Q=\operatorname*{res}\nolimits_{k}P$). This proves Lemma
-\ref{lem.descent-resolution-props} \textbf{(c)}.
+%\textbf{(c)} From (\ref{pf.lem.BK.res.flip}), we know that $k$ is a descent of
+%$\operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)  $, and
+%we have $\operatorname*{flip}\left(  P\right)  =\operatorname*{res}%
+%\nolimits_{k}\left(  \operatorname*{flip}\left(  \operatorname*{res}%
+%\nolimits_{k}P\right)  \right)  $. In other words, $\operatorname*{flip}%
+%\left(  \operatorname*{res}\nolimits_{k}P\right)  \underset{k}{\Rrightarrow
+%}\operatorname*{flip}\left(  P\right)  $. Thus, $\operatorname*{flip}\left(
+%\operatorname*{res}\nolimits_{k}P\right)  \Rrightarrow\operatorname*{flip}%
+%\left(  P\right)  $. In other words, $\operatorname*{flip}\left(  Q\right)
+%\Rrightarrow\operatorname*{flip}\left(  P\right)  $ (since
+%$Q=\operatorname*{res}\nolimits_{k}P$). This proves Lemma
+%\ref{lem.descent-resolution-props} \textbf{(c)}.
 
-\textbf{(d)} From (\ref{pf.lem.BK.res.lendec}), we have $\ell\left(  P\right)
->\ell\left(  \underbrace{\operatorname*{res}\nolimits_{k}P}_{=Q}\right)
-=\ell\left(  Q\right)  $. This proves Lemma \ref{lem.descent-resolution-props} \textbf{(d)}.
-\end{proof}
+%\textbf{(d)} From (\ref{pf.lem.BK.res.lendec}), we have $\ell\left(  P\right)
+%>\ell\left(  \underbrace{\operatorname*{res}\nolimits_{k}P}_{=Q}\right)
+%=\ell\left(  Q\right)  $. This proves Lemma \ref{lem.descent-resolution-props} \textbf{(d)}.
+%\end{proof}
 
 We now define $\overset{\ast}{\Rrightarrow}$ to be the
-reflexive-and-transitive closure of the relation $\Rrightarrow$%
-\ \ \ \ \footnote{Explicitly, this means that $\overset{\ast}{\Rrightarrow}$
+reflexive-and-transitive closure of the relation $\Rrightarrow$.
+\footnote{Explicitly, this means that $\overset{\ast}{\Rrightarrow}$
 is defined as follows: For two elements $P\in\mathbf{S}$ and $Q\in\mathbf{S}$,
 we have $P\overset{\ast}{\Rrightarrow}Q$ if and only if there exists a
 sequence $\left(  a_{0},a_{1},\ldots,a_{n}\right)  $ of elements of
 $\mathbf{S}$ such that $a_{0}=P$ and $a_{n}=Q$ and such that every
 $i\in\left\{  0,1,\ldots,n-1\right\}  $ satisfies $a_{i}\Rrightarrow a_{i+1}%
-$.}. This relation $\overset{\ast}{\Rrightarrow}$ is reflexive and transitive,
-and extends the relation $\Rrightarrow$. If $P\in\mathbf{S}$ and
-$Q\in\mathbf{S}$, then the relation \textquotedblleft$P\overset{\ast
-}{\Rrightarrow}Q$\textquotedblright\ can be interpreted as \textquotedblleft%
-$Q$ can be obtained from $P$ by repeatedly resolving
-descents\textquotedblright\ (because $P\Rrightarrow Q$ holds if and only if
-$Q$ is obtained from $P$ by resolving a descent).
+$.} This relation $\overset{\ast}{\Rrightarrow}$ is reflexive and transitive,
+and extends the relation $\Rrightarrow$.
 
 \begin{lemma}
 \label{lem.descent-resolution-*props}Let $P\in\mathbf{S}$ and $Q\in\mathbf{S}$
@@ -1532,18 +1521,12 @@ $\operatorname*{flip}\left(  Q\right)  \overset{\ast}{\Rrightarrow
 \textbf{(d)} We have $\ell\left(  P\right)  \geq\ell\left(  Q\right)  $.
 \end{lemma}
 
-\begin{proof}
-[Proof of Lemma \ref{lem.descent-resolution-*props}.]Recalling that
-$\overset{\ast}{\Rrightarrow}$ is the reflexive-and-transitive closure of the
-relation $\Rrightarrow$, we see that Lemma \ref{lem.descent-resolution-*props}
-follows by induction using Lemma \ref{lem.descent-resolution-props}.
-\end{proof}
-
-In Subsection \ref{subsect.fourtypes}, we defined a nonnegative integer
-$\ell\left(  T\right)  $ for every 12-table $T$. In particular, $\ell\left(
-T\right)  $ is defined for every $T\in\mathbf{S}$. We thus have a map
-$\ell:\mathbf{S}\rightarrow\mathbb{N}$ which sends every $T\in\mathbf{S}$ to
-$\ell\left(  T\right)  $.
+%\begin{proof}
+%[Proof of Lemma \ref{lem.descent-resolution-*props}.]Recalling that
+%$\overset{\ast}{\Rrightarrow}$ is the reflexive-and-transitive closure of the
+%relation $\Rrightarrow$, we see that Lemma \ref{lem.descent-resolution-*props}
+%follows by induction using Lemma \ref{lem.descent-resolution-props}.
+%\end{proof}
 
 We now state the following crucial lemma:
 
@@ -1556,75 +1539,34 @@ $C\overset{\ast}{\Rrightarrow}D$.
 
 \begin{proof}
 [Proof of Lemma \ref{prop.descent-resolution-hyps}.]If $B=C$, then we can
-simply choose $D=B=C$ and be done with it; thus, we WLOG assume that $B\neq C$.
+simply choose $D=B=C$ ; thus, we assume that $B\neq C$.
 
-We have $A\Rrightarrow B$. In other words, there exists a $k\in\mathbb{N}_{+}$
-such that $A\underset{k}{\Rrightarrow}B$. Let us denote this $k$ by $u$. Thus,
-$A\underset{u}{\Rrightarrow}B$. In other words, $u$ is a descent of $A$ and we
-have $B=\operatorname*{res}\nolimits_{u}A$ (due to the definition of
-\textquotedblleft$A\underset{u}{\Rrightarrow}B$\textquotedblright). Similarly,
-we can find a $v\in\mathbb{N}_{+}$ such that $v$ is a descent of $A$ and we
-have $C=\operatorname*{res}\nolimits_{v}A$. Consider this $v$ as well.
-
-We have $\operatorname*{res}\nolimits_{u}A=B\neq C=\operatorname*{res}%
-\nolimits_{v}A$ and thus $u\neq v$. Hence, either $u<v$ or $u>v$. We WLOG
-assume that $u<v$ (since otherwise, we can simply switch $u$ with $v$). Hence,
-we are in one of the following two Cases:
+Let $u$, $v \in\mathbb{N}_{+}$ be such that $A\underset{u}{\Rrightarrow}B$ and $A\underset{v}{\Rrightarrow}C$. Since $B \neq C$, we have $u \neq v$.
+Without loss of generality, assume that $u<v$. We are in one of the following two cases:
 
 \textit{Case 1:} We have $u=v-1$.
 
 \textit{Case 2:} We have $u<v-1$.
 
-Let us deal with Case 2 first (since it is the simpler of the two). In this
-case, $u<v-1$, so that $\left\{  u,u+1\right\}  \cap\left\{  v,v+1\right\}
+Let us deal with Case 2 first. In this
+case, $\left\{  u,u+1\right\}  \cap\left\{  v,v+1\right\}
 =\varnothing$.
-
-Now, the operation of resolving the descent $u$ in $A$ (that is, the passage
-from $A$ to $\operatorname*{res}\nolimits_{u}A$) only affects the columns $u$
-and $u+1$, and thus it preserves the descent $v$ (since $\left\{
-u,u+1\right\}  \cap\left\{  v,v+1\right\}  =\varnothing$). Hence,
+It follows that
 $\operatorname*{res}\nolimits_{v}\left(  \operatorname*{res}\nolimits_{u}%
-A\right)  $ is well-defined. Similarly, $\operatorname*{res}\nolimits_{u}%
-\left(  \operatorname*{res}\nolimits_{v}A\right)  $ is well-defined.
-
-Recall again that $\left\{  u,u+1\right\}  \cap\left\{  v,v+1\right\}
-=\varnothing$. Thus, the operation of resolving the descent $u$ and the
-operation of resolving the descent $v$ \textquotedblleft do not
-interact\textquotedblright\ (in the sense that the former only changes the
-columns $u$ and $u+1$, and changes them in a way that does not depend on any
-of the other columns; and similarly for the latter). Therefore, the two
-operations can be applied one after the other in any order; the results will
-be the same. In other words, $\operatorname*{res}\nolimits_{u}\left(
+A\right)  $ and $\operatorname*{res}\nolimits_{u}%
+\left(  \operatorname*{res}\nolimits_{v}A\right)  $ are well-defined and $\operatorname*{res}\nolimits_{u}\left(
 \operatorname*{res}\nolimits_{v}A\right)  =\operatorname*{res}\nolimits_{v}%
-\left(  \operatorname*{res}\nolimits_{u}A\right)  $. Now, set
+\left(  \operatorname*{res}\nolimits_{u}A\right) $. Setting
 $D=\operatorname*{res}\nolimits_{u}\left(  \operatorname*{res}\nolimits_{v}%
 A\right)  =\operatorname*{res}\nolimits_{v}\left(  \operatorname*{res}%
-\nolimits_{u}A\right)  $. Then, $D=\operatorname*{res}\nolimits_{u}%
-\underbrace{\left(  \operatorname*{res}\nolimits_{v}A\right)  }_{=C}%
-=\operatorname*{res}\nolimits_{u}C$ and thus $C\underset{u}{\Rrightarrow}D$,
-so that $C\Rrightarrow D$, therefore $C\overset{\ast}{\Rrightarrow}D$.
-Similarly, $B\overset{\ast}{\Rrightarrow}D$. Hence, we have found a
-$D\in\mathbf{S}$ such that $B\overset{\ast}{\Rrightarrow}D$ and
-$C\overset{\ast}{\Rrightarrow}D$. This completes the proof of Lemma
-\ref{prop.descent-resolution-hyps} in Case 2.
+\nolimits_{u}A\right)  $ completes the proof in this case.
 
-Now, let us consider Case 1. In this case, $u=v-1$. Hence, $v-1$ is a descent
-of $A$ (since $u$ is a descent of $A$), and we have $B=\operatorname*{res}%
-\nolimits_{u}A=\operatorname*{res}\nolimits_{v-1}A$ (since $u=v-1$).
-
+Now, let us consider Case 1.
 The $v$-th column of $A$ must contain a $1$ (since $v-1$ is a descent of $A$)
 and a $2$ (since $v$ is a descent of $A$). Hence, the $v$-th column of $A$ is
-mixed. The $\left(  v-1\right)  $-th column of $A$ is
-2-pure\footnote{\textit{Proof.} Assume the contrary. Then, the $\left(
-v-1\right)  $-th column of $A$ contains a $2$ (because $v-1$ is a descent of
-$A$) but is not 2-pure. Hence, this column is mixed. But $A$ is benign. Hence,
-(\ref{eq.benign.not-both-mixed}) (applied to $T=A$) yields that there exists
-no descent $k$ of $A$ such that both the $k$-th column of $A$ and the $\left(
-k+1\right)  $-th column of $A$ are mixed. But $v-1$ is such a descent (since
-both the $\left(  v-1\right)  $-th and the $v$-th columns of $A$ are mixed).
-This contradiction proves that our assumption was wrong, qed.}, and the
-$\left(  v+1\right)  $-th column of $A$ is 1-pure\footnote{This follows
-similarly.}. We can thus semiotically represent the 12-table $A$ as follows:%
+mixed. Since $A$ is benign, the $\left(  v-1\right)  $-th column of $A$ is
+2-pure and the
+$\left(  v+1\right)  $-th column of $A$ is 1-pure. We can represent the relevant portion of the 12-table $A$ as follows:%
 \begin{equation}
 A=%
 %TCIMACRO{\TeXButton{tabular}{\begin{tabular}{ccc}
@@ -1657,62 +1599,32 @@ A=%
 %EndExpansion
 . \label{pf.prop.descent-resolution.hyps.short.A}%
 \end{equation}
-In this representation, we only draw the $\left(  v-1\right)  $-th, the $v$-th
-and the $\left(  v+1\right)  $-th columns (since the remaining columns are
-neither used nor changed by $\operatorname*{res}\nolimits_{v-1}$ and
-$\operatorname*{res}\nolimits_{v}$, and thus are irrelevant to our argument);
-we use a rectangle with a \textquotedblleft$1$\textquotedblright\ inside to
-signify a string of $1$'s in a column\footnote{The length of the rectangle is
-immaterial; it does not say anything about the number of $1$'s.}, and we use a
-rectangle with a \textquotedblleft$2$\textquotedblright\ inside to signify a
-string of $2$'s in a column.
 
-Let $s=\operatorname*{sep}\nolimits_{v}A$. Then, $\left(  s,v\right)  $ and
-$\left(  s+1,v\right)  $ belong to $Z$ and satisfy $A\left(  s,v\right)  =1$
-and $A\left(  s+1,v\right)  =2$ (by the definition of $\operatorname*{sep}%
-\nolimits_{v}A$). Also, $\left(  s,v-1\right)  $ must belong to $Z$%
-\ \ \ \ \footnote{\textit{Proof.} We know that $v-1$ is a descent of $A$.
-Hence, there exists an $r\in\mathbb{N}_{+}$ such that $\left(  r,v-1\right)
-\in Z$, $\left(  r,v\right)  \in Z$, $A\left(  r,v-1\right)  =2$ and $A\left(
-r,v\right)  =1$. Consider this $r$. If we had $s+1\leq r$, then we would have
-$A\left(  s+1,v\right)  \leq A\left(  r,v\right)  $ (since the entries of $A$
-are weakly decreasing down columns), which would contradict $A\left(
-r,v\right)  =1<2=A\left(  s+1,v\right)  $. Therefore, we cannot have $s+1\leq
-r$. Hence, $r<s+1$, so that $r\leq s$. Hence, (\ref{eq.convex}) (applied to
-$r$, $s$, $s$, $v-1$, $v-1$ and $v$ instead of $i$, $i^{\prime}$,
-$i^{\prime\prime}$, $j$, $j^{\prime}$ and $j^{\prime\prime}$) yields $\left(
-s,v-1\right)  \in Z$, qed.}. Hence, $\left(  s+1,v-1\right)  $ must belong to
-$Z$ as well\footnote{by (\ref{eq.convex}) (applied to $s$, $s+1$, $s+1$,
-$v-1$, $v-1$ and $v$ instead of $i$, $i^{\prime}$, $i^{\prime\prime}$, $j$,
-$j^{\prime}$ and $j^{\prime\prime}$)}. Similarly, $\left(  s+1,v+1\right)  $
-and $\left(  s,v+1\right)  $ belong to $Z$. Altogether, we thus know that all
-six squares $\left(  s,v\right)  $, $\left(  s+1,v\right)  $, $\left(
-s,v-1\right)  $, $\left(  s+1,v-1\right)  $, $\left(  s+1,v+1\right)  $ and
-$\left(  s,v+1\right)  $ belong to $Z$. We shall denote these six squares as
-the \textquotedblleft core squares\textquotedblright. The restriction of $A$
-to the core squares is $%
+%Let $s=\operatorname*{sep}\nolimits_{v}A$. Then, $\left(  s,v\right)  $ and
+%$\left(  s+1,v\right)  $ belong to $Z$ and satisfy $A\left(  s,v\right)  =1$
+%and $A\left(  s+1,v\right)  =2$. Also, $\left(  s,v-1\right)  $ must belong to $Z$ because $v-1$ is a descent of $A$, and hence $\left(  s+1,v-1\right)  $ must belong to
+%$Z$ by convexity. Similarly, $\left(  s+1,v+1\right)  $
+%and $\left(  s,v+1\right)  $ belong to $Z$. We shall denote these six squares as
+%the \textquotedblleft core squares\textquotedblright. The restriction of $A$
+%to the core squares is 
+%\[
+%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %2 & 1 & 1 \\
 %2 & 2 & 1
 %\end{ytableau}}}%
 %BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-2 & 1 & 1 \\
-2 & 2 & 1
-\end{ytableau}%
+%\ytableausetup{notabloids}
+%\begin{ytableau}
+%2 & 1 & 1 \\
+%2 & 2 & 1
+%\end{ytableau}.%
 %EndExpansion
-$\ \ \ \ \footnote{Indeed, the two core squares in the $v$-th column have
-entries $A\left(  s,v\right)  =1$ and $A\left(  s+1,v\right)  =2$; the two
-core squares in the $\left(  v-1\right)  $-th column have entries $2$ (since
-the $\left(  v-1\right)  $-th column of $A$ is 2-pure); and the two core
-squares in the $\left(  v+1\right)  $-th column have entries $1$ (since the
-$\left(  v+1\right)  $-th column of $A$ is 1-pure).}.
+%\]
 
-Now, $A$ has $\left(  v-1\right)  $-type 2M, and resolving the descent $v-1$
-of $A$ yields $\operatorname*{res}\nolimits_{v-1}A=B$. Hence, $B$ is
-represented semiotically as follows:%
+Let $s=\operatorname*{sep}\nolimits_{v}A$. Now, $B = \operatorname*{res}\nolimits_{v-1}A$, so $B$ is
+represented as follows:%
 \[
 B=%
 %TCIMACRO{\TeXButton{tabular}{\begin{tabular}{ccc}
@@ -1745,22 +1657,22 @@ B=%
 %EndExpansion
 ,
 \]
-and the restriction of $B$ to the core squares is $%
+%and the restriction of $B$ to the core squares is $%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %1 & 2 & 1 \\
 %2 & 2 & 1
 %\end{ytableau}}}%
 %BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-1 & 2 & 1 \\
-2 & 2 & 1
-\end{ytableau}%
+%\ytableausetup{notabloids}
+%\begin{ytableau}
+%1 & 2 & 1 \\
+%2 & 2 & 1
+%\end{ytableau}%
 %EndExpansion
-$. This shows that $v$ is a descent of $B$, and that $B$ has $v$-type 21.
-Hence, resolving this descent in $B$ yields a 12-table $\operatorname*{res}%
-\nolimits_{v}B$ which is represented semiotically as follows:%
+%$.
+where $\operatorname*{sep}\nolimits_{v-1}B = s$. Now, $v$ is a descent of $B$. Resolving this descent yields a 12-table $\operatorname*{res}%
+\nolimits_{v}B$ which is represented as follows:%
 \[
 \operatorname*{res}\nolimits_{v}B=%
 %TCIMACRO{\TeXButton{tabular}{\begin{tabular}{ccc}
@@ -1793,26 +1705,24 @@ Hence, resolving this descent in $B$ yields a 12-table $\operatorname*{res}%
 %EndExpansion
 ,
 \]
-and the restriction of $\operatorname*{res}\nolimits_{v}B$ to the core squares
-is $%
+%and the restriction of $\operatorname*{res}\nolimits_{v}B$ to the core squares
+%is $%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %1 & 1 & 2 \\
 %2 & 1 & 2
 %\end{ytableau}}}%
 %BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-1 & 1 & 2 \\
-2 & 1 & 2
-\end{ytableau}%
+%\ytableausetup{notabloids}
+%\begin{ytableau}
+%1 & 1 & 2 \\
+%2 & 1 & 2
+%\end{ytableau}%
 %EndExpansion
-$. This, in turn, shows that $v-1$ is a descent of $\operatorname*{res}%
-\nolimits_{v}B$, and that $\operatorname*{res}\nolimits_{v}B$ has $\left(
-v-1\right)  $-type M1. Thus, resolving this descent in $\operatorname*{res}%
-\nolimits_{v}B$ yields a 12-table $\operatorname*{res}\nolimits_{v-1}\left(
-\operatorname*{res}\nolimits_{v}B\right)  $ which is represented semiotically
-as follows:%
+%$.
+This, in turn, shows that $v-1$ is a descent of $\operatorname*{res}%
+\nolimits_{v}B$. Resolving this descent yields a 12-table $\operatorname*{res}\nolimits_{v-1}\left(
+\operatorname*{res}\nolimits_{v}B\right)  $ which is represented as follows:%
 \begin{equation}
 \operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
 B\right)  =%
@@ -1846,123 +1756,29 @@ B\right)  =%
 %EndExpansion
 , \label{pf.prop.descent-resolution.hyps.short.D}%
 \end{equation}
-and the restriction of $\operatorname*{res}\nolimits_{v-1}\left(
-\operatorname*{res}\nolimits_{v}B\right)  $ to the core squares is $%
+%and the restriction of $\operatorname*{res}\nolimits_{v-1}\left(
+%\operatorname*{res}\nolimits_{v}B\right)  $ to the core squares is $%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %1 & 1 & 2 \\
 %1 & 2 & 2
 %\end{ytableau}}}%
 %BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-1 & 1 & 2 \\
-1 & 2 & 2
-\end{ytableau}%
-%EndExpansion
-$.
-
-On the other hand, $A$ has $v$-type M1. Resolving the descent $v$ of $A$
-yields $\operatorname*{res}\nolimits_{v}A=C$. Thus, we can represent $C$
-semiotically and find its restriction to the core squares. This shows us that
-$C$ has $v-1$ as a descent and has $\left(  v-1\right)  $-type 21. Resolving
-this descent yields a 12-table $\operatorname*{res}\nolimits_{v-1}C$ which we
-can again represent semiotically and find its restriction to the core squares.
-Doing this, we observe that $\operatorname*{res}\nolimits_{v-1}C$ has $v$ as a
-descent and has $v$-type 2M. Resolving this descent yields a 12-table
-$\operatorname*{res}\nolimits_{v}\left(  \operatorname*{res}\nolimits_{v-1}%
-C\right)  $ whose semiotic representation and restriction to the core squares
-can again be found. We leave the details of this argument to the reader, but
-we state its result: The 12-table $\operatorname*{res}\nolimits_{v}\left(
-\operatorname*{res}\nolimits_{v-1}C\right)  $ is well-defined and has the same
-semiotic representation and the same restriction to the core squares as the
-12-table $\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}%
-\nolimits_{v}B\right)  $. Consequently, the 12-tables $\operatorname*{res}%
-\nolimits_{v}\left(  \operatorname*{res}\nolimits_{v-1}C\right)  $ and
-$\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
-B\right)  $ are equal\footnote{\textit{Proof.} To see this, we need to show
-that for every $h\in\mathbb{N}_{+}$, the $h$-th column of $\operatorname*{res}%
-\nolimits_{v}\left(  \operatorname*{res}\nolimits_{v-1}C\right)  $ equals the
-$h$-th column of $\operatorname*{res}\nolimits_{v-1}\left(
-\operatorname*{res}\nolimits_{v}B\right)  $.
-\par
-For $h\notin\left\{  v-1,v,v+1\right\}  $, this is obvious (because for
-$h\notin\left\{  v-1,v,v+1\right\}  $, the $h$-th column of a 12-table never
-changes under $\operatorname*{res}\nolimits_{v}$ or $\operatorname*{res}%
-\nolimits_{v-1}$).
-\par
-For $h=v-1$, this is again obvious (because the semiotic representation of
-$\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
-B\right)  $ given in (\ref{pf.prop.descent-resolution.hyps.short.D}) shows
-that the $\left(  v-1\right)  $-th column of $\operatorname*{res}%
-\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}B\right)  $ is 1-pure,
-and the same can be said of the $\left(  v-1\right)  $-th column of
-$\operatorname*{res}\nolimits_{v}\left(  \operatorname*{res}\nolimits_{v-1}%
-C\right)  $).
-\par
-For $h=v+1$, this is also obvious (because the semiotic representation of
-$\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
-B\right)  $ given in (\ref{pf.prop.descent-resolution.hyps.short.D}) shows
-that the $\left(  v+1\right)  $-th column of $\operatorname*{res}%
-\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}B\right)  $ is 2-pure,
-and the same can be said of the $\left(  v+1\right)  $-th column of
-$\operatorname*{res}\nolimits_{v}\left(  \operatorname*{res}\nolimits_{v-1}%
-C\right)  $).
-\par
-It thus only remains to deal with the case of $h=v$. In other words, we need
-to prove that the $v$-th column of $\operatorname*{res}\nolimits_{v}\left(
-\operatorname*{res}\nolimits_{v-1}C\right)  $ equals the $v$-th column of
-$\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
-B\right)  $.
-\par
-We know from (\ref{pf.prop.descent-resolution.hyps.short.D}) that the $v$-th
-column of $\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}%
-\nolimits_{v}B\right)  $ is mixed. Moreover, the restriction of
-$\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
-B\right)  $ to the core squares is $%
-%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
+%\ytableausetup{notabloids}
 %\begin{ytableau}
 %1 & 1 & 2 \\
 %1 & 2 & 2
-%\end{ytableau}}}%
-%BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-1 & 1 & 2 \\
-1 & 2 & 2
-\end{ytableau}%
+%\end{ytableau}%
 %EndExpansion
-$; therefore, the last $1$ and the first $2$ in the $v$-th column of
-$\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
-B\right)  $ are in the cells $\left(  s,v\right)  $ and $\left(  s+1,v\right)
-$, respectively. But the same can be said about the $v$-th column of
-$\operatorname*{res}\nolimits_{v}\left(  \operatorname*{res}\nolimits_{v-1}%
-C\right)  $. Hence, the $v$-th column of $\operatorname*{res}\nolimits_{v}%
-\left(  \operatorname*{res}\nolimits_{v-1}C\right)  $ and the $v$-th column of
-$\operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
-B\right)  $ both are mixed, and the cell containing the last $1$ is the same
-for both of these columns. This yields that these columns must be equal. As we
-know, this finishes our proof.}.
+%$.
+where $\operatorname*{sep}\nolimits_{v} \left( \operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
+B\right) \right) = s$.
 
-Hence, we can set $D=\operatorname*{res}\nolimits_{v}\left(
+On the other hand, $C = \operatorname*{res}\nolimits_{v}A$. We can apply a similar argument as above to show that the 12-table $\operatorname*{res}\nolimits_{v}\left(
+\operatorname*{res}\nolimits_{v-1}C\right)  $ is well-defined, and is equal to the tableau in (\ref{pf.prop.descent-resolution.hyps.short.D}).
+Hence, setting $D=\operatorname*{res}\nolimits_{v}\left(
 \operatorname*{res}\nolimits_{v-1}C\right)  =\operatorname*{res}%
-\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}B\right)  $. Consider
-this $D$. We have $C\Rrightarrow\operatorname*{res}\nolimits_{v-1}C$ (since
-$C\underset{v-1}{\Rrightarrow}\operatorname*{res}\nolimits_{v-1}C$) and
-$\operatorname*{res}\nolimits_{v-1}C\Rrightarrow\operatorname*{res}%
-\nolimits_{v}\left(  \operatorname*{res}\nolimits_{v-1}C\right)  $ (since
-$\operatorname*{res}\nolimits_{v-1}C\underset{v}{\Rrightarrow}%
-\operatorname*{res}\nolimits_{v}\left(  \operatorname*{res}\nolimits_{v-1}%
-C\right)  $). Combining these two relations, we obtain $C\overset{\ast
-}{\Rrightarrow}\operatorname*{res}\nolimits_{v}\left(  \operatorname*{res}%
-\nolimits_{v-1}C\right)  $ (since $\overset{\ast}{\Rrightarrow}$ is the
-reflexive-and-transitive closure of the relation $\Rrightarrow$). In other
-words, $C\overset{\ast}{\Rrightarrow}D$ (since $D=\operatorname*{res}%
-\nolimits_{v}\left(  \operatorname*{res}\nolimits_{v-1}C\right)  $).
-Similarly, $B\overset{\ast}{\Rrightarrow}D$. Thus, we have found a
-$D\in\mathbf{S}$ such that $B\overset{\ast}{\Rrightarrow}D$ and
-$C\overset{\ast}{\Rrightarrow}D$. This completes the proof of Lemma
-\ref{prop.descent-resolution-hyps} in Case 1.
+\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}B\right)  $ completes the proof of Case 1.
 \end{proof}
 
 \subsection{The normalization map}
