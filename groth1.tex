@@ -1023,26 +1023,20 @@ $2$. Hence, the $k$-th column of $P$ is either mixed or 2-pure. Similarly, the
 $\left(  k+1\right)  $-th column of $P$ is either mixed or 1-pure. But the
 $k$-th and the $\left(  k+1\right)  $-th columns of $P$ cannot both be mixed
 (by (\ref{eq.benign.not-both-mixed}), because $P$ is benign). Thus we
-introduce the following notations:
+have exactly one of the following:
 
 \begin{itemize}
-\item We say that the 12-table $P$ has $k$\textit{-type M1} if the $k$-th
-column of $P$ is mixed and the $\left(  k+1\right)  $-th column of $P$ is 1-pure.
+\item[(M1)] The $k$-th column of $P$ is mixed and the $\left(  k+1\right)  $-th column of $P$ is 1-pure.
 
-\item We say that the 12-table $P$ has $k$\textit{-type 2M} if the $k$-th
-column of $P$ is 2-pure and the $\left(  k+1\right)  $-th column of $P$ is mixed.
+\item[(2M)] The $k$-th column of $P$ is 2-pure and the $\left(  k+1\right)  $-th column of $P$ is mixed.
 
-\item We say that the 12-table $P$ has $k$\textit{-type 21} if the $k$-th
-column of $P$ is 2-pure and the $\left(  k+1\right)  $-th column of $P$ is 1-pure.
+\item[(21)] The $k$-th column of $P$ is 2-pure and the $\left(  k+1\right)  $-th column of $P$ is 1-pure.
 \end{itemize}
-
-Then, the 12-table $P$ always either has $k$-type M1, or has $k$-type 2M, or
-has $k$-type 21 (as follows from the discussion in the preceding paragraph).
 
 Now, we define a new 12-table $\operatorname*{res}\nolimits_{k}P$ as follows:
 
 \begin{itemize}
-\item If $P$ has $k$-type M1, then we let $\operatorname*{res}_{k}P$ be the
+\item If we have (M1), then $\operatorname*{res}_{k}P$ is the
 12-table defined as follows:
 %\footnote{Here is an example for this definition:
 %If $P=%
@@ -1139,16 +1133,16 @@ definition is well-defined.
 %$\operatorname*{res}\nolimits_{k}P$, respectively.
 }
 
-\item If $P$ has $k$-type 2M, then we let $\operatorname*{res}_{k}P$ be the
+\item If we have (2M), then $\operatorname*{res}_{k}P$ is the
 12-table defined as follows: The $k$-th column of $\operatorname*{res}_{k}P$
 is mixed and satisfies $\operatorname*{sep}\nolimits_{k}\left(
 \operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{sep}\nolimits_{k+1}%
 P$; the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
-\nolimits_{k}P$ is 2-pure (i.e., it is filled with $2$'s); all other columns
+\nolimits_{k}P$ is 2-pure; all other columns
 of $\operatorname*{res}\nolimits_{k}P$ are copied over from $P$
 unchanged.
 
-\item If $P$ has $k$-type 21, then we let $\operatorname*{res}_{k}P$ be the
+\item If we have (21), then $\operatorname*{res}_{k}P$ is the
 12-table defined as follows: The $k$-th column of $\operatorname*{res}_{k}P$
 is 1-pure; the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
 \nolimits_{k}P$ is 2-pure; all other columns of $\operatorname*{res}%
@@ -1190,7 +1184,7 @@ $\operatorname*{res}\nolimits_{k}P$ is the 12-table obtained by
 Then $P$ is a benign 12-table, and its
 descents are $1$, $2$ and $4$. We have $\operatorname*{sep}\nolimits_{2}P=4$.
 
-If we set $k=1$, then $P$ has $k$-type 2M, and resolving the descent $k=1$
+If we set $k=1$, then we have (2M), and resolving the descent $k=1$
 gives us the 12-table $\operatorname*{res}\nolimits_{1}P$, which is
 \[
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
@@ -1213,7 +1207,7 @@ gives us the 12-table $\operatorname*{res}\nolimits_{1}P$, which is
 %EndExpansion
 \]
 
-If we instead set $k=2$, then $P$ has $k$-type M1, and resolving the descent
+If we instead set $k=2$, then we have (M1), and resolving the descent
 $k=2$ gives us the 12-table $\operatorname*{res}\nolimits_{2}P$, which is
 \[
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
@@ -1236,7 +1230,7 @@ $k=2$ gives us the 12-table $\operatorname*{res}\nolimits_{2}P$, which is
 %EndExpansion
 \]
 
-If we instead set $k=4$, then $P$ has $k$-type 21, and resolving the descent
+If we instead set $k=4$, then we have (21), and resolving the descent
 $k=4$ gives us the 12-table $\operatorname*{res}\nolimits_{4}P$, which is
 \[
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
@@ -1315,118 +1309,109 @@ The $k$-th and the $\left(  k+1\right)  $-th columns of
 $\operatorname*{res}\nolimits_{k}P$ depend only on the $k$-th and the $\left(
 k+1\right)  $-th columns of $P$.
 
-\item
+\item \label{pf.lem.BK.res.ceq}
 We have%
-\begin{equation}
+\[
 \operatorname*{ceq}\left(  \operatorname*{res}\nolimits_{k}P\right)
-=\operatorname*{ceq}\left(  P\right) . \label{pf.lem.BK.res.ceq}
-\end{equation}
+=\operatorname*{ceq}\left(  P\right) .
+\]
 
-\item We have%
-\begin{align}
-&  \left(  \text{the number of }h\in\mathbb{N}_{+}\text{ such that the
-}h\text{-th column of }\operatorname*{res}\nolimits_{k}P\text{ is
-mixed}\right) \nonumber\\
-&  =\left(  \text{the number of }h\in\mathbb{N}_{+}\text{ such that the
-}h\text{-th column of }P\text{ is mixed}\right)  , \label{pf.lem.BK.res.mixed}%
-\end{align}%
-\begin{align}
-&  \left(  \text{the number of }h\in\mathbb{N}_{+}\text{ such that the
-}h\text{-th column of }\operatorname*{res}\nolimits_{k}P\text{ is
-1-pure}\right) \nonumber\\
-&  =\left(  \text{the number of }h\in\mathbb{N}_{+}\text{ such that the
-}h\text{-th column of }P\text{ is 1-pure}\right)  ,
-\label{pf.lem.BK.res.1pure}%
-\end{align}%
-\begin{align}
-&  \left(  \text{the number of }h\in\mathbb{N}_{+}\text{ such that the
-}h\text{-th column of }\operatorname*{res}\nolimits_{k}P\text{ is
-2-pure}\right) \nonumber\\
-&  =\left(  \text{the number of }h\in\mathbb{N}_{+}\text{ such that the
-}h\text{-th column of }P\text{ is 2-pure}\right)  ,
-\label{pf.lem.BK.res.2pure}%
-\end{align}
-and%
-\begin{equation}
+\item \label{pf.lem.BK.res.irconts}
+We have%
+%\begin{align}
+%&  \left(  \text{the number of }h\in\mathbb{N}_{+}\text{ such that the
+%}h\text{-th column of }\operatorname*{res}\nolimits_{k}P\text{ is
+%mixed}\right) \nonumber\\
+%&  =\left(  \text{the number of }h\in\mathbb{N}_{+}\text{ such that the
+%}h\text{-th column of }P\text{ is mixed}\right)  , \label{pf.lem.BK.res.mixed}%
+%\end{align}%
+%\begin{align}
+%&  \left(  \text{the number of }h\in\mathbb{N}_{+}\text{ such that the
+%}h\text{-th column of }\operatorname*{res}\nolimits_{k}P\text{ is
+%1-pure}\right) \nonumber\\
+%&  =\left(  \text{the number of }h\in\mathbb{N}_{+}\text{ such that the
+%}h\text{-th column of }P\text{ is 1-pure}\right)  ,
+%\label{pf.lem.BK.res.1pure}%
+%\end{align}%
+%\begin{align}
+%&  \left(  \text{the number of }h\in\mathbb{N}_{+}\text{ such that the
+%}h\text{-th column of }\operatorname*{res}\nolimits_{k}P\text{ is
+%2-pure}\right) \nonumber\\
+%&  =\left(  \text{the number of }h\in\mathbb{N}_{+}\text{ such that the
+%}h\text{-th column of }P\text{ is 2-pure}\right)  ,
+%\label{pf.lem.BK.res.2pure}%
+%\end{align}
+%and%
+\[
 \operatorname*{ircont}\left(  \operatorname*{res}\nolimits_{k}P\right)
-=\operatorname*{ircont}\left(  P\right)  . \label{pf.lem.BK.res.irconts}%
-\end{equation}
+=\operatorname*{ircont}\left(  P\right)  .
+\]
 
+%\item For every $r\in\mathbb{N}_{+}$ and $i\in\mathbb{N}_{+}$
+%satisfying $\left(  r,i\right)  \in Z$ and $\left(  r,s_{k}\left(  i\right)
+%\right)  \in Z$, we have%
+%\begin{equation}
+%P\left(  r,i\right)  =\left(  \operatorname*{res}\nolimits_{k}P\right)
+%\left(  r,s_{k}\left(  i\right)  \right)  . \label{pf.lem.BK.res.Pli}%
+%\end{equation}
 
-\item For every $r\in\mathbb{N}_{+}$ and $i\in\mathbb{N}_{+}$
-satisfying $\left(  r,i\right)  \in Z$ and $\left(  r,s_{k}\left(  i\right)
-\right)  \in Z$, we have%
-\begin{equation}
-P\left(  r,i\right)  =\left(  \operatorname*{res}\nolimits_{k}P\right)
-\left(  r,s_{k}\left(  i\right)  \right)  . \label{pf.lem.BK.res.Pli}%
-\end{equation}
-
-
-\item The benign 12-tables $\operatorname*{flip}\left(  P\right)  $ and
-$\operatorname*{flip}\left(  \operatorname*{res}\nolimits_{k}P\right)  $ have
-the property that%
-\begin{equation}
-\left(
-\begin{array}
-[c]{c}%
-k\text{ is a descent of }\operatorname*{flip}\left(  \operatorname*{res}%
-\nolimits_{k}P\right)  \text{,}\\
-\text{and we have }\operatorname*{flip}\left(  P\right)  =\operatorname*{res}%
+\item \label{pf.lem.BK.res.flip}
+We have that $k$ is a descent of $\operatorname*{flip}\left(  \operatorname*{res}%
+\nolimits_{k}P\right)$, and
+\[
+\operatorname*{res}%
 \nolimits_{k}\left(  \operatorname*{flip}\left(  \operatorname*{res}%
-\nolimits_{k}P\right)  \right)
-\end{array}
-\right)  . \label{pf.lem.BK.res.flip}%
-\end{equation}
+\nolimits_{k}P\right)  \right) = \operatorname*{flip}\left(  P\right).
+\]
 
-
-\item Recall that we defined a nonnegative integer $\ell\left(
+\item \label{pf.lem.BK.res.lendec}
+Recall that we defined a nonnegative integer $\ell\left(
 T\right)  $ for every 12-table $T$ in Subsection \ref{subsect.fourtypes}. We
 have
-\begin{equation}
+\[
 \ell\left(  P\right)  >\ell\left(  \operatorname*{res}\nolimits_{k}P\right)  .
-\label{pf.lem.BK.res.lendec}%
-\end{equation}
+\]
 
 \end{enumerate}
 
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.descent-resolution-props}.]Most of Proposition
-\ref{prop.descent-resolution-props} succumbs to straightforward arguments
+[Proof of Proposition \ref{prop.descent-resolution-props}.]
+All parts of Proposition \ref{prop.descent-resolution-props} follow from straightforward arguments
 using the definitions of $\operatorname*{res}_{k}$ and $\operatorname*{flip}$
-coupled with a thorough case analysis, with an occasional use of the convexity
-of $Z$ and of the formula (\ref{pf.lem.BK.Tsep}). Merely part \textbf{(c)}
-requires a bit more thinking.
-
-\textbf{(c)} A cell $\left(  i,j\right)  $ in $Z$ will be called \textit{good}
-if the cell $\left(  i+1,j\right)  $ also belongs to $Z$. Notice that every
-stagnant cell of $P$ or of $\operatorname*{res}\nolimits_{k}P$ must be good.
-
-In order to prove (\ref{pf.lem.BK.res.ceq}), we need to show that, for every
-$r\in\mathbb{N}_{+}$, the number of stagnant cells of $P$ in row $r$ equals
-the number of stagnant cells of $\operatorname*{res}\nolimits_{k}P$ in row
-$r$. Instead of comparing the numbers of stagnant cells, we can just as well
-compare the numbers of good cells that are not stagnant (because all stagnant
-cells are good, and because the total number of good cells clearly depends
-only on $Z$ and not on the 12-table). So we need to show that, for every
-$r\in\mathbb{N}_{+}$, the number of good cells in row $r$ that are not
-stagnant cells of $P$ equals the number of good cells in row $r$ that are not
-stagnant cells of $\operatorname*{res}\nolimits_{k}P$.
-
-Fix $r\in\mathbb{N}_{+}$. The number of good cells in row $r$ that are not
-stagnant cells of $P$ is precisely the number of appearances of $r+1$ in the
-list $\operatorname*{seplist}P$ (because the good cells that are not stagnant
-cells of $P$ are precisely the cells of the form $\left(  \operatorname*{sep}%
-\nolimits_{k}P,k\right)  $, where $k$ is a positive integer such that the
-$k$-th column of $P$ is mixed). Similarly, the number of good cells in row $r$
-that are not stagnant cells of $\operatorname*{res}\nolimits_{k}P$ is
-precisely the number of appearances of $r+1$ in the list
-$\operatorname*{seplist}\left(  \operatorname*{res}\nolimits_{k}P\right)  $.
-These two numbers are equal, because $\operatorname*{seplist}\left(
-\operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{seplist}P$. As
-explained above, this completes the proof of (\ref{pf.lem.BK.res.ceq}).
+and (\ref{pf.lem.BK.Tsep}).
 \end{proof}
+%Merely part \textbf{(c)}
+%requires a bit more thinking.
+
+%\textbf{(c)} A cell $\left(  i,j\right)  $ in $Z$ will be called \textit{good}
+%if the cell $\left(  i+1,j\right)  $ also belongs to $Z$. Notice that every
+%stagnant cell of $P$ or of $\operatorname*{res}\nolimits_{k}P$ must be good.
+
+%In order to prove (\ref{pf.lem.BK.res.ceq}), we need to show that, for every
+%$r\in\mathbb{N}_{+}$, the number of stagnant cells of $P$ in row $r$ equals
+%the number of stagnant cells of $\operatorname*{res}\nolimits_{k}P$ in row
+%$r$. Instead of comparing the numbers of stagnant cells, we can just as well
+%compare the numbers of good cells that are not stagnant (because all stagnant
+%cells are good, and because the total number of good cells clearly depends
+%only on $Z$ and not on the 12-table). So we need to show that, for every
+%$r\in\mathbb{N}_{+}$, the number of good cells in row $r$ that are not
+%stagnant cells of $P$ equals the number of good cells in row $r$ that are not
+%stagnant cells of $\operatorname*{res}\nolimits_{k}P$.
+
+%Fix $r\in\mathbb{N}_{+}$. The number of good cells in row $r$ that are not
+%stagnant cells of $P$ is precisely the number of appearances of $r+1$ in the
+%list $\operatorname*{seplist}P$ (because the good cells that are not stagnant
+%cells of $P$ are precisely the cells of the form $\left(  \operatorname*{sep}%
+%\nolimits_{k}P,k\right)  $, where $k$ is a positive integer such that the
+%$k$-th column of $P$ is mixed). Similarly, the number of good cells in row $r$
+%that are not stagnant cells of $\operatorname*{res}\nolimits_{k}P$ is
+%precisely the number of appearances of $r+1$ in the list
+%$\operatorname*{seplist}\left(  \operatorname*{res}\nolimits_{k}P\right)  $.
+%These two numbers are equal, because $\operatorname*{seplist}\left(
+%\operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{seplist}P$. As
+%explained above, this completes the proof of (\ref{pf.lem.BK.res.ceq}).
 
 \subsection{The descent-resolution relation $\Rrightarrow$}
 
@@ -1438,7 +1423,7 @@ of $P$ and we have $Q=\operatorname*{res}\nolimits_{k}P$. We write $P\Rrightarro
 exists a $k\in\mathbb{N}_{+}$ such that $P\underset{k}{\Rrightarrow}Q$.
 \end{definition}
 
-Some of what was shown above translates into properties of this relation
+Proposition \ref{prop.descent-resolution-props} translates into the following properties of this relation
 $\Rrightarrow$:
 
 \begin{lemma}
@@ -1775,10 +1760,10 @@ where $\operatorname*{sep}\nolimits_{v} \left( \operatorname*{res}\nolimits_{v-1
 B\right) \right) = s$.
 
 On the other hand, $C = \operatorname*{res}\nolimits_{v}A$. We can apply a similar argument as above to show that the 12-table $\operatorname*{res}\nolimits_{v}\left(
-\operatorname*{res}\nolimits_{v-1}C\right)  $ is well-defined, and is equal to the tableau in (\ref{pf.prop.descent-resolution.hyps.short.D}).
-Hence, setting $D=\operatorname*{res}\nolimits_{v}\left(
-\operatorname*{res}\nolimits_{v-1}C\right)  =\operatorname*{res}%
-\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}B\right)  $ completes the proof of Case 1.
+\operatorname*{res}\nolimits_{v-1}C\right)  $ is well-defined, and is exactly equal to the tableau in (\ref{pf.prop.descent-resolution.hyps.short.D}).
+Hence, $\operatorname*{res}%
+\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}B\right) = \operatorname*{res}\nolimits_{v}\left(
+\operatorname*{res}\nolimits_{v-1}C\right)$, and setting $D$ equal to this tableau completes the proof of Case 1.
 \end{proof}
 
 \subsection{The normalization map}
@@ -1790,29 +1775,29 @@ The following proposition is the most important piece in our puzzle:
 $N\in\mathbf{R}$ such that $T\overset{\ast}{\Rrightarrow}N$.
 \end{proposition}
 
-Before we come to the proof of this proposition, let us translate it into
-words in order to illuminate its meaning. Recall that $\mathbf{R}$ is the set
-of all 12-rpps (of shape $Z$), that $\mathbf{S}$ is the set of all benign
-12-tables, and that the relation \textquotedblleft$P\overset{\ast
-}{\Rrightarrow}Q$\textquotedblright\ can be interpreted as \textquotedblleft%
-$Q$ can be obtained from $P$ by repeatedly resolving
-descents\textquotedblright. Hence, Proposition \ref{prop.BK.norm} says that,
-for every benign 12-table $T$, there exists a unique 12-rpp $N$ which can be
-obtained from $T$ by repeatedly resolving descents. We can actually make a
-slightly stronger claim\footnote{which will fall out of the proof of
-Proposition \ref{prop.BK.norm} given below}: If we start with a 12-table $T$
-and repeatedly resolve descents until no more descents remain, then the
-process of resolving descents eventually stops\footnote{This is fairly clear:
-Every time we resolve a descent, the nonnegative integer $\ell\left(
-T\right)  $ decreases (due to (\ref{pf.lem.BK.res.lendec})); but a nonnegative
-integer cannot keep decreasing forever.}, and the result is a 12-rpp, which is
-independent of the choices made in the process (the choices of what descents
-we resolve). This is actually a familiar instance of what is called
-\textit{confluence} of a rewriting system, and our proof uses a tactic known
-as \textquotedblleft diamond lemma\textquotedblright\ or \textquotedblleft
-Newman lemma\textquotedblright\ (see, e.g., \cite{BezCoq}, or \cite[Lemma
-2.7.2 + Fact 2.1.7]{BaaNip98}); however, the tactic is simple enough that we
-found it easier to integrate it into the proof rather than state it as a lemma.
+%Before we come to the proof of this proposition, let us translate it into
+%words in order to illuminate its meaning. Recall that $\mathbf{R}$ is the set
+%of all 12-rpps (of shape $Z$), that $\mathbf{S}$ is the set of all benign
+%12-tables, and that the relation \textquotedblleft$P\overset{\ast
+%}{\Rrightarrow}Q$\textquotedblright\ can be interpreted as \textquotedblleft%
+%$Q$ can be obtained from $P$ by repeatedly resolving
+%descents\textquotedblright. Hence, Proposition \ref{prop.BK.norm} says that,
+%for every benign 12-table $T$, there exists a unique 12-rpp $N$ which can be
+%obtained from $T$ by repeatedly resolving descents. We can actually make a
+%slightly stronger claim\footnote{which will fall out of the proof of
+%Proposition \ref{prop.BK.norm} given below}: If we start with a 12-table $T$
+%and repeatedly resolve descents until no more descents remain, then the
+%process of resolving descents eventually stops\footnote{This is fairly clear:
+%Every time we resolve a descent, the nonnegative integer $\ell\left(
+%T\right)  $ decreases (due to (\ref{pf.lem.BK.res.lendec})); but a nonnegative
+%integer cannot keep decreasing forever.}, and the result is a 12-rpp, which is
+%independent of the choices made in the process (the choices of what descents
+%we resolve). This is actually a familiar instance of what is called
+%\textit{confluence} of a rewriting system, and our proof uses a tactic known
+%as \textquotedblleft diamond lemma\textquotedblright\ or \textquotedblleft
+%Newman lemma\textquotedblright\ (see, e.g., \cite{BezCoq}, or \cite[Lemma
+%2.7.2 + Fact 2.1.7]{BaaNip98}); however, the tactic is simple enough that we
+%found it easier to integrate it into the proof rather than state it as a lemma.
 
 \begin{proof}
 [Proof of Proposition \ref{prop.BK.norm}.] For every $T\in\mathbf{S}$, let
@@ -1820,12 +1805,11 @@ $\operatorname*{Norm}\left(  T\right)  $ denote the set%
 \[
 \left\{  N\in\mathbf{R}\ \mid\ T\overset{\ast}{\Rrightarrow}N\right\}  .
 \]
-Thus, in order to prove Proposition \ref{prop.BK.norm}, it is clearly enough
-to show that, for every $T\in\mathbf{S}$, this set $\operatorname*{Norm}%
+Thus, in order to prove Proposition \ref{prop.BK.norm}, we need to show that for every $T\in\mathbf{S}$ this set $\operatorname*{Norm}%
 \left(  T\right)  $ is a one-element set.
 
-We shall prove this by strong induction on $\ell\left(  T\right)  $. So we fix
-some $T\in\mathbf{S}$, and we assume that we already know that
+We shall prove this by strong induction on $\ell\left(  T\right)  $. Fix
+some $T\in\mathbf{S}$, and assume that
 \begin{equation}
 \operatorname*{Norm}\left(  S\right)  \text{ is a one-element set for every
 }S\in\mathbf{S}\text{ satisfying }\ell\left(  S\right)  <\ell\left(  T\right)
@@ -1834,34 +1818,19 @@ some $T\in\mathbf{S}$, and we assume that we already know that
 We then need to prove that $\operatorname*{Norm}\left(  T\right)  $ is a
 one-element set.
 
-Let $\mathbf{Z}$ denote the set $\left\{  S\in\mathbf{S}\ \mid\ T\Rrightarrow
+Let $\mathbf{Z} = \left\{  S\in\mathbf{S}\ \mid\ T\Rrightarrow
 S\right\}  $. In other words, $\mathbf{Z}$ is the set of all benign 12-tables
-$S$ which can be obtained from $T$ by resolving one single descent. If
-$\mathbf{Z}$ is empty, then we are done\footnote{\textit{Proof.} Assume that
-$\mathbf{Z}$ is empty. Thus, the benign 12-table $S$ has no descent (since any
-descent could be resolved and then would yield a 12-table in $\mathbf{Z}$). In
-other words, $S$ is a 12-rpp (since a 12-rpp of shape $Z$ is the same as a
-12-table which has no descents). In other words, $S\in\mathbf{R}$. Hence, the
-set $\operatorname*{Norm}\left(  T\right)  =\left\{  N\in\mathbf{R}%
-\ \mid\ T\overset{\ast}{\Rrightarrow}N\right\}  $ has \textbf{at least} one
-element (namely, $S$). This set also clearly has \textbf{at most} one element
-(since $S$ has no descent, and thus the only 12-table that can be obtained
-from $S$ by resolving descents is $S$ itself). Hence, this set has exactly one
-element. In other words, $\operatorname*{Norm}\left(  T\right)  $ is a
-one-element set. This is exactly what we wanted to prove.}. Hence, we WLOG
-assume that $\mathbf{Z}$ is nonempty. Therefore, the 12-table $T$ has at least
-one descent. Consequently, $T$ is not a 12-rpp\footnote{since a 12-rpp of
-shape $Z$ is the same as a 12-table which has no descents}. In other words,
-$T\notin\mathbf{R}$.
+$S$ which can be obtained from $T$ by resolving one descent. If
+$\mathbf{Z}$ is empty, then $\operatorname*{Norm}\left(  T\right) = \{T\}$ and we are done. Hence, we can
+assume that $\mathbf{Z}$ is nonempty. Therefore $T \notin \mathbf{R}$.
 
-Now, we recall that $\overset{\ast}{\Rrightarrow}$ is the
-reflexive-and-transitive closure of $\Rrightarrow$. Hence,%
+Now, we have
 \[
 \left\{  N\in\mathbf{S}\ \mid\ T\overset{\ast}{\Rrightarrow}N\right\}
 =\left\{  T\right\}  \cup\bigcup_{Z\in\mathbf{Z}}\left\{  N\in\mathbf{S}%
 \ \mid\ Z\overset{\ast}{\Rrightarrow}N\right\}  .
 \]
-Intersecting both sides of this identity with the set $\mathbf{R}$, we obtin%
+Intersecting both sides of this identity with the set $\mathbf{R}$, we obtain%
 \begin{align*}
 \left\{  N\in\mathbf{R}\ \mid\ T\overset{\ast}{\Rrightarrow}N\right\}    &
 =\underbrace{\left(  \left\{  T\right\}  \cap\mathbf{R}\right)  }%
@@ -1883,76 +1852,32 @@ Thus,
 Let us now notice that:
 
 \begin{itemize}
-\item For every $Z\in\mathbf{Z}$, the set $\operatorname*{Norm}\left(
-Z\right)  $ is a one-element set\footnote{\textit{Proof.} Let $Z\in\mathbf{Z}%
-$. Then, $Z\in\mathbf{Z}=\left\{  S\in\mathbf{S}\ \mid\ T\Rrightarrow
-S\right\}  $, so that $T\Rrightarrow Z$. Lemma
-\ref{lem.descent-resolution-props} \textbf{(d)} (applied to $P=T$ and $Q=Z$)
-thus yields $\ell\left(  T\right)  >\ell\left(  Z\right)  $. Hence,
-(\ref{pf.prop.BK.norm.indhyp}) (applied to $S=Z$) yields that
-$\operatorname*{Norm}\left(  Z\right)  $ is a one-element set, qed.}.
+\item By Lemma \ref{lem.descent-resolution-props} \textbf{(d)}, for every $Z\in\mathbf{Z}$, the set $\operatorname*{Norm}\left( Z\right)  $ is a one-element set.
 
-\item For every $B\in\mathbf{Z}$ and $C\in\mathbf{Z}$, we have
+\item By Lemma \ref{prop.descent-resolution-hyps}, for every $B\in\mathbf{Z}$ and $C\in\mathbf{Z}$, we have
 $\operatorname*{Norm}\left(  B\right)  \cap\operatorname*{Norm}\left(
-C\right)  \neq\varnothing$\ \ \ \ \footnote{\textit{Proof.} Let $B\in
-\mathbf{Z}$ and $C\in\mathbf{Z}$. We have $B\in\mathbf{Z}=\left\{
-S\in\mathbf{S}\ \mid\ T\Rrightarrow S\right\}  $, so that $T\Rrightarrow B$.
-Lemma \ref{lem.descent-resolution-props} \textbf{(d)} (applied to $P=T$ and
-$Q=B$) thus yields $\ell\left(  T\right)  >\ell\left(  B\right)  $.
-\par
-We have $T\Rrightarrow C$ (similarly to $T\Rrightarrow B$). Hence, Lemma
-\ref{prop.descent-resolution-hyps} (applied to $A=T$) yields that there exists
-a $D\in\mathbf{S}$ such that $B\overset{\ast}{\Rrightarrow}D$ and
-$C\overset{\ast}{\Rrightarrow}D$. Consider this $D$. Lemma
-\ref{lem.descent-resolution-*props} \textbf{(d)} (applied to $P=B$ and $Q=D$)
-yields $\ell\left(  B\right)  \geq\ell\left(  D\right)  $. Thus, $\ell\left(
-T\right)  >\ell\left(  B\right)  \geq\ell\left(  D\right)  $. Hence,
-$\operatorname*{Norm}\left(  D\right)  $ is a one-element set (by
-(\ref{pf.prop.BK.norm.indhyp}), applied to $S=D$).
-\par
-But $B\overset{\ast}{\Rrightarrow}D$. Thus, every $N\in\mathbf{R}$ satisfying
-$D\overset{\ast}{\Rrightarrow}N$ also satisfies $B\overset{\ast}{\Rrightarrow
-}N$ (since the relation $\overset{\ast}{\Rrightarrow}$ is transitive). In
-other words, every element of $\operatorname*{Norm}\left(  D\right)  $ is also
-an element of $\operatorname*{Norm}\left(  B\right)  $. In other words,
-$\operatorname*{Norm}\left(  D\right)  \subseteq\operatorname*{Norm}\left(
-B\right)  $. Similarly, $\operatorname*{Norm}\left(  D\right)  \subseteq
-\operatorname*{Norm}\left(  C\right)  $. Hence, $\operatorname*{Norm}\left(
-D\right)  \subseteq\operatorname*{Norm}\left(  B\right)  \cap
-\operatorname*{Norm}\left(  C\right)  $. Hence, $\operatorname*{Norm}\left(
-B\right)  \cap\operatorname*{Norm}\left(  C\right)  \neq\varnothing$ (since
-$\operatorname*{Norm}\left(  D\right)  $ is a one-element set), qed.}.
+C\right)  \neq\varnothing$.
 \end{itemize}
 
 Hence, (\ref{pf.prop.BK.norm.union}) shows that $\operatorname*{Norm}\left(
 T\right)  $ is a union of one-element sets, any two of which have a nonempty
-intersection (i.e., are identical, because they are one-element sets).
+intersection.
 Moreover, this union is nonempty (since $\mathbf{Z}$ is nonempty). Hence,
 $\operatorname*{Norm}\left(  T\right)  $ itself is a one-element set. This
 completes our induction.
 \end{proof}
 
 \begin{definition}
-We now define a map $\operatorname*{norm}:\mathbf{S}\rightarrow\mathbf{R}$ as follows:
-
 Let $T\in\mathbf{S}$. Proposition \ref{prop.BK.norm} shows that there exists a
 unique $N\in\mathbf{R}$ such that $T\overset{\ast}{\Rrightarrow}N$. We define
 $\operatorname*{norm}\left(  T\right)  $ to be this $N$.
-
-Thus, the map $\operatorname*{norm}:\mathbf{S}\rightarrow\mathbf{R}$ is
-defined, and satisfies
-\begin{equation}
-T\overset{\ast}{\Rrightarrow}\operatorname*{norm}\left(  T\right)
-\ \ \ \ \ \ \ \ \ \ \text{for every }T\in\mathbf{S}.\label{pf.lem.BK.norm.=>}%
-\end{equation}
-
 \end{definition}
 
-\begin{example}
-Let us give an example of a computation of $\operatorname*{norm}\left(
-T\right)  $. For this example, let us take%
-\[
-T=%
+%\begin{example}
+%Let us give an example of a computation of $\operatorname*{norm}\left(
+%T\right)  $. For this example, let us take%
+%\[
+%T=%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& 1 & 2 & 1 \\
@@ -1962,34 +1887,34 @@ T=%
 %2
 %\end{ytableau}}}%
 %BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& \none& 1 & 2 & 1 \\
-\none& 1 & 1 & 2 \\
-2 & 1 & 1 \\
-2 & 2 & 1 \\
-2
-\end{ytableau}%
+%\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& 1 & 2 & 1 \\
+%\none& 1 & 1 & 2 \\
+%2 & 1 & 1 \\
+%2 & 2 & 1 \\
+%2
+%\end{ytableau}%
 %EndExpansion
-.
-\]
-Then, $\operatorname*{norm}\left(  T\right)  $ is the unique $N\in\mathbf{R}$
-such that $T\overset{\ast}{\Rrightarrow}N$. Thus, we can obtain
-$\operatorname*{norm}\left(  T\right)  $ from $T$ by repeatedly resolving
-descents until no more descents are left (because \textquotedblleft%
-$T\overset{\ast}{\Rrightarrow}N$\textquotedblright\ means \textquotedblleft$N$
-can be obtained from $T$ by repeatedly resolving descents\textquotedblright,
-and \textquotedblleft$N\in\mathbf{R}$\textquotedblright\ is equivalent to the
-statement that $N$ has no descents). The word \textquotedblleft
-unique\textquotedblright\ here implies that, in whatever order we resolve
-descents, the result will always be the same. And the procedure will
-eventually come to an end because the nonnegative integer $\ell\left(
-T\right)  $ decreases every time we resolve a descent in $T$ (by Lemma
-\ref{lem.descent-resolution-props} \textbf{(d)}).
+%t.
+%\]
+%Then, $\operatorname*{norm}\left(  T\right)  $ is the unique $N\in\mathbf{R}$
+%such that $T\overset{\ast}{\Rrightarrow}N$. Thus, we can obtain
+%$\operatorname*{norm}\left(  T\right)  $ from $T$ by repeatedly resolving
+%descents until no more descents are left (because \textquotedblleft%
+%$T\overset{\ast}{\Rrightarrow}N$\textquotedblright\ means \textquotedblleft$N$
+%can be obtained from $T$ by repeatedly resolving descents\textquotedblright,
+%and \textquotedblleft$N\in\mathbf{R}$\textquotedblright\ is equivalent to the
+%statement that $N$ has no descents). The word \textquotedblleft
+%unique\textquotedblright\ here implies that, in whatever order we resolve
+%descents, the result will always be the same. And the procedure will
+%eventually come to an end because the nonnegative integer $\ell\left(
+%T\right)  $ decreases every time we resolve a descent in $T$ (by Lemma
+%\ref{lem.descent-resolution-props} \textbf{(d)}).
 
-Let us first resolve the descent $2$ in $T$. This gives us the 12-table%
-\[
-\operatorname*{res}\nolimits_{2}T=%
+%Let us first resolve the descent $2$ in $T$. This gives us the 12-table%
+%\[
+%\operatorname*{res}\nolimits_{2}T=%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& 1 & 2 & 1 \\
@@ -1999,23 +1924,23 @@ Let us first resolve the descent $2$ in $T$. This gives us the 12-table%
 %2
 %\end{ytableau}}}%
 %BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& \none& 1 & 2 & 1 \\
-\none& 1 & 1 & 2 \\
-2 & 1 & 1 \\
-2 & 1 & 2 \\
-2
-\end{ytableau}%
+%\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& 1 & 2 & 1 \\
+%\none& 1 & 1 & 2 \\
+%2 & 1 & 1 \\
+%2 & 1 & 2 \\
+%2
+%\end{ytableau}%
 %EndExpansion
-.
-\]
-(In fact, we have seen this in Example \ref{exa.resolve.short} already, but we
-denoted the 12-table by $P$ there.) Next, resolving the descent $4$ in
-$\operatorname*{res}\nolimits_{2}T$, we obtain the 12-table%
-\[
-\operatorname*{res}\nolimits_{4}\left(  \operatorname*{res}\nolimits_{2}%
-T\right)  =%
+%.
+%\]
+%(In fact, we have seen this in Example \ref{exa.resolve.short} already, but we
+%denoted the 12-table by $P$ there.) Next, resolving the descent $4$ in
+%$\operatorname*{res}\nolimits_{2}T$, we obtain the 12-table%
+%\[
+%\operatorname*{res}\nolimits_{4}\left(  \operatorname*{res}\nolimits_{2}%
+%T\right)  =%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& 1 & 1 & 2 \\
@@ -2025,22 +1950,22 @@ T\right)  =%
 %2
 %\end{ytableau}}}%
 %BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& \none& 1 & 1 & 2 \\
-\none& 1 & 1 & 1 \\
-2 & 1 & 1 \\
-2 & 1 & 2 \\
-2
-\end{ytableau}%
+%\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& 1 & 1 & 2 \\
+%\none& 1 & 1 & 1 \\
+%2 & 1 & 1 \\
+%2 & 1 & 2 \\
+%2
+%\end{ytableau}%
 %EndExpansion
-.
-\]
-We go on by resolving the descent $1$ in $\operatorname*{res}\nolimits_{4}%
-\left(  \operatorname*{res}\nolimits_{2}T\right)  $, and thus obtain%
-\[
-\operatorname*{res}\nolimits_{1}\left(  \operatorname*{res}\nolimits_{4}%
-\left(  \operatorname*{res}\nolimits_{2}T\right)  \right)  =%
+%.
+%\]
+%We go on by resolving the descent $1$ in $\operatorname*{res}\nolimits_{4}%
+%\left(  \operatorname*{res}\nolimits_{2}T\right)  $, and thus obtain%
+%\[
+%\operatorname*{res}\nolimits_{1}\left(  \operatorname*{res}\nolimits_{4}%
+%\left(  \operatorname*{res}\nolimits_{2}T\right)  \right)  =%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& 1 & 1 & 2 \\
@@ -2050,24 +1975,24 @@ We go on by resolving the descent $1$ in $\operatorname*{res}\nolimits_{4}%
 %1
 %\end{ytableau}}}%
 %BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& \none& 1 & 1 & 2 \\
-\none& 2 & 1 & 1 \\
-1 & 2 & 1 \\
-1 & 2 & 2 \\
-1
-\end{ytableau}%
+%\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& 1 & 1 & 2 \\
+%\none& 2 & 1 & 1 \\
+%1 & 2 & 1 \\
+%1 & 2 & 2 \\
+%1
+%\end{ytableau}%
 %EndExpansion
-.
-\]
-Next, we resolve the descent $2$ in $\operatorname*{res}\nolimits_{1}\left(
-\operatorname*{res}\nolimits_{4}\left(  \operatorname*{res}\nolimits_{2}%
-T\right)  \right)  $, and obtain%
-\[
-\operatorname*{res}\nolimits_{2}\left(  \operatorname*{res}\nolimits_{1}%
-\left(  \operatorname*{res}\nolimits_{4}\left(  \operatorname*{res}%
-\nolimits_{2}T\right)  \right)  \right)  =%
+%.
+%\]
+%Next, we resolve the descent $2$ in $\operatorname*{res}\nolimits_{1}\left(
+%\operatorname*{res}\nolimits_{4}\left(  \operatorname*{res}\nolimits_{2}%
+%T\right)  \right)  $, and obtain%
+%\[
+%\operatorname*{res}\nolimits_{2}\left(  \operatorname*{res}\nolimits_{1}%
+%\left(  \operatorname*{res}\nolimits_{4}\left(  \operatorname*{res}%
+%\nolimits_{2}T\right)  \right)  \right)  =%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& 2 & 1 & 2 \\
@@ -2077,26 +2002,26 @@ T\right)  \right)  $, and obtain%
 %1
 %\end{ytableau}}}%
 %BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& \none& 2 & 1 & 2 \\
-\none& 1 & 2 & 1 \\
-1 & 1 & 2 \\
-1 & 2 & 2 \\
-1
-\end{ytableau}%
+%\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& 2 & 1 & 2 \\
+%\none& 1 & 2 & 1 \\
+%1 & 1 & 2 \\
+%1 & 2 & 2 \\
+%1
+%\end{ytableau}%
 %EndExpansion
-.
-\]
-Next, we resolve the descent $3$ in $\operatorname*{res}\nolimits_{2}\left(
-\operatorname*{res}\nolimits_{1}\left(  \operatorname*{res}\nolimits_{4}%
-\left(  \operatorname*{res}\nolimits_{2}T\right)  \right)  \right)  $, and
-this leads us to%
-\[
-\operatorname*{res}\nolimits_{3}\left(  \operatorname*{res}\nolimits_{2}%
-\left(  \operatorname*{res}\nolimits_{1}\left(  \operatorname*{res}%
-\nolimits_{4}\left(  \operatorname*{res}\nolimits_{2}T\right)  \right)
-\right)  \right)  =%
+%.
+%\]
+%Next, we resolve the descent $3$ in $\operatorname*{res}\nolimits_{2}\left(
+%\operatorname*{res}\nolimits_{1}\left(  \operatorname*{res}\nolimits_{4}%
+%\left(  \operatorname*{res}\nolimits_{2}T\right)  \right)  \right)  $, and
+%this leads us to%
+%\[
+%\operatorname*{res}\nolimits_{3}\left(  \operatorname*{res}\nolimits_{2}%
+%\left(  \operatorname*{res}\nolimits_{1}\left(  \operatorname*{res}%
+%\nolimits_{4}\left(  \operatorname*{res}\nolimits_{2}T\right)  \right)
+%\right)  \right)  =%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& 1 & 2 & 2 \\
@@ -2106,28 +2031,28 @@ this leads us to%
 %1
 %\end{ytableau}}}%
 %BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& \none& 1 & 2 & 2 \\
-\none& 1 & 1 & 2 \\
-1 & 1 & 1 \\
-1 & 2 & 1 \\
-1
-\end{ytableau}%
+%\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& 1 & 2 & 2 \\
+%\none& 1 & 1 & 2 \\
+%1 & 1 & 1 \\
+%1 & 2 & 1 \\
+%1
+%\end{ytableau}%
 %EndExpansion
-.
-\]
-Finally, we resolve the descent $2$ in $\operatorname*{res}\nolimits_{3}%
-\left(  \operatorname*{res}\nolimits_{2}\left(  \operatorname*{res}%
-\nolimits_{1}\left(  \operatorname*{res}\nolimits_{4}\left(
-\operatorname*{res}\nolimits_{2}T\right)  \right)  \right)  \right)  $, and
-thus obtain%
-\[
-\operatorname*{res}\nolimits_{2}\left(  \operatorname*{res}\nolimits_{3}%
-\left(  \operatorname*{res}\nolimits_{2}\left(  \operatorname*{res}%
-\nolimits_{1}\left(  \operatorname*{res}\nolimits_{4}\left(
-\operatorname*{res}\nolimits_{2}T\right)  \right)  \right)  \right)  \right)
-=%
+%.
+%\]
+%Finally, we resolve the descent $2$ in $\operatorname*{res}\nolimits_{3}%
+%\left(  \operatorname*{res}\nolimits_{2}\left(  \operatorname*{res}%
+%\nolimits_{1}\left(  \operatorname*{res}\nolimits_{4}\left(
+%\operatorname*{res}\nolimits_{2}T\right)  \right)  \right)  \right)  $, and
+%thus obtain%
+%\[
+%\operatorname*{res}\nolimits_{2}\left(  \operatorname*{res}\nolimits_{3}%
+%\left(  \operatorname*{res}\nolimits_{2}\left(  \operatorname*{res}%
+%\nolimits_{1}\left(  \operatorname*{res}\nolimits_{4}\left(
+%\operatorname*{res}\nolimits_{2}T\right)  \right)  \right)  \right)  \right)
+%=%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& 1 & 2 & 2 \\
@@ -2137,28 +2062,28 @@ thus obtain%
 %1
 %\end{ytableau}}}%
 %BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& \none& 1 & 2 & 2 \\
-\none& 1 & 1 & 2 \\
-1 & 1 & 1 \\
-1 & 1 & 2 \\
-1
-\end{ytableau}%
+%\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& 1 & 2 & 2 \\
+%\none& 1 & 1 & 2 \\
+%1 & 1 & 1 \\
+%1 & 1 & 2 \\
+%1
+%\end{ytableau}%
 %EndExpansion
-.
-\]
-This 12-table $\operatorname*{res}\nolimits_{2}\left(  \operatorname*{res}%
-\nolimits_{3}\left(  \operatorname*{res}\nolimits_{2}\left(
-\operatorname*{res}\nolimits_{1}\left(  \operatorname*{res}\nolimits_{4}%
-\left(  \operatorname*{res}\nolimits_{2}T\right)  \right)  \right)  \right)
-\right)  $ has no more descents, and thus is final. So $\operatorname*{norm}%
-\left(  T\right)  =\operatorname*{res}\nolimits_{2}\left(  \operatorname*{res}%
-\nolimits_{3}\left(  \operatorname*{res}\nolimits_{2}\left(
-\operatorname*{res}\nolimits_{1}\left(  \operatorname*{res}\nolimits_{4}%
-\left(  \operatorname*{res}\nolimits_{2}T\right)  \right)  \right)  \right)
-\right)  $.
-\end{example}
+%.
+%\]
+%This 12-table $\operatorname*{res}\nolimits_{2}\left(  \operatorname*{res}%
+%\nolimits_{3}\left(  \operatorname*{res}\nolimits_{2}\left(
+%\operatorname*{res}\nolimits_{1}\left(  \operatorname*{res}\nolimits_{4}%
+%\left(  \operatorname*{res}\nolimits_{2}T\right)  \right)  \right)  \right)
+%\right)  $ has no more descents, and thus is final. So $\operatorname*{norm}%
+%\left(  T\right)  =\operatorname*{res}\nolimits_{2}\left(  \operatorname*{res}%
+%\nolimits_{3}\left(  \operatorname*{res}\nolimits_{2}\left(
+%\operatorname*{res}\nolimits_{1}\left(  \operatorname*{res}\nolimits_{4}%
+%\left(  \operatorname*{res}\nolimits_{2}T\right)  \right)  \right)  \right)
+%\right)  $.
+%\end{example}
 
 \subsection{Definition of $\mathbf{B}$}
 
@@ -2167,119 +2092,48 @@ We can now finally prove Lemma \ref{lem.BK}.
 \begin{definition}
 Let us define a map $\mathbf{B}:\mathbf{R}\rightarrow\mathbf{R}$ as follows:
 
-Let $T\in\mathbf{R}$. Then, $T\in\mathbf{R}\subseteq\mathbf{S}$. Hence,
-$\operatorname*{flip}\left(  T\right)  \in\mathbf{S}$ is well-defined, and
-thus $\operatorname*{norm}\left(  \operatorname*{flip}\left(  T\right)
-\right)  \in\mathbf{R}$ is well-defined. We define $\mathbf{B}\left(
+Let $T\in\mathbf{R}$. We define $\mathbf{B}\left(
 T\right)  $ to be $\operatorname*{norm}\left(  \operatorname*{flip}\left(
 T\right)  \right)  $.
 \end{definition}
 
-Thus, the map $\mathbf{B}$ is defined. In order to complete the proof of Lemma
-\ref{lem.BK}, we need to show that this map $\mathbf{B}$ is an involution and
-that, for every $S\in\mathbf{R}$, the equalities (\ref{eq.lem.BK.ceq}) and
-(\ref{eq.lem.BK.ircont}) hold. At this point, all of this is easy:
+In order to complete the proof of Lemma
+\ref{lem.BK}, we need to show that $\mathbf{B}$ is an involution, preserves the ceq statistic, and switches the number of columns containing 1 with the number of columns containing 2. At this point, all of this is easy:
 
-\textit{Proof that }$\mathbf{B}$ \textit{is an involution:} Let $T\in
-\mathbf{R}$. The definition of $\mathbf{B}$ yields $\mathbf{B}\left(
-T\right)  =\operatorname*{norm}\left(  \operatorname*{flip}\left(  T\right)
-\right)  $. From (\ref{pf.lem.BK.norm.=>}) (applied to $\operatorname*{flip}%
-\left(  T\right)  $ instead of $T$), we have $\operatorname*{flip}\left(
+\begin{proof}[$\mathbf{B}$ is an involution]
+Let $T\in \mathbf{R}$. We have $\operatorname*{flip}\left(
 T\right)  \overset{\ast}{\Rrightarrow}\operatorname*{norm}\left(
-\operatorname*{flip}\left(  T\right)  \right)  $. This rewrites as
-$\operatorname*{flip}\left(  T\right)  \overset{\ast}{\Rrightarrow}%
-\mathbf{B}\left(  T\right)  $ (since $\mathbf{B}\left(  T\right)
-=\operatorname*{norm}\left(  \operatorname*{flip}\left(  T\right)  \right)
-$). Lemma \ref{lem.descent-resolution-*props} \textbf{(c)} (applied to
-$P=\operatorname*{flip}\left(  T\right)  $ and $Q=\mathbf{B}\left(  T\right)
-$) thus yields $\operatorname*{flip}\left(  \mathbf{B}\left(  T\right)
+\operatorname*{flip}\left(  T\right)  \right)  =
+\mathbf{B}\left(  T\right)  $. Lemma \ref{lem.descent-resolution-*props} \textbf{(c)} thus yields $\operatorname*{flip}\left(  \mathbf{B}\left(  T\right)
 \right)  \overset{\ast}{\Rrightarrow}\operatorname*{flip}\left(
-\operatorname*{flip}T\right)  $. Since $\operatorname*{flip}\left(
-\operatorname*{flip}T\right)  =\underbrace{\left(  \operatorname*{flip}%
-\circ\operatorname*{flip}\right)  }_{\substack{=\operatorname*{id}\\\text{(by
-Proposition \ref{prop.flip} \textbf{(a)})}}}\left(  T\right)  =T$, this
-rewrites as $\operatorname*{flip}\left(  \mathbf{B}\left(  T\right)  \right)
-\overset{\ast}{\Rrightarrow}T$.
+\operatorname*{flip}T\right)  = T$.
 
-But $\operatorname*{norm}\left(  T\right)  $ is the unique $N\in\mathbf{R}$
-such that $T\overset{\ast}{\Rrightarrow}N$ (by the definition of
-$\operatorname*{norm}\left(  T\right)  $). Applying this to
-$\operatorname*{flip}\left(  \mathbf{B}\left(  T\right)  \right)  $ instead of
-$T$, we see that $\operatorname*{norm}\left(  \operatorname*{flip}\left(
+But $\mathbf{B}(\mathbf{B}(T)) = \operatorname*{norm}\left(  \operatorname*{flip}\left(
 \mathbf{B}\left(  T\right)  \right)  \right)  $ is the unique $N\in\mathbf{R}$
 such that $\operatorname*{flip}\left(  \mathbf{B}\left(  T\right)  \right)
-\overset{\ast}{\Rrightarrow}N$. Hence, every $N\in\mathbf{R}$ such that
-$\operatorname*{flip}\left(  \mathbf{B}\left(  T\right)  \right)
-\overset{\ast}{\Rrightarrow}N$ must satisfy $N=\operatorname*{norm}\left(
-\operatorname*{flip}\left(  \mathbf{B}\left(  T\right)  \right)  \right)  $.
-Applying this to $N=T$, we obtain $T=\operatorname*{norm}\left(
-\operatorname*{flip}\left(  \mathbf{B}\left(  T\right)  \right)  \right)  $
-(since $T\in\mathbf{R}$ and $\operatorname*{flip}\left(  \mathbf{B}\left(
-T\right)  \right)  \overset{\ast}{\Rrightarrow}T$).
+\overset{\ast}{\Rrightarrow}N$. Since $T \in \mathbf{R}$, we have $\mathbf{B}(\mathbf{B}(T)) = T$, as desired.
+\end{proof}
 
-But $\left(  \mathbf{B}\circ\mathbf{B}\right)  \left(  T\right)
-=\mathbf{B}\left(  \mathbf{B}\left(  T\right)  \right)  =\operatorname*{norm}%
-\left(  \operatorname*{flip}\left(  \mathbf{B}\left(  T\right)  \right)
-\right)  $ (by the definition of $\mathbf{B}\left(  \mathbf{B}\left(
-T\right)  \right)  $). Comparing this with $T=\operatorname*{norm}\left(
-\operatorname*{flip}\left(  \mathbf{B}\left(  T\right)  \right)  \right)  $,
-we obtain $\left(  \mathbf{B}\circ\mathbf{B}\right)  \left(  T\right)  =T$.
-
-Let us now forget that we fixed $T$. We thus have shown that $\left(
-\mathbf{B}\circ\mathbf{B}\right)  \left(  T\right)  =T$ for every
-$T\in\mathbf{R}$. In other words, $\mathbf{B}\circ\mathbf{B}%
-=\operatorname*{id}$. In other words, $\mathbf{B}$ is an involution.
-
-\textit{Proof of the equality (\ref{eq.lem.BK.ceq}) for every }$S\in
-\mathbf{R}$\textit{:} Let $S\in\mathbf{R}$. The definition of $\mathbf{B}$
-yields $\mathbf{B}\left(  S\right)  =\operatorname*{norm}\left(
-\operatorname*{flip}\left(  S\right)  \right)  $. But (\ref{pf.lem.BK.norm.=>}%
-) (applied to $T=\operatorname*{flip}\left(  S\right)  $) yields
-$\operatorname*{flip}\left(  S\right)  \overset{\ast}{\Rrightarrow
-}\operatorname*{norm}\left(  \operatorname*{flip}\left(  S\right)  \right)  $.
-This rewrites as $\operatorname*{flip}\left(  S\right)  \overset{\ast
-}{\Rrightarrow}\mathbf{B}\left(  S\right)  $ (since $\mathbf{B}\left(
-S\right)  =\operatorname*{norm}\left(  \operatorname*{flip}\left(  S\right)
-\right)  $). Lemma \ref{lem.descent-resolution-*props} \textbf{(a)} (applied
-to $P=\operatorname*{flip}\left(  S\right)  $ and $Q=\mathbf{B}\left(
-S\right)  $) thus yields
+\begin{proof}[$\mathbf{B}$ preserves ceq]
+Let $T\in\mathbf{R}$. As above, $\operatorname*{flip}\left(  T\right)  \overset{\ast
+}{\Rrightarrow}\mathbf{B}\left(  T\right)  $. Lemma \ref{lem.descent-resolution-*props} \textbf{(a)} and (\ref{pf.lem.BK.flip.ceq}) thus yield
 \[
-\operatorname*{ceq}\left(  \mathbf{B}\left(  S\right)  \right)
-=\operatorname*{ceq}\left(  \operatorname*{flip}\left(  S\right)  \right)
-=\operatorname*{ceq}\left(  S\right)
+\operatorname*{ceq}\left(  \mathbf{B}\left(  T\right)  \right)
+=\operatorname*{ceq}\left(  \operatorname*{flip}\left(  T\right)  \right)
+=\operatorname*{ceq}\left(  T\right).
 \]
-(by (\ref{pf.lem.BK.flip.ceq}), applied to $T=S$). This proves
-(\ref{eq.lem.BK.ceq}).
+\end{proof}
 
-\textit{Proof of the equality (\ref{eq.lem.BK.ircont}) for every }%
-$S\in\mathbf{R}$\textit{:} Let $S\in\mathbf{R}$. The definition of
-$\mathbf{B}$ yields $\mathbf{B}\left(  S\right)  =\operatorname*{norm}\left(
-\operatorname*{flip}\left(  S\right)  \right)  $. But (\ref{pf.lem.BK.norm.=>}%
-) (applied to $T=\operatorname*{flip}\left(  S\right)  $) yields
-$\operatorname*{flip}\left(  S\right)  \overset{\ast}{\Rrightarrow
-}\operatorname*{norm}\left(  \operatorname*{flip}\left(  S\right)  \right)  $.
-This rewrites as $\operatorname*{flip}\left(  S\right)  \overset{\ast
-}{\Rrightarrow}\mathbf{B}\left(  S\right)  $ (since $\mathbf{B}\left(
-S\right)  =\operatorname*{norm}\left(  \operatorname*{flip}\left(  S\right)
-\right)  $). Lemma \ref{lem.descent-resolution-*props} \textbf{(b)} (applied
-to $P=\operatorname*{flip}\left(  S\right)  $ and $Q=\mathbf{B}\left(
-S\right)  $) thus yields
+\begin{proof}[$\mathbf{B}$ switches the numbers of columns containing 1 and 2]
+Let $T\in\mathbf{R}$. As above, $\operatorname*{flip}\left(  T\right)  \overset{\ast
+}{\Rrightarrow}\mathbf{B}\left(  T\right)  $. Lemma \ref{lem.descent-resolution-*props} \textbf{(b)}
+and (\ref{pf.lem.BK.flip.ircont}) thus yield
 \[
-\operatorname*{ircont}\left(  \mathbf{B}\left(  S\right)  \right)
-=\operatorname*{ircont}\left(  \operatorname*{flip}\left(  S\right)  \right)
-=s_{1}\cdot\operatorname*{ircont}\left(  S\right)
+\operatorname*{ircont}\left(  \mathbf{B}\left(  T\right)  \right)
+=\operatorname*{ircont}\left(  \operatorname*{flip}\left(  T\right)  \right)
+=s_{1}\cdot\operatorname*{ircont}\left(  T\right).
 \]
-(by (\ref{pf.lem.BK.flip.ircont}), applied to $T=S$). This proves
-(\ref{eq.lem.BK.ircont}).
-
-We have thus shown that $\mathbf{B}$ is an involution, and that, for every
-$S\in\mathbf{R}$, the equalities (\ref{eq.lem.BK.ceq}) and
-(\ref{eq.lem.BK.ircont}) hold. This completes the proof of Lemma \ref{lem.BK}.
-Thus, Lemma \ref{lem.BKi} is proven (since we have proven it using Lemma
-\ref{lem.BK}), and consequently Theorem \ref{thm.BK} is proven (since we have
-derived it from Lemma \ref{lem.BKi}). This, in turn, finishes the proof of
-Theorem \ref{thm.gtilde.symm} (since we have proven Theorem
-\ref{thm.gtilde.symm} using Theorem \ref{thm.BK}).
+\end{proof}
 
 \section{\label{sect.BKclassical}The classical Bender-Knuth involutions}
 
