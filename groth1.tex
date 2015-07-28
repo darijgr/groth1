@@ -698,7 +698,7 @@ in terms of $\lm$) which preserves the $\ceq$ statistics and switches the number
 We now come to the actual proof of Lemma \ref{lem.BK}. For the whole Section
 \ref{sect.proof}, we shall be working in the situation of Lemma \ref{lem.BK}.
 
-\subsection{\label{subsect.fourtypes}12-tables and the four types of their
+\subsection{\label{subsect.fourtypes}12-tables and the three types of their nonempty
 columns}
 
 Let $Z$ be a finite convex subset of $\mathbb{N}_{+}^{2}$. We shall keep $Z$
@@ -886,10 +886,10 @@ transform the column as follows:
 \item \textbf{If} this column is 1-pure, we replace all its entries by $2$'s
 (so that it becomes 2-pure).
 
-\textbf{Otherwise}, if this column is 2-pure, we replace all its entries by
+\item \textbf{Otherwise}, if this column is 2-pure, we replace all its entries by
 $1$'s (so that it becomes 1-pure).
 
-\textbf{Otherwise} (i.e., if this column is mixed), we do not change it.
+\item \textbf{Otherwise} (i.e., if this column is mixed), we do not change it.
 \end{itemize}
 % Stet the above structure (1 item, with 3 cases, as opposed to 3
 % items). This is a single-step procedure (for each particular column)
@@ -944,6 +944,10 @@ For example,
 .
 \]
 
+It is clear that $\operatorname*{flip}$ is an involution on $\mathbf{S}$ that preserves $\operatorname*{ceq}$ and $\operatorname*{seplist}$ but acts as a transposition $s_1$ on $\operatorname*{ircont}$.
+
+\begin{comment}
+ 
 The following proposition gathers some easy properties of
 $\operatorname*{flip}$:
 
@@ -978,7 +982,7 @@ straightforward to prove.
 
 We notice that, when the map $\operatorname*{flip}$ acts on a benign 12-table
 $T$, it transforms every column of $T$ independently. Thus, we have the following:
-
+ 
 \begin{remark}
 \label{rmk.flip.independent}If $P$ and $Q$ are two benign 12-tables, and if
 $i\in\mathbb{N}_{+}$ is such that%
@@ -994,6 +998,9 @@ Q\right)  \right)  .
 \]
 
 \end{remark}
+
+\end{comment}
+
 
 \subsection{Plan of the proof}
 
@@ -1105,8 +1112,10 @@ The $k$-th column of $\operatorname*{res}_{k}P$ is 1-pure; the $\left(  k+1\righ
 \nolimits_{k}P$ is mixed and satisfies $\operatorname*{sep}\nolimits_{k+1}%
 \left(  \operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{sep}%
 \nolimits_{k}P$; all other columns of $\operatorname*{res}\nolimits_{k}P$ are
-copied over from $P$ unchanged.\footnote{The reader should check that this
-definition is well-defined.
+copied over from $P$ unchanged.
+
+%\footnote{The reader should check that this
+%definition is well-defined.
 %It is clear that the requirements that we are
 %imposing on $\operatorname*{res}_{k}P$ determine the 12-table
 %$\operatorname*{res}_{k}P$ uniquely, but it is not immediately obvious why
@@ -1137,7 +1146,7 @@ definition is well-defined.
 %it is necessary to invoke the convexity of $Z$ and the existence of the
 %descent $k$ in $P$), and that these cells have entries $1$ and $2$ in
 %$\operatorname*{res}\nolimits_{k}P$, respectively.
-}
+%}
 
 \item If we have (2M), then $\operatorname*{res}_{k}P$ is the
 12-table defined as follows: The $k$-th column of $\operatorname*{res}_{k}P$
@@ -1854,6 +1863,9 @@ Now, we have
 \ \mid\ Z\overset{\ast}{\Rrightarrow}N\right\}  .
 \]
 Intersecting both sides of this identity with the set $\mathbf{R}$, we obtain%
+
+\begin{comment}
+
 \begin{align*}
 \left\{  N\in\mathbf{R}\ \mid\ T\overset{\ast}{\Rrightarrow}N\right\}    &
 =\underbrace{\left(  \left\{  T\right\}  \cap\mathbf{R}\right)  }%
@@ -1870,6 +1882,13 @@ Thus,
 \ T\overset{\ast}{\Rrightarrow}N\right\}  =\bigcup_{Z\in\mathbf{Z}%
 }\operatorname*{Norm}\left(  Z\right)  .\label{pf.prop.BK.norm.union}%
 \end{equation}
+ 
+\end{comment}
+
+\begin{equation} 
+\operatorname*{Norm}\left(  T\right)  =\left\{  N\in\mathbf{R}\ \mid\ T\overset{\ast}{\Rrightarrow}N\right\} 
+ =\emptyset\cup\bigcup_{Z\in\mathbf{Z}}\operatorname*{Norm}\left(  Z\right)  .\label{pf.prop.BK.norm.union}%
+\end{equation}
 
 
 Let us now notice that:
@@ -1882,7 +1901,10 @@ $\operatorname*{Norm}\left( Z\right)  $ is a one-element set.
 \item By Lemma \ref{prop.descent-resolution-hyps}, for every
 $B\in\mathbf{Z}$ and $C\in\mathbf{Z}$, we have
 $\operatorname*{Norm}\left(  B\right)  \cap\operatorname*{Norm}\left(
-C\right)  \neq\varnothing$.\ \ \ \ \footnote{In more detail:
+C\right)  \neq\varnothing$.
+\begin{comment}
+ 
+\ \ \ \ \footnote{In more detail:
 \par
 Let $B\in\mathbf{Z}$ and $C\in\mathbf{Z}$. Then,
 $T\Rrightarrow B$ (since $B\in\mathbf{Z}$), so that
@@ -1915,7 +1937,11 @@ $\operatorname*{Norm}\left(  D\right)  $ is a one-element set), qed.
 
 % [DG] You will probably want to shorten this. Fine with me, but please
 % don't remove this nontrivial argument completely.
+% [PG] Removed this argument because I don't see where it is non-trivial, sorry
 }
+
+\end{comment}
+
 \end{itemize}
 
 Hence, (\ref{pf.prop.BK.norm.union}) shows that $\operatorname*{Norm}\left(
