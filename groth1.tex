@@ -1562,7 +1562,9 @@ The $v$-th column of $A$ must contain a $1$ (since $v-1$ is a descent of $A$)
 and a $2$ (since $v$ is a descent of $A$). Hence, the $v$-th column of $A$ is
 mixed. Since $A$ is benign, the $\left(  v-1\right)  $-th column of $A$ is
 2-pure and the
-$\left(  v+1\right)  $-th column of $A$ is 1-pure. We can represent the relevant portion of the 12-table $A$ as follows:%
+$\left(  v+1\right)  $-th column of $A$ is 1-pure. We can represent the
+relevant portion (that is, the $\left(v-1\right)$-th, $v$-th and
+$\left(v+1\right)$-th columns) of the 12-table $A$ as follows:
 \begin{equation}
 A=%
 %TCIMACRO{\TeXButton{tabular}{\begin{tabular}{ccc}
@@ -1771,11 +1773,20 @@ where $\operatorname*{sep}\nolimits_{v} \left( \operatorname*{res}\nolimits_{v-1
 B\right) \right) = s$.
 
 On the other hand, $C = \operatorname*{res}\nolimits_{v}A$. We can apply a similar argument as above to show that the 12-table $\operatorname*{res}\nolimits_{v}\left(
-\operatorname*{res}\nolimits_{v-1}C\right)  $ is well-defined, and is exactly equal to the tableau in (\ref{pf.prop.descent-resolution.hyps.short.D}).
+\operatorname*{res}\nolimits_{v-1}C\right)  $ is well-defined, and is exactly equal to the 12-table in (\ref{pf.prop.descent-resolution.hyps.short.D}).
 Hence, $\operatorname*{res}%
 \nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}B\right) = \operatorname*{res}\nolimits_{v}\left(
-\operatorname*{res}\nolimits_{v-1}C\right)$, and setting $D$ equal to this tableau completes the proof of Case 1.
+\operatorname*{res}\nolimits_{v-1}C\right)$, and setting $D$ equal to this 12-table completes the proof in Case 1.
 \end{proof}
+
+\begin{todo}
+I am not sure how much I like the proof in Case 1 above. I introduced
+``core squares'' because I wanted to avoid an argument where it is
+unclear how much of the proof comes ``from the picture''. They give a
+clear, explicit reason why $v-1$ is a descent of
+$\operatorname{res}_v B$ etc. In the current version, this is not
+obvious. Do you have a quick way to explain it?
+\end{todo}
 
 \subsection{The normalization map}
 
@@ -1832,7 +1843,8 @@ one-element set.
 Let $\mathbf{Z} = \left\{  S\in\mathbf{S}\ \mid\ T\Rrightarrow
 S\right\}  $. In other words, $\mathbf{Z}$ is the set of all benign 12-tables
 $S$ which can be obtained from $T$ by resolving one descent. If
-$\mathbf{Z}$ is empty, then $\operatorname*{Norm}\left(  T\right) = \{T\}$ and we are done. Hence, we can
+$\mathbf{Z}$ is empty, then $T \in \mathbf{R}$, so that
+$\operatorname*{Norm}\left(  T\right) = \{T\}$ and we are done. Hence, we can
 assume that $\mathbf{Z}$ is nonempty. Therefore $T \notin \mathbf{R}$.
 
 Now, we have
@@ -1848,9 +1860,9 @@ Intersecting both sides of this identity with the set $\mathbf{R}$, we obtain%
 _{\substack{=\varnothing\\\text{(since }T\notin\mathbf{R}\text{)}}}\cup
 \bigcup_{Z\in\mathbf{Z}}\underbrace{\left\{  N\in\mathbf{R}\ \mid
 \ Z\overset{\ast}{\Rrightarrow}N\right\}  }_{\substack{=\operatorname*{Norm}%
-\left(  Z\right)  \\\text{(by the definition of }\operatorname*{Norm}\left(
-Z\right)  \text{)}}}\\
-& =\bigcup_{Z\in\mathbf{Z}}\operatorname*{Norm}\left(  Z\right)  .
+\left(  Z\right)  \\\text{(by the definition }\\\text{of }\operatorname*{Norm}\left(
+Z\right)  \text{)}}}
+ =\bigcup_{Z\in\mathbf{Z}}\operatorname*{Norm}\left(  Z\right)  .
 \end{align*}
 Thus,
 \begin{equation}
@@ -1863,11 +1875,47 @@ Thus,
 Let us now notice that:
 
 \begin{itemize}
-\item By Lemma \ref{lem.descent-resolution-props} \textbf{(d)}, for every $Z\in\mathbf{Z}$, the set $\operatorname*{Norm}\left( Z\right)  $ is a one-element set.
+\item By Lemma \ref{lem.descent-resolution-props} \textbf{(d)} and
+(\ref{pf.prop.BK.norm.indhyp}), for every $Z\in\mathbf{Z}$, the set
+$\operatorname*{Norm}\left( Z\right)  $ is a one-element set.
 
-\item By Lemma \ref{prop.descent-resolution-hyps}, for every $B\in\mathbf{Z}$ and $C\in\mathbf{Z}$, we have
+\item By Lemma \ref{prop.descent-resolution-hyps}, for every
+$B\in\mathbf{Z}$ and $C\in\mathbf{Z}$, we have
 $\operatorname*{Norm}\left(  B\right)  \cap\operatorname*{Norm}\left(
-C\right)  \neq\varnothing$.
+C\right)  \neq\varnothing$.\ \ \ \ \footnote{In more detail:
+\par
+Let $B\in\mathbf{Z}$ and $C\in\mathbf{Z}$. Then,
+$T\Rrightarrow B$ (since $B\in\mathbf{Z}$), so that
+$\ell\left(  T\right)  >\ell\left(  B\right)  $ (by
+Lemma \ref{lem.descent-resolution-props} \textbf{(d)}).
+Similarly, $T\Rrightarrow C$ and
+$\ell\left(  T\right)  >\ell\left(  C\right)  $.
+Hence, Lemma \ref{prop.descent-resolution-hyps} (applied to $A=T$)
+yields that there exists
+a $D\in\mathbf{S}$ such that $B\overset{\ast}{\Rrightarrow}D$ and
+$C\overset{\ast}{\Rrightarrow}D$. Consider this $D$. Lemma
+\ref{lem.descent-resolution-*props} \textbf{(d)} (applied to $P=B$ and $Q=D$)
+yields $\ell\left(  B\right)  \geq\ell\left(  D\right)  $. Thus, $\ell\left(
+T\right)  >\ell\left(  B\right)  \geq\ell\left(  D\right)  $. Hence,
+$\operatorname*{Norm}\left(  D\right)  $ is a one-element set (by
+(\ref{pf.prop.BK.norm.indhyp}), applied to $S=D$).
+\par
+But $B\overset{\ast}{\Rrightarrow}D$. Thus, every $N\in\mathbf{R}$ satisfying
+$D\overset{\ast}{\Rrightarrow}N$ also satisfies $B\overset{\ast}{\Rrightarrow
+}N$ (since the relation $\overset{\ast}{\Rrightarrow}$ is transitive). In
+other words, every element of $\operatorname*{Norm}\left(  D\right)  $ is also
+an element of $\operatorname*{Norm}\left(  B\right)  $. In other words,
+$\operatorname*{Norm}\left(  D\right)  \subseteq\operatorname*{Norm}\left(
+B\right)  $. Similarly, $\operatorname*{Norm}\left(  D\right)  \subseteq
+\operatorname*{Norm}\left(  C\right)  $. Hence, $\operatorname*{Norm}\left(
+D\right)  \subseteq\operatorname*{Norm}\left(  B\right)  \cap
+\operatorname*{Norm}\left(  C\right)  $. Hence, $\operatorname*{Norm}\left(
+B\right)  \cap\operatorname*{Norm}\left(  C\right)  \neq\varnothing$ (since
+$\operatorname*{Norm}\left(  D\right)  $ is a one-element set), qed.
+
+% [DG] You will probably want to shorten this. Fine with me, but please
+% don't remove this nontrivial argument completely.
+}
 \end{itemize}
 
 Hence, (\ref{pf.prop.BK.norm.union}) shows that $\operatorname*{Norm}\left(
@@ -2098,8 +2146,6 @@ $\operatorname*{norm}\left(  T\right)  $ to be this $N$.
 
 \subsection{Definition of $\mathbf{B}$}
 
-We can now finally prove Lemma \ref{lem.BK}.
-
 \begin{definition}
 Let us define a map $\mathbf{B}:\mathbf{R}\rightarrow\mathbf{R}$ as follows:
 
@@ -2145,6 +2191,8 @@ and (\ref{pf.lem.BK.flip.ircont}) thus yield
 =s_{1}\cdot\operatorname*{ircont}\left(  T\right).
 \]
 \end{proof}
+
+Lemma \ref{lem.BK} is now proven.
 
 \section{\label{sect.BKclassical}The classical Bender-Knuth involutions}
 
