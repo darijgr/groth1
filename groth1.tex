@@ -512,7 +512,7 @@ cells.
 
 
  If $T$ is a filling of $\lm$,
-then we define the \textit{column equalities vector} of $T$ to be a weak composition $\operatorname*{ceq}\left(  T\right)=\left(c_1,c_2,\dots\right)$ 
+then we define the \textit{column equalities vector} of $T$ to be a weak composition $\operatorname*{ceq}\left(  T\right)=\left(c_1,c_2,c_3,\dots\right)$ 
 where $c_i$ is the number of $j\in\mathbb{N}_{+}$ such that $\left(  i,j\right)$ is a stagnant cell of $T$. Visually speaking, $\left(  \operatorname*{ceq}\left(  T\right)  \right)
 _{i}$ is the number of columns of $T$ whose entry in the $i$-th row equals
 their entry in the $\left(  i+1\right)  $-th row. For instance, for fillings $T_a,$ $T_b,$ $T_c,$ $T_d$ from Figure \ref{fig:fillings} we have $\ceq(T_a)=(0,1),\ \ceq(T_b)=(1,0),\ \ceq(T_c)=(0)$ and $\ceq(T_d)=(1,1)$. 
@@ -705,7 +705,12 @@ Let $Z$ be a finite convex subset of $\mathbb{N}_{+}^{2}$. We shall keep $Z$
 fixed for the rest of Section \ref{sect.proof}. Let $\mathbf{R}$ denote the set
 of all 12-rpps of shape $Z$.
 
-A \textit{12-table} will mean a map $T:Z\rightarrow\left\{  1,2\right\}  $
+\begin{todo}
+Decide between $Z$ and $\lambda/\mu$ and change stuff accordingly.
+\end{todo}
+
+A \textit{12-table} will mean a filling $T:Z\rightarrow\left\{  1,2\right\}  $
+of $Z$
 such that the entries of $T$ are weakly increasing down columns. (We do not
 require them to be weakly increasing along rows.) Every column of a 12-table
 is a sequence of the form $(1,1,\ldots,1,2,2,\ldots,2)$. We say that such a sequence is
@@ -730,6 +735,7 @@ $ of $s$ to be
 2,\text{ if }s\text{ is 1-pure}%
 \end{array}
 \right.
+.
 \]
 For any 12-table $T$, we define a nonnegative integer $\ell\left(
 T\right)  $ by%
@@ -1022,8 +1028,8 @@ is a descent of $P$. Thus, the $k$-th column of $P$ must contain at least one
 $2$. Hence, the $k$-th column of $P$ is either mixed or 2-pure. Similarly, the
 $\left(  k+1\right)  $-th column of $P$ is either mixed or 1-pure. But the
 $k$-th and the $\left(  k+1\right)  $-th columns of $P$ cannot both be mixed
-(by (\ref{eq.benign.not-both-mixed}), because $P$ is benign). Thus we
-have exactly one of the following:
+(by (\ref{eq.benign.not-both-mixed}), because $P$ is benign). Thus,
+exactly one of the following three statements holds:
 
 \begin{itemize}
 \item[(M1)] The $k$-th column of $P$ is mixed and the $\left(  k+1\right)  $-th column of $P$ is 1-pure.
@@ -1185,6 +1191,7 @@ Then $P$ is a benign 12-table, and its
 descents are $1$, $2$ and $4$. We have $\operatorname*{sep}\nolimits_{2}P=4$.
 
 If we set $k=1$, then we have (2M), and resolving the descent $k=1$
+in $P$
 gives us the 12-table $\operatorname*{res}\nolimits_{1}P$, which is
 \[
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
@@ -1208,7 +1215,8 @@ gives us the 12-table $\operatorname*{res}\nolimits_{1}P$, which is
 \]
 
 If we instead set $k=2$, then we have (M1), and resolving the descent
-$k=2$ gives us the 12-table $\operatorname*{res}\nolimits_{2}P$, which is
+$k=2$ in $P$
+gives us the 12-table $\operatorname*{res}\nolimits_{2}P$, which is
 \[
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
@@ -1231,7 +1239,8 @@ $k=2$ gives us the 12-table $\operatorname*{res}\nolimits_{2}P$, which is
 \]
 
 If we instead set $k=4$, then we have (21), and resolving the descent
-$k=4$ gives us the 12-table $\operatorname*{res}\nolimits_{4}P$, which is
+$k=4$ in $P$
+gives us the 12-table $\operatorname*{res}\nolimits_{4}P$, which is
 \[
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
@@ -1485,8 +1494,10 @@ we have $P\overset{\ast}{\Rrightarrow}Q$ if and only if there exists a
 sequence $\left(  a_{0},a_{1},\ldots,a_{n}\right)  $ of elements of
 $\mathbf{S}$ such that $a_{0}=P$ and $a_{n}=Q$ and such that every
 $i\in\left\{  0,1,\ldots,n-1\right\}  $ satisfies $a_{i}\Rrightarrow a_{i+1}%
-$.} This relation $\overset{\ast}{\Rrightarrow}$ is reflexive and transitive,
+$. (Note that $n$ is allowed to be $0$.)}
+This relation $\overset{\ast}{\Rrightarrow}$ is reflexive and transitive,
 and extends the relation $\Rrightarrow$.
+Lemma \ref{lem.descent-resolution-props} thus yields:
 
 \begin{lemma}
 \label{lem.descent-resolution-*props}Let $P\in\mathbf{S}$ and $Q\in\mathbf{S}$
@@ -1524,7 +1535,7 @@ $C\overset{\ast}{\Rrightarrow}D$.
 
 \begin{proof}
 [Proof of Lemma \ref{prop.descent-resolution-hyps}.]If $B=C$, then we can
-simply choose $D=B=C$ ; thus, we assume that $B\neq C$.
+simply choose $D=B=C$; thus, we assume that $B\neq C$.
 
 Let $u$, $v \in\mathbb{N}_{+}$ be such that $A\underset{u}{\Rrightarrow}B$ and $A\underset{v}{\Rrightarrow}C$. Since $B \neq C$, we have $u \neq v$.
 Without loss of generality, assume that $u<v$. We are in one of the following two cases:
