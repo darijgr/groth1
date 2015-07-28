@@ -1046,7 +1046,7 @@ exactly one of the following three statements holds:
 \item[(21)] The $k$-th column of $P$ is 2-pure and the $\left(  k+1\right)  $-th column of $P$ is 1-pure.
 \end{itemize}
 
-Now, we define a new 12-table $\operatorname*{res}\nolimits_{k}P$ as follows:
+Now, we define a new 12-table $\operatorname*{res}\nolimits_{k}P$ as follows (see Figure \ref{fig:des-res} for illustration):
 
 \begin{itemize}
 \item If we have (M1), then $\operatorname*{res}_{k}P$ is the
@@ -1170,7 +1170,86 @@ In either case, $\operatorname*{res}\nolimits_{k}P$ is a well-defined
 $\operatorname*{res}\nolimits_{k}P$ is benign (since $P$ is benign); that is,
 $\operatorname*{res}\nolimits_{k}P\in\mathbf{S}$. We say that
 $\operatorname*{res}\nolimits_{k}P$ is the 12-table obtained by
-\textit{resolving} the descent $k$ in $P$. Let us give some examples:
+\textit{resolving} the descent $k$ in $P$. 
+
+
+\begin{figure}
+ 
+\begin{tabular}{||ccc||ccc||ccc||}\hline
+ & & & & & & & & \\
+\begin{tabular}{cc}
+\cline{2-2} & \multicolumn{1}{|c|}{}\\
+\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+\multicolumn{1}{|c|}{1} & \multicolumn{1}{|c|}{1}\\
+\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{}\\
+\multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{}\\
+\cline{2-2} \multicolumn{1}{|c|}{} \\
+\cline{1-1}
+\end{tabular}
+&
+$\rightarrow$
+&
+\begin{tabular}{cc}
+\cline{2-2} & \multicolumn{1}{|c|}{}\\
+\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{1} \\
+\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{}\\
+\cline{2-2} \multicolumn{1}{|c|}{1} & \multicolumn{1}{|c|}{}\\
+\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{2}\\
+\cline{2-2} \multicolumn{1}{|c|}{} \\
+\cline{1-1}
+\end{tabular}
+&%_________________________________________________________
+\begin{tabular}{cc}
+\cline{2-2} & \multicolumn{1}{|c|}{}\\
+\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{1} \\
+\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{}\\
+\cline{2-2} \multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{}\\
+\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{2}\\
+\cline{2-2} \multicolumn{1}{|c|}{} \\
+\cline{1-1}
+\end{tabular}
+&
+$\rightarrow$
+&
+\begin{tabular}{cc}
+\cline{2-2} & \multicolumn{1}{|c|}{}\\
+\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+\multicolumn{1}{|c|}{1} & \multicolumn{1}{|c|}{2}\\
+\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{}\\
+\multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{}\\
+\cline{2-2} \multicolumn{1}{|c|}{} \\
+\cline{1-1}
+\end{tabular}
+&%_________________________________________________________
+\begin{tabular}{cc}
+\cline{2-2} & \multicolumn{1}{|c|}{}\\
+\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{1}\\
+\multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{}\\
+\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{}\\
+\cline{2-2} \multicolumn{1}{|c|}{} \\
+\cline{1-1}
+\end{tabular}
+&
+$\rightarrow$
+&
+\begin{tabular}{cc}
+\cline{2-2} & \multicolumn{1}{|c|}{}\\
+\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{2}\\
+\multicolumn{1}{|c|}{1} & \multicolumn{1}{|c|}{}\\
+\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{}\\
+\cline{2-2} \multicolumn{1}{|c|}{} \\
+\cline{1-1}
+\end{tabular}\\
+& (M1) & & & (2M) & & & (21) & \\\hline
+\end{tabular}
+
+\caption{The three descent-resolution steps \label{fig:des-res}}
+\end{figure}
+
+
+Sometimes we can resolve one of the several descents. For example:
 
 \Needspace{14\baselineskip}
 
@@ -1193,13 +1272,49 @@ $\operatorname*{res}\nolimits_{k}P$ is the 12-table obtained by
 2 & 1 & 1 \\
 2 & 2 & 1 \\
 2
-\end{ytableau}%
-%EndExpansion
+\end{ytableau}
 \]
 Then $P$ is a benign 12-table, and its
 descents are $1$, $2$ and $4$. We have $\operatorname*{sep}\nolimits_{2}P=4$.
 
-If we set $k=1$, then we have (2M), and resolving the descent $k=1$
+If we set $k=1$ then we have (2M), if we set $k=2$ then we have (M1), and if we set $k=4$ then we have (21). Resolving each of the conflicts results in the following 12-tables:
+
+\begin{center}
+\begin{tabular}{||c||c||c||}\hline
+ $\ytableausetup{notabloids}
+\begin{ytableau}
+\none& \none& 1 & 2 & 1 \\
+\none& 2 & 1 & 2 \\
+1 & 2 & 1 \\
+2 & 2 & 1 \\
+2
+\end{ytableau}$ &
+$\ytableausetup{notabloids}
+\begin{ytableau}
+\none& \none& 1 & 2 & 1 \\
+\none& 1 & 1 & 2 \\
+2 & 1 & 1 \\
+2 & 1 & 2 \\
+2
+\end{ytableau}$
+& 
+$\ytableausetup{notabloids}
+\begin{ytableau}
+\none& \none& 1 & 1 & 2 \\
+\none& 1 & 1 & 1 \\
+2 & 1 & 1 \\
+2 & 2 & 1 \\
+2
+\end{ytableau}$
+\\
+$\operatorname*{res}\nolimits_{1}P$  & $\operatorname*{res}\nolimits_{2}P$  & $\operatorname*{res}\nolimits_{4}P$   \\\hline
+\end{tabular}
+\end{center}
+
+\begin{comment}
+ 
+
+and resolving the descent $k=1$
 in $P$
 gives us the 12-table $\operatorname*{res}\nolimits_{1}P$, which is
 \[
@@ -1270,6 +1385,8 @@ gives us the 12-table $\operatorname*{res}\nolimits_{4}P$, which is
 \end{ytableau}%
 %EndExpansion
 \]
+
+\end{comment}
 
 We notice that each of the three 12-tables $\operatorname*{res}\nolimits_{1}%
 P$, $\operatorname*{res}\nolimits_{2}P$ and $\operatorname*{res}%
