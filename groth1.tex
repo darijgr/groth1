@@ -944,7 +944,10 @@ For example,
 .
 \]
 
+\begin{remark}
+ \label{pf.lem.BK.flip.ircont}
 It is clear that $\operatorname*{flip}$ is an involution on $\mathbf{S}$ that preserves $\operatorname*{ceq}$ and $\operatorname*{seplist}$ but acts as a transposition $s_1$ on $\operatorname*{ircont}$.
+\end{remark}
 
 \begin{comment}
  
@@ -1254,33 +1257,20 @@ Sometimes we can resolve one of the several descents. For example:
 \Needspace{14\baselineskip}
 
 \begin{example}
-\label{exa.resolve.short}Let $P$ be
-\[
-%TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
-%\begin{ytableau}
-%\none& \none& 1 & 2 & 1 \\
-%\none& 1 & 1 & 2 \\
-%2 & 1 & 1 \\
-%2 & 2 & 1 \\
-%2
-%\end{ytableau}}}%
-%BeginExpansion
-\ytableausetup{notabloids}
+\label{exa.resolve.short}Let $P$ be the 12-table on the left:
+
+
+\begin{center}
+\begin{tabular}{||c||c||c||c||}\hline
+ & & &  \\
+ $\ytableausetup{notabloids}
 \begin{ytableau}
 \none& \none& 1 & 2 & 1 \\
 \none& 1 & 1 & 2 \\
 2 & 1 & 1 \\
 2 & 2 & 1 \\
 2
-\end{ytableau}
-\]
-Then $P$ is a benign 12-table, and its
-descents are $1$, $2$ and $4$. We have $\operatorname*{sep}\nolimits_{2}P=4$.
-
-If we set $k=1$ then we have (2M), if we set $k=2$ then we have (M1), and if we set $k=4$ then we have (21). Resolving each of the conflicts results in the following 12-tables:
-
-\begin{center}
-\begin{tabular}{||c||c||c||}\hline
+\end{ytableau}$ & 
  $\ytableausetup{notabloids}
 \begin{ytableau}
 \none& \none& 1 & 2 & 1 \\
@@ -1307,9 +1297,14 @@ $\ytableausetup{notabloids}
 2
 \end{ytableau}$
 \\
-$\operatorname*{res}\nolimits_{1}P$  & $\operatorname*{res}\nolimits_{2}P$  & $\operatorname*{res}\nolimits_{4}P$   \\\hline
+$P$ & $\operatorname*{res}\nolimits_{1}P$  & $\operatorname*{res}\nolimits_{2}P$  & $\operatorname*{res}\nolimits_{4}P$   \\\hline
 \end{tabular}
 \end{center}
+Then $P$ is a benign 12-table, and its
+descents are $1$, $2$ and $4$. We have $\operatorname*{sep}\nolimits_{2}P=4$.
+
+If we set $k=1$ then we have (2M), if we set $k=2$ then we have (M1), and if we set $k=4$ then we have (21). Resolving each of the conflicts results in the three 12-tables on the right.
+
 
 \begin{comment}
  
@@ -1912,6 +1907,8 @@ unclear how much of the proof comes ``from the picture''. They give a
 clear, explicit reason why $v-1$ is a descent of
 $\operatorname{res}_v B$ etc. In the current version, this is not
 obvious. Do you have a quick way to explain it?
+
+[Pasha]  I like the current proof of Case 1 very much. I think it is rigorous enough and does not need any further explanations.
 \end{todo}
 
 \subsection{The normalization map}
@@ -2327,7 +2324,7 @@ Let $T\in\mathbf{R}$. As above, $\operatorname*{flip}\left(  T\right)  \overset{
 \begin{proof}[$\mathbf{B}$ switches the numbers of columns containing 1 and 2]
 Let $T\in\mathbf{R}$. As above, $\operatorname*{flip}\left(  T\right)  \overset{\ast
 }{\Rrightarrow}\mathbf{B}\left(  T\right)  $. Lemma \ref{lem.descent-resolution-*props} \textbf{(b)}
-and (\ref{pf.lem.BK.flip.ircont}) thus yield
+and Remark \ref{pf.lem.BK.flip.ircont} thus yield
 \[
 \operatorname*{ircont}\left(  \mathbf{B}\left(  T\right)  \right)
 =\operatorname*{ircont}\left(  \operatorname*{flip}\left(  T\right)  \right)
