@@ -693,6 +693,140 @@ in terms of $\lm$) which preserves the $\ceq$ statistics and switches the number
 % This is one of the rare cases where my writing is shorter :) Also, we never defined what a "column equality" is. -- DG
 % the number column equalities with both entries equal to $i$ or with both entries equal to $i+1$ in each row does not change by the properties of $\B$ while the number of column equalities with both entries equal to something other than $i$ or $i+1$ in each row does not change because the values in the corresponding cells remain unchanged.
 
+\def\B{{\mathbf{B}}}
+
+\section{Construction of $\mathbf{B}$\label{sect.construction}}
+In this section we are going to sketch the definition of $\mathbf{B}$ and state some of its properties. We postpone the proofs until the next section.
+
+A \textit{12-table} means a filling $T:\lm\rightarrow\left\{  1,2\right\}  $
+of $\lm$
+such that the entries of $T$ are weakly increasing down columns. (We do not
+require them to be weakly increasing along rows.) Every column of a 12-table
+is a sequence of the form $(1,1,\ldots,1,2,2,\ldots,2)$. We say that such a sequence is
+
+\begin{itemize}
+\item \textit{1-pure} if it is nonempty and consists purely of $1$'s,
+
+\item \textit{2-pure} if it is nonempty and consists purely of $2$'s,
+
+\item \textit{mixed} if it contains both $1$'s and $2$'s.
+\end{itemize}
+
+\def\flip{{\operatorname*{flip}}}
+
+Now, for $T\in\OneTwoRPP$, we put $\flip(T)$ to be the 12-table obtained from $T$ by changing each column of $T$ as follows:
+
+\begin{itemize}
+\item \textbf{If} this column is 1-pure, we replace all its entries by $2$'s
+(so that it becomes 2-pure).
+
+\item \textbf{Otherwise}, if this column is 2-pure, we replace all its entries by
+$1$'s (so that it becomes 1-pure).
+
+\item \textbf{Otherwise} (i.e., if this column is mixed), we do not change it.
+\end{itemize}
+
+If $T$ is a 12-rpp then $\flip(T)$ need not be a 12-rpp, because it can contain a $2$ to the left of a $1$ in some row. We say that a positive integer $k$ is a \textit{descent} of a 12-table $P$ if there is a $2$ in the column $k$ and there is a $1$ to the right of it in the column $k+1$. We will encounter three possible kinds of descents depending on the types of columns $k$ and $k+1$:
+
+\begin{itemize}
+\item[(M1)] The $k$-th column of $P$ is mixed and the $\left(  k+1\right)  $-th column of $P$ is 1-pure.
+
+\item[(2M)] The $k$-th column of $P$ is 2-pure and the $\left(  k+1\right)  $-th column of $P$ is mixed.
+
+\item[(21)] The $k$-th column of $P$ is 2-pure and the $\left(  k+1\right)  $-th column of $P$ is 1-pure.
+\end{itemize}
+
+For an arbitrary 12-table it can happen also that two mixed columns form a descent, but such a descent will never arise in our process. 
+
+For each of the three types of descents we will define the corresponding \textit{descent-resolution step} that can be informally explained by Figure \ref{fig:des-res-preliminary}:
+
+
+\begin{figure}[here]
+ 
+\begin{tabular}{||ccc||ccc||ccc||}\hline
+ & & & & & & & & \\
+\begin{tabular}{cc}
+\cline{2-2} & \multicolumn{1}{|c|}{}\\
+\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+\multicolumn{1}{|c|}{1} & \multicolumn{1}{|c|}{1}\\
+\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{}\\
+\multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{}\\
+\cline{2-2} \multicolumn{1}{|c|}{} \\
+\cline{1-1}
+\end{tabular}
+&
+$\rightarrow$
+&
+\begin{tabular}{cc}
+\cline{2-2} & \multicolumn{1}{|c|}{}\\
+\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{1} \\
+\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{}\\
+\cline{2-2} \multicolumn{1}{|c|}{1} & \multicolumn{1}{|c|}{}\\
+\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{2}\\
+\cline{2-2} \multicolumn{1}{|c|}{} \\
+\cline{1-1}
+\end{tabular}
+&%_________________________________________________________
+\begin{tabular}{cc}
+\cline{2-2} & \multicolumn{1}{|c|}{}\\
+\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{1} \\
+\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{}\\
+\cline{2-2} \multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{}\\
+\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{2}\\
+\cline{2-2} \multicolumn{1}{|c|}{} \\
+\cline{1-1}
+\end{tabular}
+&
+$\rightarrow$
+&
+\begin{tabular}{cc}
+\cline{2-2} & \multicolumn{1}{|c|}{}\\
+\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+\multicolumn{1}{|c|}{1} & \multicolumn{1}{|c|}{2}\\
+\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{}\\
+\multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{}\\
+\cline{2-2} \multicolumn{1}{|c|}{} \\
+\cline{1-1}
+\end{tabular}
+&%_________________________________________________________
+\begin{tabular}{cc}
+\cline{2-2} & \multicolumn{1}{|c|}{}\\
+\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{1}\\
+\multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{}\\
+\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{}\\
+\cline{2-2} \multicolumn{1}{|c|}{} \\
+\cline{1-1}
+\end{tabular}
+&
+$\rightarrow$
+&
+\begin{tabular}{cc}
+\cline{2-2} & \multicolumn{1}{|c|}{}\\
+\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
+\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{2}\\
+\multicolumn{1}{|c|}{1} & \multicolumn{1}{|c|}{}\\
+\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{}\\
+\cline{2-2} \multicolumn{1}{|c|}{} \\
+\cline{1-1}
+\end{tabular}\\
+& (M1) & & & (2M) & & & (21) & \\\hline
+\end{tabular}
+
+\caption{The three descent-resolution steps \label{fig:des-res-preliminary}}
+\end{figure}
+
+\def\resk{{\operatorname*{res}\nolimits_{k}}}
+
+For example, if the $k$-th column of a 12-table $P$ forms a descent of type (M1) then we define the table $\resk P$ as follows: the $k$-th column of $\operatorname*{res}_{k}P$ is 1-pure; the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
+\nolimits_{k}P$ is mixed and the highest $2$ in it is in the same row as the highest $2$ in the $k$-th column of $P$; all other columns of $\operatorname*{res}\nolimits_{k}P$ are
+copied over from $P$ unchanged.
+
+Now the map $\B$ is defined as follows: take any 12-rpp $T$ and apply flip to it to get a 12-table $\flip(T)$. Next, apply descent-resolution steps to $\flip(T)$ in arbitrary order until we get a 12-table with no descents left. Put $\B(T):=P$. 
+
+In the next section we will see that $\B(T)$ is well-defined (that is, the result does not depend on the order of descent-resolution steps and the process ends after a finite number of steps). We will also see that $\B$ is an involution $\OneTwoRPP\to\OneTwoRPP$ that satisfies the assumptions of Lemma \ref{lem.BK}. An alternative proof of all these facts can be also found in Section \ref{sect.structure}.
+
+
 \section{\label{sect.proof}Proof of Lemma \ref{lem.BK}}
 
 We now come to the actual proof of Lemma \ref{lem.BK}. For the whole Section
