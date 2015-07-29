@@ -132,8 +132,10 @@
 \def\Z{\mathbb{Z}}
 \def\B{{\mathbf{B}}}
 
-\def\OneTwoRPP{{\operatorname*{RPP}^{12}\left(  \lambda/\mu\right)}}
-\def\BenignTables{{\operatorname*{BT}^{12}\left(  \lambda/\mu\right)}}
+\def\ceq{{\operatorname*{ceq}}}
+
+\def\OneTwoRPP{{\operatorname*{RPP}\nolimits^{12}\left(  \lambda/\mu\right)}}
+\def\BenignTables{{\operatorname*{BT}\nolimits^{12}\left(  \lambda/\mu\right)}}
 
 
 \def\OneTwoRPPCutvar{{\operatorname*{RPP}^{12}\left(  \lambda/\mu ;\seplistvar \right)}}
@@ -896,18 +898,18 @@ then $\ell\left(  T\right)  =1\cdot0+2\cdot1+3\cdot2+4\cdot0+5\cdot
 
 If $T$ is a 12-table, then we define a \textit{descent} of $T$ to be a
 positive integer $i$ such that there exists an $r\in\mathbb{N}_{+}$ satisfying
-$\left(  r,i\right)  \in Z$, $\left(  r,i+1\right)  \in Z$, $T\left(
+$\left(  r,i\right)  \in \lm$, $\left(  r,i+1\right)  \in \lm$, $T\left(
 r,i\right)  =2$ and $T\left(  r,i+1\right)  =1$. For instance,
 the descents of the 12-table shown in (\ref{eq.example-12-table.1})
-are $1$ and $4$. Clearly, a 12-rpp of shape $Z$ is the same as a 12-table which has no
+are $1$ and $4$. Clearly, a 12-rpp of shape $\lm$ is the same as a 12-table which has no
 descents.
 
 If $T$ is a 12-table, and if $k\in\mathbb{N}_{+}$ is such that the $k$-th
 column of $T$ is mixed, then we define $\operatorname*{sep}\nolimits_{k}T$ to
-be the smallest $r\in\mathbb{N}_{+}$ such that $\left(  r,k\right)  \in Z$ and
+be the smallest $r\in\mathbb{N}_{+}$ such that $\left(  r,k\right)  \in \lm$ and
 $T\left(  r,k\right)  =2$. Thus, every 12-table $T$, every
 $r\in\mathbb{N}_{+}$ and every $k\in\mathbb{N}_{+}$ such that the $k$-th
-column of $T$ is mixed and such that $\left(  r,k\right)  \in Z$ satisfy%
+column of $T$ is mixed and such that $\left(  r,k\right)  \in \lm$ satisfy%
 \begin{equation}
 T\left(  r,k\right)  =\left\{
 \begin{array}
@@ -1025,7 +1027,7 @@ $1$'s (so that it becomes 1-pure).
 % items). This is a single-step procedure (for each particular column)
 % which has three cases, rather than a three-step procedure.
 
-Once these transformations are made, the resulting filling of $Z$
+Once these transformations are made, the resulting filling of $\lm$
 is a 12-table which is still benign (in fact, it has the same mixed
 columns as $T$). We define $\operatorname*{flip}\left(
 T\right)  $ to be this resulting 12-table. Thus, the map
@@ -1270,15 +1272,15 @@ copied over from $P$ unchanged.
 %\end{array}
 %\right. \\
 %&  \ \ \ \ \ \ \ \ \ \ \text{for all }r\in\mathbb{N}_{+}\text{ for which
-%}\left(  r,k+1\right)  \in Z.
+%}\left(  r,k+1\right)  \in \lm.
 %\end{align*}
 %This (together with the requirements on the other columns) defines a 12-table
 %$\operatorname*{res}\nolimits_{k}P$, but we still need to check that the thus
 %resulting $\left(  k+1\right)  $-th column of $\operatorname*{res}%
 %\nolimits_{k}P$ is actually mixed. To check this, the reader should verify
 %that both cells $\left(  \operatorname*{sep}\nolimits_{k}P,k+1\right)  $ and
-%$\left(  \operatorname*{sep}\nolimits_{k}P+1,k+1\right)  $ belong to $Z$ (here
-%it is necessary to invoke the convexity of $Z$ and the existence of the
+%$\left(  \operatorname*{sep}\nolimits_{k}P+1,k+1\right)  $ belong to $\lm$ (here
+%it is necessary to invoke the convexity of $\lm$ and the existence of the
 %descent $k$ in $P$), and that these cells have entries $1$ and $2$ in
 %$\operatorname*{res}\nolimits_{k}P$, respectively.
 %}
@@ -1535,8 +1537,8 @@ We have%
 \]
 
 %\item For every $r\in\mathbb{N}_{+}$ and $i\in\mathbb{N}_{+}$
-%satisfying $\left(  r,i\right)  \in Z$ and $\left(  r,s_{k}\left(  i\right)
-%\right)  \in Z$, we have%
+%satisfying $\left(  r,i\right)  \in \lm$ and $\left(  r,s_{k}\left(  i\right)
+%\right)  \in \lm$, we have%
 %\begin{equation}
 %P\left(  r,i\right)  =\left(  \operatorname*{res}\nolimits_{k}P\right)
 %\left(  r,s_{k}\left(  i\right)  \right)  . \label{pf.lem.BK.res.Pli}%
@@ -1572,8 +1574,8 @@ and (\ref{pf.lem.BK.Tsep}).
 %Merely part \textbf{(c)}
 %requires a bit more thinking.
 
-%\textbf{(c)} A cell $\left(  i,j\right)  $ in $Z$ will be called \textit{good}
-%if the cell $\left(  i+1,j\right)  $ also belongs to $Z$. Notice that every
+%\textbf{(c)} A cell $\left(  i,j\right)  $ in $\lm$ will be called \textit{good}
+%if the cell $\left(  i+1,j\right)  $ also belongs to $\lm$. Notice that every
 %stagnant cell of $P$ or of $\operatorname*{res}\nolimits_{k}P$ must be good.
 
 %In order to prove (\ref{pf.lem.BK.res.ceq}), we need to show that, for every
@@ -1582,7 +1584,7 @@ and (\ref{pf.lem.BK.Tsep}).
 %$r$. Instead of comparing the numbers of stagnant cells, we can just as well
 %compare the numbers of good cells that are not stagnant (because all stagnant
 %cells are good, and because the total number of good cells clearly depends
-%only on $Z$ and not on the 12-table). So we need to show that, for every
+%only on $\lm$ and not on the 12-table). So we need to show that, for every
 %$r\in\mathbb{N}_{+}$, the number of good cells in row $r$ that are not
 %stagnant cells of $P$ equals the number of good cells in row $r$ that are not
 %stagnant cells of $\operatorname*{res}\nolimits_{k}P$.
@@ -1777,10 +1779,10 @@ A=%
 \end{equation}
 
 %Let $s=\operatorname*{sep}\nolimits_{v}A$. Then, $\left(  s,v\right)  $ and
-%$\left(  s+1,v\right)  $ belong to $Z$ and satisfy $A\left(  s,v\right)  =1$
-%and $A\left(  s+1,v\right)  =2$. Also, $\left(  s,v-1\right)  $ must belong to $Z$ because $v-1$ is a descent of $A$, and hence $\left(  s+1,v-1\right)  $ must belong to
-%$Z$ by convexity. Similarly, $\left(  s+1,v+1\right)  $
-%and $\left(  s,v+1\right)  $ belong to $Z$. We shall denote these six squares as
+%$\left(  s+1,v\right)  $ belong to $\lm$ and satisfy $A\left(  s,v\right)  =1$
+%and $A\left(  s+1,v\right)  =2$. Also, $\left(  s,v-1\right)  $ must belong to $\lm$ because $v-1$ is a descent of $A$, and hence $\left(  s+1,v-1\right)  $ must belong to
+%$\lm$ by convexity. Similarly, $\left(  s+1,v+1\right)  $
+%and $\left(  s,v+1\right)  $ belong to $\lm$. We shall denote these six squares as
 %the \textquotedblleft core squares\textquotedblright. The restriction of $A$
 %to the core squares is 
 %\[
@@ -1979,7 +1981,7 @@ $N\in\OneTwoRPP$ such that $T\overset{\ast}{\Rrightarrow}N$.
 
 %Before we come to the proof of this proposition, let us translate it into
 %words in order to illuminate its meaning. Recall that $\OneTwoRPP$ is the set
-%of all 12-rpps (of shape $Z$), that $\BenignTables$ is the set of all benign
+%of all 12-rpps (of shape $\lm$), that $\BenignTables$ is the set of all benign
 %12-tables, and that the relation \textquotedblleft$P\overset{\ast
 %}{\Rrightarrow}Q$\textquotedblright\ can be interpreted as \textquotedblleft%
 %$Q$ can be obtained from $P$ by repeatedly resolving
@@ -2369,7 +2371,7 @@ such that $\operatorname*{flip}\left(  \mathbf{B}\left(  T\right)  \right)
 \overset{\ast}{\Rrightarrow}N$. Since $T \in \OneTwoRPP$, we have $\mathbf{B}(\mathbf{B}(T)) = T$, as desired.
 \end{proof}
 
-\begin{proof}[$\mathbf{B}$ preserves ceq]
+\begin{proof}[$\mathbf{B}$ preserves $\ceq$]
 Let $T\in\OneTwoRPP$. As above, $\operatorname*{flip}\left(  T\right)  \overset{\ast
 }{\Rrightarrow}\mathbf{B}\left(  T\right)  $. Lemma \ref{lem.descent-resolution-*props} \textbf{(a)} and Remark \ref{pf.lem.BK.flip.ircont} thus yield
 \[
