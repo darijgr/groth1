@@ -701,7 +701,12 @@ in terms of $\lm$) which preserves the $\ceq$ statistics and switches the number
 \def\B{{\mathbf{B}}}
 
 \section{Construction of $\mathbf{B}$\label{sect.construction}}
+
 In this section we are going to sketch the definition of $\mathbf{B}$ and state some of its properties. We postpone the proofs until the next section.
+
+For the whole Sections \ref{sect.construction} and \ref{sect.proof},
+we shall be working in the situation of Lemma \ref{lem.BK}. In
+particular, we fix a skew partition $\lm$.
 
 A \textit{12-table} means a filling $T:\lm\rightarrow\left\{  1,2\right\}  $
 of $\lm$
@@ -721,16 +726,16 @@ is a sequence of the form $(1,1,\ldots,1,2,2,\ldots,2)$. We say that such a sequ
 
 \begin{definition}
  \label{defi.flip}
-For a 12-table $T$, we put $\flip(T)$ to be the 12-table obtained from $T$ by changing each column of $T$ as follows:
+For a 12-table $T$, we define $\flip(T)$ to be the 12-table obtained from $T$ by changing each column of $T$ as follows:
 
 \begin{itemize}
 \item \textbf{If} this column is 1-pure, we replace all its entries by $2$'s
 (so that it becomes 2-pure).
 
-\item \textbf{Otherwise}, if this column is 2-pure, we replace all its entries by
+\textbf{Otherwise}, if this column is 2-pure, we replace all its entries by
 $1$'s (so that it becomes 1-pure).
 
-\item \textbf{Otherwise} (i.e., if this column is mixed), we do not change it.
+\textbf{Otherwise} (i.e., if this column is mixed), we do not change it.
 \end{itemize}
 
 \end{definition}
@@ -828,22 +833,22 @@ $\rightarrow$
 
 \def\resk{{\operatorname*{res}\nolimits_{k}}}
 
-For example, if the $k$-th column of a 12-table $P$ forms a descent of type (M1) then we define the table $\resk P$ as follows: the $k$-th column of $\operatorname*{res}_{k}P$ is 1-pure; the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
+For example, if $k$ is a descent of type (M1) in a 12-table $P$, then we define the table $\resk P$ as follows: the $k$-th column of $\operatorname*{res}_{k}P$ is 1-pure; the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
 \nolimits_{k}P$ is mixed and the highest $2$ in it is in the same row as the highest $2$ in the $k$-th column of $P$; all other columns of $\operatorname*{res}\nolimits_{k}P$ are
 copied over from $P$ unchanged.
 
-Now the map $\B$ is defined as follows: take any 12-rpp $T$ and apply flip to it to get a 12-table $\flip(T)$. Next, apply descent-resolution steps to $\flip(T)$ in arbitrary order until we get a 12-table with no descents left. Put $\B(T):=P$ (a rigorous version of this is Definition \ref{defi.B}).
+Now the map $\B$ is defined as follows: take any 12-rpp $T$ and apply flip to it to get a 12-table $\flip(T)$. Next, apply descent-resolution steps to $\flip(T)$ in arbitrary order until we get a 12-table with no descents left. Put $\B(T):=P$. (A rigorous statement of this is Definition \ref{defi.B}.)
 
-In the next section we will see that $\B(T)$ is well-defined (that is, the result does not depend on the order of descent-resolution steps and the process ends after a finite number of steps). We will also see that $\B$ is an involution $\OneTwoRPP\to\OneTwoRPP$ that satisfies the assumptions of Lemma \ref{lem.BK}. An alternative proof of all these facts can be also found in Section \ref{sect.structure}.
+In the next section we will see that $\B(T)$ is well-defined (that is, the process terminates after a finite number of descent-resolution steps, and the result does not depend on the order of steps). We will also see that $\B$ is an involution $\OneTwoRPP\to\OneTwoRPP$ that satisfies the assumptions of Lemma \ref{lem.BK}. An alternative proof of all these facts can be also found in Section \ref{sect.structure}.
+
+% [DG] Strictly speaking, do you really give an alternative
+% proof of these facts, or just an alternative proof of the
+% existence of an involution with the required properties?
 
 
 \section{\label{sect.proof}Proof of Lemma \ref{lem.BK}}
 
-We now come to the actual proof of Lemma \ref{lem.BK}. For the whole Section
-\ref{sect.proof}, we shall be working in the situation of Lemma \ref{lem.BK}.
-
-Let $\lm$ be a skew partition. We shall keep $\lm$
-fixed for the rest of Section \ref{sect.proof}. 
+We now come to the actual proof of Lemma \ref{lem.BK}.
 
 Recall that every column of a 12-table
 is a sequence of the form $(1,1,\ldots,1,2,2,\ldots,2)$. If $s$ is a sequence of the form $(1,1,\ldots,1,2,2,\ldots,2)$, then we define the
@@ -1080,7 +1085,7 @@ For example,
 
 \begin{remark}
  \label{pf.lem.BK.flip.ircont}
-It is clear that $\operatorname*{flip}$ is an involution on $\BenignTables$ that preserves $\operatorname*{ceq}$ and $\operatorname*{seplist}$ but acts as a transposition $s_1$ on $\operatorname*{ircont}$.
+It is clear that $\operatorname*{flip}$ is an involution on $\BenignTables$ that preserves $\operatorname*{ceq}$ and $\operatorname*{seplist}$ but acts as a transposition $s_1$ on $\operatorname*{ircont}$ (that is, we have $\operatorname{ircont}\left(\operatorname{flip}\left(T\right)\right) = s_1 \cdot \operatorname{ircont}\left(T\right)$ for every $T \in \BenignTables$).
 \end{remark}
 
 \begin{comment}
@@ -1249,7 +1254,12 @@ The $k$-th column of $\operatorname*{res}_{k}P$ is 1-pure; the $\left(  k+1\righ
 \nolimits_{k}P$ is mixed and satisfies $\operatorname*{sep}\nolimits_{k+1}%
 \left(  \operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{sep}%
 \nolimits_{k}P$; all other columns of $\operatorname*{res}\nolimits_{k}P$ are
-copied over from $P$ unchanged.
+copied over from $P$ unchanged.\footnote{The reader should check that
+this 12-table is well-defined.
+% [DG] I find it wrong to leave this unsaid. The proof is easy,
+% but the reader might fail to realize its necessity altogether
+% if it is not mentioned.
+}
 
 %\footnote{The reader should check that this
 %definition is well-defined.
@@ -1317,8 +1327,6 @@ Sometimes we can resolve one of the several descents. For example:
 
 \begin{example}
 \label{exa.resolve.short}Let $P$ be the 12-table on the left:
-
-
 \begin{center}
 \begin{tabular}{||c||c||c||c||}\hline
  & & &  \\
@@ -1777,6 +1785,11 @@ A=%
 %EndExpansion
 . \label{pf.prop.descent-resolution.hyps.short.A}%
 \end{equation}
+Notice that the separating line which separates the $1$'s from the
+$2$'s in column $v$ is lower than the upper border of the
+$\left(v-1\right)$-th column (since $v-1$ is a descent of $A$), and
+higher than the lower border of the $\left(v+1\right)$-th column
+(since $v$ is a descent of $A$).
 
 %Let $s=\operatorname*{sep}\nolimits_{v}A$. Then, $\left(  s,v\right)  $ and
 %$\left(  s+1,v\right)  $ belong to $\lm$ and satisfy $A\left(  s,v\right)  =1$
@@ -1801,7 +1814,14 @@ A=%
 %EndExpansion
 %\]
 
-Let $s=\operatorname*{sep}\nolimits_{v}A$. Now, $B = \operatorname*{res}\nolimits_{v-1}A$, so $B$ is
+Let $s=\operatorname*{sep}\nolimits_{v}A$. Then, the cells
+$\left(s, v-1\right), \left(s, v\right), \left(s, v+1\right),
+\left(s+1, v-1\right), \left(s+1, v\right), \left(s+1, v+1\right)$
+all belong to $\lm$ (due to what we just said about separating
+bars). We shall refer to this observation as the
+``six-cells property''.
+
+Now, $B = \operatorname*{res}\nolimits_{v-1}A$, so $B$ is
 represented as follows:%
 \[
 B=%
@@ -1849,8 +1869,12 @@ B=%
 %\end{ytableau}%
 %EndExpansion
 %$.
-where $\operatorname*{sep}\nolimits_{v-1}B = s$. Now, $v$ is a descent of $B$. Resolving this descent yields a 12-table $\operatorname*{res}%
-\nolimits_{v}B$ which is represented as follows:%
+where $\operatorname*{sep}\nolimits_{v-1}B = s$ (that is, the
+separating line in the $\left(v-1\right)$-th column of $B$ is at
+the same height as the separating line in the $v$-th column of $A$).
+Now, $v$ is a descent of $B$ (due to the six-cells property).
+Resolving this descent yields a
+12-table $\operatorname{res}_{v}B$ which is represented as follows:
 \[
 \operatorname*{res}\nolimits_{v}B=%
 %TCIMACRO{\TeXButton{tabular}{\begin{tabular}{ccc}
@@ -1899,7 +1923,8 @@ where $\operatorname*{sep}\nolimits_{v-1}B = s$. Now, $v$ is a descent of $B$. R
 %EndExpansion
 %$.
 This, in turn, shows that $v-1$ is a descent of $\operatorname*{res}%
-\nolimits_{v}B$. Resolving this descent yields a 12-table $\operatorname*{res}\nolimits_{v-1}\left(
+\nolimits_{v}B$ (by the six-cells property). Resolving this descent
+yields a 12-table $\operatorname*{res}\nolimits_{v-1}\left(
 \operatorname*{res}\nolimits_{v}B\right)  $ which is represented as follows:%
 \begin{equation}
 \operatorname*{res}\nolimits_{v-1}\left(  \operatorname*{res}\nolimits_{v}%
@@ -2037,17 +2062,15 @@ Now, we have
 \]
 Intersecting both sides of this identity with the set $\OneTwoRPP$, we obtain%
 
-\begin{comment}
-
 \begin{align*}
-\left\{  N\in\OneTwoRPP\ \mid\ T\overset{\ast}{\Rrightarrow}N\right\}    &
-=\underbrace{\left(  \left\{  T\right\}  \cap\OneTwoRPP\right)  }%
+\left\{  N\in\OneTwoRPP\ \mid\ T\overset{\ast}{\Rrightarrow}N\right\}
+&=\underbrace{\left(  \left\{  T\right\}  \cap\OneTwoRPP\right)  }%
 _{\substack{=\varnothing\\\text{(since }T\notin\OneTwoRPP\text{)}}}\cup
 \bigcup_{Z\in\mathbf{Z}}\underbrace{\left\{  N\in\OneTwoRPP\ \mid
 \ Z\overset{\ast}{\Rrightarrow}N\right\}  }_{\substack{=\operatorname*{Norm}%
 \left(  Z\right)  \\\text{(by the definition }\\\text{of }\operatorname*{Norm}\left(
-Z\right)  \text{)}}}
- =\bigcup_{Z\in\mathbf{Z}}\operatorname*{Norm}\left(  Z\right)  .
+Z\right)  \text{)}}} \\
+& =\bigcup_{Z\in\mathbf{Z}}\operatorname*{Norm}\left(  Z\right)  .
 \end{align*}
 Thus,
 \begin{equation}
@@ -2056,13 +2079,12 @@ Thus,
 }\operatorname*{Norm}\left(  Z\right)  .\label{pf.prop.BK.norm.union}%
 \end{equation}
  
-\end{comment}
-
+\begin{comment}
 \begin{equation} 
 \operatorname*{Norm}\left(  T\right)  =\left\{  N\in\OneTwoRPP\ \mid\ T\overset{\ast}{\Rrightarrow}N\right\} 
  =\emptyset\cup\bigcup_{Z\in\mathbf{Z}}\operatorname*{Norm}\left(  Z\right)  .\label{pf.prop.BK.norm.union}%
 \end{equation}
-
+\end{comment}
 
 Let us now notice that:
 
@@ -2074,9 +2096,7 @@ $\operatorname*{Norm}\left( Z\right)  $ is a one-element set.
 \item By Lemma \ref{prop.descent-resolution-hyps}, for every
 $B\in\mathbf{Z}$ and $C\in\mathbf{Z}$, we have
 $\operatorname*{Norm}\left(  B\right)  \cap\operatorname*{Norm}\left(
-C\right)  \neq\varnothing$.
-\begin{comment}
- 
+C\right)  \neq\varnothing$. 
 \ \ \ \ \footnote{In more detail:
 \par
 Let $B\in\mathbf{Z}$ and $C\in\mathbf{Z}$. Then,
@@ -2093,27 +2113,24 @@ $C\overset{\ast}{\Rrightarrow}D$. Consider this $D$. Lemma
 yields $\ell\left(  B\right)  \geq\ell\left(  D\right)  $. Thus, $\ell\left(
 T\right)  >\ell\left(  B\right)  \geq\ell\left(  D\right)  $. Hence,
 $\operatorname*{Norm}\left(  D\right)  $ is a one-element set (by
-(\ref{pf.prop.BK.norm.indhyp}), applied to $S=D$).
-\par
-But $B\overset{\ast}{\Rrightarrow}D$. Thus, every $N\in\OneTwoRPP$ satisfying
-$D\overset{\ast}{\Rrightarrow}N$ also satisfies $B\overset{\ast}{\Rrightarrow
-}N$ (since the relation $\overset{\ast}{\Rrightarrow}$ is transitive). In
-other words, every element of $\operatorname*{Norm}\left(  D\right)  $ is also
-an element of $\operatorname*{Norm}\left(  B\right)  $. In other words,
-$\operatorname*{Norm}\left(  D\right)  \subseteq\operatorname*{Norm}\left(
-B\right)  $. Similarly, $\operatorname*{Norm}\left(  D\right)  \subseteq
-\operatorname*{Norm}\left(  C\right)  $. Hence, $\operatorname*{Norm}\left(
-D\right)  \subseteq\operatorname*{Norm}\left(  B\right)  \cap
-\operatorname*{Norm}\left(  C\right)  $. Hence, $\operatorname*{Norm}\left(
-B\right)  \cap\operatorname*{Norm}\left(  C\right)  \neq\varnothing$ (since
-$\operatorname*{Norm}\left(  D\right)  $ is a one-element set), qed.
+(\ref{pf.prop.BK.norm.indhyp}), applied to $S=D$). Its unique element
+clearly lies in both $\operatorname*{Norm}\left(  B\right)  $ and
+$\operatorname*{Norm}\left(  C\right)  $ (since
+the relation $\overset{\ast}{\Rrightarrow}$ is transitive). Hence,
+$\operatorname*{Norm}\left(
+B\right)  \cap\operatorname*{Norm}\left(  C\right)  \neq\varnothing$, qed.
 
 % [DG] You will probably want to shorten this. Fine with me, but please
 % don't remove this nontrivial argument completely.
 % [PG] Removed this argument because I don't see where it is non-trivial, sorry
+% [DG] This has multiple steps. The $D$ obtained from
+% Lemma \ref{prop.descent-resolution-hyps} is not immediately an rpp.
+% The induction hypothesis is then applied to it, needing the
+% length-decrease argument. This all is rather clear if you are thinking
+% of our algorithm in terms of rewriting systems and confluence, but we
+% have carefully removed all traces of this intuition from the paper,
+% so we cannot accept the reader to have it.
 }
-
-\end{comment}
 
 \end{itemize}
 
