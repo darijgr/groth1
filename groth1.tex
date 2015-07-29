@@ -2911,14 +2911,17 @@ $\t$ with coefficients in $\Z[x_1,x_2]$:
 $$\g_\lm(x_1,x_2,0,0,\dots;\t)=\sum_{\ceqvar\in \N^{\N_+}}\t^\ceqvar Q_\ceqvar(x_1,x_2),$$
 where the sum ranges over all weak compositions $\alpha$,
 and all but finitely many $Q_\ceqvar(x_1,x_2)$ are $0$.
-(The $Q_\ceqvar(x_1,x_2)$ here belong to $\Z[x_1, x_2]$.)
+%(The $Q_\ceqvar(x_1,x_2)$ here belong to $\Z[x_1, x_2]$.)
 
 We shall show that each $Q_\ceqvar(x_1,x_2)$ is either zero or has the form
-$$Q_\ceqvar(x_1,x_2)=(x_1x_2)^{M} P_{n_0}(x_1,x_2)P_{n_1}(x_1,x_2)\cdots P_{n_r}(x_1,x_2) ,$$
+\begin{equation}
+\label{eq.Qalpha}
+Q_\ceqvar(x_1,x_2)=(x_1x_2)^{M} P_{n_0}(x_1,x_2)P_{n_1}(x_1,x_2)\cdots P_{n_r}(x_1,x_2) , 
+\end{equation}
 where $M,r$ and $n_0,n_1,\dots,n_{r}$ are nonnegative integers naturally associated to $\ceqvar$ and $\lm$ and 
 $$P_n(x_1,x_2)=(x_1^{n+1}-x_2^{n+1})/(x_1-x_2)=x_1^{n}+x_1^{n-1}x_2+\dots+x_1x_2^{n-1}+x_2^n.$$
 We fix the skew partition $\lm$ throughout the whole section.
-Abusing notation, we shall abbreviate $Y\left(\lm\right)$ as $\lm$.
+%Abusing notation, we shall abbreviate $Y\left(\lm\right)$ as $\lm$.
 We will have a running example with $\lambda=(7,7,7,4,4)$ and $\mu=(5,3,2)$.
 
 
@@ -2970,7 +2973,13 @@ We say that a partition $\seplistvar$ is \textit{admissible} if such $j_1<j_2<\d
 
 Until the end of Section \ref{sect.structure}, we make one further
 assumption: namely, that the skew partition $\lm$ is
-connected\footnote{By this, we mean that $\lm$ has at least one
+connected as a subgraph of $\Z^2$. This is a harmless assumption,
+since every skew partition $\lm$ can be written as a disjoint union
+of such connected skew partitions and the corresponding seplist-partition splits into several independent parts, the polynomials $\g_\lm$ get multiplied and the right hand side of (\ref{eq.Qalpha}) changes accordingly. 
+
+\begin{comment}
+ 
+\footnote{By this, we mean that $\lm$ has at least one
 cell, and cannot be represented
 as a disjoint union of two nonempty skew partitions $\alpha/\beta$
 and $\gamma/\delta$ such that no cell of $\alpha/\beta$ is adjacent
@@ -2986,6 +2995,8 @@ components with seplist-partition equal to the ``appropriate piece''
 of $\seplistvar$. (What an ``appropriate piece'' is should be
 clear enough, since two distinct connected components are supported
 on different rows.)}.
+
+\end{comment}
 
 \newcommand{\nuxy}[2]{\seplistvar\big|_{\subseteq[#1,#2)}}
 \newcommand{\nuxycap}[2]{\seplistvar\big|_{\cap[#1,#2)}}
@@ -3032,13 +3043,18 @@ j_r=a,\ j_{r+1}=a+1,\ \dots,\ j_{r+q}=a+q=b-1 .
 \end{equation}
 Because $\supp(i_r)\subseteq[a,b)$ but $\supp(i_r)\neq\varnothing$ (since $\nu$ is admissible), we have $(i_r,a-1)\notin\lm$. Thus, placing a $1$ into $(i_r,a)$ and $2$'s into $(i_r+1,a),(i_r+2,a),\dots$ does not put any restrictions on entries in columns $1,\dots, a-1$. And the same is true for columns $b,b+1,\dots$ when we place a $2$ into $(i_{r+q}+1,b-1)$ and $1$'s into all cells above. Thus, if a partition $\seplistvar$ is reducible, then the filling of columns $a,a+1,\dots, b-1$ is uniquely determined (by (\ref{eq.reducible.mixblock-j})), and the filling of the rest can be arbitrary -- the problem of existence of a 12-rpp $T$ such that $\seplist(T)=\seplistvar$ reduces to two smaller independent problems of the same kind (one for the columns $1,2,\ldots,a-1$, the other for the columns\footnote{Recall that a 12-rpp of shape $\lm$ cannot have any nonempty column beyond the $\lambda_1$'th one.} $b,b+1,\ldots,\lambda_1$). One can continue this reduction process and end up with several independent irreducible components separated from each other by mixed columns. An illustration of this phenomenon can be seen on Figure \ref{fig:seplist}: the columns $3$ and $4$ must be mixed for any 12-rpps $T$ with $\seplist(T)=(4,3,3,2)$.
 
-More explicitly, we have thus shown that every interval $\left[a,b\right) \subseteq \left[1, \lambda_1+1\right)$ satisfying $\#\nuab = b-a$ splits our problem into two independent subproblems. But if two such intervals $\left[a,b\right)$ and $\left[c,d\right)$ intersect, then their union is another such interval\footnote{\textit{Proof.} Assume that two intervals $\left[a,b\right)$ and $\left[c,d\right)$ satisfying $\#\nuab = b-a$ and $\#\nuxy{c}{d} = d-c$ intersect. We need to show that their union is another such interval.
+More explicitly, we have thus shown that every interval $\left[a,b\right) \subseteq \left[1, \lambda_1+1\right)$ satisfying $\#\nuab = b-a$ splits our problem into two independent subproblems. But if two such intervals $\left[a,b\right)$ and $\left[c,d\right)$ intersect, then their union is another such interval.
+\begin{comment}
+ 
+\footnote{\textit{Proof.} Assume that two intervals $\left[a,b\right)$ and $\left[c,d\right)$ satisfying $\#\nuab = b-a$ and $\#\nuxy{c}{d} = d-c$ intersect. We need to show that their union is another such interval.
 \par We WLOG assume that $a \leq c$. Then, $c \leq b$ (since the intervals intersect). If $b > d$, then the union of the two intervals is simply $\left[a,b\right)$, which makes our claim obvious. Hence, we WLOG assume that $b \leq d$. Thus, $a \leq c \leq b \leq d$. The union of the two intervals is therefore $\left[a, d\right)$, and we must show that $\#\nuxy{a}{d} = d-a$.
 A set of positive integers is a subset of both $\left[a, b\right)$ and $\left[c, d\right)$ if and only if it is a subset of $\left[c, b\right)$. On the other hand, a set of positive integers that is a subset of either $\left[a, b\right)$ or $\left[c, d\right)$ must be a subset of $\left[a, d\right)$ (but not conversely). Combining these two observations, we obtain $\#\nuxy{a}{d} \geq \#\nuab + \#\nuxy{c}{d} - \#\nuxy{c}{b}$. Since $\seplistvar$ is representable (or, when $b=c$, for obvious reasons), we have $\#\nuxy{c}{b} \leq b-c$. Thus,
 \[
 \#\nuxy{a}{d} \geq \underbrace{\#\nuab}_{=b-a} + \underbrace{\#\nuxy{c}{d}}_{=d-c} - \underbrace{\#\nuxy{c}{b}}_{\leq b-c} \geq \left(b-a\right) + \left(d-c\right) - \left(b-c\right) = d-a.
 \]
-Combined with $\#\nuxy{a}{d} \leq d-a$ (since $\seplistvar$ is representable), this yields $\#\nuxy{a}{d} = d-a$, qed.}. Hence, the maximal (with respect to inclusion) among all such intervals are pairwise disjoint and separated from each other by at least a distance of $1$.
+Combined with $\#\nuxy{a}{d} \leq d-a$ (since $\seplistvar$ is representable), this yields $\#\nuxy{a}{d} = d-a$, qed.}.
+\end{comment}
+Hence, the maximal (with respect to inclusion) among all such intervals are pairwise disjoint and separated from each other by at least a distance of $1$.
 This yields part \textbf{(a)} of the following lemma:
 \begin{lemma}
 \label{lemma:irreducible}
@@ -3065,10 +3081,10 @@ Furthermore, for these integers, we have:
 \begin{proof}
 Part \textbf{(a)} has already been proven.
 
-\textbf{(b)} [Fill me in]
+\textbf{(b)} Let $\nu=(i_1\geq\dots\geq i_s>0)$. If $\supp(i_r)\subset [a_k,b_k)$ for some $k$ then $i_r$ appears in exactly one of the concatenated partitions, namely, $\nuxy{a_k}{b_k}$. Otherwise there is an integer $k$ such that $\supp(i_r)\cap [b_k,a_{k+1})\neq\emptyset$. It remains to show that such $k$ is unique, that is, that $\supp(i_r)\cap [b_{k+1},a_{k+2})=\emptyset$. But the interval $[a_{k+1},b_{k+1})$ is non-empty, therefore there is an element $i$ in $\nu$ with $\supp(i)\subset [a_{k+1},b_{k+1})$. It remains to note that we get a contradiction: we get two numbers $i,i_r$ with $\supp(i_r)$ being both to the left and to the right of $\supp(i)$. 
 
-To verify the second claim, we need to show that if $\left[c,d\right)$ is a nonempty interval contained in $\left[b_k, a_{k+1}\right)$ for some $k$, then $\#\nupxy{c}{d}^{J} < d-c$, where $J$ denotes the restricted skew partition $\lm\big|_{[b_k,a_{k+1})}$, and where $\seplistvar^{\prime} = \nuxycap{b_k}{a_{k+1}}$.
-[Fill me in]
+\textbf{(c)}
+To verify the last claim, we need to show that if $\left[c,d\right)$ is a nonempty interval contained in $\left[b_k, a_{k+1}\right)$ for some $k$, then $\#\nupxy{c}{d}^{J} < d-c$, where $J$ denotes the restricted skew partition $\lm\big|_{[b_k,a_{k+1})}$, and where $\seplistvar^{\prime} = \nuxycap{b_k}{a_{k+1}}$. If $c> b_k$ and $d< a_{k+1}$ then this follows from $\nuxy{c}{d}<d-c$, so suppose $c=b_k$ and $\#\nupxy{c}{d}^{J} = d-c$. This immediately implies that $\#\nuxy{a_k}{d}=d-a_k$ which contradicts the minimality of $[b_k,a_{k+1})$. The case $d=a_{k+1}$ is completely analogous.
 \end{proof}
 
 \begin{definition}
@@ -3168,14 +3184,13 @@ Take any 12-rpp $T\in\OneTwoRPPCutvar$ and recall that a 12-table $\flip(T)$ is 
 
 \begin{corollary}
 \label{cor:confluence}
- If $\seplistvar$ is an irreducible partition, then no matter in which order one resolves conflicts in $\flip(T)$, the resulting tableau $T'$ will be the same. The map $T\to T'$ is the unique Bender-Knuth involution on $\OneTwoRPPCutvar$.
+ If $\seplistvar$ is an irreducible partition, then no matter in which order one resolves descents in $\flip(T)$, the resulting tableau $T'$ will be the same. The map $T\to T'$ is the unique Bender-Knuth involution on $\OneTwoRPPCutvar$.
 \end{corollary}
 \begin{proof}[Proof of Corollary \ref{cor:confluence}]
- By Proposition \ref{prop.finality}, conflict-resolving steps applied in any order give an element of $\OneTwoRPPCutvar$. So we get a map $\OneTwoRPPCutvar\to \OneTwoRPPCutvar$ that satisfies the assumptions of Corollary \ref{cor:uniqueBK}.
+ Descent-resolution steps applied to $\flip(T)$ in any order eventually give an element of $\OneTwoRPPCutvar$ with the desired $\ircont$. There is only one such element. So we get a map $\OneTwoRPPCutvar\to \OneTwoRPPCutvar$ that satisfies the assumptions of Corollary \ref{cor:uniqueBK}.
 \end{proof}
 
-
-Finally, notice that for a general representable partition $\seplistvar$ conflicts may only occur inside each irreducible component independently, so we conclude the chain of corollaries by stating that our constructed involutions are canonical in the following sense:
+Finally, notice that for a general representable partition $\seplistvar$ descents may only occur inside each irreducible component independently, so we conclude the chain of corollaries by stating that our constructed involutions are canonical in the following sense:
 
 \begin{corollary}
  For a representable partition, the map $\mathbf{B}:\OneTwoRPPCutvar\to\OneTwoRPPCutvar$ is the unique involution that interchanges the number of $1$-pure columns with the number of $2$-pure columns inside each irreducible component.
@@ -3196,7 +3211,9 @@ Therefore the set $\NS(T)$ contains $\{(i_1,a+1),(i_2,a+2),\dots,(i_{b-1-a},b-1)
 \begin{proof}[Proof of Theorem \ref{thm:12rpps}]
 We proceed by induction on the number of columns in $\lm$. If the number of columns is one then the statement of Theorem \ref{thm:12rpps} is obvious. Suppose that we have proven that for all skew partitions $\widetilde{\lm}$ with less than $\lambda_1$ columns and for all partitions $\widetilde\seplistvar$  irreducible with respect to $\widetilde{\lm}$ and for all $0\leq \widetilde m\leq \widetilde{\lambda}_1)-\#\widetilde\seplistvar$, there is exactly one 12-rpp $\widetilde T$ of shape $\widetilde{\lm}$ with exactly $\widetilde m$ $1$-pure columns, exactly $\#\widetilde\seplistvar$ mixed columns and exactly $(\widetilde{\lambda}_1-\#\widetilde\seplistvar-\widetilde m)$ $2$-pure columns. Now we want to prove the same for $\lm$.
 
-Take any 12-rpp $T\in\OneTwoRPPCutvar$ with $\seplist(T)=\seplistvar$ and with $m$ $1$-pure columns for $0\leq m\leq \lambda_1-\#\seplistvar$. Suppose first that $m>0$. Then there is at least one $1$-pure column in $T$. Let $q+1$ be the leftmost such column for some $q\geq 0$. Then by Lemma \ref{lemma:leftRight} the columns $1,2,\dots,q$ are mixed. If $q>0$ then the supports of $i_1,i_2,\dots,i_q$ are all contained inside $[1,q+1)$ and we get a contradiction with the irreducibility of $\seplistvar$. The only remaining case is that $q=0$ and the first column of $T$ is $1$-pure. Let $\widetilde\lm$ denote $\lm$ with the first column removed. Then $\seplistvar$ may not be irreducible with respect to $\widetilde{\lm}$, because it may happen that $\#\nuxy{1}{b}^{\widetilde{\lm}}=b-1$ for some $b$. In this case we can ignore these first $b-1$ mixed columns and apply the induction hypothesis. We are done with the case $m>0$. If $m<\lambda_1-\#\seplistvar$ then we can apply a mirrored argument to the last column, and it remains to note that for $\lambda_1-\#\seplistvar>0$ the cases $m>0$ and $m<\lambda_1-\#\seplistvar$ cover everything and for $\lambda_1=\#\seplistvar$ we get that $T$ is a 12-rpp with all mixed columns, but there is obviously a unique such 12-rpp.
+Take any 12-rpp $T\in\OneTwoRPPCutvar$ with $\seplist(T)=\seplistvar$ and with $m$ $1$-pure columns for $0\leq m\leq \lambda_1-\#\seplistvar$. Suppose first that $m>0$. Then there is at least one $1$-pure column in $T$. Let $q+1$ be the leftmost such column for some $q\geq 0$. Then by Lemma \ref{lemma:leftRight} the columns $1,2,\dots,q$ are mixed. If $q>0$ then the supports of $i_1,i_2,\dots,i_q$ are all contained inside $[1,q+1)$ and we get a contradiction with the irreducibility of $\seplistvar$. The only remaining case is that $q=0$ and the first column of $T$ is $1$-pure. Let $\widetilde\lm$ denote $\lm$ with the first column removed. Then $\seplistvar$ may not be irreducible with respect to $\widetilde{\lm}$, because it may happen that $\#\nuxy{1}{b}^{\widetilde{\lm}}=b-1$ for some $b$. In any case $\nu$ has only one irreducible component with respect to $\widetilde\lm$ to which we can apply the induction hypothesis. We are done with the case $m>0$. If $m<\lambda_1-\#\seplistvar$ then we can apply a mirrored argument to the last column, and it remains to note that for $\lambda_1-\#\seplistvar>0$ the cases $m>0$ and $m<\lambda_1-\#\seplistvar$ cover everything and for $\lambda_1=\#\seplistvar$ we get that $T$ is a 12-rpp with all mixed columns, but there is obviously a unique such 12-rpp.
+
+Note that this inductive proof shows both existence and uniqueness of the 12-rpp with desired properties.
 \end{proof}
 
 
