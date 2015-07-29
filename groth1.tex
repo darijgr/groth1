@@ -133,6 +133,9 @@
 \def\B{{\mathbf{B}}}
 
 \def\OneTwoRPP{{\operatorname*{RPP}^{12}\left(  \lambda/\mu\right)}}
+\def\BenignTables{{\operatorname*{BT}^{12}\left(  \lambda/\mu\right)}}
+
+
 \def\OneTwoRPPCutvar{{\operatorname*{RPP}^{12}\left(  \lambda/\mu ;\seplistvar \right)}}
 \def\flip{{\operatorname*{flip}}}
 
@@ -714,7 +717,9 @@ is a sequence of the form $(1,1,\ldots,1,2,2,\ldots,2)$. We say that such a sequ
 
 \def\flip{{\operatorname*{flip}}}
 
-Now, for $T\in\OneTwoRPP$, we put $\flip(T)$ to be the 12-table obtained from $T$ by changing each column of $T$ as follows:
+\begin{definition}
+ \label{defi.flip}
+For a 12-table $T$, we put $\flip(T)$ to be the 12-table obtained from $T$ by changing each column of $T$ as follows:
 
 \begin{itemize}
 \item \textbf{If} this column is 1-pure, we replace all its entries by $2$'s
@@ -725,6 +730,9 @@ $1$'s (so that it becomes 1-pure).
 
 \item \textbf{Otherwise} (i.e., if this column is mixed), we do not change it.
 \end{itemize}
+
+\end{definition}
+
 
 If $T$ is a 12-rpp then $\flip(T)$ need not be a 12-rpp, because it can contain a $2$ to the left of a $1$ in some row. We say that a positive integer $k$ is a \textit{descent} of a 12-table $P$ if there is a $2$ in the column $k$ and there is a $1$ to the right of it in the column $k+1$. We will encounter three possible kinds of descents depending on the types of columns $k$ and $k+1$:
 
@@ -822,7 +830,7 @@ For example, if the $k$-th column of a 12-table $P$ forms a descent of type (M1)
 \nolimits_{k}P$ is mixed and the highest $2$ in it is in the same row as the highest $2$ in the $k$-th column of $P$; all other columns of $\operatorname*{res}\nolimits_{k}P$ are
 copied over from $P$ unchanged.
 
-Now the map $\B$ is defined as follows: take any 12-rpp $T$ and apply flip to it to get a 12-table $\flip(T)$. Next, apply descent-resolution steps to $\flip(T)$ in arbitrary order until we get a 12-table with no descents left. Put $\B(T):=P$. 
+Now the map $\B$ is defined as follows: take any 12-rpp $T$ and apply flip to it to get a 12-table $\flip(T)$. Next, apply descent-resolution steps to $\flip(T)$ in arbitrary order until we get a 12-table with no descents left. Put $\B(T):=P$ (a rigorous version of this is Definition \ref{defi.B}).
 
 In the next section we will see that $\B(T)$ is well-defined (that is, the result does not depend on the order of descent-resolution steps and the process ends after a finite number of steps). We will also see that $\B$ is an involution $\OneTwoRPP\to\OneTwoRPP$ that satisfies the assumptions of Lemma \ref{lem.BK}. An alternative proof of all these facts can be also found in Section \ref{sect.structure}.
 
@@ -832,32 +840,11 @@ In the next section we will see that $\B(T)$ is well-defined (that is, the resul
 We now come to the actual proof of Lemma \ref{lem.BK}. For the whole Section
 \ref{sect.proof}, we shall be working in the situation of Lemma \ref{lem.BK}.
 
-\subsection{\label{subsect.fourtypes}12-tables and the three types of their nonempty
-columns}
+Let $\lm$ be a skew partition. We shall keep $\lm$
+fixed for the rest of Section \ref{sect.proof}. 
 
-Let $Z$ be a finite convex subset of $\mathbb{N}_{+}^{2}$. We shall keep $Z$
-fixed for the rest of Section \ref{sect.proof}. Let $\mathbf{R}$ denote the set
-of all 12-rpps of shape $Z$.
-
-\begin{todo}
-Decide between $Z$ and $\lambda/\mu$ and change stuff accordingly.
-\end{todo}
-
-A \textit{12-table} will mean a filling $T:Z\rightarrow\left\{  1,2\right\}  $
-of $Z$
-such that the entries of $T$ are weakly increasing down columns. (We do not
-require them to be weakly increasing along rows.) Every column of a 12-table
-is a sequence of the form $(1,1,\ldots,1,2,2,\ldots,2)$. We say that such a sequence is
-
-\begin{itemize}
-\item \textit{1-pure} if it is nonempty and consists purely of $1$'s,
-
-\item \textit{2-pure} if it is nonempty and consists purely of $2$'s,
-
-\item \textit{mixed} if it contains both $1$'s and $2$'s.
-\end{itemize}
-
-If $s$ is a sequence of the form $(1,1,\ldots,1,2,2,\ldots,2)$, then we define the
+Recall that every column of a 12-table
+is a sequence of the form $(1,1,\ldots,1,2,2,\ldots,2)$. If $s$ is a sequence of the form $(1,1,\ldots,1,2,2,\ldots,2)$, then we define the
 \textit{signature} $\operatorname*{sig}\left(  s\right)
 $ of $s$ to be
 \[
@@ -871,12 +858,16 @@ $ of $s$ to be
 \right.
 .
 \]
+\begin{definition}
+ \label{defi.fourtypes}
 For any 12-table $T$, we define a nonnegative integer $\ell\left(
 T\right)  $ by%
 \[
 \ell\left(  T\right)  =\sum_{h\in\mathbb{N}_{+}}h\cdot\operatorname*{sig}%
 \left(  \text{the }h\text{-th column of }T\right)  .
 \]
+\end{definition}
+
 For instance, if $T$ is the 12-table
 \begin{equation}
 %
@@ -1007,12 +998,17 @@ Notice that 12-rpps are benign 12-tables, but the converse is not true. If $T$ i
 &  \text{and the }\left(  k+1\right)  \text{-th column of }T\text{ are mixed.}
 \label{eq.benign.not-both-mixed}%
 \end{align}
-Let $\mathbf{S}$ denote the set of all benign 12-tables; we have $\mathbf{R}\subseteq\mathbf{S}$.
+Let $\BenignTables$ denote the set of all benign 12-tables; we have $\OneTwoRPP\subseteq\BenignTables$.
+
+If $T\in\BenignTables$ then $\flip(T)\in\BenignTables$ as well because $T$ and $\flip(T)$ have the same mixed columns. Thus the map $\flip$ defined for 12-tables in Definition \ref{defi.flip} restricts to a map $\BenignTables\to\BenignTables$ which we will also denote $\flip$. 
+
+\begin{comment}
+ 
 
 \subsection{The $\operatorname*{flip}$ map on benign 12-tables}
 
-We define a map $\operatorname*{flip}:\mathbf{S}\rightarrow\mathbf{S}$ as
-follows: Let $T\in\mathbf{S}$. For
+We define a map $\operatorname*{flip}:\BenignTables\rightarrow\BenignTables$ as
+follows: Let $T\in\BenignTables$. For
 every nonempty column of $T$, we
 transform the column as follows:
 
@@ -1033,7 +1029,7 @@ Once these transformations are made, the resulting filling of $Z$
 is a 12-table which is still benign (in fact, it has the same mixed
 columns as $T$). We define $\operatorname*{flip}\left(
 T\right)  $ to be this resulting 12-table. Thus, the map
-$\operatorname*{flip}:\mathbf{S}\rightarrow\mathbf{S}$ is defined.
+$\operatorname*{flip}:\BenignTables\rightarrow\BenignTables$ is defined.
 
 For example,
 \[
@@ -1078,9 +1074,11 @@ For example,
 .
 \]
 
+\end{comment}
+
 \begin{remark}
  \label{pf.lem.BK.flip.ircont}
-It is clear that $\operatorname*{flip}$ is an involution on $\mathbf{S}$ that preserves $\operatorname*{ceq}$ and $\operatorname*{seplist}$ but acts as a transposition $s_1$ on $\operatorname*{ircont}$.
+It is clear that $\operatorname*{flip}$ is an involution on $\BenignTables$ that preserves $\operatorname*{ceq}$ and $\operatorname*{seplist}$ but acts as a transposition $s_1$ on $\operatorname*{ircont}$.
 \end{remark}
 
 \begin{comment}
@@ -1142,14 +1140,14 @@ Q\right)  \right)  .
 \subsection{Plan of the proof}
 
 Let us now briefly sketch the ideas behind the rest of the proof before we go
-into them in detail. The map $\operatorname*{flip}:\mathbf{S}\rightarrow
-\mathbf{S}$ does not generally send 12-rpps to 12-rpps (i.e., it does not
-restrict to a map $\mathbf{R}\rightarrow\mathbf{R}$). However, we shall amend
+into them in detail. The map $\operatorname*{flip}:\BenignTables\rightarrow
+\BenignTables$ does not generally send 12-rpps to 12-rpps (i.e., it does not
+restrict to a map $\OneTwoRPP\rightarrow\OneTwoRPP$). However, we shall amend
 this by defining a way to transform any benign 12-table into a 12-rpp by what
 we call \textquotedblleft resolving descents\textquotedblright. The process of
 \textquotedblleft resolving descents\textquotedblright\ will be a stepwise
 process, and will be formalized in terms of a binary relation $\Rrightarrow$
-on the set $\mathbf{S}$ which we will soon introduce. The intuition behind
+on the set $\BenignTables$ which we will soon introduce. The intuition behind
 saying \textquotedblleft$P\Rrightarrow Q$\textquotedblright\ is that the
 benign 12-table $P$ has a descent, resolving which yields the benign 12-table
 $Q$. Starting with a benign 12-table $P$, we can repeatedly resolve descents
@@ -1158,7 +1156,7 @@ performing this process, because at any step there can be a choice of several
 descents to resolve; but we will see that the final result does not depend on
 the process. Hence, the final result can be regarded as a function of $P$. We
 will denote it by $\operatorname*{norm}P$, and we will see that it is a
-12-rpp. We will then define a map $\mathbf{B}:\mathbf{R}\rightarrow\mathbf{R}$
+12-rpp. We will then define a map $\mathbf{B}:\OneTwoRPP\rightarrow\OneTwoRPP$
 by $\mathbf{B}\left(  T\right)  =\operatorname*{norm}\left(
 \operatorname*{flip}T\right)  $, and show that it is an involution satisfying
 the properties that we want it to satisfy.
@@ -1167,7 +1165,7 @@ the properties that we want it to satisfy.
 
 Now we come to the details.
 
-Let $k\in\mathbb{N}_{+}$. Let $P\in\mathbf{S}$. Assume (for the whole Subsection \ref{subsect.resolving}) that $k$
+Let $k\in\mathbb{N}_{+}$. Let $P\in\BenignTables$. Assume (for the whole Subsection \ref{subsect.resolving}) that $k$
 is a descent of $P$. Thus, the $k$-th column of $P$ must contain at least one
 $2$. Hence, the $k$-th column of $P$ is either mixed or 2-pure. Similarly, the
 $\left(  k+1\right)  $-th column of $P$ is either mixed or 1-pure. But the
@@ -1183,7 +1181,7 @@ exactly one of the following three statements holds:
 \item[(21)] The $k$-th column of $P$ is 2-pure and the $\left(  k+1\right)  $-th column of $P$ is 1-pure.
 \end{itemize}
 
-Now, we define a new 12-table $\operatorname*{res}\nolimits_{k}P$ as follows (see Figure \ref{fig:des-res} for illustration):
+Now, we define a new 12-table $\operatorname*{res}\nolimits_{k}P$ as follows (see Figure \ref{fig:des-res-preliminary} for illustration):
 
 \begin{itemize}
 \item If we have (M1), then $\operatorname*{res}_{k}P$ is the
@@ -1305,85 +1303,10 @@ In either case, $\operatorname*{res}\nolimits_{k}P$ is a well-defined
 12-table. It is furthermore clear that $\operatorname*{seplist}\left(
 \operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{seplist}P$. Thus,
 $\operatorname*{res}\nolimits_{k}P$ is benign (since $P$ is benign); that is,
-$\operatorname*{res}\nolimits_{k}P\in\mathbf{S}$. We say that
+$\operatorname*{res}\nolimits_{k}P\in\BenignTables$. We say that
 $\operatorname*{res}\nolimits_{k}P$ is the 12-table obtained by
 \textit{resolving} the descent $k$ in $P$. 
 
-
-\begin{figure}
- 
-\begin{tabular}{||ccc||ccc||ccc||}\hline
- & & & & & & & & \\
-\begin{tabular}{cc}
-\cline{2-2} & \multicolumn{1}{|c|}{}\\
-\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
-\multicolumn{1}{|c|}{1} & \multicolumn{1}{|c|}{1}\\
-\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{}\\
-\multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{}\\
-\cline{2-2} \multicolumn{1}{|c|}{} \\
-\cline{1-1}
-\end{tabular}
-&
-$\rightarrow$
-&
-\begin{tabular}{cc}
-\cline{2-2} & \multicolumn{1}{|c|}{}\\
-\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{1} \\
-\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{}\\
-\cline{2-2} \multicolumn{1}{|c|}{1} & \multicolumn{1}{|c|}{}\\
-\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{2}\\
-\cline{2-2} \multicolumn{1}{|c|}{} \\
-\cline{1-1}
-\end{tabular}
-&%_________________________________________________________
-\begin{tabular}{cc}
-\cline{2-2} & \multicolumn{1}{|c|}{}\\
-\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{1} \\
-\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{}\\
-\cline{2-2} \multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{}\\
-\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{2}\\
-\cline{2-2} \multicolumn{1}{|c|}{} \\
-\cline{1-1}
-\end{tabular}
-&
-$\rightarrow$
-&
-\begin{tabular}{cc}
-\cline{2-2} & \multicolumn{1}{|c|}{}\\
-\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
-\multicolumn{1}{|c|}{1} & \multicolumn{1}{|c|}{2}\\
-\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{}\\
-\multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{}\\
-\cline{2-2} \multicolumn{1}{|c|}{} \\
-\cline{1-1}
-\end{tabular}
-&%_________________________________________________________
-\begin{tabular}{cc}
-\cline{2-2} & \multicolumn{1}{|c|}{}\\
-\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
-\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{1}\\
-\multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{}\\
-\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{}\\
-\cline{2-2} \multicolumn{1}{|c|}{} \\
-\cline{1-1}
-\end{tabular}
-&
-$\rightarrow$
-&
-\begin{tabular}{cc}
-\cline{2-2} & \multicolumn{1}{|c|}{}\\
-\cline{1-1} \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\
-\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{2}\\
-\multicolumn{1}{|c|}{1} & \multicolumn{1}{|c|}{}\\
-\multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{}\\
-\cline{2-2} \multicolumn{1}{|c|}{} \\
-\cline{1-1}
-\end{tabular}\\
-& (M1) & & & (2M) & & & (21) & \\\hline
-\end{tabular}
-
-\caption{The three descent-resolution steps \label{fig:des-res}}
-\end{figure}
 
 
 Sometimes we can resolve one of the several descents. For example:
@@ -1557,7 +1480,7 @@ $P$, we will have to keep resolving these descents until none remain.
 We now observe some further properties of $\operatorname*{res}\nolimits_{k}P$:
 
 \begin{proposition}
-\label{prop.descent-resolution-props}Let $P\in\mathbf{S}$ and $k\in
+\label{prop.descent-resolution-props}Let $P\in\BenignTables$ and $k\in
 \mathbb{N}_{+}$ be such that $k$ is a descent of $P$.
 
 \begin{enumerate}
@@ -1630,7 +1553,7 @@ We have that $k$ is a descent of $\operatorname*{flip}\left(  \operatorname*{res
 
 \item \label{pf.lem.BK.res.lendec}
 Recall that we defined a nonnegative integer $\ell\left(
-T\right)  $ for every 12-table $T$ in Subsection \ref{subsect.fourtypes}. We
+T\right)  $ for every 12-table $T$ in Definition \ref{defi.fourtypes}. We
 have
 \[
 \ell\left(  P\right)  >\ell\left(  \operatorname*{res}\nolimits_{k}P\right)  .
@@ -1680,8 +1603,8 @@ and (\ref{pf.lem.BK.Tsep}).
 \subsection{The descent-resolution relation $\Rrightarrow$}
 
 \begin{definition}
-Let us now define a binary relation $\Rrightarrow$ on the set $\mathbf{S}$ as
-follows: Let $P\in\mathbf{S}$ and $Q\in\mathbf{S}$. If $k\in\mathbb{N}_{+}$,
+Let us now define a binary relation $\Rrightarrow$ on the set $\BenignTables$ as
+follows: Let $P\in\BenignTables$ and $Q\in\BenignTables$. If $k\in\mathbb{N}_{+}$,
 then we write $P\underset{k}{\Rrightarrow}Q$ if $k$ is a descent
 of $P$ and we have $Q=\operatorname*{res}\nolimits_{k}P$. We write $P\Rrightarrow Q$ if there
 exists a $k\in\mathbb{N}_{+}$ such that $P\underset{k}{\Rrightarrow}Q$.
@@ -1691,7 +1614,7 @@ Proposition \ref{prop.descent-resolution-props} translates into the following pr
 $\Rrightarrow$:
 
 \begin{lemma}
-\label{lem.descent-resolution-props}Let $P\in\mathbf{S}$ and $Q\in\mathbf{S}$
+\label{lem.descent-resolution-props}Let $P\in\BenignTables$ and $Q\in\BenignTables$
 be such that $P\Rrightarrow Q$. Then:
 
 \textbf{(a)} We have $\operatorname*{ceq}\left(  Q\right)
@@ -1744,10 +1667,10 @@ P\right)  $.
 We now define $\overset{\ast}{\Rrightarrow}$ to be the
 reflexive-and-transitive closure of the relation $\Rrightarrow$.
 \footnote{Explicitly, this means that $\overset{\ast}{\Rrightarrow}$
-is defined as follows: For two elements $P\in\mathbf{S}$ and $Q\in\mathbf{S}$,
+is defined as follows: For two elements $P\in\BenignTables$ and $Q\in\BenignTables$,
 we have $P\overset{\ast}{\Rrightarrow}Q$ if and only if there exists a
 sequence $\left(  a_{0},a_{1},\ldots,a_{n}\right)  $ of elements of
-$\mathbf{S}$ such that $a_{0}=P$ and $a_{n}=Q$ and such that every
+$\BenignTables$ such that $a_{0}=P$ and $a_{n}=Q$ and such that every
 $i\in\left\{  0,1,\ldots,n-1\right\}  $ satisfies $a_{i}\Rrightarrow a_{i+1}%
 $. (Note that $n$ is allowed to be $0$.)}
 This relation $\overset{\ast}{\Rrightarrow}$ is reflexive and transitive,
@@ -1755,7 +1678,7 @@ and extends the relation $\Rrightarrow$.
 Lemma \ref{lem.descent-resolution-props} thus yields:
 
 \begin{lemma}
-\label{lem.descent-resolution-*props}Let $P\in\mathbf{S}$ and $Q\in\mathbf{S}$
+\label{lem.descent-resolution-*props}Let $P\in\BenignTables$ and $Q\in\BenignTables$
 be such that $P\overset{\ast}{\Rrightarrow}Q$. Then:
 
 \textbf{(a)} We have $\operatorname*{ceq}\left(  Q\right)
@@ -1783,8 +1706,8 @@ We now state the following crucial lemma:
 
 \begin{lemma}
 \label{prop.descent-resolution-hyps}Let $A$, $B$ and $C$ be three elements of
-$\mathbf{S}$ satisfying $A\Rrightarrow B$ and $A\Rrightarrow C$. Then, there
-exists a $D\in\mathbf{S}$ such that $B\overset{\ast}{\Rrightarrow}D$ and
+$\BenignTables$ satisfying $A\Rrightarrow B$ and $A\Rrightarrow C$. Then, there
+exists a $D\in\BenignTables$ such that $B\overset{\ast}{\Rrightarrow}D$ and
 $C\overset{\ast}{\Rrightarrow}D$.
 \end{lemma}
 
@@ -2050,13 +1973,13 @@ obvious. Do you have a quick way to explain it?
 The following proposition is the most important piece in our puzzle:
 
 \begin{proposition}
-\label{prop.BK.norm}For every $T\in\mathbf{S}$, there exists a unique
-$N\in\mathbf{R}$ such that $T\overset{\ast}{\Rrightarrow}N$.
+\label{prop.BK.norm}For every $T\in\BenignTables$, there exists a unique
+$N\in\OneTwoRPP$ such that $T\overset{\ast}{\Rrightarrow}N$.
 \end{proposition}
 
 %Before we come to the proof of this proposition, let us translate it into
-%words in order to illuminate its meaning. Recall that $\mathbf{R}$ is the set
-%of all 12-rpps (of shape $Z$), that $\mathbf{S}$ is the set of all benign
+%words in order to illuminate its meaning. Recall that $\OneTwoRPP$ is the set
+%of all 12-rpps (of shape $Z$), that $\BenignTables$ is the set of all benign
 %12-tables, and that the relation \textquotedblleft$P\overset{\ast
 %}{\Rrightarrow}Q$\textquotedblright\ can be interpreted as \textquotedblleft%
 %$Q$ can be obtained from $P$ by repeatedly resolving
@@ -2079,46 +2002,46 @@ $N\in\mathbf{R}$ such that $T\overset{\ast}{\Rrightarrow}N$.
 %found it easier to integrate it into the proof rather than state it as a lemma.
 
 \begin{proof}
-[Proof of Proposition \ref{prop.BK.norm}.] For every $T\in\mathbf{S}$, let
+[Proof of Proposition \ref{prop.BK.norm}.] For every $T\in\BenignTables$, let
 $\operatorname*{Norm}\left(  T\right)  $ denote the set%
 \[
-\left\{  N\in\mathbf{R}\ \mid\ T\overset{\ast}{\Rrightarrow}N\right\}  .
+\left\{  N\in\OneTwoRPP\ \mid\ T\overset{\ast}{\Rrightarrow}N\right\}  .
 \]
-Thus, in order to prove Proposition \ref{prop.BK.norm}, we need to show that for every $T\in\mathbf{S}$ this set $\operatorname*{Norm}%
+Thus, in order to prove Proposition \ref{prop.BK.norm}, we need to show that for every $T\in\BenignTables$ this set $\operatorname*{Norm}%
 \left(  T\right)  $ is a one-element set.
 
 We shall prove this by strong induction on $\ell\left(  T\right)  $. Fix
-some $T\in\mathbf{S}$, and assume that
+some $T\in\BenignTables$, and assume that
 \begin{equation}
 \operatorname*{Norm}\left(  S\right)  \text{ is a one-element set for every
-}S\in\mathbf{S}\text{ satisfying }\ell\left(  S\right)  <\ell\left(  T\right)
+}S\in\BenignTables\text{ satisfying }\ell\left(  S\right)  <\ell\left(  T\right)
 \text{.}\label{pf.prop.BK.norm.indhyp}%
 \end{equation}
 We then need to prove that $\operatorname*{Norm}\left(  T\right)  $ is a
 one-element set.
 
-Let $\mathbf{Z} = \left\{  S\in\mathbf{S}\ \mid\ T\Rrightarrow
+Let $\mathbf{Z} = \left\{  S\in\BenignTables\ \mid\ T\Rrightarrow
 S\right\}  $. In other words, $\mathbf{Z}$ is the set of all benign 12-tables
 $S$ which can be obtained from $T$ by resolving one descent. If
-$\mathbf{Z}$ is empty, then $T \in \mathbf{R}$, so that
+$\mathbf{Z}$ is empty, then $T \in \OneTwoRPP$, so that
 $\operatorname*{Norm}\left(  T\right) = \{T\}$ and we are done. Hence, we can
-assume that $\mathbf{Z}$ is nonempty. Therefore $T \notin \mathbf{R}$.
+assume that $\mathbf{Z}$ is nonempty. Therefore $T \notin \OneTwoRPP$.
 
 Now, we have
 \[
-\left\{  N\in\mathbf{S}\ \mid\ T\overset{\ast}{\Rrightarrow}N\right\}
-=\left\{  T\right\}  \cup\bigcup_{Z\in\mathbf{Z}}\left\{  N\in\mathbf{S}%
+\left\{  N\in\BenignTables\ \mid\ T\overset{\ast}{\Rrightarrow}N\right\}
+=\left\{  T\right\}  \cup\bigcup_{Z\in\mathbf{Z}}\left\{  N\in\BenignTables%
 \ \mid\ Z\overset{\ast}{\Rrightarrow}N\right\}  .
 \]
-Intersecting both sides of this identity with the set $\mathbf{R}$, we obtain%
+Intersecting both sides of this identity with the set $\OneTwoRPP$, we obtain%
 
 \begin{comment}
 
 \begin{align*}
-\left\{  N\in\mathbf{R}\ \mid\ T\overset{\ast}{\Rrightarrow}N\right\}    &
-=\underbrace{\left(  \left\{  T\right\}  \cap\mathbf{R}\right)  }%
-_{\substack{=\varnothing\\\text{(since }T\notin\mathbf{R}\text{)}}}\cup
-\bigcup_{Z\in\mathbf{Z}}\underbrace{\left\{  N\in\mathbf{R}\ \mid
+\left\{  N\in\OneTwoRPP\ \mid\ T\overset{\ast}{\Rrightarrow}N\right\}    &
+=\underbrace{\left(  \left\{  T\right\}  \cap\OneTwoRPP\right)  }%
+_{\substack{=\varnothing\\\text{(since }T\notin\OneTwoRPP\text{)}}}\cup
+\bigcup_{Z\in\mathbf{Z}}\underbrace{\left\{  N\in\OneTwoRPP\ \mid
 \ Z\overset{\ast}{\Rrightarrow}N\right\}  }_{\substack{=\operatorname*{Norm}%
 \left(  Z\right)  \\\text{(by the definition }\\\text{of }\operatorname*{Norm}\left(
 Z\right)  \text{)}}}
@@ -2126,7 +2049,7 @@ Z\right)  \text{)}}}
 \end{align*}
 Thus,
 \begin{equation}
-\operatorname*{Norm}\left(  T\right)  =\left\{  N\in\mathbf{R}\ \mid
+\operatorname*{Norm}\left(  T\right)  =\left\{  N\in\OneTwoRPP\ \mid
 \ T\overset{\ast}{\Rrightarrow}N\right\}  =\bigcup_{Z\in\mathbf{Z}%
 }\operatorname*{Norm}\left(  Z\right)  .\label{pf.prop.BK.norm.union}%
 \end{equation}
@@ -2134,7 +2057,7 @@ Thus,
 \end{comment}
 
 \begin{equation} 
-\operatorname*{Norm}\left(  T\right)  =\left\{  N\in\mathbf{R}\ \mid\ T\overset{\ast}{\Rrightarrow}N\right\} 
+\operatorname*{Norm}\left(  T\right)  =\left\{  N\in\OneTwoRPP\ \mid\ T\overset{\ast}{\Rrightarrow}N\right\} 
  =\emptyset\cup\bigcup_{Z\in\mathbf{Z}}\operatorname*{Norm}\left(  Z\right)  .\label{pf.prop.BK.norm.union}%
 \end{equation}
 
@@ -2162,7 +2085,7 @@ Similarly, $T\Rrightarrow C$ and
 $\ell\left(  T\right)  >\ell\left(  C\right)  $.
 Hence, Lemma \ref{prop.descent-resolution-hyps} (applied to $A=T$)
 yields that there exists
-a $D\in\mathbf{S}$ such that $B\overset{\ast}{\Rrightarrow}D$ and
+a $D\in\BenignTables$ such that $B\overset{\ast}{\Rrightarrow}D$ and
 $C\overset{\ast}{\Rrightarrow}D$. Consider this $D$. Lemma
 \ref{lem.descent-resolution-*props} \textbf{(d)} (applied to $P=B$ and $Q=D$)
 yields $\ell\left(  B\right)  \geq\ell\left(  D\right)  $. Thus, $\ell\left(
@@ -2170,7 +2093,7 @@ T\right)  >\ell\left(  B\right)  \geq\ell\left(  D\right)  $. Hence,
 $\operatorname*{Norm}\left(  D\right)  $ is a one-element set (by
 (\ref{pf.prop.BK.norm.indhyp}), applied to $S=D$).
 \par
-But $B\overset{\ast}{\Rrightarrow}D$. Thus, every $N\in\mathbf{R}$ satisfying
+But $B\overset{\ast}{\Rrightarrow}D$. Thus, every $N\in\OneTwoRPP$ satisfying
 $D\overset{\ast}{\Rrightarrow}N$ also satisfies $B\overset{\ast}{\Rrightarrow
 }N$ (since the relation $\overset{\ast}{\Rrightarrow}$ is transitive). In
 other words, every element of $\operatorname*{Norm}\left(  D\right)  $ is also
@@ -2201,8 +2124,8 @@ completes our induction.
 \end{proof}
 
 \begin{definition}
-Let $T\in\mathbf{S}$. Proposition \ref{prop.BK.norm} shows that there exists a
-unique $N\in\mathbf{R}$ such that $T\overset{\ast}{\Rrightarrow}N$. We define
+Let $T\in\BenignTables$. Proposition \ref{prop.BK.norm} shows that there exists a
+unique $N\in\OneTwoRPP$ such that $T\overset{\ast}{\Rrightarrow}N$. We define
 $\operatorname*{norm}\left(  T\right)  $ to be this $N$.
 \end{definition}
 
@@ -2231,13 +2154,13 @@ $\operatorname*{norm}\left(  T\right)  $ to be this $N$.
 %EndExpansion
 %t.
 %\]
-%Then, $\operatorname*{norm}\left(  T\right)  $ is the unique $N\in\mathbf{R}$
+%Then, $\operatorname*{norm}\left(  T\right)  $ is the unique $N\in\OneTwoRPP$
 %such that $T\overset{\ast}{\Rrightarrow}N$. Thus, we can obtain
 %$\operatorname*{norm}\left(  T\right)  $ from $T$ by repeatedly resolving
 %descents until no more descents are left (because \textquotedblleft%
 %$T\overset{\ast}{\Rrightarrow}N$\textquotedblright\ means \textquotedblleft$N$
 %can be obtained from $T$ by repeatedly resolving descents\textquotedblright,
-%and \textquotedblleft$N\in\mathbf{R}$\textquotedblright\ is equivalent to the
+%and \textquotedblleft$N\in\OneTwoRPP$\textquotedblright\ is equivalent to the
 %statement that $N$ has no descents). The word \textquotedblleft
 %unique\textquotedblright\ here implies that, in whatever order we resolve
 %descents, the result will always be the same. And the procedure will
@@ -2421,9 +2344,10 @@ $\operatorname*{norm}\left(  T\right)  $ to be this $N$.
 \subsection{Definition of $\mathbf{B}$}
 
 \begin{definition}
-Let us define a map $\mathbf{B}:\mathbf{R}\rightarrow\mathbf{R}$ as follows:
+\label{defi.B}
+Let us define a map $\mathbf{B}:\OneTwoRPP\rightarrow\OneTwoRPP$ as follows:
 
-Let $T\in\mathbf{R}$. We define $\mathbf{B}\left(
+Let $T\in\OneTwoRPP$. We define $\mathbf{B}\left(
 T\right)  $ to be $\operatorname*{norm}\left(  \operatorname*{flip}\left(
 T\right)  \right)  $.
 \end{definition}
@@ -2432,7 +2356,7 @@ In order to complete the proof of Lemma
 \ref{lem.BK}, we need to show that $\mathbf{B}$ is an involution, preserves the ceq statistic, and switches the number of columns containing 1 with the number of columns containing 2. At this point, all of this is easy:
 
 \begin{proof}[$\mathbf{B}$ is an involution]
-Let $T\in \mathbf{R}$. We have $\operatorname*{flip}\left(
+Let $T\in \OneTwoRPP$. We have $\operatorname*{flip}\left(
 T\right)  \overset{\ast}{\Rrightarrow}\operatorname*{norm}\left(
 \operatorname*{flip}\left(  T\right)  \right)  =
 \mathbf{B}\left(  T\right)  $. Lemma \ref{lem.descent-resolution-*props} \textbf{(c)} thus yields $\operatorname*{flip}\left(  \mathbf{B}\left(  T\right)
@@ -2440,13 +2364,13 @@ T\right)  \overset{\ast}{\Rrightarrow}\operatorname*{norm}\left(
 \operatorname*{flip}T\right)  = T$.
 
 But $\mathbf{B}(\mathbf{B}(T)) = \operatorname*{norm}\left(  \operatorname*{flip}\left(
-\mathbf{B}\left(  T\right)  \right)  \right)  $ is the unique $N\in\mathbf{R}$
+\mathbf{B}\left(  T\right)  \right)  \right)  $ is the unique $N\in\OneTwoRPP$
 such that $\operatorname*{flip}\left(  \mathbf{B}\left(  T\right)  \right)
-\overset{\ast}{\Rrightarrow}N$. Since $T \in \mathbf{R}$, we have $\mathbf{B}(\mathbf{B}(T)) = T$, as desired.
+\overset{\ast}{\Rrightarrow}N$. Since $T \in \OneTwoRPP$, we have $\mathbf{B}(\mathbf{B}(T)) = T$, as desired.
 \end{proof}
 
 \begin{proof}[$\mathbf{B}$ preserves ceq]
-Let $T\in\mathbf{R}$. As above, $\operatorname*{flip}\left(  T\right)  \overset{\ast
+Let $T\in\OneTwoRPP$. As above, $\operatorname*{flip}\left(  T\right)  \overset{\ast
 }{\Rrightarrow}\mathbf{B}\left(  T\right)  $. Lemma \ref{lem.descent-resolution-*props} \textbf{(a)} and Remark \ref{pf.lem.BK.flip.ircont} thus yield
 \[
 \operatorname*{ceq}\left(  \mathbf{B}\left(  T\right)  \right)
@@ -2456,7 +2380,7 @@ Let $T\in\mathbf{R}$. As above, $\operatorname*{flip}\left(  T\right)  \overset{
 \end{proof}
 
 \begin{proof}[$\mathbf{B}$ switches the numbers of columns containing 1 and 2]
-Let $T\in\mathbf{R}$. As above, $\operatorname*{flip}\left(  T\right)  \overset{\ast
+Let $T\in\OneTwoRPP$. As above, $\operatorname*{flip}\left(  T\right)  \overset{\ast
 }{\Rrightarrow}\mathbf{B}\left(  T\right)  $. Lemma \ref{lem.descent-resolution-*props} \textbf{(b)}
 and Remark \ref{pf.lem.BK.flip.ircont} thus yield
 \[
@@ -2486,7 +2410,7 @@ proofs; we can summarize it as follows:
 
 \begin{itemize}
 \item The main step of the construction was the construction of the involution
-$\mathbf{B}:\mathbf{R}\rightarrow\mathbf{R}$ in Lemma \ref{lem.BK} (for a
+$\mathbf{B}:\OneTwoRPP\rightarrow\OneTwoRPP$ in Lemma \ref{lem.BK} (for a
 given finite convex subset $Z$ of $\mathbb{N}_{+}^{2}$). This is an involution
 which sends 12-rpps of shape $Z$ to 12-rpps of the same shape $Z$, and it was
 constructed as follows: Given a 12-rpp $T$ of shape $Z$, we set $\mathbf{B}%
@@ -2498,13 +2422,13 @@ $\operatorname*{norm}\left(  \operatorname*{flip}\left(  T\right)  \right)  $
 is obtained from $\operatorname*{flip}\left(  T\right)  $ by repeatedly
 resolving descents until no descents remain.)
 
-\item Having constructed this map $\mathbf{B}:\mathbf{R}\rightarrow\mathbf{R}%
-$, we can construct the involution $\mathbf{B}_{Z}:\mathbf{R}_{Z}%
-\rightarrow\mathbf{R}_{Z}$ in Lemma \ref{lem.BKi} (for a given finite convex
+\item Having constructed this map $\mathbf{B}:\OneTwoRPP\rightarrow\OneTwoRPP%
+$, we can construct the involution $\mathbf{B}_{Z}:\OneTwoRPP_{Z}%
+\rightarrow\OneTwoRPP_{Z}$ in Lemma \ref{lem.BKi} (for a given finite convex
 subset $Z$ of $\mathbb{N}_{+}^{2}$) as follows: Given an rpp $S$ of shape $Z$
 whose entries are $i$'s and $\left(  i+1\right)  $'s, we first replace these
 entries by $1$'s and $2$'s (respectively), so that we obtain a 12-rpp; then,
-we apply the involution $\mathbf{B}:\mathbf{R}\rightarrow\mathbf{R}$ to this
+we apply the involution $\mathbf{B}:\OneTwoRPP\rightarrow\OneTwoRPP$ to this
 12-rpp; and then, in the resulting 12-rpp, we change the $1$'s and $2$'s back
 into $i$'s and $\left(  i+1\right)  $'s. The resulting rpp is $\mathbf{B}%
 _{Z}\left(  S\right)  $.
@@ -2717,7 +2641,7 @@ Now let us forget that we fixed $Z$. We thus have constructed a map
 $B:R\rightarrow R$ for every finite convex subset $Z$ of $\mathbb{N}_{+}^{2}$.
 Now, recall how the map $\mathbf{B}_{i}:\operatorname*{RPP}\left(  \lambda
 /\mu\right)  \rightarrow\operatorname*{RPP}\left(  \lambda/\mu\right)  $ was
-constructed from the maps $\mathbf{B}:\mathbf{R}\rightarrow\mathbf{R}$ for
+constructed from the maps $\mathbf{B}:\OneTwoRPP\rightarrow\OneTwoRPP$ for
 every finite convex subset $Z$ of $\mathbb{N}_{+}^{2}$ (essentially by
 forgetting all entries of an rpp except for the entries $i$ and $i+1$ and
 relabelling these entries $i$ and $i+1$ as $1$ and $2$). Similarly, the map
