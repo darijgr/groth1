@@ -2391,90 +2391,33 @@ Lemma \ref{lem.BK} is now proven.
 
 \section{\label{sect.BKclassical}The classical Bender-Knuth involutions}
 
-\subsection{Recalling the definition of $\mathbf{B}_{i}$}
-
-We fix a skew partition $\lambda/\mu$ and a positive integer $i$ for the whole
-Section \ref{sect.BKclassical}.
-
-Theorem \ref{thm.BK} merely claims the existence of an involution
-$\mathbf{B}_{i}:\operatorname*{RPP}\left(  \lambda/\mu\right)  \rightarrow
-\operatorname*{RPP}\left(  \lambda/\mu\right)  $ satisfying certain
-properties. Such an involution, per se, needs not be unique. However, if we
-trace back the proof of Theorem \ref{thm.BK} (and the proofs of the lemmas
-that were used in this proof), we notice that this proof constructs a specific
-involution $\mathbf{B}_{i}$. This construction is spread across various
-proofs; we can summarize it as follows:
-
-\begin{itemize}
-\item The main step of the construction was the construction of the involution
-$\mathbf{B}:\OneTwoRPP\rightarrow\OneTwoRPP$ in Lemma \ref{lem.BK} (for a
-given finite convex subset $Z$ of $\mathbb{N}_{+}^{2}$). This is an involution
-which sends 12-rpps of shape $Z$ to 12-rpps of the same shape $Z$, and it was
-constructed as follows: Given a 12-rpp $T$ of shape $Z$, we set $\mathbf{B}%
-\left(  T\right)  =\operatorname*{norm}\left(  \operatorname*{flip}\left(
-T\right)  \right)  $. (Recall that $\operatorname*{flip}\left(  T\right)  $
-fills all the 1-pure columns of $T$ with $2$'s while simultaneously filling
-all the 2-pure columns of $T$ with $1$'s. Recall furthermore that
-$\operatorname*{norm}\left(  \operatorname*{flip}\left(  T\right)  \right)  $
-is obtained from $\operatorname*{flip}\left(  T\right)  $ by repeatedly
-resolving descents until no descents remain.)
-
-\item Having constructed this map $\mathbf{B}:\OneTwoRPP\rightarrow\OneTwoRPP%
-$, we can construct the involution $\mathbf{B}_{Z}:\OneTwoRPP_{Z}%
-\rightarrow\OneTwoRPP_{Z}$ in Lemma \ref{lem.BKi} (for a given finite convex
-subset $Z$ of $\mathbb{N}_{+}^{2}$) as follows: Given an rpp $S$ of shape $Z$
-whose entries are $i$'s and $\left(  i+1\right)  $'s, we first replace these
-entries by $1$'s and $2$'s (respectively), so that we obtain a 12-rpp; then,
-we apply the involution $\mathbf{B}:\OneTwoRPP\rightarrow\OneTwoRPP$ to this
-12-rpp; and then, in the resulting 12-rpp, we change the $1$'s and $2$'s back
-into $i$'s and $\left(  i+1\right)  $'s. The resulting rpp is $\mathbf{B}%
-_{Z}\left(  S\right)  $.
-
-\item Finally, we can construct the involution $\mathbf{B}_{i}%
-:\operatorname*{RPP}\left(  \lambda/\mu\right)  \rightarrow\operatorname*{RPP}%
-\left(  \lambda/\mu\right)  $. To wit, if we are given an rpp $S\in
-\operatorname*{RPP}\left(  \lambda/\mu\right)  $, then we can restrict our
-attention to the cells of $S$ which contain the entries $i$ and $i+1$. These
-cells form an rpp of some shape $Z$. We then apply the involution
-$\mathbf{B}_{Z}$ to this new rpp, while leaving all the remaining entries of
-$S$ unchanged. The result is an rpp of shape $Y\left(  \lambda/\mu\right)  $
-again; this rpp is $\mathbf{B}_{i}\left(  S\right)  $.
-\end{itemize}
-
-In the following, whenever we will be talking about the involution
-$\mathbf{B}_{i}$, we will always mean this particular involution
-$\mathbf{B}_{i}$, rather than an arbitrary involution $\mathbf{B}_{i}$ which
-satisfies the claims of Theorem \ref{thm.BK}.
-
-\subsection{The Bender-Knuth involutions}
-
-We claimed that our involution $\mathbf{B}_{i}:\operatorname*{RPP}\left(
+Fix a skew partition $\lambda/\mu$ and a positive integer $i$.
+We claim that the involution $\mathbf{B}_{i}:\operatorname*{RPP}\left(
 \lambda/\mu\right)  \rightarrow\operatorname*{RPP}\left(  \lambda/\mu\right)
-$ is a generalization of the $i$-th Bender-Knuth involution defined for
-semistandard tableaux. Let us now elaborate on this claim. First, we shall
+$ we have constructed is a generalization of the $i$-th Bender-Knuth involution defined for
+semistandard tableaux. First, we shall
 define the $i$-th Bender-Knuth involution (following \cite[proof of
 Proposition 2.11]{GriRei15} and \cite[proof of Theorem 7.10.2]{Stan99}).
 
 Let $\operatorname*{SST}\left(  \lambda/\mu\right)  $ denote the set of all
 semistandard tableaux of shape $Y\left(  \lambda/\mu\right)  $. We define a
 map $B_{i}:\operatorname*{SST}\left(  \lambda/\mu\right)  \rightarrow
-\operatorname*{SST}\left(  \lambda/\mu\right)  $ as follows:\footnote{We refer
-to Example \ref{exa.BKclassical} below for illustration.}
+\operatorname*{SST}\left(  \lambda/\mu\right)  $ as follows:
+%\footnote{We refer
+%to Example \ref{exa.BKclassical} below for illustration.}
 
-Let $T\in\operatorname*{SST}\left(  \lambda/\mu\right)  $. Then, $T$ is a
-semistandard tableau, so that every column of $T$ contains at most one $i$ and
-at most one $i+1$. We shall ignore all columns of $T$ which contain both an
-$i$ and an $i+1$; that is, we mark all the entries of all such columns as
+Let $T\in\operatorname*{SST}\left(  \lambda/\mu\right)  $. Then every column of $T$ contains at most one $i$ and
+at most one $i+1$. If a column contains both an
+$i$ and an $i+1$, we will mark its entries as
 \textquotedblleft ignored\textquotedblright. Now, let $k\in\mathbb{N}_{+}$.
 The $k$-th row of $T$ is a weakly increasing sequence of positive integers;
 thus, it contains a (possibly empty) string of $i$'s followed by a (possibly
 empty) string of $\left(  i+1\right)  $'s. These two strings together form a
 substring of the $k$-th row which looks as follows:%
 \[
-\left(  i,i,\ldots,i,i+1,i+1,\ldots,i+1\right)
+\left(  i,i,\ldots,i,i+1,i+1,\ldots,i+1\right).
 \]
-\footnote{Of course, this might contain no $i$'s or no $\left(  i+1\right)
-$'s.}. Some of the entries of this substring are \textquotedblleft
+Some of the entries of this substring are \textquotedblleft
 ignored\textquotedblright; it is easy to see that the \textquotedblleft
 ignored\textquotedblright\ $i$'s are gathered at the left end of the substring
 whereas the \textquotedblleft ignored\textquotedblright\ $\left(  i+1\right)
@@ -2503,18 +2446,17 @@ which}\\\text{are \textquotedblleft ignored\textquotedblright}}%
 i+1\right)  \text{'s which}\\\text{are not \textquotedblleft
 ignored\textquotedblright}}}\right)  .
 \]
-And we do this for every $k\in\mathbb{N}_{+}$ (simultaneously or consecutively
--- it does not matter). At the end, we have obtained a new semistandard
+We do this for every $k\in\mathbb{N}_{+}$. At the end, we have obtained a new semistandard
 tableau of shape $Y\left(  \lambda/\mu\right)  $. We define $B_{i}\left(
 T\right)  $ to be this new tableau.
 
-\Needspace{25\baselineskip}
-
-\begin{example}
-\label{exa.BKclassical}Let us give an example of this construction of $B_{i}$.
-Namely, let $i=2$, let $\lambda=\left(  7,6,4,1\right)  $, and let
-$\mu=\left(  3\right)  $. Let $T$ be the semistandard tableau%
-\[%
+%\Needspace{25\baselineskip}
+%
+%\begin{example}
+%\label{exa.BKclassical}Let us give an example of this construction of $B_{i}$.
+%Namely, let $i=2$, let $\lambda=\left(  7,6,4,1\right)  $, and let
+%$\mu=\left(  3\right)  $. Let $T$ be the semistandard tableau%
+%\[%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& \none& 1 & 1 & 2 & 2 \\
@@ -2523,55 +2465,55 @@ $\mu=\left(  3\right)  $. Let $T$ be the semistandard tableau%
 %4
 %\end{ytableau}}}%
 %BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& \none& \none& 1 & 1 & 2 & 2 \\
-1 & 2 & 2 & 2 & 3 & 3 \\
-3 & 3 & 5 & 6 \\
-4
-\end{ytableau}%
+%\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& \none& 1 & 1 & 2 & 2 \\
+%1 & 2 & 2 & 2 & 3 & 3 \\
+%3 & 3 & 5 & 6 \\
+%4
+%\end{ytableau}%
 %EndExpansion
-\]
-of shape $Y\left(  \lambda/\mu\right)  $. We want to find $B_{i}\left(
-T\right)  $.
-
-The columns that contain both an $i$ and an $i+1$ (that is, both a $2$ and a
-$3$) are the second and the sixth columns. So we mark all entries of these two
-columns as \textquotedblleft ignored\textquotedblright. Now, the substring of
-the $2$-nd row of $T$ formed by the $i$'s and the $\left(  i+1\right)  $'s
-looks as follows:%
-\[
-\left(  \underbrace{2}_{\substack{1\text{ many }2\text{'s which}\\\text{are
-\textquotedblleft ignored\textquotedblright}}},\underbrace{2,2}%
-_{\substack{2\text{ many }2\text{'s which}\\\text{are not \textquotedblleft
-ignored\textquotedblright}}},\underbrace{3}_{\substack{1\text{ many }3\text{'s
-which}\\\text{are not \textquotedblleft ignored\textquotedblright}%
-}},\underbrace{3}_{\substack{2\text{ many }3\text{'s which}\\\text{are not
-\textquotedblleft ignored\textquotedblright}}}\right)  .
-\]
-So we change it into%
-\[
-\left(  \underbrace{2}_{\substack{1\text{ many }2\text{'s which}\\\text{are
-\textquotedblleft ignored\textquotedblright}}},\underbrace{2}%
-_{\substack{1\text{ many }2\text{'s which}\\\text{are not \textquotedblleft
-ignored\textquotedblright}}},\underbrace{3,3}_{\substack{2\text{ many
-}3\text{'s which}\\\text{are not \textquotedblleft ignored\textquotedblright}%
-}},\underbrace{3}_{\substack{2\text{ many }3\text{'s which}\\\text{are not
-\textquotedblleft ignored\textquotedblright}}}\right)  .
-\]
-Similarly, we change the substring $\left(  2,2\right)  $ of the $1$-st row of
-$T$ into $\left(  2,3\right)  $ (because its first $2$ is \textquotedblleft
-ignored\textquotedblright\ but its second $2$ is not), and we change the
-substring $\left(  3,3\right)  $ of the $3$-rd row of $T$ into $\left(
-2,3\right)  $ (because its first $3$ is not \textquotedblleft
-ignored\textquotedblright\ but its second $3$ is). The substring of the $4$-th
-row, of the $5$-th row, of the $6$-th row, etc., formed by the $i$'s and
-$\left(  i+1\right)  $'s are empty (because these rows have neither $i$'s nor
-$\left(  i+1\right)  $'s), and thus we do not make any changes on them. Now,
-$B_{i}\left(  T\right)  $ is defined to be the tableau that results from all
-of these changes; thus,%
-\[
-B_{i}\left(  T\right)  =%
+%\]
+%of shape $Y\left(  \lambda/\mu\right)  $. We want to find $B_{i}\left(
+%T\right)  $.
+%
+%The columns that contain both an $i$ and an $i+1$ (that is, both a $2$ and a
+%$3$) are the second and the sixth columns. So we mark all entries of these two
+%columns as \textquotedblleft ignored\textquotedblright. Now, the substring of
+%the $2$-nd row of $T$ formed by the $i$'s and the $\left(  i+1\right)  $'s
+%looks as follows:%
+%\[
+%\left(  \underbrace{2}_{\substack{1\text{ many }2\text{'s which}\\\text{are
+%\textquotedblleft ignored\textquotedblright}}},\underbrace{2,2}%
+%_{\substack{2\text{ many }2\text{'s which}\\\text{are not \textquotedblleft
+%ignored\textquotedblright}}},\underbrace{3}_{\substack{1\text{ many }3\text{'s
+%which}\\\text{are not \textquotedblleft ignored\textquotedblright}%
+%}},\underbrace{3}_{\substack{2\text{ many }3\text{'s which}\\\text{are not
+%\textquotedblleft ignored\textquotedblright}}}\right)  .
+%\]
+%So we change it into%
+%\[
+%\left(  \underbrace{2}_{\substack{1\text{ many }2\text{'s which}\\\text{are
+%\textquotedblleft ignored\textquotedblright}}},\underbrace{2}%
+%_{\substack{1\text{ many }2\text{'s which}\\\text{are not \textquotedblleft
+%ignored\textquotedblright}}},\underbrace{3,3}_{\substack{2\text{ many
+%}3\text{'s which}\\\text{are not \textquotedblleft ignored\textquotedblright}%
+%}},\underbrace{3}_{\substack{2\text{ many }3\text{'s which}\\\text{are not
+%\textquotedblleft ignored\textquotedblright}}}\right)  .
+%\]
+%Similarly, we change the substring $\left(  2,2\right)  $ of the $1$-st row of
+%$T$ into $\left(  2,3\right)  $ (because its first $2$ is \textquotedblleft
+%ignored\textquotedblright\ but its second $2$ is not), and we change the
+%substring $\left(  3,3\right)  $ of the $3$-rd row of $T$ into $\left(
+%2,3\right)  $ (because its first $3$ is not \textquotedblleft
+%ignored\textquotedblright\ but its second $3$ is). The substring of the $4$-th
+%row, of the $5$-th row, of the $6$-th row, etc., formed by the $i$'s and
+%$\left(  i+1\right)  $'s are empty (because these rows have neither $i$'s nor
+%$\left(  i+1\right)  $'s), and thus we do not make any changes on them. Now,
+%$B_{i}\left(  T\right)  $ is defined to be the tableau that results from all
+%of these changes; thus,%
+%\[
+%B_{i}\left(  T\right)  =%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& \none& 1 & 1 & 2 & 3 \\
@@ -2580,18 +2522,18 @@ B_{i}\left(  T\right)  =%
 %4
 %\end{ytableau}}}%
 %BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& \none& \none& 1 & 1 & 2 & 3 \\
-1 & 2 & 2 & 3 & 3 & 3 \\
-2 & 3 & 5 & 6 \\
-4
-\end{ytableau}%
+%\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& \none& 1 & 1 & 2 & 3 \\
+%1 & 2 & 2 & 3 & 3 & 3 \\
+%2 & 3 & 5 & 6 \\
+%4
+%\end{ytableau}%
 %EndExpansion
-.
-\]
-
-\end{example}
+%.
+%\]
+%
+%\end{example}
 
 \begin{proposition}
 \label{prop.BKclassical}The map $B_{i}:\operatorname*{SST}\left(  \lambda
@@ -2600,16 +2542,9 @@ defined is an involution. It is known as the $i$\textit{-th Bender-Knuth
 involution}.
 \end{proposition}
 
-Proposition \ref{prop.BKclassical} is easy to prove (and is usually proven in
-less or more detail everywhere the map $B_{i}$ is defined).
-
 Now, every semistandard tableau of shape $Y\left(  \lambda/\mu\right)  $ is
-also an rpp of shape $Y\left(  \lambda/\mu\right)  $. In other words,
-$\operatorname*{SST}\left(  \lambda/\mu\right)  \subseteq\operatorname*{RPP}%
-\left(  \lambda/\mu\right)  $. Hence, $\mathbf{B}_{i}\left(  T\right)  $ is
-defined for every $T\in\operatorname*{SST}\left(  \lambda/\mu\right)  $. Now,
-the claim that we want to make (that our involution $\mathbf{B}_{i}$ is a
-generalization of the $i$-th Bender-Knuth involution $B_{i}$) can be stated as follows:
+also an rpp of shape $Y\left(  \lambda/\mu\right)  $. Hence, $\mathbf{B}_{i}\left(  T\right)  $ is
+defined for every $T\in\operatorname*{SST}\left(  \lambda/\mu\right)  $. Our claim is the following:
 
 \begin{proposition}
 \label{prop.BK=BK}For every $T\in\operatorname*{SST}\left(  \lambda
@@ -2618,53 +2553,15 @@ T\right)  $.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.BK=BK} (sketched).]We shall abbreviate
-\textquotedblleft semistandard tableau\textquotedblright\ as \textquotedblleft
-sst\textquotedblright. We define a \textit{12-sst} to be an sst whose entries
-all belong to the set $\left\{  1,2\right\}  $.
+[Proof of Proposition \ref{prop.BK=BK}.] 
+Recall that the map $\mathbf{B}_i$ comes from the map $\mathbf{B}$ we defined on 12-rpps in Section~\ref{sect.proof}.
+We define a \textit{12-sst} to be a semistandard tableau whose entries all belong to the set $\left\{  1,2\right\}  $.
+Clearly, to prove Proposition~\ref{prop.BK=BK}, it suffices to prove that $B_1(T) = \mathbf{B}(T)$ for all 12-ssts $T$.
 
-Let $Z$ be a finite convex subset of $\mathbb{N}_{+}^{2}$. Let $R$ denote the
-set of all 12-ssts of shape $Z$. We define a map $B:R\rightarrow R$ in the
-same way as we defined the map $B_{i}:\operatorname*{SST}\left(  \lambda
-/\mu\right)  \rightarrow\operatorname*{SST}\left(  \lambda/\mu\right)  $, with
-the only differences that we replace every appearance of \textquotedblleft%
-$\operatorname*{SST}\left(  \lambda/\mu\right)  $\textquotedblright, of
-\textquotedblleft$i$\textquotedblright\ and of \textquotedblleft%
-$i+1$\textquotedblright\ by \textquotedblleft$R$\textquotedblright,
-\textquotedblleft$1$\textquotedblright\ and \textquotedblleft$2$%
-\textquotedblright, respectively. Then, this map $B:R\rightarrow R$ is an involution.
-
-Now let us forget that we fixed $Z$. We thus have constructed a map
-$B:R\rightarrow R$ for every finite convex subset $Z$ of $\mathbb{N}_{+}^{2}$.
-Now, recall how the map $\mathbf{B}_{i}:\operatorname*{RPP}\left(  \lambda
-/\mu\right)  \rightarrow\operatorname*{RPP}\left(  \lambda/\mu\right)  $ was
-constructed from the maps $\mathbf{B}:\OneTwoRPP\rightarrow\OneTwoRPP$ for
-every finite convex subset $Z$ of $\mathbb{N}_{+}^{2}$ (essentially by
-forgetting all entries of an rpp except for the entries $i$ and $i+1$ and
-relabelling these entries $i$ and $i+1$ as $1$ and $2$). Similarly, the map
-$B_{i}:\operatorname*{SST}\left(  \lambda/\mu\right)  \rightarrow
-\operatorname*{SST}\left(  \lambda/\mu\right)  $ can be constructed from the
-maps $B:R\rightarrow R$ for every finite convex subset $Z$ of $\mathbb{N}%
-_{+}^{2}$ (essentially by forgetting all entries of an sst except for the
-entries $i$ and $i+1$ and relabelling these entries $i$ and $i+1$ as $1$ and
-$2$). Thus, in order to prove that $B_{i}\left(  T\right)  =\mathbf{B}%
-_{i}\left(  T\right)  $ for every $T\in\operatorname*{SST}\left(  \lambda
-/\mu\right)  $, it suffices to show that $B\left(  T\right)  =\mathbf{B}%
-\left(  T\right)  $ for every finite convex subset $Z$ of $\mathbb{N}_{+}^{2}$
-and any 12-sst $T$ of shape $Z$.
-
-\begin{todo}
-Is this readable?
-\end{todo}
-
-So let $Z$ be any finite convex subset of $\mathbb{N}_{+}^{2}$, and let $T$ be
-a 12-sst of shape $Z$. We need to prove that $B\left(  T\right)
-=\mathbf{B}\left(  T\right)  $.
-
-\begin{example}
-Here is an example of a 12-sst:%
-\begin{equation}
-T=%
+%\begin{example}
+%Here is an example of a 12-sst:%
+%\begin{equation}
+%T=%
 %TCIMACRO{\TeXButton{ytableau}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& \none& \none& \none& \none& \none& \none& 1 \\
@@ -2675,20 +2572,20 @@ T=%
 %\end{ytableau}
 %}}%
 %BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& \none& \none& \none& \none& \none& \none& \none& 1 \\
-\none& \none& \none& \none& \none& 1 & 1 & 2 \\
-\none& \none& \none& 1 & 2 & 2 & 2 \\
-1 & 2 \\
-2
-\end{ytableau}
+%\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& \none& \none& \none& \none& \none& \none& 1 \\
+%\none& \none& \none& \none& \none& 1 & 1 & 2 \\
+%\none& \none& \none& 1 & 2 & 2 & 2 \\
+%1 & 2 \\
+%2
+%\end{ytableau}
 %EndExpansion
-. \label{pf.prop.BK=BK.exampleT}%
-\end{equation}
-It satisfies%
-\begin{equation}
-B\left(  T\right)  =%
+%. \label{pf.prop.BK=BK.exampleT}%
+%\end{equation}
+%It satisfies%
+%\begin{equation}
+%B\left(  T\right)  =%
 %TCIMACRO{\TeXButton{ytableau}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& \none& \none& \none& \none& \none& \none& 1 \\
@@ -2698,20 +2595,20 @@ B\left(  T\right)  =%
 %2
 %\end{ytableau}} }%
 %BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& \none& \none& \none& \none& \none& \none& \none& 1 \\
-\none& \none& \none& \none& \none& 1 & 2 & 2 \\
-\none& \none& \none& 1 & 1 & 2 & 2 \\
-1 & 1 \\
-2
-\end{ytableau}
+%\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& \none& \none& \none& \none& \none& \none& 1 \\
+%\none& \none& \none& \none& \none& 1 & 2 & 2 \\
+%\none& \none& \none& 1 & 1 & 2 & 2 \\
+%1 & 1 \\
+%2
+%\end{ytableau}
 %EndExpansion
-\label{pf.prop.BK=BK.exampleBT}%
-\end{equation}
-and%
-\begin{equation}
-\operatorname*{flip}\left(  T\right)  =%
+%\label{pf.prop.BK=BK.exampleBT}%
+%\end{equation}
+%and%
+%\begin{equation}
+%\operatorname*{flip}\left(  T\right)  =%
 %TCIMACRO{\TeXButton{ytableau}{\ytableausetup{notabloids}
 %\begin{ytableau}
 %\none& \none& \none& \none& \none& \none& \none& \none& 1 \\
@@ -2721,156 +2618,56 @@ and%
 %2
 %\end{ytableau}} }%
 %BeginExpansion
-\ytableausetup{notabloids}
-\begin{ytableau}
-\none& \none& \none& \none& \none& \none& \none& \none& 1 \\
-\none& \none& \none& \none& \none& 1 & 2 & 2 \\
-\none& \none& \none& 2 & 1 & 1 & 2 \\
-1 & 1 \\
-2
-\end{ytableau}
+%\ytableausetup{notabloids}
+%\begin{ytableau}
+%\none& \none& \none& \none& \none& \none& \none& \none& 1 \\
+%\none& \none& \none& \none& \none& 1 & 2 & 2 \\
+%\none& \none& \none& 2 & 1 & 1 & 2 \\
+%1 & 1 \\
+%2
+%\end{ytableau}
 %EndExpansion
-\label{pf.prop.BK=BK.exampleflipT}%
-\end{equation}
-(where $\operatorname*{flip}\left(  T\right)  $ is defined as in the
-construction of $\mathbf{B}\left(  T\right)  $).
-\end{example}
+%\label{pf.prop.BK=BK.exampleflipT}%
+%\end{equation}
+%(where $\operatorname*{flip}\left(  T\right)  $ is defined as in the
+%construction of $\mathbf{B}\left(  T\right)  $).
+%\end{example}
 
-We make a few basic observations: The columns which are ignored in the
-construction of $B\left(  T\right)  $ are the columns which contain both a $1$
-and a $2$.\ \ \ \ \footnote{For instance, in the 12-sst
-(\ref{pf.prop.BK=BK.exampleT}), the ignored columns are the $1$-st, the $7$-th
-and the $9$-th columns.} These columns contain exactly two entries each
-(because a column of a 12-sst can only contain at most one $1$, at most one
-$2$ and no other entries), while every other column is either empty or
-contains only one entry. As a consequence, every entry of $T$ which is not
-\textquotedblleft ignored\textquotedblright\ in the construction of $B\left(
-T\right)  $ is alone in its column.
-
-Let us compare the basic ideas of the constructions of $B\left(  T\right)  $
-and $\mathbf{B}\left(  T\right)  $:
-
-\begin{itemize}
-\item To construct $B\left(  T\right)  $, we ignore all columns of $T$ which
-contain both a $1$ and a $2$; that is, we mark all entries in these columns as
-\textquotedblleft ignored\textquotedblright. Then, in every row, we let $r$ be
-the number of $1$'s which are not \textquotedblleft ignored\textquotedblright,
-and let $s$ be the number of $2$'s which are not \textquotedblleft
-ignored\textquotedblright. We replace these $r$ many $1$'s and $s$ many $2$'s
-by $s$ many $1$'s and $r$ many $2$'s. This we do for every row; the resulting
-12-sst is $B\left(  T\right)  $.
-
-\item To construct $\mathbf{B}\left(  T\right)  $, we consider $T$ as a
-12-rpp, and we identify which of its columns are 1-pure, which are 2-pure and
-which are mixed. Then, we replace all entries of all 1-pure columns by $2$'s,
-while simultaneously replacing all entries of all 2-pure columns by $1$'s. The
-resulting 12-table is denoted $\operatorname*{flip}\left(  T\right)  $. Then,
-we repeatedly resolve descents in $\operatorname*{flip}\left(  T\right)  $
-until no more descents remain. The resulting 12-table $\operatorname*{norm}%
-\left(  \operatorname*{flip}\left(  T\right)  \right)  $ is a 12-rpp, and is
-denoted $\mathbf{B}\left(  T\right)  $.
-\end{itemize}
-
-If we compare the two constructions just described, we first notice that the
-columns ignored in the construction of $B\left(  T\right)  $ are precisely the
-mixed columns of $T$. Thus, the 12-table $\operatorname*{flip}\left(
-T\right)  $ can be obtained from $T$ by replacing all $1$'s which are not
-\textquotedblleft ignored\textquotedblright\ by $2$'s while simultaneously
-replacing all $2$'s which are not \textquotedblleft ignored\textquotedblright%
-\ by $1$'s. Thus, for any given $r\in\mathbb{N}_{+}$, if the $r$-th row of $T$
-contains $r$ many $1$'s which are not \textquotedblleft
-ignored\textquotedblright\ and $s$ many $2$'s which are not \textquotedblleft
-ignored\textquotedblright, then the $r$-th row of $\operatorname*{flip}\left(
-T\right)  $ contains $r$ many $2$'s which are not \textquotedblleft
-ignored\textquotedblright\ and $s$ many $1$'s which are not \textquotedblleft
-ignored\textquotedblright\ (while the \textquotedblleft
-ignored\textquotedblright\ entries in $T$ appear in $\operatorname*{flip}%
-\left(  T\right)  $ unchanged). So we can restate the construction of
-$\operatorname*{flip}\left(  T\right)  $ as follows:
-
-\begin{itemize}
-\item To construct $\operatorname*{flip}\left(  T\right)  $ from $T$, do the
-following: In every row of $T$, let $r$ be the number of $1$'s which are not
-\textquotedblleft ignored\textquotedblright, and let $s$ be the number of
-$2$'s which are not \textquotedblleft ignored\textquotedblright. We replace
-these $r$ many $1$'s and $s$ many $2$'s by $r$ many $2$'s and $s$ many $1$'s
-(in this order). This we do for every row; the resulting 12-table is
-$\operatorname*{flip}\left(  T\right)  $.
-\end{itemize}
-
-Compare this to our construction of $B\left(  T\right)  $:
-
-\begin{itemize}
-\item To construct $B\left(  T\right)  $ from $T$, do the following: In every
-row of $T$, let $r$ be the number of $1$'s which are not \textquotedblleft
-ignored\textquotedblright, and let $s$ be the number of $2$'s which are not
-\textquotedblleft ignored\textquotedblright. We replace these $r$ many $1$'s
-and $s$ many $2$'s by $s$ many $1$'s and $r$ many $2$'s (in this order). This
-we do for every row; the resulting 12-sst is $B\left(  T\right)  $.
-\end{itemize}
-
-Comparing these two constructions makes it clear that each row of $B\left(
-T\right)  $ differs from the corresponding row of $\operatorname*{flip}\left(
-T\right)  $ merely in the order in which the non-\textquotedblleft
-ignored\textquotedblright\ entries appear: In $B\left(  T\right)  $, the
-non-\textquotedblleft ignored\textquotedblright\ $1$'s appear before the
-non-\textquotedblleft ignored\textquotedblright\ $2$'s (as they must,
-$B\left(  T\right)  $ being an sst), whereas in $\operatorname*{flip}\left(
-T\right)  $ they appear in the opposite order. Hence, $B\left(  T\right)  $
-can be obtained from $\operatorname*{flip}\left(  T\right)  $ by sorting all
-non-\textquotedblleft ignored\textquotedblright\ entries into increasing order
-in each row.
-
-Now, let us notice that every pair of a non-\textquotedblleft
-ignored\textquotedblright\ $2$ and a non-\textquotedblleft
-ignored\textquotedblright\ $1$ lying in the same row of $\operatorname*{flip}%
-\left(  T\right)  $ cause a descent\footnote{More precisely: If $r\in
-\mathbb{N}_{+}$, $i\in\mathbb{N}_{+}$ and $j\in\mathbb{N}_{+}$ are such that
-$\left(  \operatorname*{flip}T\right)  \left(  r,i\right)  $ is a
-non-\textquotedblleft ignored\textquotedblright\ $2$ and that $\left(
-\operatorname*{flip}T\right)  \left(  r,j\right)  $ is a non-\textquotedblleft
-ignored\textquotedblright\ $1$, then $\left(  i,j\right)  $ is a descent of
-$\operatorname*{flip}T$.}. Conversely, all descents of $\operatorname*{flip}%
-\left(  T\right)  $ are caused by a non-\textquotedblleft
-ignored\textquotedblright\ $2$ and a non-\textquotedblleft
-ignored\textquotedblright\ $1$ lying in the same row (because all
-\textquotedblleft ignored\textquotedblright\ entries are carried over from $T$
-without change and thus cannot take part in descents). We can resolve these
-descents one after the other (starting with the $2$ and the $1$ that are
-adjacent to each other), until none are left. The result is a 12-rpp. What is
-this 12-rpp?
-
-\begin{itemize}
-\item On the one hand, this 12-rpp is $\operatorname*{norm}\left(
-\operatorname*{flip}\left(  T\right)  \right)  $, because
-$\operatorname*{norm}\left(  \operatorname*{flip}\left(  T\right)  \right)  $
-is defined as what results when all descents of $\operatorname*{flip}\left(
-T\right)  $ are resolved.
-
-\item On the other hand, this 12-rpp is $B\left(  T\right)  $. In fact,
-resolving a descent caused by a non-\textquotedblleft
-ignored\textquotedblright\ $2$ and a non-\textquotedblleft
-ignored\textquotedblright\ $1$ lying in the same row results in this $2$
-getting switched with the $1$ (while no other entries get moved\footnote{This
-is because every non-\textquotedblleft ignored\textquotedblright\ entry is
-alone in its column.}). Hence, when we resolve the descents, we just sort all
-non-\textquotedblleft ignored\textquotedblright\ entries into increasing order
-in each row. But as we know, the 12-table obtained from $\operatorname*{flip}%
-\left(  T\right)  $ by sorting all non-\textquotedblleft
-ignored\textquotedblright\ entries into increasing order in each row is
-$B\left(  T\right)  $.
-\end{itemize}
-
-So we have found a 12-rpp which equals both $\operatorname*{norm}\left(
-\operatorname*{flip}\left(  T\right)  \right)  $ and $B\left(  T\right)  $.
-Thus, $B\left(  T\right)  =\operatorname*{norm}\left(  \operatorname*{flip}%
-\left(  T\right)  \right)  =\mathbf{B}\left(  T\right)  $. This completes our
-proof of Proposition \ref{prop.BK=BK}.
+Let $T$ be a 12-sst, and let $k \in \mathbb{N}_+$. The $k$-th row of $T$ has the form
+\[
+\left(  \underbrace{1,1,\ldots,1}_{\substack{a \ 1\text{'s
+which are in}\\\text{mixed columns}}%
+},\underbrace{1,1,\ldots,1}_{\substack{r \ 1\text{-pure}%
+\\\text{columns}}%
+},\underbrace{2,2,\ldots,2}_{\substack{s \ 2\text{-pure}%
+\\\text{columns}}%
+},\underbrace{2,2,\ldots,2}_{b \ \substack{2\text{'s
+which are in}\\\text{mixed columns}}}\right)
+\]
+where each 1-pure and 2-pure column contains only one entry. Thus, the $k$-th row of $\operatorname*{flip}\left(  T\right)$ is
+\[
+\left(  \underbrace{1,1,\ldots,1}_{\substack{a \ 1\text{'s
+which are in}\\\text{mixed columns}}%
+},\underbrace{2,2,\ldots,2}_{\substack{r \ 2\text{-pure}%
+\\\text{columns}}%
+},\underbrace{1,1,\ldots,1}_{\substack{s \ 1\text{-pure}%
+\\\text{columns}}%
+},\underbrace{2,2,\ldots,2}_{\substack{b \ 2\text{'s
+which are in}\\\text{mixed columns}}}\right).
+\]
+We can now repeatedly apply descent-resolution steps to obtain a tableau whose $k$-th row is
+\[
+\left(  \underbrace{1,1,\ldots,1}_{\substack{a \ 1\text{'s
+which are in}\\\text{mixed columns}}%
+},\underbrace{1,1,\ldots,1}_{\substack{s \ 1\text{-pure}%
+\\\text{columns}}%
+},\underbrace{2,2,\ldots,2}_{\substack{r \ 2\text{-pure}%
+\\\text{columns}}%
+},\underbrace{2,2,\ldots,2}_{\substack{b \ 2\text{'s
+which are in}\\\text{mixed columns}}}\right).
+\]
+Repeating this process for every row of $\operatorname*{flip}\left(  T\right)$ (we can do this because each pure column contains only one entry, and thus each descent-resolution described above affects only one row), we obtain a 12-rpp. By the definition of $\mathbf{B}$, this rpp must equal $\mathbf{B}(T)$. By the above description, it is also clearly equal to $B_1(T)$, which completes the proof.
 \end{proof}
-
-\begin{todo}
-Can you follow the above argument? (Preferrably at 3AM and/or under the influence.)
-\end{todo}
 
 
 
