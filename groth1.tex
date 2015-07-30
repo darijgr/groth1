@@ -1814,13 +1814,7 @@ higher than the lower border of the $\left(v+1\right)$-th column
 %EndExpansion
 %\]
 
-Let $s=\operatorname*{sep}\nolimits_{v}A$. Then, the cells
-$\left(s, v-1\right), \left(s, v\right), \left(s, v+1\right),
-\left(s+1, v-1\right), \left(s+1, v\right), \left(s+1, v+1\right)$
-all belong to $\lm$ (due to what we just said about separating
-lines). We shall refer to this observation as the
-``six-cells property''.
-
+Let $s=\operatorname*{sep}\nolimits_{v}A$.
 Now, $B = \operatorname*{res}\nolimits_{v-1}A$, so $B$ is
 represented as follows:%
 \[
@@ -1869,10 +1863,8 @@ B=%
 %\end{ytableau}%
 %EndExpansion
 %$.
-where $\operatorname*{sep}\nolimits_{v-1}B = s$ (that is, the
-separating line in the $\left(v-1\right)$-th column of $B$ is at
-the same height as the separating line in the $v$-th column of $A$).
-Now, $v$ is a descent of $B$ (due to the six-cells property).
+where $\operatorname*{sep}\nolimits_{v-1}B = s$.
+Now, $v$ is a descent of $B$.
 Resolving this descent yields a
 12-table $\operatorname{res}_{v}B$ which is represented as follows:
 \[
@@ -1905,7 +1897,7 @@ Resolving this descent yields a
 \cline{1-1}
 \end{tabular}%
 %EndExpansion
-,
+.
 \]
 %and the restriction of $\operatorname*{res}\nolimits_{v}B$ to the core squares
 %is $%
@@ -1923,7 +1915,7 @@ Resolving this descent yields a
 %EndExpansion
 %$.
 This, in turn, shows that $v-1$ is a descent of $\operatorname*{res}%
-\nolimits_{v}B$ (by the six-cells property). Resolving this descent
+\nolimits_{v}B$. Resolving this descent
 yields a 12-table $\operatorname*{res}\nolimits_{v-1}\left(
 \operatorname*{res}\nolimits_{v}B\right)  $ which is represented as follows:%
 \begin{equation}
@@ -2098,27 +2090,13 @@ $B\in\mathbf{Z}$ and $C\in\mathbf{Z}$, we have
 $\operatorname*{Norm}\left(  B\right)  \cap\operatorname*{Norm}\left(
 C\right)  \neq\varnothing$. 
 \ \ \ \ \footnote{In more detail:
-\par
-Let $B\in\mathbf{Z}$ and $C\in\mathbf{Z}$. Then,
-$T\Rrightarrow B$ (since $B\in\mathbf{Z}$), so that
-$\ell\left(  T\right)  >\ell\left(  B\right)  $ (by
-Lemma \ref{lem.descent-resolution-props} \textbf{(d)}).
-Similarly, $T\Rrightarrow C$ and
-$\ell\left(  T\right)  >\ell\left(  C\right)  $.
-Hence, Lemma \ref{prop.descent-resolution-hyps} (applied to $A=T$)
-yields that there exists
+By Lemma \ref{prop.descent-resolution-hyps} there exists
 a $D\in\BenignTables$ such that $B\overset{\ast}{\Rrightarrow}D$ and
-$C\overset{\ast}{\Rrightarrow}D$. Consider this $D$. Lemma
-\ref{lem.descent-resolution-*props} \textbf{(d)} (applied to $P=B$ and $Q=D$)
-yields $\ell\left(  B\right)  \geq\ell\left(  D\right)  $. Thus, $\ell\left(
-T\right)  >\ell\left(  B\right)  \geq\ell\left(  D\right)  $. Hence,
-$\operatorname*{Norm}\left(  D\right)  $ is a one-element set (by
-(\ref{pf.prop.BK.norm.indhyp}), applied to $S=D$). Its unique element
-clearly lies in both $\operatorname*{Norm}\left(  B\right)  $ and
-$\operatorname*{Norm}\left(  C\right)  $ (since
-the relation $\overset{\ast}{\Rrightarrow}$ is transitive). Hence,
+$C\overset{\ast}{\Rrightarrow}D$. By induction,
+$\operatorname*{Norm}\left(  D\right)  $ is a one-element set. Its unique element
+clearly lies in both $\operatorname*{Norm}\left(  B\right)  $ and $\operatorname*{Norm}\left(  C\right)  $, so
 $\operatorname*{Norm}\left(
-B\right)  \cap\operatorname*{Norm}\left(  C\right)  \neq\varnothing$, qed.
+B\right)  \cap\operatorname*{Norm}\left(  C\right)  \neq\varnothing$.
 
 % [DG] You will probably want to shorten this. Fine with me, but please
 % don't remove this nontrivial argument completely.
