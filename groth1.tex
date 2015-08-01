@@ -444,9 +444,9 @@ of these involutions in Section \ref{sect.BKclassical}.
  Replacing ``semistandard
 tableau'' by ``rpp'' in the
 definition of a Schur function in general gives a non-symmetric function. Nevertheless, Lam
-and Pylyavskyy \cite[\S 9]{LamPyl} have noticed that it is possible to define
-symmetric functions from rpps, albeit it requires replacing the content
-$\operatorname*{cont}\left(  T\right)  $ by a subtler construction.
+and Pylyavskyy \cite[\S 9]{LamPyl} have been able to define
+symmetric functions from rpps, albeit using a subtler construction
+instead of the content $\operatorname{cont}\left(  T\right)$.
 
 
 
@@ -1815,6 +1815,13 @@ higher than the lower border of the $\left(v+1\right)$-th column
 %\]
 
 Let $s=\operatorname*{sep}\nolimits_{v}A$.
+Then, the cells
+$\left(s, v-1\right)$, $\left(s, v\right)$, $\left(s, v+1\right)$,
+$\left(s+1, v-1\right)$, $\left(s+1, v\right)$, $\left(s+1, v+1\right)$
+all belong to $\lm$ (due to what we just said about separating
+lines). We shall refer to this observation as the
+``six-cells property''.
+
 Now, $B = \operatorname*{res}\nolimits_{v-1}A$, so $B$ is
 represented as follows:%
 \[
@@ -1863,7 +1870,11 @@ B=%
 %\end{ytableau}%
 %EndExpansion
 %$.
-where $\operatorname*{sep}\nolimits_{v-1}B = s$.
+where $\operatorname*{sep}\nolimits_{v-1}B = s$
+(that is, the separating line in the
+$\left(v-1\right)$-th column of $B$
+is between the cells $\left(s,v-1\right)$ and
+$\left(s+1,v-1\right)$).
 Now, $v$ is a descent of $B$.
 Resolving this descent yields a
 12-table $\operatorname{res}_{v}B$ which is represented as follows:
@@ -1915,7 +1926,7 @@ Resolving this descent yields a
 %EndExpansion
 %$.
 This, in turn, shows that $v-1$ is a descent of $\operatorname*{res}%
-\nolimits_{v}B$. Resolving this descent
+\nolimits_{v}B$ (by the six-cells property). Resolving this descent
 yields a 12-table $\operatorname*{res}\nolimits_{v-1}\left(
 \operatorname*{res}\nolimits_{v}B\right)  $ which is represented as follows:%
 \begin{equation}
@@ -1976,6 +1987,7 @@ Hence, $\operatorname*{res}%
 \operatorname*{res}\nolimits_{v-1}C\right)$, and setting $D$ equal to this 12-table completes the proof in Case 1.
 \end{proof}
 
+\begin{comment}
 \begin{todo}
 I am not sure how much I like the proof in Case 1 above. I introduced
 ``core squares'' because I wanted to avoid an argument where it is
@@ -1986,6 +1998,7 @@ obvious. Do you have a quick way to explain it?
 
 [Pasha]  I like the current proof of Case 1 very much. I think it is rigorous enough and does not need any further explanations.
 \end{todo}
+\end{comment}
 
 \subsection{The normalization map}
 
@@ -2046,37 +2059,16 @@ $\mathbf{Z}$ is empty, then $T \in \OneTwoRPP$, so that
 $\operatorname*{Norm}\left(  T\right) = \{T\}$ and we are done. Hence, we can
 assume that $\mathbf{Z}$ is nonempty. Therefore $T \notin \OneTwoRPP$.
 
-Now, we have
-\[
-\left\{  N\in\BenignTables\ \mid\ T\overset{\ast}{\Rrightarrow}N\right\}
-=\left\{  T\right\}  \cup\bigcup_{Z\in\mathbf{Z}}\left\{  N\in\BenignTables%
-\ \mid\ Z\overset{\ast}{\Rrightarrow}N\right\}  .
-\]
-Intersecting both sides of this identity with the set $\OneTwoRPP$, we obtain%
-
-\begin{align*}
-\left\{  N\in\OneTwoRPP\ \mid\ T\overset{\ast}{\Rrightarrow}N\right\}
-&=\underbrace{\left(  \left\{  T\right\}  \cap\OneTwoRPP\right)  }%
-_{\substack{=\varnothing\\\text{(since }T\notin\OneTwoRPP\text{)}}}\cup
-\bigcup_{Z\in\mathbf{Z}}\underbrace{\left\{  N\in\OneTwoRPP\ \mid
-\ Z\overset{\ast}{\Rrightarrow}N\right\}  }_{\substack{=\operatorname*{Norm}%
-\left(  Z\right)  \\\text{(by the definition }\\\text{of }\operatorname*{Norm}\left(
-Z\right)  \text{)}}} \\
-& =\bigcup_{Z\in\mathbf{Z}}\operatorname*{Norm}\left(  Z\right)  .
-\end{align*}
-Thus,
+Thus, every $N \in \OneTwoRPP$ satisfying $T \overset{\ast}{\Rrightarrow} N$
+must satisfy $Z \overset{\ast}{\Rrightarrow} N$ for some $Z \in \mathbf{Z}$.
+In other words, every $N \in \operatorname{Norm}\left(T\right)$ must belong
+to $\operatorname{Norm}\left(Z\right)$ for some $Z \in \mathbf{Z}$. The
+converse of this clearly holds as well. Hence, 
 \begin{equation}
-\operatorname*{Norm}\left(  T\right)  =\left\{  N\in\OneTwoRPP\ \mid
-\ T\overset{\ast}{\Rrightarrow}N\right\}  =\bigcup_{Z\in\mathbf{Z}%
-}\operatorname*{Norm}\left(  Z\right)  .\label{pf.prop.BK.norm.union}%
+\operatorname*{Norm}\left(  T\right)  =\bigcup_{Z\in\mathbf{Z}%
+}\operatorname*{Norm}\left(  Z\right)  .
+\label{pf.prop.BK.norm.union}
 \end{equation}
- 
-\begin{comment}
-\begin{equation} 
-\operatorname*{Norm}\left(  T\right)  =\left\{  N\in\OneTwoRPP\ \mid\ T\overset{\ast}{\Rrightarrow}N\right\} 
- =\emptyset\cup\bigcup_{Z\in\mathbf{Z}}\operatorname*{Norm}\left(  Z\right)  .\label{pf.prop.BK.norm.union}%
-\end{equation}
-\end{comment}
 
 Let us now notice that:
 
@@ -2092,9 +2084,15 @@ C\right)  \neq\varnothing$.
 \ \ \ \ \footnote{In more detail:
 By Lemma \ref{prop.descent-resolution-hyps} there exists
 a $D\in\BenignTables$ such that $B\overset{\ast}{\Rrightarrow}D$ and
-$C\overset{\ast}{\Rrightarrow}D$. By induction,
+$C\overset{\ast}{\Rrightarrow}D$. This $D$ has
+$\ell\left( T\right)  >\ell\left(  B\right)
+\geq\ell\left(  D\right)  $ (by Lemma \ref{lem.descent-resolution-props}
+\textbf{(d)} and
+Lemma \ref{lem.descent-resolution-*props} \textbf{(d)}, respectively).
+Hence, by (\ref{pf.prop.BK.norm.indhyp}), the set
 $\operatorname*{Norm}\left(  D\right)  $ is a one-element set. Its unique element
-clearly lies in both $\operatorname*{Norm}\left(  B\right)  $ and $\operatorname*{Norm}\left(  C\right)  $, so
+clearly lies in both $\operatorname*{Norm}\left(  B\right)  $ and
+$\operatorname*{Norm}\left(  C\right)  $, so
 $\operatorname*{Norm}\left(
 B\right)  \cap\operatorname*{Norm}\left(  C\right)  \neq\varnothing$.
 
@@ -2343,9 +2341,8 @@ $\operatorname*{norm}\left(  T\right)  $ to be this $N$.
 \begin{definition}
 \label{defi.B}
 Let us define a map $\mathbf{B}:\OneTwoRPP\rightarrow\OneTwoRPP$ as follows:
-
-Let $T\in\OneTwoRPP$. We define $\mathbf{B}\left(
-T\right)  $ to be $\operatorname*{norm}\left(  \operatorname*{flip}\left(
+For every $T\in\OneTwoRPP$, set $\mathbf{B}\left(
+T\right) = \operatorname*{norm}\left(  \operatorname*{flip}\left(
 T\right)  \right)  $.
 \end{definition}
 
@@ -2369,22 +2366,18 @@ such that $\operatorname*{flip}\left(  \mathbf{B}\left(  T\right)  \right)
 \begin{proof}[$\mathbf{B}$ preserves $\ceq$]
 Let $T\in\OneTwoRPP$. As above, $\operatorname*{flip}\left(  T\right)  \overset{\ast
 }{\Rrightarrow}\mathbf{B}\left(  T\right)  $. Lemma \ref{lem.descent-resolution-*props} \textbf{(a)} and Remark \ref{pf.lem.BK.flip.ircont} thus yield
-\[
-\operatorname*{ceq}\left(  \mathbf{B}\left(  T\right)  \right)
+$\operatorname*{ceq}\left(  \mathbf{B}\left(  T\right)  \right)
 =\operatorname*{ceq}\left(  \operatorname*{flip}\left(  T\right)  \right)
-=\operatorname*{ceq}\left(  T\right).
-\]
+=\operatorname*{ceq}\left(  T\right)$.
 \end{proof}
 
 \begin{proof}[$\mathbf{B}$ switches the numbers of columns containing 1 and 2]
 Let $T\in\OneTwoRPP$. As above, $\operatorname*{flip}\left(  T\right)  \overset{\ast
 }{\Rrightarrow}\mathbf{B}\left(  T\right)  $. Lemma \ref{lem.descent-resolution-*props} \textbf{(b)}
 and Remark \ref{pf.lem.BK.flip.ircont} thus yield
-\[
-\operatorname*{ircont}\left(  \mathbf{B}\left(  T\right)  \right)
+$\operatorname*{ircont}\left(  \mathbf{B}\left(  T\right)  \right)
 =\operatorname*{ircont}\left(  \operatorname*{flip}\left(  T\right)  \right)
-=s_{1}\cdot\operatorname*{ircont}\left(  T\right).
-\]
+=s_{1}\cdot\operatorname*{ircont}\left(  T\right)$.
 \end{proof}
 
 Lemma \ref{lem.BK} is now proven.
@@ -2431,7 +2424,7 @@ which}\\\text{are \textquotedblleft ignored\textquotedblright}}%
 },\underbrace{i+1,i+1,\ldots,i+1}_{\substack{s\text{ many }\left(  i+1\right)
 \text{'s which}\\\text{are not \textquotedblleft ignored\textquotedblright}%
 }},\underbrace{i+1,i+1,\ldots,i+1}_{\substack{b\text{ many }\left(
-i+1\right)  \text{'s which}\\\text{are not \textquotedblleft
+i+1\right)  \text{'s which}\\\text{are \textquotedblleft
 ignored\textquotedblright}}}\right)
 \]
 for some $a,r,s,b\in\mathbb{N}$. Now, we change this substring into%
@@ -2443,7 +2436,7 @@ which}\\\text{are \textquotedblleft ignored\textquotedblright}}%
 },\underbrace{i+1,i+1,\ldots,i+1}_{\substack{r\text{ many }\left(  i+1\right)
 \text{'s which}\\\text{are not \textquotedblleft ignored\textquotedblright}%
 }},\underbrace{i+1,i+1,\ldots,i+1}_{\substack{b\text{ many }\left(
-i+1\right)  \text{'s which}\\\text{are not \textquotedblleft
+i+1\right)  \text{'s which}\\\text{are \textquotedblleft
 ignored\textquotedblright}}}\right)  .
 \]
 We do this for every $k\in\mathbb{N}_{+}$. At the end, we have obtained a new semistandard
@@ -2555,6 +2548,7 @@ T\right)  $.
 \begin{proof}
 [Proof of Proposition \ref{prop.BK=BK}.] 
 Recall that the map $\mathbf{B}_i$ comes from the map $\mathbf{B}$ we defined on 12-rpps in Section~\ref{sect.proof}.
+We could have constructed the map $B_i$ using from the map $B_1$ in an analogous way.
 We define a \textit{12-sst} to be a semistandard tableau whose entries all belong to the set $\left\{  1,2\right\}  $.
 Clearly, to prove Proposition~\ref{prop.BK=BK}, it suffices to prove that $B_1(T) = \mathbf{B}(T)$ for all 12-ssts $T$.
 
@@ -2641,7 +2635,7 @@ which are in}\\\text{mixed columns}}%
 \\\text{columns}}%
 },\underbrace{2,2,\ldots,2}_{\substack{s \ 2\text{-pure}%
 \\\text{columns}}%
-},\underbrace{2,2,\ldots,2}_{b \ \substack{2\text{'s
+},\underbrace{2,2,\ldots,2}_{\substack{b \ 2\text{'s
 which are in}\\\text{mixed columns}}}\right)
 \]
 where each 1-pure and 2-pure column contains only one entry. Thus, the $k$-th row of $\operatorname*{flip}\left(  T\right)$ is
@@ -2666,7 +2660,7 @@ which are in}\\\text{mixed columns}}%
 },\underbrace{2,2,\ldots,2}_{\substack{b \ 2\text{'s
 which are in}\\\text{mixed columns}}}\right).
 \]
-Repeating this process for every row of $\operatorname*{flip}\left(  T\right)$ (we can do this because each pure column contains only one entry, and thus each descent-resolution described above affects only one row), we obtain a 12-rpp. By the definition of $\mathbf{B}$, this rpp must equal $\mathbf{B}(T)$. By the above description, it is also clearly equal to $B_1(T)$, which completes the proof.
+Repeating this process for every row of $\operatorname*{flip}\left(  T\right)$ (we can do this because each pure column contains only one entry, and thus each descent-resolution described above affects only one row), we obtain a 12-rpp. By the definition of $\mathbf{B}$, this rpp must equal $\mathbf{B}(T)$. By the above description, it is also clearly equal to $B_1(T)$ (because the ignored entries in the construction of $B_1(T)$ are precisely the entries lying in mixed columns), which completes the proof.
 \end{proof}
 
 
