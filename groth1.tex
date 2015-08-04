@@ -415,7 +415,7 @@ Update Grinberg-Reiner reference to whatever is most recent.
 $s_{\lambda/\mu}$ to be the formal power series 
 \[
 s_\lm(x_1,x_2,\dots)
-= \sum_{\substack{T\text{ is a semistandard}\\\text{tableau of shape }Y\left(  \lambda/\mu\right)}}
+= \sum_{\substack{T\text{ is a semistandard}\\\text{tableau of shape } \lm}}
 \mathbf{x}^{\operatorname*{cont}\left(  T\right)  }.
 \]
 Here, for every weak composition $\alpha = \left(\alpha_1, \alpha_2, \alpha_3, \ldots\right)$, we define a monomial $\x^\alpha$ to be $x_1^{\alpha_1} x_2^{\alpha_2} x_3^{\alpha_3} \cdots$.
@@ -468,8 +468,7 @@ For the rest of this section, we fix a skew partition $\lambda/\mu$. Now, the
 \textit{dual stable Grothendieck polynomial} $g_{\lambda/\mu}$ is defined to
 be the formal power series%
 \[
-\sum_{\substack{T\text{ is an rpp}\\\text{of shape }Y\left(  \lambda
-/\mu\right)  }}\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }.
+\sum_{\substack{T\text{ is an rpp}\\\text{of shape }\lm}}\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }.
 \]
 Unlike the Schur function $s_{\lambda/\mu}$, it is (in
 general) not homogeneous, because whenever a column of an rpp $T$ contains an
@@ -2392,7 +2391,7 @@ define the $i$-th Bender-Knuth involution (following \cite[proof of
 Proposition 2.11]{GriRei15} and \cite[proof of Theorem 7.10.2]{Stan99}).
 
 Let $\operatorname*{SST}\left(  \lambda/\mu\right)  $ denote the set of all
-semistandard tableaux of shape $Y\left(  \lambda/\mu\right)  $. We define a
+semistandard tableaux of shape $ \lm$. We define a
 map $B_{i}:\operatorname*{SST}\left(  \lambda/\mu\right)  \rightarrow
 \operatorname*{SST}\left(  \lambda/\mu\right)  $ as follows:
 %\footnote{We refer
@@ -2439,7 +2438,7 @@ i+1\right)  \text{'s which}\\\text{are \textquotedblleft
 ignored\textquotedblright}}}\right)  .
 \]
 We do this for every $k\in\mathbb{N}_{+}$. At the end, we have obtained a new semistandard
-tableau of shape $Y\left(  \lambda/\mu\right)  $. We define $B_{i}\left(
+tableau of shape $\lambda/\mu$. We define $B_{i}\left(
 T\right)  $ to be this new tableau.
 
 %\Needspace{25\baselineskip}
@@ -2534,8 +2533,8 @@ defined is an involution. It is known as the $i$\textit{-th Bender-Knuth
 involution}.
 \end{proposition}
 
-Now, every semistandard tableau of shape $Y\left(  \lambda/\mu\right)  $ is
-also an rpp of shape $Y\left(  \lambda/\mu\right)  $. Hence, $\mathbf{B}_{i}\left(  T\right)  $ is
+Now, every semistandard tableau of shape $\lm$ is
+also an rpp of shape $\lm$. Hence, $\mathbf{B}_{i}\left(  T\right)  $ is
 defined for every $T\in\operatorname*{SST}\left(  \lambda/\mu\right)  $. Our claim is the following:
 
 \begin{proposition}
