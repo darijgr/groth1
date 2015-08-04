@@ -318,20 +318,21 @@ A \textit{skew partition} $\lambda/\mu$ is a pair $\left(\lambda, \mu\right)$ of
  If $\lm$ is a skew partition, then a \textit{filling} of $\lm$ means a map $T:\lm\rightarrow\Nplus$. It is visually represented by drawing $\lm$ and filling each box $c$ with the entry $T(c)$. Four examples of a filling can be found on Figure \ref{fig:fillings}.
  
 
- A filling $T:\lm\rightarrow\Nplus$ of $\lm$ is called a \textit{reverse plane partition of shape $\lm$} if its values increase weakly in each row of $\lm$ from left to right and in each column of $\lm$ from top to bottom. If, in addition, the values of $T$ increase strictly down each column, then $T$ is called a \textit{semistandard tableau of shape $\lm$}. (See \cite{Fulton97} for an exposition of properties and applications of semistandard tableaux.) We denote the set of all reverse plane partitions of shape $\lm$ by $\operatorname{RPP}\left(  \lambda/\mu\right)$.  We abbreviate reverse plane partitions as \textit{rpps}. We define a \textit{12-rpp} to be an rpp whose entries all belong to the set $\left\{  1,2\right\}  $. We let $\OneTwoRPP$ be the set of all 12-rpps of shape $\lm$.
+ A filling $T:\lm\rightarrow\Nplus$ of $\lm$ is called a \textit{reverse plane partition of shape $\lm$} if its values increase weakly in each row of $\lm$ from left to right and in each column of $\lm$ from top to bottom. If, in addition, the values of $T$ increase strictly down each column, then $T$ is called a \textit{semistandard tableau of shape $\lm$}. (See \cite{Fulton97} for an exposition of properties and applications of semistandard tableaux.) We denote the set of all reverse plane partitions of shape $\lm$ by $\operatorname{RPP}\left(  \lambda/\mu\right)$.  We abbreviate reverse plane partitions as \textit{rpps}. 
  
 \begin{todo}
  The notion of a 12-rpp is technical, at least in my part of the paper. Should we really introduce it here in this section?
+ %[PG] You're right; moved them to section 3.3
 \end{todo}
  
- Examples of an rpp, a 12-rpp and of a semistandard tableau can be found on Figure \ref{fig:fillings}.
+ Examples of an rpp, a non-rpp and of a semistandard tableau can be found on Figure \ref{fig:fillings}.
  
  
 \begin{figure}
 \begin{center}
  
-\begin{tabular}{c|c|c|c}
- & & & \\
+\begin{tabular}{|c||c||c|}\hline
+ & & \\
 \begin{ytableau}
 \none& 6 & 3\\
 2 & 4 \\
@@ -346,15 +347,16 @@ A \textit{skew partition} $\lambda/\mu$ is a pair $\left(\lambda, \mu\right)$ of
 \none& 3 & 3\\
 2 & 4 \\
 3 & 7\\
-\end{ytableau} &
-\begin{ytableau}
-\none& 1 & 2\\
-1 & 1 \\
-1 & 2\\
-\end{ytableau}\\
-(a) & (b) & (c) & (d)\\
+\end{ytableau} \\%&
+%\begin{ytableau}
+% \none& 1 & 2\\
+% 1 & 1 \\
+% 1 & 2\\
+% \end{ytableau}\\
+(a) & (b) & (c)\\% & (d)\\
+\hline
 \end{tabular}\\
-\caption{\label{fig:fillings} Fillings of $(3,2,2)/(1)$: (a) is not an rpp as it has a $4$ below a $6$, (b) is an rpp but not a semistandard tableau as it has a $3$ below a $3$, (c) is a semistandard tableau (and hence also an rpp), (d) is a 12-rpp.}
+\caption{\label{fig:fillings} Fillings of $(3,2,2)/(1)$: (a) is not an rpp as it has a $4$ below a $6$, (b) is an rpp but not a semistandard tableau as it has a $3$ below a $3$, (c) is a semistandard tableau (and hence also an rpp).}%, (d) is a 12-rpp.}
 \end{center}
 
 \end{figure}
@@ -449,10 +451,10 @@ instead of the content $\operatorname{cont}\left(  T\right)$.
 
 
   Namely, for a filling $T$ of a skew partition $\lm$, we define its \textit{irredundant content} as a weak composition $\operatorname*{ircont}\left(
-T\right) = \left(r_1,r_2,r_3,\dots\right)$ where $r_i$ is the number of \emph{columns} (rather than cells) of $T$ that contain an entry equal to $i$. For instance, if $T_a$, $T_b$, $T_c$ and $T_d$ are the fillings from Figure \ref{fig:fillings}, then their irredundant contents are
+T\right) = \left(r_1,r_2,r_3,\dots\right)$ where $r_i$ is the number of \emph{columns} (rather than cells) of $T$ that contain an entry equal to $i$. For instance, if $T_a$, $T_b$, and $T_c$ are the fillings from Figure \ref{fig:fillings}, then their irredundant contents are
 \begin{align*}
 \ircont(T_a)=(0,1,2,1,0,1),\ \qquad \ircont(T_b)=(0,1,3,1), \\
-\ircont(T_c)=(0,1,3,1,0,0,1),\ \qquad \ircont(T_d)=(2,2)
+\ircont(T_c)=(0,1,3,1,0,0,1).
 \end{align*}
 (where we omit trailing zeroes),
 because, for example, $T_a$ has one column with a $4$ in it (so $(\ircont(T_a))_4=1$) and $T_b$ contains three columns with a $3$ (so $(\ircont(T_b))_3=3$).
@@ -517,7 +519,7 @@ cells.
 then we define the \textit{column equalities vector} of $T$ to be a weak composition $\operatorname*{ceq}\left(  T\right)=\left(c_1,c_2,c_3,\dots\right)$ 
 where $c_i$ is the number of $j\in\mathbb{N}_{+}$ such that $\left(  i,j\right)$ is a stagnant cell of $T$. Visually speaking, $\left(  \operatorname*{ceq}\left(  T\right)  \right)
 _{i}$ is the number of columns of $T$ whose entry in the $i$-th row equals
-their entry in the $\left(  i+1\right)  $-th row. For instance, for fillings $T_a,$ $T_b,$ $T_c,$ $T_d$ from Figure \ref{fig:fillings} we have $\ceq(T_a)=(0,1),\ \ceq(T_b)=(1,0),\ \ceq(T_c)=(0)$ and $\ceq(T_d)=(1,1)$. 
+their entry in the $\left(  i+1\right)  $-th row. For instance, for fillings $T_a,$ $T_b,$ $T_c$ from Figure \ref{fig:fillings} we have $\ceq(T_a)=(0,1),\ \ceq(T_b)=(1,0),$ and $\ceq(T_c)=(0)$.
 
 Notice that $\left|\ceq(T)\right|$ is the number of stagnant cells in $T$, so we have 
 \begin{equation}\label{eq:sum.of.ceq.and.ircont}
@@ -671,7 +673,7 @@ significant part of this paper.
 \subsection{Reduction to 12-rpps}
 
 We shall make one further simplification before we step to the actual proof of
-Theorem \ref{thm.BK}.
+Theorem \ref{thm.BK}. We define a \textit{12-rpp} to be an rpp whose entries all belong to the set $\left\{  1,2\right\}  $. We let $\OneTwoRPP$ be the set of all 12-rpps of shape $\lm$.
 
 \begin{lemma}
 \label{lem.BK} There exists an
