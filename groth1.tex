@@ -212,15 +212,15 @@ Our main result, Theorem \ref{thm.gtilde.symm}, states that
 $\widetilde{g}_{\lambda/\mu}$ is a symmetric function (in the $x_{1}%
 ,x_{2},x_{3},\ldots$).
 
-We prove this result (thus obtaining a new proof of \cite[Theorem 9.1]%
-{LamPyl}) first using an elaborate generalization of the classical
-Bender-Knuth involutions to reverse plane partitions.
-
-\begin{todo}
-Pavel: advertise your section here? It sort-of gives some justification for
-why the $t_{i}$ are a natural thing to consider too.
-[PG] I'm not sure what to write here so that it does not intersect with the end of the next paragraph.
-\end{todo}
+We prove this result (thus obtaining a new proof of
+\cite[Theorem 9.1]{LamPyl}) first using an elaborate generalization
+of the classical Bender-Knuth involutions to reverse plane partitions,
+and then for a second time by analyzing the structure of reverse plane
+partitions whose entries lie in $\left\{1, 2\right\}$. The second
+proof reflects back on the first, in particular providing an
+alternative definition of the generalized Bender-Knuth involutions
+constructed in the first proof, and showing that these involutions
+are (in a sense) ``the only reasonable choice''.
 
 The present paper is organized as follows: In Section \ref{sect.notations}, we
 recall classical definitions and introduce notations pertaining to
@@ -232,11 +232,15 @@ existence of an involution with certain properties). In Section
 \ref{sect.proof}, we prove our main result by constructing the required
 involution. In Section \ref{sect.BKclassical}, we
 recapitulate the definition of the classical Bender-Knuth involution, and
-sketch the proof that our involution is a generalization of the latter. Finally, in Section \ref{sect.structure} we give an explicit formula for $\g_\lm(x_1,x_2,0,0,\dots;\t)$ which shows that the map that we constructed in Section \ref{sect.def} is the unique involution that shares certain natural properties with the classical Bender-Knuth involutions.
+show that our involution is a generalization of the latter.
+Finally, in Section \ref{sect.structure} we study the structure of
+reverse plane partitions with entries belonging to $\left\{1, 2\right\}$,
+which (in particular) gives us an explicit formula for the
+$\mathbf{t}$-coefficients of $\g_\lm(x_1,x_2,0,0,\dots;\t)$, and shines
+a new light on the involution constructed in Section \ref{sect.proof}
+(also showing that it is the unique involution that shares certain natural
+properties with the classical Bender-Knuth involutions).
 
-\begin{todo}
-Pavel: your last section should also be summarized here.
-\end{todo}
 \begin{todo}
 Rewrite this after the shortening process is finished.
 \end{todo}
@@ -316,17 +320,12 @@ partition")?
 A \textit{skew partition} $\lambda/\mu$ is a pair $\left(\lambda, \mu\right)$ of partitions satisfying $\mu\subseteq\lambda$ (as subsets of the plane). In this case, we shall also often use the notation $\lambda/\mu$ for the set-theoretic difference of $\lambda$ and $\mu$.
 % We cannot *identify* the pair with the set-theoretic difference since this assignment fails to be injective.
 
- If $\lm$ is a skew partition, then a \textit{filling} of $\lm$ means a map $T:\lm\rightarrow\Nplus$. It is visually represented by drawing $\lm$ and filling each box $c$ with the entry $T(c)$. Four examples of a filling can be found on Figure \ref{fig:fillings}.
+ If $\lm$ is a skew partition, then a \textit{filling} of $\lm$ means a map $T:\lm\rightarrow\Nplus$. It is visually represented by drawing $\lm$ and filling each box $c$ with the entry $T(c)$. Three examples of a filling can be found on Figure \ref{fig:fillings}.
  
 
- A filling $T:\lm\rightarrow\Nplus$ of $\lm$ is called a \textit{reverse plane partition of shape $\lm$} if its values increase weakly in each row of $\lm$ from left to right and in each column of $\lm$ from top to bottom. If, in addition, the values of $T$ increase strictly down each column, then $T$ is called a \textit{semistandard tableau of shape $\lm$}. (See \cite{Fulton97} for an exposition of properties and applications of semistandard tableaux.) We denote the set of all reverse plane partitions of shape $\lm$ by $\operatorname{RPP}\left(  \lambda/\mu\right)$.  We abbreviate reverse plane partitions as \textit{rpps}. 
+ A filling $T:\lm\rightarrow\Nplus$ of $\lm$ is called a \textit{reverse plane partition of shape $\lm$} if its values increase weakly in each row of $\lm$ from left to right and in each column of $\lm$ from top to bottom. If, in addition, the values of $T$ increase strictly down each column, then $T$ is called a \textit{semistandard tableau of shape $\lm$}. (See Fulton's \cite{Fulton97} for an exposition of properties and applications of semistandard tableaux\footnote{Fulton calls semistandard tableaux just ``tableaux'', but otherwise is consistent with most of our notation.}.) We denote the set of all reverse plane partitions of shape $\lm$ by $\operatorname{RPP}\left(  \lambda/\mu\right)$.  We abbreviate reverse plane partitions as \textit{rpps}. 
  
-\begin{todo}
- The notion of a 12-rpp is technical, at least in my part of the paper. Should we really introduce it here in this section?
- %[PG] You're right; moved them to section 3.3
-\end{todo}
- 
- Examples of an rpp, a non-rpp and of a semistandard tableau can be found on Figure \ref{fig:fillings}.
+ Examples of an rpp, of a non-rpp and of a semistandard tableau can be found on Figure \ref{fig:fillings}.
  
  
 \begin{figure}
@@ -455,7 +454,7 @@ instead of the content $\operatorname{cont}\left(  T\right)$.
 T\right) = \left(r_1,r_2,r_3,\dots\right)$ where $r_i$ is the number of \emph{columns} (rather than cells) of $T$ that contain an entry equal to $i$. For instance, if $T_a$, $T_b$, and $T_c$ are the fillings from Figure \ref{fig:fillings}, then their irredundant contents are
 \begin{align*}
 \ircont(T_a)=(0,1,2,1,0,1),\ \qquad \ircont(T_b)=(0,1,3,1), \\
-\ircont(T_c)=(0,1,3,1,0,0,1).
+\ircont(T_c)=(0,1,3,1,0,0,1)
 \end{align*}
 (where we omit trailing zeroes),
 because, for example, $T_a$ has one column with a $4$ in it (so $(\ircont(T_a))_4=1$) and $T_b$ contains three columns with a $3$ (so $(\ircont(T_b))_3=3$).
@@ -569,7 +568,7 @@ _{2},\xi_{3},\ldots$.
 
 \begin{comment}
 \textbf{(c)} Let now $n=3$, let $\lambda=\left(  2,1\right)  $ and let
-$\mu=\varnothing$. Then, the rpps $T$ of shape $Y\left(  \lambda/\mu\right)  $
+$\mu=\varnothing$. Then, the rpps $T$ of shape $\lm$
 have the form $%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
@@ -600,7 +599,7 @@ x_{a}x_{b},\ \text{if }a=c
 \right.  $. Thus,%
 \begin{align*}
 \widetilde{g}_{\lambda/\mu}  &  =\sum_{\substack{T\text{ is an rpp}\\\text{of
-shape }Y\left(  \lambda/\mu\right)  }}\mathbf{t}^{\operatorname*{ceq}\left(
+shape }\lm }}\mathbf{t}^{\operatorname*{ceq}\left(
 T\right)  }\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }=\sum_{a\leq
 b;\ a\leq c}\left\{
 \begin{array}
@@ -2815,7 +2814,7 @@ j_r=a,\ j_{r+1}=a+1,\ \cdots,\ j_{r+q}=a+q=b-1 .
 \end{equation}
 Because $\supp(i_r)\subseteq[a,b)$ but $\supp(i_r)\neq\varnothing$ (since $\nu$ is admissible), we have $(i_r,a-1)\notin\lm$. Thus, placing a $1$ into $(i_r,a)$ and $2$'s into $(i_r+1,a),(i_r+2,a),\dots$ does not put any restrictions on entries in columns $1,\dots, a-1$. And the same is true for columns $b,b+1,\dots$ when we place a $2$ into $(i_{r+q}+1,b-1)$ and $1$'s into all cells above. Thus, if a partition $\seplistvar$ is reducible, then the filling of columns $a,a+1,\dots, b-1$ is uniquely determined (by (\ref{eq.reducible.mixblock-j})), and the filling of the rest can be arbitrary -- the problem of existence of a 12-rpp $T$ such that $\seplist(T)=\seplistvar$ reduces to two smaller independent problems of the same kind (one for the columns $1,2,\ldots,a-1$, the other for the columns\footnote{Recall that a 12-rpp of shape $\lm$ cannot have any nonempty column beyond the $\lambda_1$'th one.} $b,b+1,\ldots,\lambda_1$). One can continue this reduction process and end up with several independent irreducible components separated from each other by mixed columns. An illustration of this phenomenon can be seen on Figure \ref{fig:seplist}: the columns $3$ and $4$ must be mixed for any 12-rpps $T$ with $\seplist(T)=(4,3,3,2)$.
 
-More explicitly, we have thus shown that every nonempty interval $\left[a,b\right) \subseteq \left[1, \lambda_1+1\right)$ satisfying $\#\nuab = b-a$ splits our problem into two independent subproblems. But if two such intervals $\left[a,b\right)$ and $\left[c,d\right)$ satisfy $a\leq c\leq b\leq d$ then their union $[a,d)$ is another such interval, because in this case we have $\#\nuxy{a}{d} \geq \#\nuab + \#\nuxy{c}{d} - \#\nuxy{c}{b}$, but $\nuxy{c}{b}\leq b-c$ by representability of $\nu$.
+More explicitly, we have thus shown that every nonempty interval $\left[a,b\right) \subseteq \left[1, \lambda_1+1\right)$ satisfying $\#\nuab = b-a$ splits our problem into two independent subproblems. But if two such intervals $\left[a,b\right)$ and $\left[c,d\right)$ satisfy $a\leq c\leq b\leq d$ then their union $[a,d)$ is another such interval (because in this case, inclusion-exclusion gives $\#\nuxy{a}{d} \geq \#\nuab + \#\nuxy{c}{d} - \#\nuxy{c}{b}$, but $\#\nuxy{c}{b}\leq b-c$ by representability of $\nu$).
 \begin{comment}
 \footnote{\textit{Proof.} Assume that two intervals $\left[a,b\right)$ and $\left[c,d\right)$ satisfying $\#\nuab = b-a$ and $\#\nuxy{c}{d} = d-c$ intersect. We need to show that their union is another such interval.
 \par We WLOG assume that $a \leq c$. Then, $c \leq b$ (since the intervals intersect). If $b > d$, then the union of the two intervals is simply $\left[a,b\right)$, which makes our claim obvious. Hence, we WLOG assume that $b \leq d$. Thus, $a \leq c \leq b \leq d$. The union of the two intervals is therefore $\left[a, d\right)$, and we must show that $\#\nuxy{a}{d} = d-a$.
@@ -2998,11 +2997,13 @@ Therefore the set $\NS(T)$ contains $\{(i_{p+1},a+1),(i_{p+2},a+2),\dots,(i_{p+b
 
 
 \begin{proof}[Proof of Theorem \ref{thm:12rpps}]
-We proceed by induction on the number of columns in $\lm$. If the number of columns is $1$, then the statement of Theorem \ref{thm:12rpps} is obvious. Suppose that we have proven that for all skew partitions $\widetilde{\lm}$ with less than $\lambda_1$ columns and for all partitions $\widetilde\seplistvar$  irreducible with respect to $\widetilde{\lm}$ and for all $0\leq \widetilde m\leq \widetilde{\lambda}_1-\#\widetilde\seplistvar$, there is exactly one 12-rpp $\widetilde T$ of shape $\widetilde{\lm}$ with exactly $\widetilde m$ $1$-pure columns, exactly $\#\widetilde\seplistvar$ mixed columns and exactly $(\widetilde{\lambda}_1-\#\widetilde\seplistvar-\widetilde m)$ $2$-pure columns. Now we want to prove the same for $\lm$.
+We proceed by strong induction on the number of columns in $\lm$. If the number of columns is $1$, then the statement of Theorem \ref{thm:12rpps} is obvious. Suppose that we have proven that for all skew partitions $\widetilde{\lm}$ with less than $\lambda_1$ columns and for all partitions $\widetilde\seplistvar$  irreducible with respect to $\widetilde{\lm}$ and for all $0\leq \widetilde m\leq \widetilde{\lambda}_1-\#\widetilde\seplistvar$, there is exactly one 12-rpp $\widetilde T$ of shape $\widetilde{\lm}$ with exactly $\widetilde m$ $1$-pure columns, exactly $\#\widetilde\seplistvar$ mixed columns and exactly $(\widetilde{\lambda}_1-\#\widetilde\seplistvar-\widetilde m)$ $2$-pure columns. Now we want to prove the same for $\lm$.
 
-Take any 12-rpp $T\in\OneTwoRPPCutvar$ with $\seplist(T)=\seplistvar$ and with $m$ $1$-pure columns for $0\leq m\leq \lambda_1-\#\seplistvar$. Suppose first that $m>0$. Then there is at least one $1$-pure column in $T$. Let $q\geq 0$ be such that the leftmost $1$-pure column is column $q+1$. Then by Lemma \ref{lemma:leftRight} the columns $1,2,\dots,q$ are mixed. If $q>0$ then the supports of $i_1,i_2,\dots,i_q$ are all contained inside $[1,q+1)$ and we get a contradiction with the irreducibility of $\seplistvar$. The only remaining case is that $q=0$ and the first column of $T$ is $1$-pure. Let $\widetilde\lm$ denote $\lm$ with the first column removed. Then $\seplistvar$ may not be irreducible with respect to $\widetilde{\lm}$, because it may happen that $\#\nuxy{1}{b}^{\widetilde{\lm}}=b-1$ for some $b$. In this case we can remove these $b-1$ columns from $\lm$ and remove the first $b-1$ entries from $\nu$ to get an irreducible partition again, to which we can apply the induction hypothesis. We are done with the case $m>0$. If $m<\lambda_1-\#\seplistvar$ then we can apply a mirrored argument to the last column, and it remains to note that for $\lambda_1-\#\seplistvar>0$ the cases $m>0$ and $m<\lambda_1-\#\seplistvar$ cover everything and for $\lambda_1=\#\seplistvar$ we get that $T$ is a 12-rpp with all mixed columns, but there is obviously a unique such 12-rpp.
+Take any 12-rpp $T\in\OneTwoRPPCutvar$ with $\seplist(T)=\seplistvar$ and with $m$ $1$-pure columns for $0\leq m\leq \lambda_1-\#\seplistvar$. Suppose first that $m>0$. Then there is at least one $1$-pure column in $T$. Let $q\geq 0$ be such that the leftmost $1$-pure column is column $q+1$. Then by Lemma \ref{lemma:leftRight} the columns $1,2,\dots,q$ are mixed. If $q>0$ then the supports of $i_1,i_2,\dots,i_q$ are all contained inside $[1,q+1)$ and we get a contradiction with the irreducibility of $\seplistvar$. The only remaining case is that $q=0$ and the first column of $T$ is $1$-pure. Let $\widetilde\lm$ denote $\lm$ with the first column removed. Then $\seplistvar$ may not be irreducible with respect to $\widetilde{\lm}$, because it may happen that $\#\nuxy{2}{b+1}^{\widetilde{\lm}}=b-1$
+% [DG] You didn't "slide" $\widetilde{\lm}$ to the left (i.e., relabel the columns) in the previous proof, so better not do it here either.
+for some $b>1$. In this case we can remove these $b-1$ nonempty columns from $\widetilde{\lm}$ and remove the first $b-1$ entries from $\nu$ to get an irreducible partition again\footnote{This follows from Lemma \ref{lemma:irreducible} \textbf{(c)} (applied to the skew shape $\widetilde{\lm}$ and $k=1$). Here we are using the fact that if we apply Lemma \ref{lemma:irreducible} \textbf{(a)} to $\widetilde{\lm}$ instead of $\lm$, then we get $r = 1$ (because if $r \geq 2$, then $\#\nuxy{a_2}{b_2} = \#\nuxy{a_2}{b_2}^{\widetilde{\lm}} = b_2-a_2$ in contradiction to the irreducibility of $\lm$).}, to which we can apply the induction hypothesis. We are done with the case $m>0$. If $m<\lambda_1-\#\seplistvar$ then we can apply a mirrored argument to the last column, and it remains to note that the cases $m>0$ and $m<\lambda_1-\#\seplistvar$ cover everything (since the irreducibility of $\nu$ shows that $\lambda_1-\#\seplistvar>0$).
 
-Note that this inductive proof shows both existence and uniqueness of the 12-rpp with desired properties.
+This inductive proof shows the uniqueness of the 12-rpp with desired properties. Its existence follows from a parallel argument, using the observation that the first $b-1$ columns of $\widetilde{\lm}$ can actually be filled in [Hall argument].
 \end{proof}
 
 
