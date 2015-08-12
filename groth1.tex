@@ -145,9 +145,18 @@
 \date{\today}
 \maketitle
 
- \begin{todo}
-  Write an abstract.
- \end{todo}
+\begin{abstract}
+The dual stable Grothendieck polynomials are a deformation of
+the Schur functions, originating in the study of the $K$-theory of the
+Grassmannian. We generalize these polynomials by introducing a
+countable family of additional parameters, and we prove that this
+generalization still defines symmetric functions. For this fact, we
+give two self-contained proofs, one of which constructs a family of
+involutions on the set of reverse plane partitions generalizing the
+Bender-Knuth involutions on semistandard tableaux, whereas the other
+classifies the structure of reverse plane partitions with entries $1$
+and $2$.
+\end{abstract}
 
 \section{Introduction}
 
@@ -3007,7 +3016,7 @@ Take any 12-rpp $T\in\OneTwoRPPCutvar$ with $\seplist(T)=\seplistvar$ and with $
 % [DG] You didn't "slide" $\widetilde{\lm}$ to the left (i.e., relabel the columns) in the previous proof, so better not do it here either.
 for some $b>1$. In this case we can remove these $b-1$ nonempty columns from $\widetilde{\lm}$ and remove the first $b-1$ entries from $\nu$ to get an irreducible partition again\footnote{This follows from Lemma \ref{lemma:irreducible} \textbf{(c)} (applied to the skew shape $\widetilde{\lm}$ and $k=1$). Here we are using the fact that if we apply Lemma \ref{lemma:irreducible} \textbf{(a)} to $\widetilde{\lm}$ instead of $\lm$, then we get $r = 1$ (because if $r \geq 2$, then $\#\nuxy{a_2}{b_2} = \#\nuxy{a_2}{b_2}^{\widetilde{\lm}} = b_2-a_2$ in contradiction to the irreducibility of $\lm$).}, to which we can apply the induction hypothesis. We are done with the case $m>0$. If $m<\lambda_1-\#\seplistvar$ then we can apply a mirrored argument to the last column, and it remains to note that the cases $m>0$ and $m<\lambda_1-\#\seplistvar$ cover everything (since the irreducibility of $\nu$ shows that $\lambda_1-\#\seplistvar>0$).
 
-This inductive proof shows the uniqueness of the 12-rpp with desired properties. Its existence follows from a parallel argument, using the observation that the first $b-1$ columns of $\widetilde{\lm}$ can actually be filled in. This amounts to showing that for a representable $\seplistvar$, the set $\OneTwoRPPCutvar$ is non-empty for the case when the number of columns $\lambda_1$ is the same as the number of mixed columns $\#\seplistvar$. This is clear when there is just one column and the general case easily follows by induction on the number of columns.
+This inductive proof shows the uniqueness of the 12-rpp with desired properties. Its existence follows from a parallel argument, using the observation that the first $b-1$ columns of $\widetilde{\lm}$ can actually be filled in. This amounts to showing that for a representable $\seplistvar$, the set $\OneTwoRPPCutvar$ is non-empty in the case when $\lambda_1 = \#\seplistvar$ (so all columns of $T \in \OneTwoRPPCutvar$ must be mixed). This is clear when there is just one column, and the general case easily follows by induction on the number of columns.
 \end{proof}
 
 
