@@ -2751,9 +2751,8 @@ A trivial necessary condition for this to happen is that there should exist some
 \begin{equation}\label{cond:necessary}
 (i_1,j_1),(i_1+1,j_1),(i_2,j_2),(i_2+1,j_2),\dots,(i_s,j_s),(i_s+1,j_s)\in \lm. 
 \end{equation}
-We say that a partition $\seplistvar$ is \textit{admissible} if such $j_1<j_2<\cdots<j_s$ exist.
 
-Until the end of Section \ref{sect.structure}, we make one further
+Until the end of Section \ref{sect.structure}, we make an
 assumption: namely, that the skew partition $\lm$ is
 connected as a subgraph of $\Z^2$ (where two nodes are connected
 if and only if their cells have an edge in common), and that
@@ -2793,7 +2792,12 @@ on different rows.)}.
 
 For each integer $i$, the set of all integers $j$ such that $(i,j),(i+1,j)\in\lm$ is just an interval $[\mu_{i}+1,\lambda_{i+1}]$, which we call \textit{the support of $i$} and denote $\supp(i):=[\mu_{i}+1,\lambda_{i+1}]$.
 
-Assume that $\seplistvar = \left(i_1 \geq \cdots \geq i_s > 0\right)$ is an admissible partition. Then, $\supp(i_k)$ is nonempty for each $k$. For two integers $a< b$, by $\nuab$ we denote the subpartition $(i_r,i_{r+1},\dots,i_{r+q})$ of $\seplistvar$, where $[r, r+q]$ is the (possibly empty) set of all $k$ for which $\supp(i_k)\subseteq [a,b)$. In this case, we put\footnote{Here and in the following, $\#\kappa$ denotes the length of a partition $\kappa$.} $\#\nuab:=q+1$, which is just the number of entries in $\nuab$. Similarly, we set $\nuabcap$ to be the subpartition $(i_r,i_{r+1},\dots,i_{r+q})$ of $\seplistvar$, where $[r, r+q]$ is the set of all $k$ for which $\supp(i_k)\cap [a,b)\neq\emptyset$.
+We say that a partition $\seplistvar$ is \textit{admissible} if
+every $k$ satisfies $\supp(i_k) \neq \varnothing$. (This is
+clearly satisfied when there exist $j_1<j_2<\cdots<j_s$
+satisfying (\ref{cond:necessary}), but also in other cases.)
+Assume that $\seplistvar = \left(i_1 \geq \cdots \geq i_s > 0\right)$ is an admissible partition.
+For two integers $a< b$, we let $\nuab$ denote the subpartition $(i_r,i_{r+1},\dots,i_{r+q})$ of $\seplistvar$, where $[r, r+q]$ is the (possibly empty) set of all $k$ for which $\supp(i_k)\subseteq [a,b)$. In this case, we put\footnote{Here and in the following, $\#\kappa$ denotes the length of a partition $\kappa$.} $\#\nuab:=q+1$, which is just the number of entries in $\nuab$. Similarly, we set $\nuabcap$ to be the subpartition $(i_r,i_{r+1},\dots,i_{r+q})$ of $\seplistvar$, where $[r, r+q]$ is the set of all $k$ for which $\supp(i_k)\cap [a,b)\neq\emptyset$.
 For example, for $\seplistvar=(4,3,3,2)$ and $\lm$ as on Figure \ref{fig:seplist}, we have 
 $$\supp(3)=[3,4],\ \supp(2)=[4,7],\ \supp(4)=[1,4],$$ 
 $$\nuxy{2}{7}=(3,3),\ \nuxy{2}{8}=(3,3,2),\ \nuxy{4}{8}=(2),\ \nuxycap{4}{5}=(4,3,3,2),\ \#\nuxy{2}{7}=2.$$
