@@ -932,41 +932,41 @@ these variables.) For every weak composition $\alpha$, we set $\mathbf{t}%
 
 \begin{vershort}
 If $Z$ is a subset of $\mathbb{N}_{+}^{2}$, and if $T$ is a filling of $Z$,
-then a \textit{stagnant cell} of $T$ will mean a cell $\left(  i,j\right)  $
+then a \textit{redundant cell} of $T$ will mean a cell $\left(  i,j\right)  $
 of $Z$ such that $\left(  i+1,j\right)  $ is also a cell of $Z$ and satisfies
 $T\left(  i,j\right)  =T\left(  i+1,j\right)  $. Notice that a semistandard
-tableau is the same thing as an rpp which has no stagnant
+tableau is the same thing as an rpp which has no redundant
 cells\footnote{\textit{Proof.} Recall that the difference between a
 semistandard tableau and an rpp is that the entries of a semistandard tableau
 have to be strictly increasing down columns, whereas the entries of an rpp
 have to be merely weakly increasing down columns. Thus, a semistandard tableau
 is the same thing as an rpp whose every column has no adjacent equal entries.
 In other words, a semistandard tableau is the same thing as an rpp which has
-no stagnant cells (because having two adjacent equal entries in a column is
-tantamount to having a stagnant cell).}.
+no redundant cells (because having two adjacent equal entries in a column is
+tantamount to having a redundant cell).}.
 \end{vershort}
 
 \begin{verlong}
 If $Z$ is a subset of $\mathbb{N}_{+}^{2}$, and if $T$ is a filling of $Z$,
-then a \textit{stagnant cell} of $T$ will mean a cell $\left(  i,j\right)  $
+then a \textit{redundant cell} of $T$ will mean a cell $\left(  i,j\right)  $
 of $Z$ such that $\left(  i+1,j\right)  $ is also a cell of $Z$ and satisfies
 $T\left(  i,j\right)  =T\left(  i+1,j\right)  $. Notice that a semistandard
-tableau is the same thing as an rpp which has no stagnant
+tableau is the same thing as an rpp which has no redundant
 cells\footnote{\textit{Proof.} First, let $T$ be a semistandard tableau. Then,
 $T$ is a filling of a finite convex subset $Z$ of $\mathbb{N}_{+}^{2}$.
 Consider this $Z$. The entries of $T$ are strictly increasing down columns
 (since $T$ is a semistandard tableau). Hence, if $\left(  i,j\right)  $ is a
 cell of $Z$ such that $\left(  i+1,j\right)  $ is also a cell of $Z$, then
 $T\left(  i,j\right)  <T\left(  i+1,j\right)  $, and therefore we cannot have
-$T\left(  i,j\right)  =T\left(  i+1,j\right)  $. Thus, $T$ has no stagnant
-cells. Hence, $T$ is an rpp which has no stagnant cells.
+$T\left(  i,j\right)  =T\left(  i+1,j\right)  $. Thus, $T$ has no redundant
+cells. Hence, $T$ is an rpp which has no redundant cells.
 \par
 Let us now forget that we fixed $T$. We thus have shown that if $T$ is a
-semistandard tableau, then $T$ is an rpp which has no stagnant cells. It thus
+semistandard tableau, then $T$ is an rpp which has no redundant cells. It thus
 remains to prove the converse, i.e., to prove that if $T$ is an rpp which has
-no stagnant cells, then $T$ is a semistandard tableau.
+no redundant cells, then $T$ is a semistandard tableau.
 \par
-So let $T$ be an rpp which has no stagnant cells. We need to show that $T$ is
+So let $T$ be an rpp which has no redundant cells. We need to show that $T$ is
 a semistandard tableau. Notice that $T$ is a filling of a finite convex subset
 $Z$ of $\mathbb{N}_{+}^{2}$. Consider this $Z$. We need to show that $T$ is a
 semistandard tableau. It is clearly enough to prove that the entries of $T$
@@ -979,8 +979,8 @@ of $Z$ such that $\left(  i+1,j\right)  $ is also a cell of $Z$. Then,
 $T\left(  i,j\right)  \leq T\left(  i+1,j\right)  $ (since the entries of $T$
 are weakly increasing down columns (since $T$ is an rpp)), but we cannot have
 $T\left(  i,j\right)  =T\left(  i+1,j\right)  $ (since otherwise, $\left(
-i,j\right)  $ would be a stagnant cell of $T$, but this would contradict the
-fact that $T$ has no stagnant cells). Thus, $T\left(  i,j\right)  <T\left(
+i,j\right)  $ would be a redundant cell of $T$, but this would contradict the
+fact that $T$ has no redundant cells). Thus, $T\left(  i,j\right)  <T\left(
 i+1,j\right)  $. This completes our proof.}.
 \end{verlong}
 
@@ -989,7 +989,7 @@ then we define a weak composition $\operatorname*{ceq}\left(  T\right)  $ by%
 \begin{align}
 &  \left(  \operatorname*{ceq}\left(  T\right)  \right)  _{i}=\left(
 \text{the number of }j\in\mathbb{N}_{+}\text{ such that }\left(  i,j\right)
-\text{ is a stagnant cell of }T\right) \label{eq.gtilde.ceq.def}\\
+\text{ is a redundant cell of }T\right) \label{eq.gtilde.ceq.def}\\
 &  \ \ \ \ \ \ \ \ \ \ \text{for every }i\in\mathbb{N}_{+}.\nonumber
 \end{align}
 (Visually speaking, $\left(  \operatorname*{ceq}\left(  T\right)  \right)
@@ -999,7 +999,7 @@ $\operatorname*{ceq}\left(  T\right)  $ the \textit{column-equalities counter}
 of $T$. Notice that%
 \begin{equation}
 \left\vert \operatorname*{ceq}\left(  T\right)  \right\vert =\left(  \text{the
-number of all stagnant cells of }T\right)  \label{eq.gtilde.ceq.abs}%
+number of all redundant cells of }T\right)  \label{eq.gtilde.ceq.abs}%
 \end{equation}
 for every rpp $T$. For instance, if $T=%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
@@ -1032,15 +1032,15 @@ $\left\vert \operatorname*{ceq}\left(  T\right)  \right\vert $ yields%
 \right)  _{3}+\cdots\\
 &  =\sum_{i\in\mathbb{N}_{+}}\underbrace{\left(  \operatorname*{ceq}\left(
 T\right)  \right)  _{i}}_{=\left(  \text{the number of }j\in\mathbb{N}%
-_{+}\text{ such that }\left(  i,j\right)  \text{ is a stagnant cell of
+_{+}\text{ such that }\left(  i,j\right)  \text{ is a redundant cell of
 }T\right)  }\\
 &  =\sum_{i\in\mathbb{N}_{+}}\left(  \text{the number of }j\in\mathbb{N}%
-_{+}\text{ such that }\left(  i,j\right)  \text{ is a stagnant cell of
+_{+}\text{ such that }\left(  i,j\right)  \text{ is a redundant cell of
 }T\right) \\
 &  =\left(  \text{the number of }\left(  i,j\right)  \in\mathbb{N}_{+}%
-\times\mathbb{N}_{+}\text{ such that }\left(  i,j\right)  \text{ is a stagnant
+\times\mathbb{N}_{+}\text{ such that }\left(  i,j\right)  \text{ is a redundant
 cell of }T\right) \\
-&  =\left(  \text{the number of all stagnant cells of }T\right)  .
+&  =\left(  \text{the number of all redundant cells of }T\right)  .
 \end{align*}
 This proves (\ref{eq.gtilde.ceq.abs}).
 \end{proof}
@@ -1294,20 +1294,20 @@ T\right)  }}_{=1}\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }%
 
 \begin{vershort}
 \textbf{(b)} Let $\left(  t_{1},t_{2},t_{3},\ldots\right)  =\left(
-0,0,0,\ldots\right)  $. Then, if $T$ is an rpp which has at least one stagnant
+0,0,0,\ldots\right)  $. Then, if $T$ is an rpp which has at least one redundant
 cell, then $\mathbf{t}^{\operatorname*{ceq}\left(  T\right)  }=0$ (because
 $\operatorname*{ceq}\left(  T\right)  $ has at least one nonzero entry in this
 case). Therefore, the sum $\sum_{\substack{T\text{ is an rpp}\\\text{of shape
 }Y\left(  \lambda/\mu\right)  }}\mathbf{t}^{\operatorname*{ceq}\left(
 T\right)  }\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }$ does not
-change if we discard all addends for which $T$ has at least one stagnant cell.
+change if we discard all addends for which $T$ has at least one redundant cell.
 Thus,%
 \begin{align*}
 \sum_{\substack{T\text{ is an rpp}\\\text{of shape }Y\left(  \lambda
 /\mu\right)  }}\mathbf{t}^{\operatorname*{ceq}\left(  T\right)  }%
 \mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }  &  =\sum
 _{\substack{T\text{ is an rpp}\\\text{of shape }Y\left(  \lambda/\mu\right)
-;\\T\text{ has no stagnant cells}}}\mathbf{t}^{\operatorname*{ceq}\left(
+;\\T\text{ has no redundant cells}}}\mathbf{t}^{\operatorname*{ceq}\left(
 T\right)  }\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }\\
 &  =\sum_{\substack{T\text{ is a semistandard}\\\text{tableau of shape
 }Y\left(  \lambda/\mu\right)  }}\mathbf{t}^{\operatorname*{ceq}\left(
@@ -1315,7 +1315,7 @@ T\right)  }\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }%
 \end{align*}
 (since a semistandard tableau of shape $Y\left(  \lambda/\mu\right)  $ is the
 same thing as an rpp of shape $Y\left(  \lambda/\mu\right)  $ which has no
-stagnant cells). Now, the definition of $\widetilde{g}_{\lambda/\mu}$ yields%
+redundant cells). Now, the definition of $\widetilde{g}_{\lambda/\mu}$ yields%
 \begin{align*}
 \widetilde{g}_{\lambda/\mu}  &  =\sum_{\substack{T\text{ is an rpp}\\\text{of
 shape }Y\left(  \lambda/\mu\right)  }}\mathbf{t}^{\operatorname*{ceq}\left(
@@ -1361,22 +1361,22 @@ $Y\left(  \lambda/\mu\right)  $, then%
 \begin{align*}
 \mathbf{t}^{\operatorname*{ceq}\left(  T\right)  }  &  =\left[  \left\vert
 \operatorname*{ceq}T\right\vert =0\right] \\
-&  =\left[  \left(  \text{the number of all stagnant cells of }T\right)
+&  =\left[  \left(  \text{the number of all redundant cells of }T\right)
 =0\right]  \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{eq.gtilde.ceq.abs}%
 )}\right) \\
-&  =\left[  T\text{ has no stagnant cells}\right]  .
+&  =\left[  T\text{ has no redundant cells}\right]  .
 \end{align*}
 Now, the definition of $\widetilde{g}_{\lambda/\mu}$ yields%
 \begin{align*}
 \widetilde{g}_{\lambda/\mu}  &  =\sum_{\substack{T\text{ is an rpp}\\\text{of
 shape }Y\left(  \lambda/\mu\right)  }}\underbrace{\mathbf{t}%
-^{\operatorname*{ceq}\left(  T\right)  }}_{=\left[  T\text{ has no stagnant
+^{\operatorname*{ceq}\left(  T\right)  }}_{=\left[  T\text{ has no redundant
 cells}\right]  }\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }\\
 &  =\sum_{\substack{T\text{ is an rpp}\\\text{of shape }Y\left(  \lambda
-/\mu\right)  }}\left[  T\text{ has no stagnant cells}\right]  \mathbf{x}%
+/\mu\right)  }}\left[  T\text{ has no redundant cells}\right]  \mathbf{x}%
 ^{\operatorname*{ircont}\left(  T\right)  }\\
 &  =\sum_{\substack{T\text{ is an rpp}\\\text{of shape }Y\left(  \lambda
-/\mu\right)  ;\\T\text{ has no stagnant cells}}}\mathbf{x}%
+/\mu\right)  ;\\T\text{ has no redundant cells}}}\mathbf{x}%
 ^{\operatorname*{ircont}\left(  T\right)  }=\sum_{\substack{T\text{ is a
 semistandard}\\\text{tableau of shape }Y\left(  \lambda/\mu\right)
 }}\underbrace{\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }%
@@ -1390,7 +1390,7 @@ semistandard}\\\text{tableau of shape }Y\left(  \lambda/\mu\right)
 \text{since a semistandard tableau of shape }Y\left(  \lambda/\mu\right)
 \text{ is the same}\\
 \text{thing as an rpp of shape }Y\left(  \lambda/\mu\right)  \text{ which has
-no stagnant cells}%
+no redundant cells}%
 \end{array}
 \right) \\
 &  =\sum_{\substack{T\text{ is a semistandard}\\\text{tableau of shape
@@ -1702,14 +1702,14 @@ Every $T\in\mathbf{R}$ satisfies%
 \footnote{\textit{Proof of (\ref{pf.lem.BKi.ceq}):} Let $T\in\mathbf{R}$. The
 filling $\Phi\left(  T\right)  $ is obtained from $T$ simply by replacing all
 $1$'s and $2$'s by $i$'s and $\left(  i+1\right)  $'s, respectively (because
-this is how $\Phi\left(  T\right)  $ was defined). Hence, the stagnant cells
-of $\Phi\left(  T\right)  $ are precisely the stagnant cells of $T$ (because
+this is how $\Phi\left(  T\right)  $ was defined). Hence, the redundant cells
+of $\Phi\left(  T\right)  $ are precisely the redundant cells of $T$ (because
 all entries of $T$ are $1$'s and $2$'s). Thus, for every $i\in\mathbb{N}_{+}$,
 we have $\left(  \operatorname*{ceq}\left(  \Phi\left(  T\right)  \right)
 \right)  _{i}=\left(  \operatorname*{ceq}\left(  T\right)  \right)  _{i}$
 (because of how $\left(  \operatorname*{ceq}\left(  \Phi\left(  T\right)
 \right)  \right)  _{i}$ and $\left(  \operatorname*{ceq}\left(  T\right)
-\right)  _{i}$ were defined in terms of stagnant cells). In other words,
+\right)  _{i}$ were defined in terms of redundant cells). In other words,
 $\operatorname*{ceq}\left(  \Phi\left(  T\right)  \right)
 =\operatorname*{ceq}\left(  T\right)  $. This proves (\ref{pf.lem.BKi.ceq}).}
 and%
@@ -2399,24 +2399,24 @@ $d$ of $Y\left(  \lambda/\mu\right)  $ satisfy $T\left(  c\right)  =T\left(
 d\right)  $, then either both $c$ and $d$ lie in $Z$ or both $c$ and $d$ lie
 in $Y\left(  \lambda/\mu\right)  \setminus Z$ (depending on whether $T\left(
 c\right)  =T\left(  d\right)  $ belongs to $\left\{  i,i+1\right\}  $ or to
-$\mathbb{N}_{+}\setminus\left\{  i,i+1\right\}  $). Thus, the stagnant cells
-of $T$ are precisely the stagnant cells of $T\mid_{Z}$ and the stagnant cells
+$\mathbb{N}_{+}\setminus\left\{  i,i+1\right\}  $). Thus, the redundant cells
+of $T$ are precisely the redundant cells of $T\mid_{Z}$ and the redundant cells
 of $T\mid_{Y\left(  \lambda/\mu\right)  \setminus Z}$%
-\ \ \ \ \footnote{\textit{Proof.} It is clear that all stagnant cells of
-$T\mid_{Z}$ and all stagnant cells of $T\mid_{Y\left(  \lambda/\mu\right)
-\setminus Z}$ are stagnant cells of $T$. It remains to prove the opposite
-direction; i.e., it remains to show that each stagnant cell of $T$ is either a
-stagnant cell of $T\mid_{Z}$ or a stagnant cell of $T\mid_{Y\left(
+\ \ \ \ \footnote{\textit{Proof.} It is clear that all redundant cells of
+$T\mid_{Z}$ and all redundant cells of $T\mid_{Y\left(  \lambda/\mu\right)
+\setminus Z}$ are redundant cells of $T$. It remains to prove the opposite
+direction; i.e., it remains to show that each redundant cell of $T$ is either a
+redundant cell of $T\mid_{Z}$ or a redundant cell of $T\mid_{Y\left(
 \lambda/\mu\right)  \setminus Z}$.
 \par
-Let $p$ be a stagnant cell of $T$. We need to prove that $p$ is either a
-stagnant cell of $T\mid_{Z}$ or a stagnant cell of $T\mid_{Y\left(
+Let $p$ be a redundant cell of $T$. We need to prove that $p$ is either a
+redundant cell of $T\mid_{Z}$ or a redundant cell of $T\mid_{Y\left(
 \lambda/\mu\right)  \setminus Z}$.
 \par
 Write $p$ in the form $p=\left(  u,v\right)  $. Then, $\left(  u,v\right)  =p$
-is a stagnant cell of $T$. In other words, $\left(  u+1,v\right)  $ is also a
+is a redundant cell of $T$. In other words, $\left(  u+1,v\right)  $ is also a
 cell of $Z$ and satisfies $T\left(  u,v\right)  =T\left(  u+1,v\right)  $
-(because of the definition of a \textquotedblleft stagnant
+(because of the definition of a \textquotedblleft redundant
 cell\textquotedblright). Now, recall that if two cells $c$ and $d$ of
 $Y\left(  \lambda/\mu\right)  $ satisfy $T\left(  c\right)  =T\left(
 d\right)  $, then either both $c$ and $d$ lie in $Z$ or both $c$ and $d$ lie
@@ -2424,27 +2424,27 @@ in $Y\left(  \lambda/\mu\right)  \setminus Z$. Applying this to $c=\left(
 u,v\right)  $ and $d=\left(  u+1,v\right)  $, we conclude that either both
 $\left(  u,v\right)  $ and $\left(  u+1,v\right)  $ lie in $Z$ or both
 $\left(  u,v\right)  $ and $\left(  u+1,v\right)  $ lie in $Z$. In the first
-of these two cases, $\left(  u,v\right)  $ is a stagnant cell of $T\mid_{Z}$;
-in the second case, $\left(  u,v\right)  $ is a stagnant cell of
+of these two cases, $\left(  u,v\right)  $ is a redundant cell of $T\mid_{Z}$;
+in the second case, $\left(  u,v\right)  $ is a redundant cell of
 $T\mid_{Y\left(  \lambda/\mu\right)  \setminus Z}$. Thus, $\left(  u,v\right)
-$ is either a stagnant cell of $T\mid_{Z}$ or a stagnant cell of
+$ is either a redundant cell of $T\mid_{Z}$ or a redundant cell of
 $T\mid_{Y\left(  \lambda/\mu\right)  \setminus Z}$. In other words, $p$ is
-either a stagnant cell of $T\mid_{Z}$ or a stagnant cell of $T\mid_{Y\left(
+either a redundant cell of $T\mid_{Z}$ or a redundant cell of $T\mid_{Y\left(
 \lambda/\mu\right)  \setminus Z}$ (since $p=\left(  u,v\right)  $). This
 completes our proof.}. Now, for every $p\in\mathbb{N}_{+}$, we have%
 \begin{align*}
 &  \left(  \operatorname*{ceq}\left(  T\right)  \right)  _{p}\\
 &  =\left(  \text{the number of }j\in\mathbb{N}_{+}\text{ such that }\left(
-p,j\right)  \text{ is a stagnant cell of }T\right) \\
+p,j\right)  \text{ is a redundant cell of }T\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }\left(
 \operatorname*{ceq}\left(  T\right)  \right)  _{p}\right) \\
 &  =\underbrace{\left(  \text{the number of }j\in\mathbb{N}_{+}\text{ such
-that }\left(  p,j\right)  \text{ is a stagnant cell of }T\mid_{Z}\right)
+that }\left(  p,j\right)  \text{ is a redundant cell of }T\mid_{Z}\right)
 }_{\substack{=\left(  \operatorname*{ceq}\left(  T\mid_{Z}\right)  \right)
 _{p}\\\text{(by the definition of }\left(  \operatorname*{ceq}\left(
 T\mid_{Z}\right)  \right)  _{p}\text{)}}}\\
 &  \ \ \ \ \ \ \ \ \ \ +\underbrace{\left(  \text{the number of }%
-j\in\mathbb{N}_{+}\text{ such that }\left(  i,j\right)  \text{ is a stagnant
+j\in\mathbb{N}_{+}\text{ such that }\left(  i,j\right)  \text{ is a redundant
 cell of }T\mid_{Y\left(  \lambda/\mu\right)  \setminus Z}\right)
 }_{\substack{=\left(  \operatorname*{ceq}\left(  T\mid_{Y\left(  \lambda
 /\mu\right)  \setminus Z}\right)  \right)  _{p}\\\text{(by the definition of
@@ -2453,8 +2453,8 @@ cell of }T\mid_{Y\left(  \lambda/\mu\right)  \setminus Z}\right)
 &  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
-\text{since the stagnant cells of }T\text{ are precisely the stagnant}\\
-\text{cells of }T\mid_{Z}\text{ and the stagnant cells of }T\mid_{Y\left(
+\text{since the redundant cells of }T\text{ are precisely the redundant}\\
+\text{cells of }T\mid_{Z}\text{ and the redundant cells of }T\mid_{Y\left(
 \lambda/\mu\right)  \setminus Z}%
 \end{array}
 \right) \\
@@ -4689,15 +4689,15 @@ column of $T$ appears unchanged in $\left(  \operatorname*{flip}%
 \operatorname*{flip}\circ\operatorname*{flip}\right)  \left(  T\right)  =T$.
 This proves Proposition \ref{prop.flip} \textbf{(a)}.
 
-\textbf{(c)} Let $T$ be a benign 12-table. It is easy to see that the stagnant
-cells of $\operatorname*{flip}\left(  T\right)  $ are precisely the stagnant
+\textbf{(c)} Let $T$ be a benign 12-table. It is easy to see that the redundant
+cells of $\operatorname*{flip}\left(  T\right)  $ are precisely the redundant
 cells of $T$. This yields $\left(  \operatorname*{ceq}\left(
 \operatorname*{flip}\left(  T\right)  \right)  \right)  _{i}=\left(
 \operatorname*{ceq}\left(  T\right)  \right)  _{i}$ for every $i\in
 \mathbb{N}_{+}$ (due to how $\left(  \operatorname*{ceq}\left(
 \operatorname*{flip}\left(  T\right)  \right)  \right)  _{i}$ and $\left(
 \operatorname*{ceq}\left(  T\right)  \right)  _{i}$ were defined in terms of
-stagnant cells). In other words, $\operatorname*{ceq}\left(
+redundant cells). In other words, $\operatorname*{ceq}\left(
 \operatorname*{flip}\left(  T\right)  \right)  =\operatorname*{ceq}\left(
 T\right)  $. This proves (\ref{pf.lem.BK.flip.ceq}).
 
@@ -5983,26 +5983,26 @@ part \textbf{(f)} will not be used in the following.
 
 \textbf{(c)} A cell $\left(  i,j\right)  $ in $Z$ will be called \textit{good}
 if the cell $\left(  i+1,j\right)  $ also belongs to $Z$. Notice that every
-stagnant cell of $P$ or of $\operatorname*{res}\nolimits_{k}P$ must be good.
+redundant cell of $P$ or of $\operatorname*{res}\nolimits_{k}P$ must be good.
 
 In order to prove (\ref{pf.lem.BK.res.ceq}), we need to show that, for every
-$r\in\mathbb{N}_{+}$, the number of stagnant cells of $P$ in row $r$ equals
-the number of stagnant cells of $\operatorname*{res}\nolimits_{k}P$ in row
-$r$. Instead of comparing the numbers of stagnant cells, we can just as well
-compare the numbers of good cells that are not stagnant (because all stagnant
+$r\in\mathbb{N}_{+}$, the number of redundant cells of $P$ in row $r$ equals
+the number of redundant cells of $\operatorname*{res}\nolimits_{k}P$ in row
+$r$. Instead of comparing the numbers of redundant cells, we can just as well
+compare the numbers of good cells that are not redundant (because all redundant
 cells are good, and because the total number of good cells clearly depends
 only on $Z$ and not on the 12-table). So we need to show that, for every
 $r\in\mathbb{N}_{+}$, the number of good cells in row $r$ that are not
-stagnant cells of $P$ equals the number of good cells in row $r$ that are not
-stagnant cells of $\operatorname*{res}\nolimits_{k}P$.
+redundant cells of $P$ equals the number of good cells in row $r$ that are not
+redundant cells of $\operatorname*{res}\nolimits_{k}P$.
 
 Fix $r\in\mathbb{N}_{+}$. The number of good cells in row $r$ that are not
-stagnant cells of $P$ is precisely the number of appearances of $r+1$ in the
-list $\operatorname*{seplist}P$ (because the good cells that are not stagnant
+redundant cells of $P$ is precisely the number of appearances of $r+1$ in the
+list $\operatorname*{seplist}P$ (because the good cells that are not redundant
 cells of $P$ are precisely the cells of the form $\left(  \operatorname*{sep}%
 \nolimits_{k}P,k\right)  $, where $k$ is a positive integer such that the
 $k$-th column of $P$ is mixed). Similarly, the number of good cells in row $r$
-that are not stagnant cells of $\operatorname*{res}\nolimits_{k}P$ is
+that are not redundant cells of $\operatorname*{res}\nolimits_{k}P$ is
 precisely the number of appearances of $r+1$ in the list
 $\operatorname*{seplist}\left(  \operatorname*{res}\nolimits_{k}P\right)  $.
 These two numbers are equal, because $\operatorname*{seplist}\left(
@@ -6155,17 +6155,17 @@ Now, it is easy to see that%
 P\right)
 \]
 \footnote{\textit{Proof.} First, we notice that every $j\in\mathbb{N}_{+}$
-such that $\left(  i,j\right)  $ is a stagnant cell of $P$ must be good. This
+such that $\left(  i,j\right)  $ is a redundant cell of $P$ must be good. This
 is because, if $j\in\mathbb{N}_{+}$ is such that $\left(  i,j\right)  $ is a
-stagnant cell of $P$, then we must have $\left(  i,j\right)  \in Z$ and
+redundant cell of $P$, then we must have $\left(  i,j\right)  \in Z$ and
 $\left(  i+1,j\right)  \in Z$ (by the definition of a \textquotedblleft
-stagnant cell\textquotedblright), and therefore $j$ must be good (by the
+redundant cell\textquotedblright), and therefore $j$ must be good (by the
 definition of \textquotedblleft good\textquotedblright).
 \par
 Now, every $j\in\mathbb{N}_{+}$ satisfies the logical equivalence%
 \begin{align}
 &  \ \left(  j\text{ is good, and }\left(  i,j\right)  \text{ is not a
-stagnant cell of }P\right) \nonumber\\
+redundant cell of }P\right) \nonumber\\
 &  \Longleftrightarrow\ \left(  \text{the }j\text{-th column of }P\text{ is
 mixed and satisfies }\operatorname*{sep}\nolimits_{j}P=i+1\right)  .
 \label{pf.prop.conflict-resolution-props.c.fn1.eq1}%
@@ -6175,14 +6175,14 @@ mixed and satisfies }\operatorname*{sep}\nolimits_{j}P=i+1\right)  .
 $j\in\mathbb{N}_{+}$.
 \par
 Assume that $\left(  j\text{ is good, and }\left(  i,j\right)  \text{ is not a
-stagnant cell of }P\right)  $. Thus, $j$ is good. Hence, $\left(  i,j\right)
+redundant cell of }P\right)  $. Thus, $j$ is good. Hence, $\left(  i,j\right)
 \in Z$ and $\left(  i+1,j\right)  \in Z$ (by the definition of
 \textquotedblleft good\textquotedblright).
 \par
 If we had $P\left(  i,j\right)  =P\left(  i+1,j\right)  $, then $\left(
-i,j\right)  $ would be a stagnant cell of $P$ (according to the definition of
-a \textquotedblleft stagnant cell\textquotedblright), which would contradict
-our assumption that $\left(  i,j\right)  $ is not a stagnant cell of $P$.
+i,j\right)  $ would be a redundant cell of $P$ (according to the definition of
+a \textquotedblleft redundant cell\textquotedblright), which would contradict
+our assumption that $\left(  i,j\right)  $ is not a redundant cell of $P$.
 Hence, we cannot have $P\left(  i,j\right)  =P\left(  i+1,j\right)  $. Thus,
 $P\left(  i,j\right)  \neq P\left(  i+1,j\right)  $. Combined with $P\left(
 i,j\right)  \leq P\left(  i+1,j\right)  $ (because the entries of $P$ are
@@ -6241,11 +6241,11 @@ $i+1=\operatorname*{sep}\nolimits_{j}P$. In other words, $\operatorname*{sep}%
 \nolimits_{j}P=i+1\right)  $.
 \par
 Let us now forget that we assumed that $\left(  j\text{ is good, and }\left(
-i,j\right)  \text{ is not a stagnant cell of }P\right)  $. We thus have proven
+i,j\right)  \text{ is not a redundant cell of }P\right)  $. We thus have proven
 the logical implication%
 \begin{align}
 &  \ \left(  j\text{ is good, and }\left(  i,j\right)  \text{ is not a
-stagnant cell of }P\right) \nonumber\\
+redundant cell of }P\right) \nonumber\\
 &  \Longrightarrow\ \left(  \text{the }j\text{-th column of }P\text{ is mixed
 and satisfies }\operatorname*{sep}\nolimits_{j}P=i+1\right)  .
 \label{pf.prop.conflict-resolution-props.c.fn1.eq1.pf.1}%
@@ -6271,12 +6271,12 @@ i,j\right)  \in Z$ and $P\left(  i,j\right)  =1$ (since $i=\operatorname*{sep}%
 \par
 Now, $j$ is good (since $\left(  i,j\right)  \in Z$ and $\left(  i+1,j\right)
 \in Z$). Also, $P\left(  i,j\right)  =1\neq2=P\left(  i+1,j\right)  $. Hence,
-$\left(  i,j\right)  $ is not a stagnant cell of $P$ (because if $\left(
-i,j\right)  $ was a stagnant cell of $P$, then it would satisfy $P\left(
+$\left(  i,j\right)  $ is not a redundant cell of $P$ (because if $\left(
+i,j\right)  $ was a redundant cell of $P$, then it would satisfy $P\left(
 i,j\right)  =P\left(  i+1,j\right)  $ (by the definition of a
-\textquotedblleft stagnant cell\textquotedblright), which would contradict
+\textquotedblleft redundant cell\textquotedblright), which would contradict
 $P\left(  i,j\right)  \neq P\left(  i+1,j\right)  $). We thus have shown that
-$\left(  j\text{ is good, and }\left(  i,j\right)  \text{ is not a stagnant
+$\left(  j\text{ is good, and }\left(  i,j\right)  \text{ is not a redundant
 cell of }P\right)  $.
 \par
 Let us now forget that we assumed that $\left(  \text{the }j\text{-th column
@@ -6286,14 +6286,14 @@ P=i+1\right)  $. We thus have proven the logical implication%
 &  \ \left(  \text{the }j\text{-th column of }P\text{ is mixed and satisfies
 }\operatorname*{sep}\nolimits_{j}P=i+1\right) \\
 &  \Longrightarrow\ \left(  j\text{ is good, and }\left(  i,j\right)  \text{
-is not a stagnant cell of }P\right)  .
+is not a redundant cell of }P\right)  .
 \end{align*}
 Combining this implication with
 (\ref{pf.prop.conflict-resolution-props.c.fn1.eq1.pf.1}), we obtain the
 equivalence%
 \begin{align*}
 &  \ \left(  j\text{ is good, and }\left(  i,j\right)  \text{ is not a
-stagnant cell of }P\right) \\
+redundant cell of }P\right) \\
 &  \Longleftrightarrow\ \left(  \text{the }j\text{-th column of }P\text{ is
 mixed and satisfies }\operatorname*{sep}\nolimits_{j}P=i+1\right)  .
 \end{align*}
@@ -6303,22 +6303,22 @@ Now, the definition of $\operatorname*{ceq}\left(  P\right)  $ yields%
 \begin{align*}
 &  \left(  \operatorname*{ceq}\left(  P\right)  \right)  _{i}\\
 &  =\left(  \text{the number of }j\in\mathbb{N}_{+}\text{ such that }\left(
-i,j\right)  \text{ is a stagnant cell of }P\right) \\
+i,j\right)  \text{ is a redundant cell of }P\right) \\
 &  =\left(  \text{the number of good }j\in\mathbb{N}_{+}\text{ such that
-}\left(  i,j\right)  \text{ is a stagnant cell of }P\right) \\
+}\left(  i,j\right)  \text{ is a redundant cell of }P\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{since every }j\in\mathbb{N}_{+}\text{
-such that }\left(  i,j\right)  \text{ is a stagnant cell of }P\text{ must be
+such that }\left(  i,j\right)  \text{ is a redundant cell of }P\text{ must be
 good}\right) \\
 &  =\underbrace{\left(  \text{the number of good }j\in\mathbb{N}_{+}\right)
 }_{=z_{i}}\\
 &  \ \ \ \ \ \ \ \ \ \ -\underbrace{\left(  \text{the number of good }%
 j\in\mathbb{N}_{+}\text{ such that }\left(  i,j\right)  \text{ is not a
-stagnant cell of }P\right)  }_{=\left(  \text{the number of }j\in
+redundant cell of }P\right)  }_{=\left(  \text{the number of }j\in
 \mathbb{N}_{+}\text{ such that }j\text{ is good, and }\left(  i,j\right)
-\text{ is not a stagnant cell of }P\right)  }\\
+\text{ is not a redundant cell of }P\right)  }\\
 &  =z_{i}-\left(  \text{the number of }j\in\mathbb{N}_{+}\text{ such that
 }\underbrace{j\text{ is good, and }\left(  i,j\right)  \text{ is not a
-stagnant cell of }P}_{\substack{\text{this is equivalent to}\\\left(
+redundant cell of }P}_{\substack{\text{this is equivalent to}\\\left(
 \text{the }j\text{-th column of }P\text{ is mixed and satisfies }%
 \operatorname*{sep}\nolimits_{j}P=i+1\right)  \\\text{(by
 (\ref{pf.prop.conflict-resolution-props.c.fn1.eq1}))}}}\right) \\
@@ -9998,7 +9998,7 @@ readable.
 \def\ceqvar{{{\alpha}}} %??
 \def\seplistvar{{{\nu}}} % ???
 \def\supp{{\operatorname*{supp}}}
-\def\NS{{\operatorname*{NS}}}
+\def\NS{{\operatorname*{NR}}}
 \def\g{{\widetilde{g}}}
 \def\t{{\mathbf{t}}}
 \def\lm{{\lambda/\mu}}
@@ -10036,7 +10036,7 @@ We will have a running example with $\lambda=(7,7,7,4,4)$ and $\mu=(5,3,2)$.
 \subsection{Irreducible components}
 We recall that a \textit{12-rpp} means an rpp whose entries all belong to the set $\left\{1, 2\right\}$. 
 
-Given a 12-rpp $T$, consider the set $\NS(T)$ of all cells $(i,j)\in \lm$ such that $T(i,j)=1$ but $(i+1,j) \in \lm$ and $T(i+1,j)=2$. (In other words, $\NS(T)$ is the set of all non-stagnant cells in $T$ which are filled with a $1$ and which are not the lowest cells in their columns.)
+Given a 12-rpp $T$, consider the set $\NS(T)$ of all cells $(i,j)\in \lm$ such that $T(i,j)=1$ but $(i+1,j) \in \lm$ and $T(i+1,j)=2$. (In other words, $\NS(T)$ is the set of all non-redundant cells in $T$ which are filled with a $1$ and which are not the lowest cells in their columns.)
 Clearly, $\NS(T)$ contains at most one cell from each column; thus, let us write $\NS(T)=\{(i_1,j_1),(i_2,j_2),\dots,(i_s,j_s)\}$ with $j_1<j_2<\dots<j_s$. Because $T$ is a 12-rpp, it follows that the numbers $i_1,i_2,\dots,i_s$ decrease weakly, therefore they form a partition which we called \textit{the seplist-partition of} $T$ and denoted 
 $$\seplist(T):=(i_1,i_2,\dots,i_s)$$ 
 in Section \ref{subsection:benign}.

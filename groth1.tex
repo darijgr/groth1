@@ -122,7 +122,7 @@
 \def\ceqvar{{{\alpha}}} %??
 \def\seplistvar{{{\nu}}} % ???
 \def\supp{{\operatorname{supp}}}
-\def\NS{{\operatorname{NS}}}
+\def\NS{{\operatorname{NR}}}
 \def\g{{\widetilde{g}}}
 \def\t{{\mathbf{t}}}
 \def\x{{\mathbf{x}}}
@@ -309,10 +309,6 @@ _{2},\alpha_{3},\ldots\right)  $ satisfying $\alpha_{1}\geq\alpha_{2}
 As usual, we often omit trailing zeroes when writing a partition (e.g.,
 the partition $\left(5,2,1,0,0,0,\ldots\right)$ can thus be written as
 $\left(5,2,1\right)$).
-
-\begin{todo}
- Come up with a better notation for ircont, stagnant.
-\end{todo}
 
 We identify each partition $\lambda$ with the subset
 $\left\{ \left( i, j \right) \in \Nplus^2 \mid j \leq \lambda_i \right\}$
@@ -520,20 +516,20 @@ and elementary way.
  Let $\t=\left(t_{1},t_{2},t_{3},\ldots\right)$ be a sequence of indeterminates. For any weak composition $\alpha$, we define $\t^\alpha$ to be the monomial $t_1^{\alpha_1} t_2^{\alpha_2} t_3^{\alpha_3} \cdots$.
 
  If $T$ is a filling of a skew partition $\lm$,
-then a \textit{stagnant cell} of $T$ is a cell of $\lm$ whose entry is equal to the entry directly below it. That is, a cell $\left(  i,j\right)  $
-of $\lm$ is stagnant if $\left(  i+1,j\right)  $ is also a cell of $\lm$ and 
+then a \textit{redundant cell} of $T$ is a cell of $\lm$ whose entry is equal to the entry directly below it. That is, a cell $\left(  i,j\right)  $
+of $\lm$ is redundant if $\left(  i+1,j\right)  $ is also a cell of $\lm$ and 
 $T\left(  i,j\right)  =T\left(  i+1,j\right)  $. Notice that a semistandard
-tableau is the same thing as an rpp which has no stagnant
+tableau is the same thing as an rpp which has no redundant
 cells.
 
 
  If $T$ is a filling of $\lm$,
 then we define the \textit{column equalities vector} of $T$ to be a weak composition $\operatorname*{ceq}\left(  T\right)=\left(c_1,c_2,c_3,\dots\right)$ 
-where $c_i$ is the number of $j\in\mathbb{N}_{+}$ such that $\left(  i,j\right)$ is a stagnant cell of $T$. Visually speaking, $\left(  \operatorname*{ceq}\left(  T\right)  \right)
+where $c_i$ is the number of $j\in\mathbb{N}_{+}$ such that $\left(  i,j\right)$ is a redundant cell of $T$. Visually speaking, $\left(  \operatorname*{ceq}\left(  T\right)  \right)
 _{i}$ is the number of columns of $T$ whose entry in the $i$-th row equals
 their entry in the $\left(  i+1\right)  $-th row. For instance, for fillings $T_a,$ $T_b,$ $T_c$ from Figure \ref{fig:fillings} we have $\ceq(T_a)=(0,1),\ \ceq(T_b)=(1,0),$ and $\ceq(T_c)=(0)$.
 
-Notice that $\left|\ceq(T)\right|$ is the number of stagnant cells in $T$, so we have 
+Notice that $\left|\ceq(T)\right|$ is the number of redundant cells in $T$, so we have 
 \begin{equation}\label{eq:sum.of.ceq.and.ircont}
  \left|\ceq(T)\right|+\left|\ircont(T)\right|=\left|\lm\right|
 \end{equation}
@@ -705,7 +701,7 @@ in terms of $\lm$) which preserves the $\ceq$ statistics and switches the number
   \item Finally, restore the remaining entries of $T$ that were ignored on the first step.
  \end{itemize}
  
- It is clear that this operation acts on $\ircont(T)$ by a transposition of the $i$-th and $i+1$-th entries. The fact that it does not change $\ceq(T)$ is also not hard to show: The set of stagnant cells remains the same.
+ It is clear that this operation acts on $\ircont(T)$ by a transposition of the $i$-th and $i+1$-th entries. The fact that it does not change $\ceq(T)$ is also not hard to show: The set of redundant cells remains the same.
 % This is one of the rare cases where my writing is shorter :) Also, we never defined what a "column equality" is. -- DG
 % the number column equalities with both entries equal to $i$ or with both entries equal to $i+1$ in each row does not change by the properties of $\B$ while the number of column equalities with both entries equal to something other than $i$ or $i+1$ in each row does not change because the values in the corresponding cells remain unchanged.
 
@@ -1595,26 +1591,26 @@ and (\ref{pf.lem.BK.Tsep}).
 
 %\textbf{(c)} A cell $\left(  i,j\right)  $ in $\lm$ will be called \textit{good}
 %if the cell $\left(  i+1,j\right)  $ also belongs to $\lm$. Notice that every
-%stagnant cell of $P$ or of $\operatorname*{res}\nolimits_{k}P$ must be good.
+%redundant cell of $P$ or of $\operatorname*{res}\nolimits_{k}P$ must be good.
 
 %In order to prove (\ref{pf.lem.BK.res.ceq}), we need to show that, for every
-%$r\in\mathbb{N}_{+}$, the number of stagnant cells of $P$ in row $r$ equals
-%the number of stagnant cells of $\operatorname*{res}\nolimits_{k}P$ in row
-%$r$. Instead of comparing the numbers of stagnant cells, we can just as well
-%compare the numbers of good cells that are not stagnant (because all stagnant
+%$r\in\mathbb{N}_{+}$, the number of redundant cells of $P$ in row $r$ equals
+%the number of redundant cells of $\operatorname*{res}\nolimits_{k}P$ in row
+%$r$. Instead of comparing the numbers of redundant cells, we can just as well
+%compare the numbers of good cells that are not redundant (because all redundant
 %cells are good, and because the total number of good cells clearly depends
 %only on $\lm$ and not on the 12-table). So we need to show that, for every
 %$r\in\mathbb{N}_{+}$, the number of good cells in row $r$ that are not
-%stagnant cells of $P$ equals the number of good cells in row $r$ that are not
-%stagnant cells of $\operatorname*{res}\nolimits_{k}P$.
+%redundant cells of $P$ equals the number of good cells in row $r$ that are not
+%redundant cells of $\operatorname*{res}\nolimits_{k}P$.
 
 %Fix $r\in\mathbb{N}_{+}$. The number of good cells in row $r$ that are not
-%stagnant cells of $P$ is precisely the number of appearances of $r+1$ in the
-%list $\operatorname*{seplist}P$ (because the good cells that are not stagnant
+%redundant cells of $P$ is precisely the number of appearances of $r+1$ in the
+%list $\operatorname*{seplist}P$ (because the good cells that are not redundant
 %cells of $P$ are precisely the cells of the form $\left(  \operatorname*{sep}%
 %\nolimits_{k}P,k\right)  $, where $k$ is a positive integer such that the
 %$k$-th column of $P$ is mixed). Similarly, the number of good cells in row $r$
-%that are not stagnant cells of $\operatorname*{res}\nolimits_{k}P$ is
+%that are not redundant cells of $\operatorname*{res}\nolimits_{k}P$ is
 %precisely the number of appearances of $r+1$ in the list
 %$\operatorname*{seplist}\left(  \operatorname*{res}\nolimits_{k}P\right)  $.
 %These two numbers are equal, because $\operatorname*{seplist}\left(
@@ -2707,7 +2703,7 @@ We will have a running example with $\lambda=(7,7,7,4,4)$ and $\mu=(5,3,2)$.
 \subsection{Irreducible components}
 We recall that a \textit{12-rpp} means an rpp whose entries all belong to the set $\left\{1, 2\right\}$. 
 
-Given a 12-rpp $T$, consider the set $\NS(T)$ of all cells $(i,j)\in \lm$ such that $T(i,j)=1$ but $(i+1,j) \in \lm$ and $T(i+1,j)=2$. (In other words, $\NS(T)$ is the set of all non-stagnant cells in $T$ which are filled with a $1$ and which are not the lowest cells in their columns.)
+Given a 12-rpp $T$, consider the set $\NS(T)$ of all cells $(i,j)\in \lm$ such that $T(i,j)=1$ but $(i+1,j) \in \lm$ and $T(i+1,j)=2$. (In other words, $\NS(T)$ is the set of all non-redundant cells in $T$ which are filled with a $1$ and which are not the lowest cells in their columns.)
 Clearly, $\NS(T)$ contains at most one cell from each column; thus, let us write $\NS(T)=\{(i_1,j_1),(i_2,j_2),\dots,(i_s,j_s)\}$ with $j_1<j_2<\cdots<j_s$. Because $T$ is a 12-rpp, it follows that the numbers $i_1,i_2,\dots,i_s$ decrease weakly, therefore they form a partition which we
 %called \textit{the seplist-partition of} $T$ and
 denoted 
