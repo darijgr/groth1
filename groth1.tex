@@ -255,10 +255,6 @@ a new light on the involution constructed in Section \ref{sect.proof}
 properties with the classical Bender-Knuth involutions).
 
 \begin{todo}
-Rewrite this after the shortening process is finished.
-\end{todo}
-
-\begin{todo}
 What is missing from the above introduction? Specifically:
 
 \begin{itemize}
@@ -398,9 +394,10 @@ A \textit{symmetric function} is defined to be a
 bounded-degree\footnote{A power series is said to be \textit{bounded-degree}
 if there is an $N \in \mathbb{N}$ such that only monomials of degree $\leq N$
 appear in the series.}
-power series in $x_1,x_2,\dots$ that is invariant under (finite)
+power series in countably many indeterminates $x_1,x_2,x_3,\dots$
+over $\Z$ that is invariant under (finite)
 permutations\footnote{A permutation is \textit{finite} if it fixes all but
-finitely many positive elements.} of $x_1,x_2,\dots$.
+finitely many elements.} of $x_1,x_2,\dots$.
 
 \begin{todo}
  Make ground ring explicit (even if it is $\Z$).
@@ -455,7 +452,10 @@ instead of the content $\operatorname{cont}\left(  T\right)$.
 
 
 
-  Namely, for a filling $T$ of a skew partition $\lm$, we define its \textit{irredundant content} as a weak composition $\operatorname*{ircont}\left(
+  Namely, for a filling $T$ of a skew partition $\lm$, we define its
+\textit{irredundant content} (or, by way of abbreviation, the
+\textit{$\operatorname{ircont}$ statistic})
+as the weak composition $\operatorname*{ircont}\left(
 T\right) = \left(r_1,r_2,r_3,\dots\right)$ where $r_i$ is the number of \emph{columns} (rather than cells) of $T$ that contain an entry equal to $i$. For instance, if $T_a$, $T_b$, and $T_c$ are the fillings from Figure \ref{fig:fillings}, then their irredundant contents are
 \begin{align*}
 \ircont(T_a)=(0,1,2,1,0,1),\ \qquad \ircont(T_b)=(0,1,3,1), \\
@@ -520,8 +520,12 @@ cells.
 
 
  If $T$ is a filling of $\lm$,
-then we define the \textit{column equalities vector} of $T$ to be a weak composition $\operatorname*{ceq}\left(  T\right)=\left(c_1,c_2,c_3,\dots\right)$ 
-where $c_i$ is the number of $j\in\mathbb{N}_{+}$ such that $\left(  i,j\right)$ is a redundant cell of $T$. Visually speaking, $\left(  \operatorname*{ceq}\left(  T\right)  \right)
+then we define the \textit{column equalities vector} (or,
+by way of abbreviation, the
+\textit{$\operatorname{ceq}$ statistic})
+of $T$ to be the weak composition
+$\operatorname{ceq}\left(  T\right)=\left(c_1,c_2,c_3,\dots\right)$
+where $c_i$ is the number of $j\in\mathbb{N}_{+}$ such that $\left(  i,j\right)$ is a redundant cell of $T$. Visually speaking, $\left(  \operatorname{ceq}\left(  T\right)  \right)
 _{i}$ is the number of columns of $T$ whose entry in the $i$-th row equals
 their entry in the $\left(  i+1\right)  $-th row. For instance, for fillings $T_a,$ $T_b,$ $T_c$ from Figure \ref{fig:fillings} we have $\ceq(T_a)=(0,1),\ \ceq(T_b)=(1,0),$ and $\ceq(T_c)=(0)$.
 
@@ -538,7 +542,8 @@ Let now $\lambda/\mu$ be a skew partition. We set%
 \[
 \widetilde{g}_{\lambda/\mu}(\mathbf{x};\t)=\sum_{\substack{T\text{ is an rpp}\\\text{of shape
 }\lm  }}\mathbf{t}^{\operatorname*{ceq}\left(
-T\right)  }\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }.
+T\right)  }\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }
+\in \left(\Z\left[t_1, t_2, t_3, \ldots\right]\right)\left[\left[x_1, x_2, x_3, \ldots\right]\right] .
 \]
 
 
@@ -556,10 +561,10 @@ Let us give some examples of $\widetilde{g}_{\lambda/\mu}$.
 
 
 
-\textbf{(b)} If $\lm$ is a single column with $n$ cells then by (\ref{eq:sum.of.ceq.and.ircont}) for all rpps $T$ of shape $\lm$ we have $|\ceq(T)|+|\ircont(T)|=n$ so in this case 
+\textbf{(b)} If $\lm$ is a single column with $n$ cells, then, by (\ref{eq:sum.of.ceq.and.ircont}), for all rpps $T$ of shape $\lm$ we have $|\ceq(T)|+|\ircont(T)|=n$, so in this case
 \[
-\g_\lm(\x;\t)=e_n(t_1,t_2,\dots,t_{n-1},x_1,x_2,\dots)=\sum_{k=0}^{n}e_{k}\left(  t_{1},t_{2},\ldots,t_{n-1}\right)
-e_{n-k}\left(  x_{1},x_{2},\ldots\right),
+\g_\lm(\x;\t)=\sum_{k=0}^{n}e_{k}\left(  t_{1},t_{2},\ldots,t_{n-1}\right)
+e_{n-k}\left(  x_{1},x_{2},\ldots\right) =e_n(t_1,t_2,\dots,t_{n-1},x_1,x_2,\dots),
 \]
 where $e_{i}\left(  \xi_{1},\xi_{2},\xi_{3},\ldots\right)  $ denotes the
 $i$-th elementary symmetric function in the indeterminates $\xi_{1},\xi
@@ -645,8 +650,12 @@ Our main result is now the following:
 $\widetilde{g}_{\lambda/\mu}(\x,\t)$ is symmetric in $\x$.
 \end{theorem}
 
+Here, ``symmetric in $\x$'' means ``invariant under all finite
+permutations of the indeterminates $x_1, x_2, x_3, \ldots$''
+(while $t_1, t_2, t_3, \ldots$ remain unchanged).
 
-Clearly, this implies the symmetry of $g_\lm$ and $s_\lm$ due to Proposition \ref{prop.gtilde.gener}.
+Clearly, Theorem~\ref{thm.gtilde.symm} implies the symmetry of
+$g_\lm$ and $s_\lm$ due to Proposition~\ref{prop.gtilde.gener}.
 
 
 We shall prove Theorem \ref{thm.gtilde.symm} bijectively. The core of our

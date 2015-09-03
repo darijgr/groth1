@@ -9516,7 +9516,7 @@ Section \ref{sect.BKclassical}.
 Theorem \ref{thm.BK} merely claims the existence of an involution
 $\mathbf{B}_{i}:\operatorname*{RPP}\left(  \lambda/\mu\right)  \rightarrow
 \operatorname*{RPP}\left(  \lambda/\mu\right)  $ satisfying certain
-properties. Such an involution, per se, needs not be unique. However, if we
+properties. Such an involution, per se, need not be unique. However, if we
 trace back the proof of Theorem \ref{thm.BK} (and the proofs of the lemmas
 that were used in this proof), we notice that this proof constructs a specific
 involution $\mathbf{B}_{i}$. This construction is spread across various
@@ -9524,7 +9524,8 @@ proofs; we can summarize it as follows:
 
 \begin{itemize}
 \item The main step of the construction was the construction of the involution
-$\mathbf{B}:\mathbf{R}\rightarrow\mathbf{R}$ in Lemma \ref{lem.BK} (for a
+$\mathbf{B}:\mathbf{R}\rightarrow\mathbf{R}$ in the proof of
+Lemma \ref{lem.BK} (for a
 given finite convex subset $Z$ of $\mathbb{N}_{+}^{2}$). This is an involution
 which sends 12-rpps of shape $Z$ to 12-rpps of the same shape $Z$, and it was
 constructed as follows: Given a 12-rpp $T$ of shape $Z$, we set $\mathbf{B}%
@@ -9560,7 +9561,7 @@ again; this rpp is $\mathbf{B}_{i}\left(  S\right)  $.
 
 In the following, whenever we will be talking about the involution
 $\mathbf{B}_{i}$, we will always mean this particular involution
-$\mathbf{B}_{i}$, rather than an arbitrary involution $\mathbf{B}_{i}$ which
+$\mathbf{B}_{i}$, rather than an arbitrary involution $\mathbf{B}_{i}$ that
 satisfies the claims of Theorem \ref{thm.BK}.
 
 \subsection{The Bender-Knuth involutions}
@@ -9590,8 +9591,9 @@ substring of the $k$-th row which looks as follows:%
 \[
 \left(  i,i,\ldots,i,i+1,i+1,\ldots,i+1\right)
 \]
-\footnote{Of course, this might contain no $i$'s or no $\left(  i+1\right)
-$'s.}. Some of the entries of this substring are \textquotedblleft
+\footnote{Of course, this substring
+might contain no $i$'s or no $\left(  i+1\right)$'s.}.
+Some of the entries of this substring are \textquotedblleft
 ignored\textquotedblright; it is easy to see that the \textquotedblleft
 ignored\textquotedblright\ $i$'s are gathered at the left end of the substring
 whereas the \textquotedblleft ignored\textquotedblright\ $\left(  i+1\right)
@@ -9683,7 +9685,8 @@ substring $\left(  3,3\right)  $ of the $3$-rd row of $T$ into $\left(
 2,3\right)  $ (because its first $3$ is not \textquotedblleft
 ignored\textquotedblright\ but its second $3$ is). The substring of the $4$-th
 row, of the $5$-th row, of the $6$-th row, etc., formed by the $i$'s and
-$\left(  i+1\right)  $'s are empty (because these rows have neither $i$'s nor
+$\left(  i+1\right)  $'s are empty (because these rows contain
+neither $i$'s nor
 $\left(  i+1\right)  $'s), and thus we do not make any changes on them. Now,
 $B_{i}\left(  T\right)  $ is defined to be the tableau that results from all
 of these changes; thus,%
@@ -9770,28 +9773,15 @@ _{i}\left(  T\right)  $ for every $T\in\operatorname*{SST}\left(  \lambda
 \left(  T\right)  $ for every finite convex subset $Z$ of $\mathbb{N}_{+}^{2}$
 and any 12-sst $T$ of shape $Z$.
 
-\begin{todo}
-Is this readable?
-\end{todo}
-
 So let $Z$ be any finite convex subset of $\mathbb{N}_{+}^{2}$, and let $T$ be
 a 12-sst of shape $Z$. We need to prove that $B\left(  T\right)
 =\mathbf{B}\left(  T\right)  $.
 
 \begin{example}
-Here is an example of a 12-sst:%
+Here is an example of a 12-sst:
 \begin{equation}
-T=%
-%TCIMACRO{\TeXButton{ytableau}{\ytableausetup{notabloids}
-%\begin{ytableau}
-%\none& \none& \none& \none& \none& \none& \none& \none& 1 \\
-%\none& \none& \none& \none& \none& 1 & 1 & 2 \\
-%\none& \none& \none& 1 & 2 & 2 & 2 \\
-%1 & 2 \\
-%2
-%\end{ytableau}
-%}}%
-%BeginExpansion
+T
+=
 \ytableausetup{notabloids}
 \begin{ytableau}
 \none& \none& \none& \none& \none& \none& \none& \none& 1 \\
@@ -9800,54 +9790,35 @@ T=%
 1 & 2 \\
 2
 \end{ytableau}
-%EndExpansion
-. \label{pf.prop.BK=BK.exampleT}%
+. \label{pf.prop.BK=BK.exampleT}
 \end{equation}
-It satisfies%
+It satisfies
 \begin{equation}
-B\left(  T\right)  =%
-%TCIMACRO{\TeXButton{ytableau}{\ytableausetup{notabloids}
-%\begin{ytableau}
-%\none& \none& \none& \none& \none& \none& \none& \none& 1 \\
-%\none& \none& \none& \none& \none& 1 & 2 & 2 \\
-%\none& \none& \none& 1 & 1 & 2 & 2 \\
-%1 & 1 \\
-%2
-%\end{ytableau}} }%
-%BeginExpansion
+B\left(  T\right)
+=
 \ytableausetup{notabloids}
 \begin{ytableau}
-\none& \none& \none& \none& \none& \none& \none& \none& 1 \\
-\none& \none& \none& \none& \none& 1 & 2 & 2 \\
-\none& \none& \none& 1 & 1 & 2 & 2 \\
+\none& \none& \none& \none& \none& \none& \none& \none& 2 \\
+\none& \none& \none& \none& \none& 1 & 1 & 1 \\
+\none& \none& \none& 1 & 2 & 2 & 2 \\
 1 & 1 \\
 2
 \end{ytableau}
-%EndExpansion
-\label{pf.prop.BK=BK.exampleBT}%
+\label{pf.prop.BK=BK.exampleBT}
 \end{equation}
-and%
+and
 \begin{equation}
-\operatorname*{flip}\left(  T\right)  =%
-%TCIMACRO{\TeXButton{ytableau}{\ytableausetup{notabloids}
-%\begin{ytableau}
-%\none& \none& \none& \none& \none& \none& \none& \none& 1 \\
-%\none& \none& \none& \none& \none& 1 & 2 & 2 \\
-%\none& \none& \none& 2 & 1 & 1 & 2 \\
-%1 & 1 \\
-%2
-%\end{ytableau}} }%
-%BeginExpansion
+\operatorname*{flip}\left(  T\right)
+=
 \ytableausetup{notabloids}
 \begin{ytableau}
-\none& \none& \none& \none& \none& \none& \none& \none& 1 \\
-\none& \none& \none& \none& \none& 1 & 2 & 2 \\
-\none& \none& \none& 2 & 1 & 1 & 2 \\
+\none& \none& \none& \none& \none& \none& \none& \none& 2 \\
+\none& \none& \none& \none& \none& 1 & 1 & 1 \\
+\none& \none& \none& 2 & 1 & 2 & 2 \\
 1 & 1 \\
 2
 \end{ytableau}
-%EndExpansion
-\label{pf.prop.BK=BK.exampleflipT}%
+\label{pf.prop.BK=BK.exampleflipT}
 \end{equation}
 (where $\operatorname*{flip}\left(  T\right)  $ is defined as in the
 construction of $\mathbf{B}\left(  T\right)  $).
@@ -9856,8 +9827,8 @@ construction of $\mathbf{B}\left(  T\right)  $).
 We make a few basic observations: The columns which are ignored in the
 construction of $B\left(  T\right)  $ are the columns which contain both a $1$
 and a $2$.\ \ \ \ \footnote{For instance, in the 12-sst
-(\ref{pf.prop.BK=BK.exampleT}), the ignored columns are the $1$-st, the $7$-th
-and the $9$-th columns.} These columns contain exactly two entries each
+(\ref{pf.prop.BK=BK.exampleT}), the ignored columns are the $1$-st, the $6$-th
+and the $7$-th columns.} These columns contain exactly two entries each
 (because a column of a 12-sst can only contain at most one $1$, at most one
 $2$ and no other entries), while every other column is either empty or
 contains only one entry. As a consequence, every entry of $T$ which is not
@@ -9894,10 +9865,10 @@ mixed columns of $T$. Thus, the 12-table $\operatorname*{flip}\left(
 T\right)  $ can be obtained from $T$ by replacing all $1$'s which are not
 \textquotedblleft ignored\textquotedblright\ by $2$'s while simultaneously
 replacing all $2$'s which are not \textquotedblleft ignored\textquotedblright%
-\ by $1$'s. Thus, for any given $r\in\mathbb{N}_{+}$, if the $r$-th row of $T$
+\ by $1$'s. Thus, for any given $k\in\mathbb{N}_{+}$, if the $k$-th row of $T$
 contains $r$ many $1$'s which are not \textquotedblleft
 ignored\textquotedblright\ and $s$ many $2$'s which are not \textquotedblleft
-ignored\textquotedblright, then the $r$-th row of $\operatorname*{flip}\left(
+ignored\textquotedblright, then the $k$-th row of $\operatorname*{flip}\left(
 T\right)  $ contains $r$ many $2$'s which are not \textquotedblleft
 ignored\textquotedblright\ and $s$ many $1$'s which are not \textquotedblleft
 ignored\textquotedblright\ (while the \textquotedblleft
@@ -9986,14 +9957,24 @@ proof of Proposition \ref{prop.BK=BK}.
 \end{proof}
 
 \begin{todo}
-The above argument is a mess, whose level of detail doesn't make it more
-readable.
+Improve the writing in this proof, particularly in the part where the
+claim for $B_i$ is reduced to the claim for $B$.
+
+Maybe there is a more readable proof by invariants?
 \end{todo}
 
 
 
 \section{The structure of 12-rpps}
 \label{sect.structure}
+
+\begin{todo}
+\begin{itemize}
+\item copy newest version of this section
+\item copy old union of intervals and old ending footnote
+\end{itemize}
+\end{todo}
+
 \def\seplist{{\operatorname*{seplist}}} % what would be a good notation here? same question for the below:
 \def\ceq{{\operatorname*{ceq}}}
 \def\ircont{{\operatorname*{ircont}}}
