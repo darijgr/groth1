@@ -196,7 +196,8 @@ of shape }\lambda/\mu}}\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  },
 \]
 where $\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }$ is the monomial
 $x_{1}^{a_{1}}x_{2}^{a_{2}}x_{3}^{a_{3}}\cdots$ whose $i$-th exponent $a_{i}$
-is the number of columns of $T$ containing the entry $i$. As proven in
+is the number of \textit{columns} (rather than cells) %this is important enough to be repeated two times -- [PG]
+of $T$ containing the entry $i$. As proven in
 \cite[\S 9.1]{LamPyl}, this power series $g_{\lambda/\mu}$ is a symmetric
 function (albeit, unlike $s_{\lambda/\mu}$, an inhomogeneous one in general).
 Lam and Pylyavskyy connect the $g_{\lambda/\mu}$ to the (more familiar)
@@ -241,9 +242,8 @@ combinatorics and symmetric functions. In Section \ref{sect.def}, we define
 the dual stable Grothendieck polynomials $\widetilde{g}_{\lambda/\mu}$, state
 our main result (that they are symmetric functions), and do the first steps of
 its proof (by reducing it to a purely combinatorial statement about the
-existence of an involution with certain properties). In Section
-\ref{sect.proof}, we prove our main result by constructing the required
-involution. In Section \ref{sect.BKclassical}, we
+existence of an involution with certain properties). In Section \ref{sect.construction}, we describe the idea of constructing this involution in an elementary way without proofs. In Section
+\ref{sect.proof}, we prove various properties of this involution advertised in Section \ref{sect.construction} thus finishing the proof of our main result. In Section \ref{sect.BKclassical}, we
 recapitulate the definition of the classical Bender-Knuth involution, and
 show that our involution is a generalization of the latter.
 Finally, in Section \ref{sect.structure} we study the structure of
@@ -458,9 +458,9 @@ instead of the content $\operatorname{cont}\left(  T\right)$.
 as the weak composition $\operatorname*{ircont}\left(
 T\right) = \left(r_1,r_2,r_3,\dots\right)$ where $r_i$ is the number of \emph{columns} (rather than cells) of $T$ that contain an entry equal to $i$. For instance, if $T_a$, $T_b$, and $T_c$ are the fillings from Figure \ref{fig:fillings}, then their irredundant contents are
 \begin{align*}
-\ircont(T_a)=(0,1,2,1,0,1),\ \qquad \ircont(T_b)=(0,1,3,1), \\
-\ircont(T_c)=(0,1,3,1,0,0,1)
+\ircont(T_a)=(0,1,2,1,0,1),\ \ircont(T_b)=(0,1,3,1),\ \ircont(T_c)=(0,1,3,1,0,0,1)
 \end{align*}
+%it looked really weird on two lines 
 (where we omit trailing zeroes),
 because, for example, $T_a$ has one column with a $4$ in it (so $(\ircont(T_a))_4=1$) and $T_b$ contains three columns with a $3$ (so $(\ircont(T_b))_3=3$).
 
@@ -543,9 +543,9 @@ Let now $\lambda/\mu$ be a skew partition. We set%
 \widetilde{g}_{\lambda/\mu}(\mathbf{x};\t)=\sum_{\substack{T\text{ is an rpp}\\\text{of shape
 }\lm  }}\mathbf{t}^{\operatorname*{ceq}\left(
 T\right)  }\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }
-\in \left(\Z\left[t_1, t_2, t_3, \ldots\right]\right)\left[\left[x_1, x_2, x_3, \ldots\right]\right] .
+\in \Z\left[t_1, t_2, t_3, \ldots\right]\left[\left[x_1, x_2, x_3, \ldots\right]\right] .
 \]
-
+%I think the brackets are unnecessary and also kind of ugly
 
 
 Let us give some examples of $\widetilde{g}_{\lambda/\mu}$.
@@ -701,7 +701,7 @@ in terms of $\lm$) which preserves the $\ceq$ statistics and switches the number
   \item Finally, restore the remaining entries of $T$ that were ignored on the first step.
  \end{itemize}
  
- It is clear that this operation acts on $\ircont(T)$ by a transposition of the $i$-th and $i+1$-th entries. The fact that it does not change $\ceq(T)$ is also not hard to show: The set of redundant cells remains the same.
+ It is clear that this operation acts on $\ircont(T)$ by a transposition of the $i$-th and $i+1$-th entries. The fact that it does not change $\ceq(T)$ is also not hard to show: the set of redundant cells remains the same.
 % This is one of the rare cases where my writing is shorter :) Also, we never defined what a "column equality" is. -- DG
 % the number column equalities with both entries equal to $i$ or with both entries equal to $i+1$ in each row does not change by the properties of $\B$ while the number of column equalities with both entries equal to something other than $i$ or $i+1$ in each row does not change because the values in the corresponding cells remain unchanged.
 
@@ -2378,6 +2378,8 @@ Lemma \ref{lem.BK} is now proven.
 
 \section{\label{sect.BKclassical}The classical Bender-Knuth involutions}
 
+\def\BK{{\mathbf{BK}}}
+
 Fix a skew partition $\lambda/\mu$ and a positive integer $i$.
 We claim that the involution $\mathbf{B}_{i}:\operatorname*{RPP}\left(
 \lambda/\mu\right)  \rightarrow\operatorname*{RPP}\left(  \lambda/\mu\right)
@@ -2388,7 +2390,7 @@ Proposition 2.11]{GriRei15} and \cite[proof of Theorem 7.10.2]{Stan99}).
 
 Let $\operatorname*{SST}\left(  \lambda/\mu\right)  $ denote the set of all
 semistandard tableaux of shape $ \lm$. We define a
-map $B_{i}:\operatorname*{SST}\left(  \lambda/\mu\right)  \rightarrow
+map $\BK_{i}:\operatorname*{SST}\left(  \lambda/\mu\right)  \rightarrow
 \operatorname*{SST}\left(  \lambda/\mu\right)  $ as follows:
 %\footnote{We refer
 %to Example \ref{exa.BKclassical} below for illustration.}
@@ -2434,7 +2436,7 @@ i+1\right)  \text{'s which}\\\text{are \textquotedblleft
 ignored\textquotedblright}}}\right)  .
 \]
 We do this for every $k\in\mathbb{N}_{+}$. At the end, we have obtained a new semistandard
-tableau of shape $\lambda/\mu$. We define $B_{i}\left(
+tableau of shape $\lambda/\mu$. We define $\BK_{i}\left(
 T\right)  $ to be this new tableau.
 
 %\Needspace{25\baselineskip}
@@ -2523,7 +2525,7 @@ T\right)  $ to be this new tableau.
 %\end{example}
 
 \begin{proposition}
-\label{prop.BKclassical}The map $B_{i}:\operatorname*{SST}\left(  \lambda
+\label{prop.BKclassical}The map $\BK_{i}:\operatorname*{SST}\left(  \lambda
 /\mu\right)  \rightarrow\operatorname*{SST}\left(  \lambda/\mu\right)  $ thus
 defined is an involution. It is known as the $i$\textit{-th Bender-Knuth
 involution}.
@@ -2535,16 +2537,16 @@ defined for every $T\in\operatorname*{SST}\left(  \lambda/\mu\right)  $. Our cla
 
 \begin{proposition}
 \label{prop.BK=BK}For every $T\in\operatorname*{SST}\left(  \lambda
-/\mu\right)  $, we have $B_{i}\left(  T\right)  =\mathbf{B}_{i}\left(
+/\mu\right)  $, we have $\BK_{i}\left(  T\right)  =\mathbf{B}_{i}\left(
 T\right)  $.
 \end{proposition}
 
 \begin{proof}
 [Proof of Proposition \ref{prop.BK=BK}.] 
 Recall that the map $\mathbf{B}_i$ comes from the map $\mathbf{B}$ we defined on 12-rpps in Section~\ref{sect.proof}.
-We could have constructed the map $B_i$ using from the map $B_1$ in an analogous way.
+We could have constructed the map $\BK_i$ from the map $\BK_1$ in an analogous way.
 We define a \textit{12-sst} to be a semistandard tableau whose entries all belong to the set $\left\{  1,2\right\}  $.
-Clearly, to prove Proposition~\ref{prop.BK=BK}, it suffices to prove that $B_1(T) = \mathbf{B}(T)$ for all 12-ssts $T$.
+Clearly, to prove Proposition~\ref{prop.BK=BK}, it suffices to prove that $\BK_1(T) = \mathbf{B}(T)$ for all 12-ssts $T$.
 
 %\begin{example}
 %Here is an example of a 12-sst:%
@@ -2654,7 +2656,7 @@ which are in}\\\text{mixed columns}}%
 },\underbrace{2,2,\ldots,2}_{\substack{b \ 2\text{'s
 which are in}\\\text{mixed columns}}}\right).
 \]
-Repeating this process for every row of $\operatorname*{flip}\left(  T\right)$ (we can do this because each pure column contains only one entry, and thus each descent-resolution described above affects only one row), we obtain a 12-rpp. By the definition of $\mathbf{B}$, this rpp must equal $\mathbf{B}(T)$. By the above description, it is also clearly equal to $B_1(T)$ (because the ignored entries in the construction of $B_1(T)$ are precisely the entries lying in mixed columns), which completes the proof.
+Repeating this process for every row of $\operatorname*{flip}\left(  T\right)$ (we can do this because each pure column contains only one entry, and thus each descent-resolution described above affects only one row), we obtain a 12-rpp. By the definition of $\mathbf{B}$, this rpp must equal $\mathbf{B}(T)$. By the above description, it is also clearly equal to $\BK_1(T)$ (because the ignored entries in the construction of $\BK_1(T)$ are precisely the entries lying in mixed columns), which completes the proof.
 \end{proof}
 
 
