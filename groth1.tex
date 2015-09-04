@@ -2664,9 +2664,10 @@ Repeating this process for every row of $\operatorname*{flip}\left(  T\right)$ (
 \section{The structure of 12-rpps}
 \label{sect.structure}
 
-In this section, we let $\kk$ be the polynomial ring
-$\Z\left[t_1, t_2, t_3, \ldots\right]$ in countably many
-indeterminates, and we restrict ourselves to the
+In this section, 
+%we let $\kk$ be the polynomial ring $\Z\left[t_1, t_2, t_3, \ldots\right]$ in countably many indeterminates, and 
+%not quite sure when \kk was something else --PG
+we restrict ourselves to the
 two-variable dual stable Grothendieck polynomial
 $\g_\lm(x_1,x_2,0,0,\dots;\t)$ defined as the result of
 substituting $0, 0, 0, \ldots$ for $x_3, x_4, x_5, \ldots$
@@ -2683,7 +2684,7 @@ We shall show that each $Q_\ceqvar(x_1,x_2)$ is either zero or has the form
 Q_\ceqvar(x_1,x_2)=(x_1x_2)^{M} P_{n_0}(x_1,x_2)P_{n_1}(x_1,x_2)\cdots P_{n_r}(x_1,x_2) , 
 \end{equation}
 where $M,r$ and $n_0,n_1,\dots,n_{r}$ are nonnegative integers naturally associated to $\ceqvar$ and $\lm$ and 
-$$P_n(x_1,x_2)=(x_1^{n+1}-x_2^{n+1})/(x_1-x_2)=x_1^{n}+x_1^{n-1}x_2+\cdots+x_1x_2^{n-1}+x_2^n.$$
+$$P_n(x_1,x_2)=\frac{x_1^{n+1}-x_2^{n+1}}{x_1-x_2}=x_1^{n}+x_1^{n-1}x_2+\cdots+x_1x_2^{n-1}+x_2^n.$$
 We fix the skew partition $\lm$ throughout the whole section.
 %Abusing notation, we shall abbreviate $Y\left(\lm\right)$ as $\lm$.
 We will have a running example with $\lambda=(7,7,7,4,4)$ and $\mu=(5,3,2)$.
@@ -2786,6 +2787,11 @@ For two integers $a< b$, we let $\nuab$ denote the subpartition $(i_r,i_{r+1},\d
 For example, for $\seplistvar=(4,3,3,2)$ and $\lm$ as on Figure \ref{fig:seplist}, we have 
 $$\supp(3)=[3,4],\ \supp(2)=[4,7],\ \supp(4)=[1,4],$$ 
 $$\nuxy{2}{7}=(3,3),\ \nuxy{2}{8}=(3,3,2),\ \nuxy{4}{8}=(2),\ \nuxycap{4}{5}=(4,3,3,2),\ \#\nuxy{2}{7}=2.$$
+
+\begin{remark}
+ If $\seplistvar$ is an admissible partition then the partitions $\nuab$ and $\nuabcap$ are clearly admissible as well. 
+\end{remark}
+
 
 We introduce several definitions: An admissible partition $\seplistvar=(i_1\geq \cdots\geq i_s>0)$ is called
 
@@ -2957,9 +2963,12 @@ Now use Theorem \ref{thm:12rpps}.
 
  Note that the polynomials $P_n(x_1,x_2)$ are symmetric for all $n$. Since the question about the symmetry of $\g_\lm$ can be reduced to the two-variable case, Corollary \ref{cor:thm12rppsCompositeCor} gives an alternative proof of the symmetry of $\g_\lm$:
 \begin{corollary}
- The polynomials $\g_\lm \in \kk\left[x_1, x_2, x_3, \ldots\right]$ are symmetric.
+ The polynomials $\g_\lm \in \Z[t_1,t_2,\dots]\left[[x_1, x_2, x_3, \ldots]\right]$ are symmetric.
 \end{corollary}
- This holds for any $\kk$ and any $t_1, t_2, t_3, \ldots \in \kk$, since the case we have considered (where $t_1, t_2, t_3, \ldots$ are polynomial indeterminates over $\Z$) is universal.\footnote{Of course, our standing assumption that $\lm$ is connected can be lifted here, because in general, $\g_\lm$ is the product of the analogous power series corresponding to the connected components of $\lm$. So we have obtained a new proof of Theorem \ref{thm.gtilde.symm}.}
+ 
+ Of course, our standing assumption that $\lm$ is connected can be lifted here, because in general, $\g_\lm$ is the product of the analogous power series corresponding to the connected components of $\lm$. So we have obtained a new proof of Theorem \ref{thm.gtilde.symm}.
+ 
+ This also holds for any commutative ring $\kk$ and any $t_1, t_2, t_3, \ldots \in \kk$, since the case we have considered (where $t_1, t_2, t_3, \ldots$ are polynomial indeterminates over $\Z$) is universal. 
 
 Another application of Theorem \ref{thm:12rpps} is a complete description of Bender-Knuth involutions on rpps.
 
@@ -3001,12 +3010,12 @@ Therefore the set $\NS(T)$ contains $\{(i_{p+1},a+1),(i_{p+2},a+2),\dots,(i_{p+b
 \begin{proof}[Proof of Theorem \ref{thm:12rpps}]
 We proceed by strong induction on the number of columns in $\lm$. If the number of columns is $1$, then the statement of Theorem \ref{thm:12rpps} is obvious. Suppose that we have proven that for all skew partitions $\widetilde{\lm}$ with less than $\lambda_1$ columns and for all partitions $\widetilde\seplistvar$  irreducible with respect to $\widetilde{\lm}$ and for all $0\leq \widetilde m\leq \widetilde{\lambda}_1-\#\widetilde\seplistvar$, there is exactly one 12-rpp $\widetilde T$ of shape $\widetilde{\lm}$ with exactly $\widetilde m$ $1$-pure columns, exactly $\#\widetilde\seplistvar$ mixed columns and exactly $(\widetilde{\lambda}_1-\#\widetilde\seplistvar-\widetilde m)$ $2$-pure columns. Now we want to prove the same for $\lm$.
 
-Take any 12-rpp $T\in\OneTwoRPPCutvar$ with $\seplist(T)=\seplistvar$ and with $m$ $1$-pure columns for $0\leq m\leq \lambda_1-\#\seplistvar$. Suppose first that $m>0$. Then there is at least one $1$-pure column in $T$. Let $q\geq 0$ be such that the leftmost $1$-pure column is column $q+1$. Then by Lemma \ref{lemma:leftRight} the columns $1,2,\dots,q$ are mixed. If $q>0$ then the supports of $i_1,i_2,\dots,i_q$ are all contained inside $[1,q+1)$ and we get a contradiction with the irreducibility of $\seplistvar$. The only remaining case is that $q=0$ and the first column of $T$ is $1$-pure. Let $\widetilde\lm$ denote $\lm$ with the first column removed. Then $\seplistvar$ may not be irreducible with respect to $\widetilde{\lm}$, because it may happen that $\#\nuxy{2}{b+1}^{\widetilde{\lm}}=b-1$
+Take any 12-rpp $T\in\OneTwoRPPCutvar$ with $\seplist(T)=\seplistvar$ and with $m$ $1$-pure columns for $0\leq m\leq \lambda_1-\#\seplistvar$. Suppose first that $m>0$. Then there is at least one $1$-pure column in $T$. Let $q\geq 0$ be such that the leftmost $1$-pure column is column $q+1$. Then by Lemma \ref{lemma:leftRight} the columns $1,2,\dots,q$ are mixed. If $q>0$ then the supports of $i_1,i_2,\dots,i_q$ are all contained inside $[1,q+1)$ and we get a contradiction with the irreducibility of $\seplistvar$. The only remaining case is that $q=0$ and the first column of $T$ is $1$-pure. Let $\widetilde\lm$ denote $\lm$ with the first column removed. Then $\seplistvar$ is obviously admissible but may not be irreducible with respect to $\widetilde{\lm}$, because it may happen that $\#\nuxy{2}{b+1}^{\widetilde{\lm}}=b-1$
 % [DG] You didn't "slide" $\widetilde{\lm}$ to the left (i.e., relabel the columns) in the previous proof, so better not do it here either.
 for some $b>1$. In this case we can remove these $b-1$ nonempty columns from $\widetilde{\lm}$ and remove the first $b-1$ entries from $\nu$ to get an irreducible partition again\footnote{This follows from Lemma \ref{lemma:irreducible} \textbf{(c)} (applied to the skew shape $\widetilde{\lm}$ and $k=1$). Here we are using the fact that if we apply Lemma \ref{lemma:irreducible} \textbf{(a)} to $\widetilde{\lm}$ instead of $\lm$, then we get $r = 1$ (because if $r \geq 2$, then $\#\nuxy{a_2}{b_2} = \#\nuxy{a_2}{b_2}^{\widetilde{\lm}} = b_2-a_2$ in contradiction to the irreducibility of $\lm$).}, to which we can apply the induction hypothesis. We are done with the case $m>0$. If $m<\lambda_1-\#\seplistvar$ then we can apply a mirrored argument to the last column, and it remains to note that the cases $m>0$ and $m<\lambda_1-\#\seplistvar$ cover everything (since the irreducibility of $\nu$ shows that $\lambda_1-\#\seplistvar>0$).
 
 This inductive proof shows the uniqueness of the 12-rpp with desired properties. Its existence follows from a parallel argument, using the observation that the first $b-1$ columns of $\widetilde{\lm}$ can actually be filled in. This amounts to showing that for a representable $\seplistvar$, the set $\OneTwoRPPCutvar$ is non-empty in the case when $\lambda_1 = \#\seplistvar$ (so all columns of $T \in \OneTwoRPPCutvar$ must be mixed). This is clear when there is just one column, and the general case easily follows by induction on the number of columns\footnote{In more detail: \par
-If we had $1 \notin \supp(\seplistvar_1)$, then we would have $\supp(\seplistvar_1) \subseteq [2, \lambda_1+1)$, and thus $\supp(\seplistvar_j) \subseteq [2, \lambda_1+1)$ for every $j$ (since $\seplistvar$ is weakly decreasing and since $\supp(\seplistvar_1)$ is nonempty), which would lead to $\nuxy{2}{\lambda_1+1} = \seplistvar$ and thus $\#\nuxy{2}{\lambda_1+1} = \#\seplistvar = \lambda_1 > \lambda_1 + 1 - 2$, contradicting the representability of $\seplistvar$. Hence, we have $1 \in \supp(\seplistvar_1)$, so that we can fill the first column of $\lm$ with $1$'s and $2$'s in such a way that it becomes mixed and the $1$'s are displaced by $2$'s at level $\seplistvar_1$. Now, let $\widetilde{\lm}$ be the skew partition $\lm$ without its first column, and $\widetilde{\seplistvar}$ be the partition $\left(\seplistvar_2, \seplistvar_3, \ldots\right)$. Then, the partition $\widetilde{\seplistvar}$ is representable with respect to $\widetilde{\lm}$. (Otherwise we would have $\#\nuxy{2}{b+1}^{\widetilde{\lm}}>b-1$ for some $b \geq 1$, but then we would have $\supp(\seplistvar_1) \subseteq [1,b+1)$ as well and therefore $\#\nuxy{1}{b+1}>(b-1)+1=b$, contradicting the representability of $\lm$.) Thus we can fill in the entries in the cells of $\widetilde{\lm}$ by induction.}
+If we had $1 \notin \supp(\seplistvar_1)$, then we would have $\supp(\seplistvar_1) \subseteq [2, \lambda_1+1)$, and thus $\supp(\seplistvar_j) \subseteq [2, \lambda_1+1)$ for every $j$ (since $\seplistvar$ is weakly decreasing and since $\supp(\seplistvar_1)$ is nonempty), which would lead to $\nuxy{2}{\lambda_1+1} = \seplistvar$ and thus $\#\nuxy{2}{\lambda_1+1} = \#\seplistvar = \lambda_1 > \lambda_1 + 1 - 2$, contradicting the representability of $\seplistvar$. Hence, we have $1 \in \supp(\seplistvar_1)$, so that we can fill the first column of $\lm$ with $1$'s and $2$'s in such a way that it becomes mixed and the $1$'s are displaced by $2$'s at level $\seplistvar_1$. Now, let $\widetilde{\lm}$ be the skew partition $\lm$ without its first column, and $\widetilde{\seplistvar}$ be the partition $\left(\seplistvar_2, \seplistvar_3, \ldots\right)$. Then, the partition $\widetilde{\seplistvar}$ is representable with respect to $\widetilde{\lm}$. (Otherwise we would have $\#\nuxy{2}{b+1}^{\widetilde{\lm}}>b-1$ for some $b \geq 1$, but then we would have $\supp(\seplistvar_1) \subseteq [1,b+1)$ as well and therefore $\#\nuxy{1}{b+1}>(b-1)+1=b$, contradicting the representability of $\lm$.) Thus we can fill in the entries in the cells of $\widetilde{\lm}$ by induction.}.
 \end{proof}
 
 
