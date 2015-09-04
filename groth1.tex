@@ -397,17 +397,13 @@ appear in the series.}
 power series in countably many indeterminates $x_1,x_2,x_3,\dots$
 over $\Z$ that is invariant under (finite)
 permutations\footnote{A permutation is \textit{finite} if it fixes all but
-finitely many elements.} of $x_1,x_2,\dots$.
-
-\begin{todo}
- Make ground ring explicit (even if it is $\Z$).
-\end{todo}
+finitely many elements.} of $x_1,x_2,x_3,\dots$.
 
 The symmetric functions form a ring, which is called the \textit{ring of
 symmetric functions} and denoted by $\Lambda$.
 (In \cite{LamPyl} this ring is denoted by $\operatorname*{Sym}$, while the notation $\Lambda$ is reserved for the
-set of all partitions.) Symmetric functions are a classical
-field of research, and are closely related to Young diagrams and tableaux; see
+set of all partitions.) Much research has been done on symmetric functions and
+their relations to Young diagrams and tableaux; see
 \cite[Chapter 7]{Stan99}, \cite{Macdon95} and \cite[Chapter 2]{GriRei15} for expositions. 
 
 
@@ -418,7 +414,8 @@ $s_{\lambda/\mu}$ to be the formal power series
 \[
 s_\lm(x_1,x_2,\dots)
 = \sum_{\substack{T\text{ is a semistandard}\\\text{tableau of shape } \lm}}
-\mathbf{x}^{\operatorname*{cont}\left(  T\right)  }.
+\mathbf{x}^{\operatorname*{cont}\left(  T\right)  }
+\in \Z\left[\left[x_1,x_2,x_3,\ldots\right]\right] .
 \]
 Here, for every weak composition $\alpha = \left(\alpha_1, \alpha_2, \alpha_3, \ldots\right)$, we define a monomial $\x^\alpha$ to be $x_1^{\alpha_1} x_2^{\alpha_2} x_3^{\alpha_3} \cdots$.
 A nontrivial property
@@ -453,8 +450,8 @@ instead of the content $\operatorname{cont}\left(  T\right)$.
 
 
   Namely, for a filling $T$ of a skew partition $\lm$, we define its
-\textit{irredundant content} (or, by way of abbreviation, the
-\textit{$\operatorname{ircont}$ statistic})
+\textit{irredundant content} (or, by way of abbreviation, its
+\textit{ircont statistic})
 as the weak composition $\operatorname*{ircont}\left(
 T\right) = \left(r_1,r_2,r_3,\dots\right)$ where $r_i$ is the number of \emph{columns} (rather than cells) of $T$ that contain an entry equal to $i$. For instance, if $T_a$, $T_b$, and $T_c$ are the fillings from Figure \ref{fig:fillings}, then their irredundant contents are
 \begin{align*}
@@ -521,13 +518,12 @@ cells.
 
  If $T$ is a filling of $\lm$,
 then we define the \textit{column equalities vector} (or,
-by way of abbreviation, the
-\textit{$\operatorname{ceq}$ statistic})
+by way of abbreviation, the \textit{ceq statistic})
 of $T$ to be the weak composition
 $\operatorname{ceq}\left(  T\right)=\left(c_1,c_2,c_3,\dots\right)$
 where $c_i$ is the number of $j\in\mathbb{N}_{+}$ such that $\left(  i,j\right)$ is a redundant cell of $T$. Visually speaking, $\left(  \operatorname{ceq}\left(  T\right)  \right)
 _{i}$ is the number of columns of $T$ whose entry in the $i$-th row equals
-their entry in the $\left(  i+1\right)  $-th row. For instance, for fillings $T_a,$ $T_b,$ $T_c$ from Figure \ref{fig:fillings} we have $\ceq(T_a)=(0,1),\ \ceq(T_b)=(1,0),$ and $\ceq(T_c)=(0)$.
+their entry in the $\left(  i+1\right)  $-th row. For instance, for fillings $T_a,$ $T_b,$ $T_c$ from Figure \ref{fig:fillings} we have $\ceq(T_a)=(0,1),\ \ceq(T_b)=(1),$ and $\ceq(T_c)=()$, where we again drop trailing zeroes.
 
 Notice that $\left|\ceq(T)\right|$ is the number of redundant cells in $T$, so we have 
 \begin{equation}\label{eq:sum.of.ceq.and.ircont}
@@ -647,7 +643,7 @@ Our main result is now the following:
 
 \begin{theorem}
 \label{thm.gtilde.symm}Let $\lambda/\mu$ be a skew partition. Then
-$\widetilde{g}_{\lambda/\mu}(\x,\t)$ is symmetric in $\x$.
+$\widetilde{g}_{\lambda/\mu}(\x;\t)$ is symmetric in $\x$.
 \end{theorem}
 
 Here, ``symmetric in $\x$'' means ``invariant under all finite
@@ -666,7 +662,7 @@ proof will be the following restatement of Theorem \ref{thm.gtilde.symm}:
 \begin{theorem}
 \label{thm.BK}Let $\lambda/\mu$ be a skew partition and let $i\in\mathbb{N}_{+}$. Then, there exists an
 involution $\mathbf{B}_{i}:\operatorname{RPP}\left(  \lambda/\mu\right)
-\rightarrow\operatorname{RPP}\left(  \lambda/\mu\right)  $ which preserves the $\ceq$ statistics and acts on $\ircont$ by the transposition of its $i$-th and $i+1$-th entries.
+\rightarrow\operatorname{RPP}\left(  \lambda/\mu\right)  $ which preserves the ceq statistics and acts on the ircont statistic by the transposition of its $i$-th and $i+1$-th entries.
 \end{theorem}
 
 
@@ -686,7 +682,7 @@ Theorem \ref{thm.BK}. We define a \textit{12-rpp} to be an rpp whose entries all
 \begin{lemma}
 \label{lem.BK} There exists an
 involution $\mathbf{B}:\OneTwoRPP\rightarrow\OneTwoRPP$ (defined canonically
-in terms of $\lm$) which preserves the $\ceq$ statistics and switches the number of columns containing a $1$ with the number of columns containing a $2$ (i.e. acts as a transposition of $1$ and $2$ on $\ircont$).
+in terms of $\lm$) which preserves the ceq statistic and switches the number of columns containing a $1$ with the number of columns containing a $2$ (i.e. acts as a transposition of $1$ and $2$ on the ircont statistic).
 \end{lemma}
 
 
