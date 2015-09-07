@@ -2041,7 +2041,7 @@ example that $\lambda=\left(  9,8,8,7\right)  $ and $\mu=\left(
 %\begin{ytableau}
 %\none& \none& \none& \none& 1 & 3 & 3 & 4 & 5 \\
 %\none& \none& \none& 1 & 1 & 3 & 4 & 6 \\
-%\none& \none& 1 & 2 & 3 & 3 & 5 & 6 \\
+%\none& \none& 1 & 2 & 3 & 4 & 5 & 6 \\
 %\none& 1 & 1 & 2 & 3 & 4 & 8
 %\end{ytableau}}}%
 %BeginExpansion
@@ -2049,13 +2049,13 @@ example that $\lambda=\left(  9,8,8,7\right)  $ and $\mu=\left(
 \begin{ytableau}
 \none& \none& \none& \none& 1 & 3 & 3 & 4 & 5 \\
 \none& \none& \none& 1 & 1 & 3 & 4 & 6 \\
-\none& \none& 1 & 2 & 3 & 3 & 5 & 6 \\
+\none& \none& 1 & 2 & 3 & 4 & 5 & 6 \\
 \none& 1 & 1 & 2 & 3 & 4 & 8
 \end{ytableau}%
 %EndExpansion
 \]
-(there is an invisible empty $1$-st column here). Set $i=3$. Then, the
-$\left(  i,i+1\right)  $-domain $Z$ of $T$ is the set%
+(there is an invisible empty $1$-st column here). Set $i=3$. Then,
+$Z = T^{-1}\left( \left\{ i,i+1 \right\} \right)$ is the set
 \[
 \left\{  \left(  1,6\right)  ,\left(  1,7\right)  ,\left(  1,8\right)
 ,\left(  2,6\right)  ,\left(  2,7\right)  ,\left(  3,5\right)  ,\left(
@@ -2067,7 +2067,7 @@ The rpp $T\mid_{Z}$ is%
 %\begin{ytableau}
 %\none& \none& \none& \none& \none& 3 & 3 & 4 \\
 %\none& \none& \none& \none& \none& 3 & 4 \\
-%\none& \none& \none& \none& 3 & 3\\
+%\none& \none& \none& \none& 3 & 4\\
 %\none& \none& \none& \none& 3 & 4
 %\end{ytableau}}}%
 %BeginExpansion
@@ -2075,7 +2075,7 @@ The rpp $T\mid_{Z}$ is%
 \begin{ytableau}
 \none& \none& \none& \none& \none& 3 & 3 & 4 \\
 \none& \none& \none& \none& \none& 3 & 4 \\
-\none& \none& \none& \none& 3 & 3\\
+\none& \none& \none& \none& 3 & 4\\
 \none& \none& \none& \none& 3 & 4
 \end{ytableau}%
 %EndExpansion
@@ -2087,18 +2087,18 @@ $T\mid_{Z}$ to%
 \mathbf{B}_{Z}\left(  T\mid_{Z}\right)  =%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
-%\none& \none& \none& \none& \none& 3 & 3 & 4 \\
+%\none& \none& \none& \none& \none& 3 & 3 & 3 \\
 %\none& \none& \none& \none& \none& 3 & 4 \\
-%\none& \none& \none& \none& 3 & 3 \\
-%\none& \none& \none& \none& 3 & 4
+%\none& \none& \none& \none& 4 & 4 \\
+%\none& \none& \none& \none& 4 & 4
 %\end{ytableau}}}%
 %BeginExpansion
 \ytableausetup{notabloids}
 \begin{ytableau}
-\none& \none& \none& \none& \none& 3 & 3 & 4 \\
+\none& \none& \none& \none& \none& 3 & 3 & 3 \\
 \none& \none& \none& \none& \none& 3 & 4 \\
-\none& \none& \none& \none& 3 & 3 \\
-\none& \none& \none& \none& 3 & 4
+\none& \none& \none& \none& 4 & 4 \\
+\none& \none& \none& \none& 4 & 4
 \end{ytableau}%
 %EndExpansion
 .
@@ -2112,18 +2112,18 @@ they are. Thus,%
 \mathbf{B}_{i}\left(  T\right)  =%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
-%\none& \none& \none& \none& 1 & 3 & 3 & 4 & 5 \\
+%\none& \none& \none& \none& 1 & 3 & 3 & 3 & 5 \\
 %\none& \none& \none& 1 & 1 & 3 & 4 & 6 \\
-%\none& \none& 1 & 2 & 3 & 3 & 5 & 6 \\
-%\none& 1 & 1 & 2 & 3 & 4 & 8
+%\none& \none& 1 & 2 & 4 & 4 & 5 & 6 \\
+%\none& 1 & 1 & 2 & 4 & 4 & 8
 %\end{ytableau}}}%
 %BeginExpansion
 \ytableausetup{notabloids}
 \begin{ytableau}
-\none& \none& \none& \none& 1 & 3 & 3 & 4 & 5 \\
+\none& \none& \none& \none& 1 & 3 & 3 & 3 & 5 \\
 \none& \none& \none& 1 & 1 & 3 & 4 & 6 \\
-\none& \none& 1 & 2 & 3 & 3 & 5 & 6 \\
-\none& 1 & 1 & 2 & 3 & 4 & 8
+\none& \none& 1 & 2 & 4 & 4 & 5 & 6 \\
+\none& 1 & 1 & 2 & 4 & 4 & 8
 \end{ytableau}%
 %EndExpansion
 .
@@ -2217,7 +2217,7 @@ example that $\lambda=\left(  9,8,8,7\right)  $ and $\mu=\left(
 %\begin{ytableau}
 %\none& \none& \none& \none& 1 & 3 & 3 & 4 & 5 \\
 %\none& \none& \none& 1 & 1 & 3 & 4 & 6 \\
-%\none& \none& 1 & 2 & 3 & 3 & 5 & 6 \\
+%\none& \none& 1 & 2 & 3 & 4 & 5 & 6 \\
 %\none& 1 & 1 & 2 & 3 & 4 & 8
 %\end{ytableau}}}%
 %BeginExpansion
@@ -2225,7 +2225,7 @@ example that $\lambda=\left(  9,8,8,7\right)  $ and $\mu=\left(
 \begin{ytableau}
 \none& \none& \none& \none& 1 & 3 & 3 & 4 & 5 \\
 \none& \none& \none& 1 & 1 & 3 & 4 & 6 \\
-\none& \none& 1 & 2 & 3 & 3 & 5 & 6 \\
+\none& \none& 1 & 2 & 3 & 4 & 5 & 6 \\
 \none& 1 & 1 & 2 & 3 & 4 & 8
 \end{ytableau}%
 %EndExpansion
@@ -2243,7 +2243,7 @@ The rpp $T\mid_{Z}$ is%
 %\begin{ytableau}
 %\none& \none& \none& \none& \none& 3 & 3 & 4 \\
 %\none& \none& \none& \none& \none& 3 & 4 \\
-%\none& \none& \none& \none& 3 & 3\\
+%\none& \none& \none& \none& 3 & 4\\
 %\none& \none& \none& \none& 3 & 4
 %\end{ytableau}}}%
 %BeginExpansion
@@ -2251,7 +2251,7 @@ The rpp $T\mid_{Z}$ is%
 \begin{ytableau}
 \none& \none& \none& \none& \none& 3 & 3 & 4 \\
 \none& \none& \none& \none& \none& 3 & 4 \\
-\none& \none& \none& \none& 3 & 3\\
+\none& \none& \none& \none& 3 & 4\\
 \none& \none& \none& \none& 3 & 4
 \end{ytableau}%
 %EndExpansion
@@ -2263,18 +2263,18 @@ $T\mid_{Z}$ to%
 \mathbf{B}_{Z}\left(  T\mid_{Z}\right)  =%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
-%\none& \none& \none& \none& \none& 3 & 3 & 4 \\
+%\none& \none& \none& \none& \none& 3 & 3 & 3 \\
 %\none& \none& \none& \none& \none& 3 & 4 \\
-%\none& \none& \none& \none& 3 & 3 \\
-%\none& \none& \none& \none& 3 & 4
+%\none& \none& \none& \none& 4 & 4 \\
+%\none& \none& \none& \none& 4 & 4
 %\end{ytableau}}}%
 %BeginExpansion
 \ytableausetup{notabloids}
 \begin{ytableau}
-\none& \none& \none& \none& \none& 3 & 3 & 4 \\
+\none& \none& \none& \none& \none& 3 & 3 & 3 \\
 \none& \none& \none& \none& \none& 3 & 4 \\
-\none& \none& \none& \none& 3 & 3 \\
-\none& \none& \none& \none& 3 & 4
+\none& \none& \none& \none& 4 & 4 \\
+\none& \none& \none& \none& 4 & 4
 \end{ytableau}%
 %EndExpansion
 .
@@ -2288,18 +2288,18 @@ they are. Thus,%
 \mathbf{B}_{i}\left(  T\right)  =%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
 %\begin{ytableau}
-%\none& \none& \none& \none& 1 & 3 & 3 & 4 & 5 \\
+%\none& \none& \none& \none& 1 & 3 & 3 & 3 & 5 \\
 %\none& \none& \none& 1 & 1 & 3 & 4 & 6 \\
-%\none& \none& 1 & 2 & 3 & 3 & 5 & 6 \\
-%\none& 1 & 1 & 2 & 3 & 4 & 8
+%\none& \none& 1 & 2 & 4 & 4 & 5 & 6 \\
+%\none& 1 & 1 & 2 & 4 & 4 & 8
 %\end{ytableau}}}%
 %BeginExpansion
 \ytableausetup{notabloids}
 \begin{ytableau}
-\none& \none& \none& \none& 1 & 3 & 3 & 4 & 5 \\
+\none& \none& \none& \none& 1 & 3 & 3 & 3 & 5 \\
 \none& \none& \none& 1 & 1 & 3 & 4 & 6 \\
-\none& \none& 1 & 2 & 3 & 3 & 5 & 6 \\
-\none& 1 & 1 & 2 & 3 & 4 & 8
+\none& \none& 1 & 2 & 4 & 4 & 5 & 6 \\
+\none& 1 & 1 & 2 & 4 & 4 & 8
 \end{ytableau}%
 %EndExpansion
 .
@@ -9964,37 +9964,34 @@ Maybe there is a more readable proof by invariants?
 \section{The structure of 12-rpps}
 \label{sect.structure}
 
-\begin{todo}
-\begin{itemize}
-\item copy newest version of this section
-\item copy old union of intervals and old ending footnote
-\end{itemize}
-\end{todo}
-
-\def\seplist{{\operatorname*{seplist}}} % what would be a good notation here? same question for the below:
-\def\ceq{{\operatorname*{ceq}}}
-\def\ircont{{\operatorname*{ircont}}}
+\def\seplist{{\operatorname{seplist}}} % what would be a good notation here? same question for the below:
+\def\ceq{{\operatorname{ceq}}}
+\def\ircont{{\operatorname{ircont}}}
+\def\cont{{\operatorname{cont}}}
 \def\ceqvar{{{\alpha}}} %??
 \def\seplistvar{{{\nu}}} % ???
-\def\supp{{\operatorname*{supp}}}
-\def\NS{{\operatorname*{NR}}}
+\def\supp{{\operatorname{supp}}}
+\def\NS{{\operatorname{NR}}}
 \def\g{{\widetilde{g}}}
 \def\t{{\mathbf{t}}}
+\def\x{{\mathbf{x}}}
 \def\lm{{\lambda/\mu}}
 \def\lmp{{(\lambda/\mu)}}
 \def\N{{\mathbb{N}}}
-\def\Z{\mathbb{Z}}
-\def\xx{{\mathbf{x}}}
+\def\Z{{\mathbb{Z}}}
+\def\B{{\mathbf{B}}}
 
-\def\OneTwoRPP{{\operatorname*{RPP}^{12}\left(  \lambda/\mu\right)}}
-\def\OneTwoRPPCutvar{{\operatorname*{RPP}^{12}\left(  \lambda/\mu ;\seplistvar \right)}}
-\def\flip{{\operatorname*{flip}}}
+\def\OneTwoRPP{{\operatorname{RPP}^{12}\left(  \lambda/\mu\right)}}
+\def\OneTwoRPPCutvar{{\operatorname{RPP}^{12}\left(  \lambda/\mu ;\seplistvar \right)}}
+\def\flip{{\operatorname{flip}}}
 
-In this section, we let $\kk$ be the polynomial ring
-$\Z\left[t_1, t_2, t_3, \ldots\right]$ in countably many
-indeterminates, and we restrict ourselves to the
+In this section, 
+we let $\kk$ be the polynomial ring $\Z\left[t_1, t_2, t_3, \ldots\right]$
+in countably many indeterminates, and we let
+$t_1, t_2, t_3, \ldots$ be these indeterminates.
+Furthermore, we restrict ourselves to the
 two-variable dual stable Grothendieck polynomial
-$\g_\lm(x_1,x_2,0,0,\dots;\mathbf{t})$ defined as the result of
+$\g_\lm(x_1,x_2,0,0,\dots;\t)$ defined as the result of
 substituting $0, 0, 0, \ldots$ for $x_3, x_4, x_5, \ldots$
 in $\g_\lm$. We can represent it as a polynomial in
 $\t$ with coefficients in $\Z[x_1,x_2]$:
@@ -10004,9 +10001,12 @@ and all but finitely many $Q_\ceqvar(x_1,x_2)$ are $0$.
 (The $Q_\ceqvar(x_1,x_2)$ here belong to $\Z[x_1, x_2]$.)
 
 We shall show that each $Q_\ceqvar(x_1,x_2)$ is either zero or has the form
-$$Q_\ceqvar(x_1,x_2)=(x_1x_2)^{M} P_{n_0}(x_1,x_2)P_{n_1}(x_1,x_2)\cdots P_{n_r}(x_1,x_2) ,$$
-where $M,r$ and $n_0,n_1,\dots,n_{r}$ are nonnegative integers naturally associated to $\ceqvar$ and $\lm$ and 
-$$P_n(x_1,x_2)=(x_1^{n+1}-x_2^{n+1})/(x_1-x_2)=x_1^{n}+x_1^{n-1}x_2+\dots+x_1x_2^{n-1}+x_2^n.$$
+\begin{equation}
+\label{eq.Qalpha}
+Q_\ceqvar(x_1,x_2)=(x_1x_2)^{M} P_{n_0}(x_1,x_2)P_{n_1}(x_1,x_2)\cdots P_{n_r}(x_1,x_2) , 
+\end{equation}
+where $M,r$ and $n_0,n_1,\dots,n_{r}$ are nonnegative integers naturally associated to $\ceqvar$ and $\lm$ and where
+$$P_n(x_1,x_2)=\frac{x_1^{n+1}-x_2^{n+1}}{x_1-x_2}=x_1^{n}+x_1^{n-1}x_2+\cdots+x_1x_2^{n-1}+x_2^n.$$
 We fix the skew partition $\lm$ throughout the whole section.
 Abusing notation, we shall abbreviate $Y\left(\lm\right)$ as $\lm$.
 We will have a running example with $\lambda=(7,7,7,4,4)$ and $\mu=(5,3,2)$.
@@ -10016,9 +10016,12 @@ We will have a running example with $\lambda=(7,7,7,4,4)$ and $\mu=(5,3,2)$.
 We recall that a \textit{12-rpp} means an rpp whose entries all belong to the set $\left\{1, 2\right\}$. 
 
 Given a 12-rpp $T$, consider the set $\NS(T)$ of all cells $(i,j)\in \lm$ such that $T(i,j)=1$ but $(i+1,j) \in \lm$ and $T(i+1,j)=2$. (In other words, $\NS(T)$ is the set of all non-redundant cells in $T$ which are filled with a $1$ and which are not the lowest cells in their columns.)
-Clearly, $\NS(T)$ contains at most one cell from each column; thus, let us write $\NS(T)=\{(i_1,j_1),(i_2,j_2),\dots,(i_s,j_s)\}$ with $j_1<j_2<\dots<j_s$. Because $T$ is a 12-rpp, it follows that the numbers $i_1,i_2,\dots,i_s$ decrease weakly, therefore they form a partition which we called \textit{the seplist-partition of} $T$ and denoted 
+Clearly, $\NS(T)$ contains at most one cell from each column; thus, let us write $\NS(T)=\{(i_1,j_1),(i_2,j_2),\dots,(i_s,j_s)\}$ with $j_1<j_2<\cdots<j_s$. Because $T$ is a 12-rpp, it follows that the numbers $i_1,i_2,\dots,i_s$ decrease weakly, therefore they form a partition which we
+%called \textit{the seplist-partition of} $T$ and
+denoted 
 $$\seplist(T):=(i_1,i_2,\dots,i_s)$$ 
-in Section \ref{subsection:benign}.
+in Section \ref{subsection:benign}. This partition
+will be called the \textit{seplist-partition of $T$}.
 An example of calculation of $\seplist(T)$ and $\NS(T)$ is illustrated on Figure \ref{fig:seplist}. 
 
 \def\one{{\mathbf{1}}}
@@ -10050,17 +10053,27 @@ $\seplist(T_1)=(4,3,3,2)$ & $\seplist(T_2)=(4,3,3,2)$
 
 
 
-We would like to answer the following question: for which partitions $\seplistvar=(i_1\geq \dots\geq i_s>0)$ does there exist a 12-rpp $T$ of shape $\lm$ such that $\seplist(T)=\seplistvar$?
+We would like to answer the following question: for which partitions $\seplistvar=(i_1\geq \cdots\geq i_s>0)$ does there exist a 12-rpp $T$ of shape $\lm$ such that $\seplist(T)=\seplistvar$?
 
-A trivial necessary condition for this to happen is that there should exist some numbers $j_1<j_2<\dots<j_s$ such that 
+A trivial necessary condition for this to happen is that there should exist some numbers $j_1<j_2<\cdots<j_s$ such that 
 \begin{equation}\label{cond:necessary}
 (i_1,j_1),(i_1+1,j_1),(i_2,j_2),(i_2+1,j_2),\dots,(i_s,j_s),(i_s+1,j_s)\in \lm. 
 \end{equation}
-We say that a partition $\seplistvar$ is \textit{admissible} if such $j_1<j_2<\dots<j_s$ exist.
 
-Until the end of Section \ref{sect.structure}, we make one further
+Until the end of Section \ref{sect.structure}, we make an
 assumption: namely, that the skew partition $\lm$ is
-connected\footnote{By this, we mean that $\lm$ has at least one
+connected as a subgraph of $\Z^2$ (where two nodes are connected
+if and only if their cells have an edge in common), and that
+it has no empty columns. This is a harmless assumption,
+since every skew partition $\lm$ can be written as a disjoint union
+of such connected skew partitions, and the corresponding
+seplist-partition splits into several independent parts, the
+polynomials $\g_\lm$ get multiplied and the right hand side of
+(\ref{eq.Qalpha}) changes accordingly. 
+
+\begin{comment}
+ 
+\footnote{By this, we mean that $\lm$ has at least one
 cell, and cannot be represented
 as a disjoint union of two nonempty skew partitions $\alpha/\beta$
 and $\gamma/\delta$ such that no cell of $\alpha/\beta$ is adjacent
@@ -10077,6 +10090,8 @@ of $\seplistvar$. (What an ``appropriate piece'' is should be
 clear enough, since two distinct connected components are supported
 on different rows.)}.
 
+\end{comment}
+
 \newcommand{\nuxy}[2]{\seplistvar\big|_{\subseteq[#1,#2)}}
 \newcommand{\nuxycap}[2]{\seplistvar\big|_{\cap[#1,#2)}}
 \newcommand{\nupxy}[2]{\seplistvar^{\prime}\big|_{\subseteq[#1,#2)}}
@@ -10086,14 +10101,24 @@ on different rows.)}.
 
 
 
-For each integer $i$ the set of all integers $j$ such that $(i,j),(i+1,j)\in\lm$ is just an interval $[\mu_{i}+1,\lambda_{i+1}]$, which we call \textit{the support of $i$} and denote $\supp(i):=[\mu_{i}+1,\lambda_{i+1}]$.
+For each integer $i$, the set of all integers $j$ such that $(i,j),(i+1,j)\in\lm$ is just an interval $[\mu_{i}+1,\lambda_{i+1}]$, which we call \textit{the support of $i$} and denote $\supp(i):=[\mu_{i}+1,\lambda_{i+1}]$.
 
-Assume that $\seplistvar = \left(i_1 \geq \cdots \geq i_s > 0\right)$ is an admissible partition. Then, $\supp(i_k)$ is nonempty for each $k$. For two integers $a< b$, by $\nuab$ we denote the subpartition $(i_r,i_{r+1},\dots,i_{r+q})$ of $\seplistvar$ such that for $r\leq k\leq r+q$ we have $\supp(i_k)\subseteq [a,b)$. In this case, we put $\#\nuab:=q+1$ which is just the number of entries in $\nuab$. Similarly, we put $\nuabcap$ to be the subpartition $(i_r,i_{r+1},\dots,i_{r+q})$ of $\seplistvar$ such that for $r\leq k\leq r+q$ we have $\supp(i_k)\cap [a,b)\neq\emptyset$.
+We say that a partition $\seplistvar$ is \textit{admissible} if
+every $k$ satisfies $\supp(i_k) \neq \varnothing$. (This is
+clearly satisfied when there exist $j_1<j_2<\cdots<j_s$
+satisfying (\ref{cond:necessary}), but also in other cases.)
+Assume that $\seplistvar = \left(i_1 \geq \cdots \geq i_s > 0\right)$ is an admissible partition.
+For two integers $a< b$, we let $\nuab$ denote the subpartition $(i_r,i_{r+1},\dots,i_{r+q})$ of $\seplistvar$, where $[r, r+q]$ is the (possibly empty) set of all $k$ for which $\supp(i_k)\subseteq [a,b)$. In this case, we put\footnote{Here and in the following, $\#\kappa$ denotes the length of a partition $\kappa$.} $\#\nuab:=q+1$, which is just the number of entries in $\nuab$. Similarly, we set $\nuabcap$ to be the subpartition $(i_r,i_{r+1},\dots,i_{r+q})$ of $\seplistvar$, where $[r, r+q]$ is the set of all $k$ for which $\supp(i_k)\cap [a,b)\neq\emptyset$.
 For example, for $\seplistvar=(4,3,3,2)$ and $\lm$ as on Figure \ref{fig:seplist}, we have 
 $$\supp(3)=[3,4],\ \supp(2)=[4,7],\ \supp(4)=[1,4],$$ 
 $$\nuxy{2}{7}=(3,3),\ \nuxy{2}{8}=(3,3,2),\ \nuxy{4}{8}=(2),\ \nuxycap{4}{5}=(4,3,3,2),\ \#\nuxy{2}{7}=2.$$
 
-We introduce several definitions: An admissible partition $\seplistvar=(i_1\geq \dots\geq i_s>0)$ is called
+\begin{remark}
+ If $\seplistvar$ is an admissible partition then the partitions $\nuab$ and $\nuabcap$ are clearly admissible as well. 
+\end{remark}
+
+
+We introduce several definitions: An admissible partition $\seplistvar=(i_1\geq \cdots\geq i_s>0)$ is called
 
 \begin{tabular}{@{$\bullet$ }lll}
  \textit{non-representable} & if for some $a<b$ we have & $\#\nuab>b-a$;\\
@@ -10111,33 +10136,38 @@ For example, $\seplistvar=(4,3,3,2)$ is representable but reducible because we h
 
 Note that these notions depend on the skew partition; thus, when we want to use a skew partition $\widetilde\lm$ rather than $\lm$, we will write that $\seplistvar$ is non-representable/irreducible/etc. \textit{with respect to $\widetilde\lm$}, and we denote the corresponding partitions by $\nuab^{\widetilde{\lm}}$.
 
-These definitions can be motivated as follows. Suppose that a partition $\seplistvar$ is non-representable, so there exist integers $a<b$ such that $\#\nuab>b-a$. Recall that $\nuab=:(i_r,i_{r+1},\dots,i_{r+q})$ contains all entries of $\seplistvar$ whose support is a subset of $[a,b)$. Thus in order for condition (\ref{cond:necessary}) to be true there must exist some integers $j_r<j_{r+1}<\dots<j_{r+q}$ such that 
+These definitions can be motivated as follows. Suppose that a partition $\seplistvar$ is non-representable, so there exist integers $a<b$ such that $\#\nuab>b-a$. Recall that $\nuab=:(i_r,i_{r+1},\dots,i_{r+q})$ contains all entries of $\seplistvar$ whose support is a subset of $[a,b)$. Thus in order for condition (\ref{cond:necessary}) to be true there must exist some integers $j_r<j_{r+1}<\cdots<j_{r+q}$ such that 
 $$(i_r, j_r),(i_r+1, j_r),\dots,(i_{r+q},j_{r+q}),(i_{r+q}+1,j_{r+q})\in\lm.$$
 On the other hand, by the definition of the support, we must have $j_k\in \supp(i_k)\subseteq [a,b)$ for all $r\leq k\leq r+q$. Therefore we get $q+1$ distinct elements of $[a,b)$ which is impossible if $q+1=\#\nuab>b-a$. It means that a non-representable partition $\seplistvar$ is never a seplist-partition of a 12-rpp $T$. 
 
-Suppose now that a partition $\seplistvar$ is reducible, so for some $a<b$ we get an equality $\#\nuab=b-a$. Then these integers $j_r<\dots<j_{r+q}$ should still all belong to $[a,b)$ and there are exactly $b-a$ of them, hence 
+Suppose now that a partition $\seplistvar$ is reducible, so for some $a<b$ we get an equality $\#\nuab=b-a$. Then these integers $j_r<\cdots<j_{r+q}$ should still all belong to $[a,b)$ and there are exactly $b-a$ of them, hence 
 \begin{equation}
-j_r=a,\ j_{r+1}=a+1,\ \dots,\ j_{r+q}=a+q=b-1 .
+j_r=a,\ j_{r+1}=a+1,\ \cdots,\ j_{r+q}=a+q=b-1 .
 \label{eq.reducible.mixblock-j}
 \end{equation}
 Because $\supp(i_r)\subseteq[a,b)$ but $\supp(i_r)\neq\varnothing$ (since $\nu$ is admissible), we have $(i_r,a-1)\notin\lm$. Thus, placing a $1$ into $(i_r,a)$ and $2$'s into $(i_r+1,a),(i_r+2,a),\dots$ does not put any restrictions on entries in columns $1,\dots, a-1$. And the same is true for columns $b,b+1,\dots$ when we place a $2$ into $(i_{r+q}+1,b-1)$ and $1$'s into all cells above. Thus, if a partition $\seplistvar$ is reducible, then the filling of columns $a,a+1,\dots, b-1$ is uniquely determined (by (\ref{eq.reducible.mixblock-j})), and the filling of the rest can be arbitrary -- the problem of existence of a 12-rpp $T$ such that $\seplist(T)=\seplistvar$ reduces to two smaller independent problems of the same kind (one for the columns $1,2,\ldots,a-1$, the other for the columns\footnote{Recall that a 12-rpp of shape $\lm$ cannot have any nonempty column beyond the $\lambda_1$'th one.} $b,b+1,\ldots,\lambda_1$). One can continue this reduction process and end up with several independent irreducible components separated from each other by mixed columns. An illustration of this phenomenon can be seen on Figure \ref{fig:seplist}: the columns $3$ and $4$ must be mixed for any 12-rpps $T$ with $\seplist(T)=(4,3,3,2)$.
 
-More explicitly, we have thus shown that every interval $\left[a,b\right) \subseteq \left[1, \lambda_1+1\right)$ satisfying $\#\nuab = b-a$ splits our problem into two independent subproblems. But if two such intervals $\left[a,b\right)$ and $\left[c,d\right)$ intersect, then their union is another such interval\footnote{\textit{Proof.} Assume that two intervals $\left[a,b\right)$ and $\left[c,d\right)$ satisfying $\#\nuab = b-a$ and $\#\nuxy{c}{d} = d-c$ intersect. We need to show that their union is another such interval.
+More explicitly, we have thus shown that every nonempty interval $\left[a,b\right) \subseteq \left[1, \lambda_1+1\right)$ satisfying $\#\nuab = b-a$ splits our problem into two independent subproblems. But if two such intervals $\left[a,b\right)$ and $\left[c,d\right)$ satisfy $a\leq c\leq b\leq d$ then their union $[a,d)$ is another such interval %(because in this case, inclusion-exclusion gives $\#\nuxy{a}{d} \geq \#\nuab + \#\nuxy{c}{d} - \#\nuxy{c}{b}$, but $\#\nuxy{c}{b}\leq b-c$ by representability of $\nu$).
+%\begin{comment}
+\footnote{\textit{Proof.} Assume that two intervals $\left[a,b\right)$ and $\left[c,d\right)$ satisfying $\#\nuab = b-a$ and $\#\nuxy{c}{d} = d-c$ intersect. We need to show that their union is another such interval.
 \par We WLOG assume that $a \leq c$. Then, $c \leq b$ (since the intervals intersect). If $b > d$, then the union of the two intervals is simply $\left[a,b\right)$, which makes our claim obvious. Hence, we WLOG assume that $b \leq d$. Thus, $a \leq c \leq b \leq d$. The union of the two intervals is therefore $\left[a, d\right)$, and we must show that $\#\nuxy{a}{d} = d-a$.
 A set of positive integers is a subset of both $\left[a, b\right)$ and $\left[c, d\right)$ if and only if it is a subset of $\left[c, b\right)$. On the other hand, a set of positive integers that is a subset of either $\left[a, b\right)$ or $\left[c, d\right)$ must be a subset of $\left[a, d\right)$ (but not conversely). Combining these two observations, we obtain $\#\nuxy{a}{d} \geq \#\nuab + \#\nuxy{c}{d} - \#\nuxy{c}{b}$. Since $\seplistvar$ is representable (or, when $b=c$, for obvious reasons), we have $\#\nuxy{c}{b} \leq b-c$. Thus,
 \[
 \#\nuxy{a}{d} \geq \underbrace{\#\nuab}_{=b-a} + \underbrace{\#\nuxy{c}{d}}_{=d-c} - \underbrace{\#\nuxy{c}{b}}_{\leq b-c} \geq \left(b-a\right) + \left(d-c\right) - \left(b-c\right) = d-a.
 \]
-Combined with $\#\nuxy{a}{d} \leq d-a$ (since $\seplistvar$ is representable), this yields $\#\nuxy{a}{d} = d-a$, qed.}. Hence, the maximal (with respect to inclusion) among all such intervals are pairwise disjoint and separated from each other by at least a distance of $1$.
+Combined with $\#\nuxy{a}{d} \leq d-a$ (since $\seplistvar$ is representable), this yields $\#\nuxy{a}{d} = d-a$, qed.}.
+%\end{comment} 
+%[DG] Reinstated because I really don't see how this is obvious. Pavel, feel free to remove (it's your chapter) or simplify (much preferred :) ), but I'll keep this one in the alt version.
+Hence, the maximal (with respect to inclusion) among all such intervals are pairwise disjoint and separated from each other by at least a distance of $1$.
 This yields part \textbf{(a)} of the following lemma:
 \begin{lemma}
 \label{lemma:irreducible}
  Let $\seplistvar$ be a representable partition.
 
-\textbf{(a)} There exist unique integers $(1=b_0\leq a_1<b_1<a_2<b_2<\dots<a_r<b_r\leq a_{r+1}=\lambda_1+1)$ satisfying the following two conditions:
+\textbf{(a)} There exist unique integers $(1=b_0\leq a_1<b_1<a_2<b_2<\cdots<a_r<b_r\leq a_{r+1}=\lambda_1+1)$ satisfying the following two conditions:
  \begin{enumerate}
   \item For all $1\leq k\leq r$, we have $\#\nuxy{a_k}{b_k} =b_k-a_k$.
-  \item The set $\bigcup_{k=0}^{r}[b_k,a_{k+1})$ is minimal (with respect to inclusion) among all sequences $(1=b_0\leq a_1<b_1<a_2<b_2<\dots<a_r<b_r\leq a_{r+1}=\lambda_1+1)$ satisfying property 1.
+  \item The set $\bigcup_{k=0}^{r}[b_k,a_{k+1})$ is minimal (with respect to inclusion) among all sequences $(1=b_0\leq a_1<b_1<a_2<b_2<\cdots<a_r<b_r\leq a_{r+1}=\lambda_1+1)$ satisfying property 1.
  \end{enumerate}
 
 Furthermore, for these integers, we have:
@@ -10155,15 +10185,22 @@ Furthermore, for these integers, we have:
 \begin{proof}
 Part \textbf{(a)} has already been proven.
 
-\textbf{(b)} [Fill me in]
+\textbf{(b)} Let $\nu=(i_1\geq\cdots\geq i_s>0)$. If $\supp(i_r)\subseteq [a_k,b_k)$ for some $k$, then $i_r$ appears in exactly one of the concatenated partitions, namely, $\nuxy{a_k}{b_k}$. Otherwise there is an integer $k$ such that $\supp(i_r)\cap [b_k,a_{k+1})\neq\emptyset$. It remains to show that such $k$ is unique, that is, that $\supp(i_r)\cap [b_{k+1},a_{k+2})=\emptyset$. Assume the contrary. The interval $[a_{k+1},b_{k+1})$ is nonempty, therefore there is an entry $i$ of $\nu$ with $\supp(i)\subseteq [a_{k+1},b_{k+1})$. It remains to note that we get a contradiction: we get two numbers $i,i_r$ with $\supp(i_r)$ being both to the left and to the right of $\supp(i)$. 
 
-To verify the second claim, we need to show that if $\left[c,d\right)$ is a nonempty interval contained in $\left[b_k, a_{k+1}\right)$ for some $k$, then $\#\nupxy{c}{d}^{J} < d-c$, where $J$ denotes the restricted skew partition $\lm\big|_{[b_k,a_{k+1})}$, and where $\seplistvar^{\prime} = \nuxycap{b_k}{a_{k+1}}$.
-[Fill me in]
+\textbf{(c)} Fix $k$. Let $J$ denote the restricted skew partition $\lm\big|_{[b_k,a_{k+1})}$, and let $\seplistvar^{\prime} = \nuxycap{b_k}{a_{k+1}}$.
+We need to show that if $\left[c,d\right)$ is a nonempty interval contained in $\left[b_k, a_{k+1}\right)$, then $\#\nupxy{c}{d}^{J} < d-c$. We are in one of the following four cases:
+
+\begin{itemize}
+\item \textit{Case 1: We have $c> b_k$ (or $k=0$) and $d< a_{k+1}$ (or $k=r$).} In this case, every $i_p$ with $\supp^J(i_p) \subseteq [c,d)$ must satisfy $\supp(i_p) \subseteq [c,d)$. Hence, $\nupxy{c}{d}^{J} = \nuxy{c}{d}$, so that $\#\nupxy{c}{d}^{J} = \#\nuxy{c}{d} < d-c$, and we are done.
+\item \textit{Case 2: We have $c=b_k$ and $k>0$ (but not $d=a_{k+1}$ and $k<r$).} Assume (for the sake of contradiction) that $\#\nupxy{c}{d}^{J} \geq d-c$. Then, the $i_p$ satisfying $\supp^J(i_p) \subseteq [c,d)$ must satisfy $\supp(i_p) \subseteq [a_k, d)$ (since otherwise, $\supp(i_p)$ would intersect both $[b_{k-1}, a_k)$ and $[b_k, a_{k+1})$, something we have ruled out in the proof of \textbf{(b)}). Thus, $\#\nuxy{a_k}{d} \geq (d-c)+(b_k-a_k) = d-a_k$, which contradicts the minimality of $\bigcup_{k=0}^{r}[b_k,a_{k+1})$ (we could increase $b_k$ to $d$).
+\item \textit{Case 3: We have $d=a_{k+1}$ and $k<r$ (but not $c=b_k$ and $k>0$).} The argument here is analogous to Case 2.
+\item \textit{Case 4: Neither of the above.} Exercise.
+\end{itemize}
 \end{proof}
 
 \begin{definition}
  
- In the context of Lemma \ref{lemma:irreducible}, for $0\leq k\leq r$ the subpartitions $\nuxycap{b_k}{a_{k+1}}$ are called \textit{the irreducible components of $\seplistvar$} and the numbers $n_k:=a_{k+1}-b_k-\#\nuxycap{b_k}{a_{k+1}}$ are called their \textit{degrees}  (for $T$ with $\seplist(T)=\seplistvar$, the $k$-th degree $n_k$ is equal to the number of pure columns of $T$ inside the corresponding $k$-th irreducible component).
+ In the context of Lemma \ref{lemma:irreducible}, for $0\leq k\leq r$ the subpartitions $\nuxycap{b_k}{a_{k+1}}$ are called \textit{the irreducible components of $\seplistvar$} and the nonnegative integers $n_k:=a_{k+1}-b_k-\#\nuxycap{b_k}{a_{k+1}}$ are called their \textit{degrees}. (For $T$ with $\seplist(T)=\seplistvar$, the $k$-th degree $n_k$ is equal to the number of pure columns of $T$ inside the corresponding $k$-th irreducible component. All $n_k$ are positive, except for $n_0$ if $a_1 = 1$ and $n_r$ if $b_r = \lambda_1 + 1$.)
 \end{definition}
 %\begin{remark}
 % Note that the conditions on $b_0,a_1,\dots,a_{r+1}$ guarantee that $\seplistvar$ is just a concatenation of partitions %$\nuxycap{b_0}{a_1},\nuxy{a_1}{b_1},\dots,\nuxycap{b_r}{a_{r+1}}$. 
@@ -10177,13 +10214,13 @@ To verify the second claim, we need to show that if $\left[c,d\right)$ is a none
 \subsection{The structural theorem and its applications}
 It is easy to see that for a 12-rpp $T$, the number $\#\seplist(T)$ is equal to the number of mixed columns in $T$.
 
-Let $\OneTwoRPP$ denote the set of all 12-rpps $T$ of shape $\lm$, and let $\OneTwoRPPCutvar$ denote its subset that contains only 12-rpps $T$ with $\seplist(T)=\seplistvar$. Now we are ready to state a theorem that completely describes the structure of irreducible components:
+Let $\OneTwoRPP$ denote the set of all 12-rpps $T$ of shape $\lm$, and let $\OneTwoRPPCutvar$ denote its subset consisting of all 12-rpps $T$ with $\seplist(T)=\seplistvar$. (Notice that $\OneTwoRPP$ was formerly called $\mathbf{R}$ in Lemma \ref{lem.BK}, if $Z = Y\left(\lm\right)$.) Now we are ready to state a theorem that completely describes the structure of irreducible components (which will be proven later):
 \begin{theorem}
 \label{thm:12rpps}
  Let $\seplistvar$ be an irreducible partition. Then for all $0\leq m\leq \lambda_1-\#\seplistvar$ there is exactly one 12-rpp $T\in\OneTwoRPPCutvar$ with $\#\seplistvar$ mixed columns, $m$ $1$-pure columns and $(\lambda_1-\#\seplistvar-m)$ $2$-pure columns. Moreover, these are the only elements of $\OneTwoRPPCutvar$. In other words, for an irreducible partition $\seplistvar$ we have
   \begin{equation}
  \label{eq:thm12rpps}
- \sum_{T\in\OneTwoRPPCutvar} \xx^{\ircont(T)}=(x_1x_2)^{\#\seplistvar} P_{\lambda_1-\#\seplistvar}(x_1,x_2).
+ \sum_{T\in\OneTwoRPPCutvar} \x^{\ircont(T)}=(x_1x_2)^{\#\seplistvar} P_{\lambda_1-\#\seplistvar}(x_1,x_2).
  \end{equation}
 \end{theorem}
 
@@ -10220,7 +10257,8 @@ Let $\OneTwoRPP$ denote the set of all 12-rpps $T$ of shape $\lm$, and let $\One
 2 & 2 & 2
 \end{ytableau} \\
 \end{tabular}\\
-$\lambda=(2,2);\ \mu=();\ \seplistvar=(1)$ & $\lambda=(3,3,3);\ \mu=(1);\ \seplistvar=(2)$. 
+$\lambda=(2,2);\ \mu=();\ \seplistvar=(4)$ & $\lambda=(3,3,3);\ \mu=(1);\ \seplistvar=(2)$. 
+% [DG] I replaced the $\seplistvar=(1)$ by a $\seplistvar=(4)$ in the first example, because I think we should not "normalize" the row indices.
 \end{tabular}\\
 %\caption{\label{fig:irr} Irreducible components and all possible 12-rpps for them}
 %\end{figure}
@@ -10229,64 +10267,80 @@ $\lambda=(2,2);\ \mu=();\ \seplistvar=(1)$ & $\lambda=(3,3,3);\ \mu=(1);\ \sepli
 
 After decomposing into irreducible components, we can obtain a formula for general representable partitions:
 \begin{corollary}
+\label{cor:thm12rppsCompositeCor}
  Let $\seplistvar$ be a representable partition. Then
   \begin{equation}
   \label{eq:thm12rppsComposite}
-\sum_{T\in\OneTwoRPPCutvar} \xx^{\ircont(T)}=(x_1x_2)^{M} P_{n_0}(x_1,x_2)P_{n_1}(x_1,x_2)\dots P_{n_r}(x_1,x_2),
+\sum_{T\in\OneTwoRPPCutvar} \x^{\ircont(T)}=(x_1x_2)^{M} P_{n_0}(x_1,x_2)P_{n_1}(x_1,x_2)\cdots P_{n_r}(x_1,x_2),
   \end{equation}
  where the numbers $M,r,n_0,\dots,n_r$ are defined above: $M=\#\seplistvar$, $r+1$ is the number of irreducible components of $\seplistvar$ and $n_0,n_1,\dots,n_r$ are their degrees.
 \end{corollary}
 
+\begin{proof}[Proof of Corollary \ref{cor:thm12rppsCompositeCor}.] The restriction map
+\[
+\OneTwoRPPCutvar \to \prod_{k=0}^r \operatorname{RPP}^{12}\left( \lm\big|_{[b_k,a_{k+1})} ; \nuxycap{b_k}{a_{k+1}}\right)
+\]
+is injective (since, as we know, the entries of a $T \in \OneTwoRPPCutvar$ in any column outside of the irreducible components are uniquely determined) and surjective (as one can ``glue'' rpps together).
+Now use Theorem \ref{thm:12rpps}.
+\end{proof}
+
  For a 12-rpp $T$, the vectors $\seplist(T)$ and $\ceq(T)$ uniquely determine each other: if $(\ceq(T))_i=h$ then $\seplist(T)$ contains exactly $\lambda_{i+1}-\mu_i-h$ entries equal to $i$, and this correspondence is one-to-one. Therefore, the polynomials on both sides of (\ref{eq:thm12rppsComposite}) are equal to $Q_{\ceqvar}(x_1,x_2)$ where the vector $\ceqvar$ is the one that corresponds to $\seplistvar$.
 
- Note that the polynomials $P_n(x_1,x_2)$ are symmetric for all $n$. Since the question about the symmetry of $\g_\lm$ can be reduced to the two-variable case, Theorem \ref{thm:12rpps} gives an alternative proof of the symmetry of $\g_\lm$:
+ Note that the polynomials $P_n(x_1,x_2)$ are symmetric for all $n$. Since the question about the symmetry of $\g_\lm$ can be reduced to the two-variable case, Corollary \ref{cor:thm12rppsCompositeCor} gives an alternative proof of the symmetry of $\g_\lm$:
 \begin{corollary}
- The polynomials $\g_\lm \in \kk\left[x_1, x_2, x_3, \ldots\right]$ are symmetric.
+ The polynomials $\g_\lm \in \Z\left[t_1,t_2,t_3,\dots\right]\left[\left[x_1, x_2, x_3, \ldots\right]\right]$ are symmetric.
 \end{corollary}
- This holds for any $\kk$ and any $t_1, t_2, t_3, \ldots \in \kk$, since the case we have considered (where $t_1, t_2, t_3, \ldots$ are polynomial indeterminates over $\Z$) is universal.\footnote{Of course, our standing assumption that $\lm$ is connected can be lifted here, because in general, $\g_\lm$ is the product of the analogous power series corresponding to the connected components of $\lm$. So we have obtained a new proof of Theorem \ref{thm.gtilde.symm}.}
+ 
+ Of course, our standing assumption that $\lm$ is connected can be lifted here, because in general, $\g_\lm$ is the product of the analogous power series corresponding to the connected components of $\lm$. So we have obtained a new proof of Theorem \ref{thm.gtilde.symm} in the case when $\kk = \Z\left[t_1,t_2,t_3,\dots\right]$ and when $t_1,t_2,t_3,\ldots$ are these indeterminates.
+ 
+This also holds for any commutative ring $\kk$ and any $t_1, t_2, t_3, \ldots \in \kk$, since the case we have considered (where $t_1, t_2, t_3, \ldots$ are polynomial indeterminates over $\Z$) is universal. Thus, we have reproven Theorem \ref{thm.gtilde.symm} in full generality.
 
 Another application of Theorem \ref{thm:12rpps} is a complete description of Bender-Knuth involutions on rpps.
 
 \begin{corollary}
 \label{cor:uniqueBK}
-Let $\seplistvar$ be an irreducible partition. Then there is a unique map $b:\OneTwoRPPCutvar\to\OneTwoRPPCutvar$ such that for all $T\in\OneTwoRPPCutvar$ we have 
-$$\ircont(T)=(c_1,c_2,0,0,\dots)\Longrightarrow \ircont(b(T))=(c_2,c_1,0,0,\dots).$$
-In this case, such a map is an involution on $\OneTwoRPPCutvar$. So, for irreducible partition $\seplistvar$ the corresponding Bender-Knuth involution exists and is unique.
+Let $\seplistvar$ be an irreducible partition. Then there is a unique map $b:\OneTwoRPPCutvar\to\OneTwoRPPCutvar$ such that for all $T\in\OneTwoRPPCutvar$ we have $\ircont(b(T)) = s_1 \cdot \ircont(T)$.
+%$$\ircont(T)=(c_1,c_2,0,0,\dots)\Longrightarrow \ircont(b(T))=(c_2,c_1,0,0,\dots).$$
+This unique map $b$ is an involution on $\OneTwoRPPCutvar$. So, for an irreducible partition $\seplistvar$ the corresponding Bender-Knuth involution exists and is unique.
 \end{corollary}
 
 Take any 12-rpp $T\in\OneTwoRPPCutvar$ and recall that a 12-table $\flip(T)$ is obtained from $T$ by simultaneously replacing all entries in $1$-pure columns by $2$ and all entries in $2$-pure columns by $1$. 
 
 \begin{corollary}
 \label{cor:confluence}
- If $\seplistvar$ is an irreducible partition, then no matter in which order one resolves conflicts in $\flip(T)$, the resulting tableau $T'$ will be the same. The map $T\to T'$ is the unique Bender-Knuth involution on $\OneTwoRPPCutvar$.
+ If $\seplistvar$ is an irreducible partition, then, no matter in which order one resolves conflicts in $\flip(T)$, the resulting 12-rpp $T'$ will be the same. The map $T\mapsto T'$ is the unique Bender-Knuth involution on $\OneTwoRPPCutvar$.
 \end{corollary}
 \begin{proof}[Proof of Corollary \ref{cor:confluence}]
- By Proposition \ref{prop.finality}, conflict-resolving steps applied in any order give an element of $\OneTwoRPPCutvar$. So we get a map $\OneTwoRPPCutvar\to \OneTwoRPPCutvar$ that satisfies the assumptions of Corollary \ref{cor:uniqueBK}.
+ Conflict-resolution steps applied to $\flip(T)$ in any order eventually give an element of $\OneTwoRPPCutvar$ with the desired $\ircont$. There is only one such element. So we get a map $\OneTwoRPPCutvar\to \OneTwoRPPCutvar$ that satisfies the assumptions of Corollary \ref{cor:uniqueBK}.
 \end{proof}
 
-
-Finally, notice that for a general representable partition $\seplistvar$ conflicts may only occur inside each irreducible component independently, so we conclude the chain of corollaries by stating that our constructed involutions are canonical in the following sense:
+Finally, notice that, for a general representable partition $\seplistvar$, conflicts in a 12-table $T$ with $\seplist(T) = \nu$ may only occur inside each irreducible component independently. Thus, we conclude the chain of corollaries by stating that our constructed involutions are canonical in the following sense:
 
 \begin{corollary}
- For a representable partition, the map $\mathbf{B}:\OneTwoRPPCutvar\to\OneTwoRPPCutvar$ is the unique involution that interchanges the number of $1$-pure columns with the number of $2$-pure columns inside each irreducible component.
+ For a representable partition $\nu$, the map $\mathbf{B}:\OneTwoRPPCutvar\to\OneTwoRPPCutvar$ is the unique involution that interchanges the number of $1$-pure columns with the number of $2$-pure columns inside each irreducible component.
 \end{corollary}
 
 \subsection{The proof}
 Let $\seplistvar=(i_1,\dots,i_s)$ be an irreducible partition. We start with the following simple observation:
 \begin{lemma}
 \label{lemma:leftRight}
- Let $T\in\OneTwoRPPCutvar$. Then any $1$-pure column of $T$ is to the left of any $2$-pure column of $T$.
+ Let $T\in\OneTwoRPPCutvar$ for an irreducible partition $\seplistvar$. Then any $1$-pure column of $T$ is to the left of any $2$-pure column of $T$.
 \end{lemma}
 \begin{proof}[Proof of Lemma \ref{lemma:leftRight}]
-Suppose it is false and we have a $1$-pure column to the right of a $2$-pure column. Consider the closest pair of columns $a$ and $b$ such that $a$ is $2$-pure and $b$ is $1$-pure, then the columns $a+1,\dots,b-1$ must all be mixed. %, otherwise if some column $k\in (a,b)$ is $1$-pure (resp., $2$-pure) then the columns $a$ and $k$ (resp., $k$ and $b$) would be closer to each other than $a$ and $b$.
-Therefore the set $\NS(T)$ contains $\{(i_1,a+1),(i_2,a+2),\dots,(i_{b-1-a},b-1)\}$. And because $a$ is $2$-pure and $b$ is $1$-pure, the support of any $i_k$ for $k=1\dots b-1-a$ is a subset of $[a+1,b)$ which contradicts the irreducibility of $\seplistvar$.
+Suppose it is false and we have a $1$-pure column to the right of a $2$-pure column. Among all pairs $\left(a, b\right)$ such that column $a$ is $2$-pure and column $b$ is $1$-pure, and $b > a$, consider the one with smallest $b-a$. Then, the columns $a+1,\dots,b-1$ must all be mixed. %, otherwise if some column $k\in (a,b)$ is $1$-pure (resp., $2$-pure) then the columns $a$ and $k$ (resp., $k$ and $b$) would be closer to each other than $a$ and $b$.
+Therefore the set $\NS(T)$ contains $\{(i_{p+1},a+1),(i_{p+2},a+2),\dots,(i_{p+b-1-a},b-1)\}$ for some $p\in\NN$. And because $a$ is $2$-pure and $b$ is $1$-pure, each $i_{p+k}$ (for $k=1,\dots, b-1-a$) must be $\leq$ to the y-coordinate of the highest cell in column $a$ and $>$ than the y-coordinate of the lowest cell in column $b$. Thus, the support of any $i_{p+k}$ for $k=1,\dots, b-1-a$ is a subset of $[a+1,b)$, which contradicts the irreducibility of $\seplistvar$.
 \end{proof}
 
 
 \begin{proof}[Proof of Theorem \ref{thm:12rpps}]
-We proceed by induction on the number of columns in $\lm$. If the number of columns is one then the statement of Theorem \ref{thm:12rpps} is obvious. Suppose that we have proven that for all skew partitions $\widetilde{\lm}$ with less than $\lambda_1$ columns and for all partitions $\widetilde\seplistvar$  irreducible with respect to $\widetilde{\lm}$ and for all $0\leq \widetilde m\leq \widetilde{\lambda}_1)-\#\widetilde\seplistvar$, there is exactly one 12-rpp $\widetilde T$ of shape $\widetilde{\lm}$ with exactly $\widetilde m$ $1$-pure columns, exactly $\#\widetilde\seplistvar$ mixed columns and exactly $(\widetilde{\lambda}_1-\#\widetilde\seplistvar-\widetilde m)$ $2$-pure columns. Now we want to prove the same for $\lm$.
+We proceed by strong induction on the number of columns in $\lm$. If the number of columns is $1$, then the statement of Theorem \ref{thm:12rpps} is obvious. Suppose that we have proven that for all skew partitions $\widetilde{\lm}$ with less than $\lambda_1$ columns and for all partitions $\widetilde\seplistvar$  irreducible with respect to $\widetilde{\lm}$ and for all $0\leq \widetilde m\leq \widetilde{\lambda}_1-\#\widetilde\seplistvar$, there is exactly one 12-rpp $\widetilde T$ of shape $\widetilde{\lm}$ with exactly $\widetilde m$ $1$-pure columns, exactly $\#\widetilde\seplistvar$ mixed columns and exactly $(\widetilde{\lambda}_1-\#\widetilde\seplistvar-\widetilde m)$ $2$-pure columns. Now we want to prove the same for $\lm$.
 
-Take any 12-rpp $T\in\OneTwoRPPCutvar$ with $\seplist(T)=\seplistvar$ and with $m$ $1$-pure columns for $0\leq m\leq \lambda_1-\#\seplistvar$. Suppose first that $m>0$. Then there is at least one $1$-pure column in $T$. Let $q+1$ be the leftmost such column for some $q\geq 0$. Then by Lemma \ref{lemma:leftRight} the columns $1,2,\dots,q$ are mixed. If $q>0$ then the supports of $i_1,i_2,\dots,i_q$ are all contained inside $[1,q+1)$ and we get a contradiction with the irreducibility of $\seplistvar$. The only remaining case is that $q=0$ and the first column of $T$ is $1$-pure. Let $\widetilde\lm$ denote $\lm$ with the first column removed. Then $\seplistvar$ may not be irreducible with respect to $\widetilde{\lm}$, because it may happen that $\#\nuxy{1}{b}^{\widetilde{\lm}}=b-1$ for some $b$. In this case we can ignore these first $b-1$ mixed columns and apply the induction hypothesis. We are done with the case $m>0$. If $m<\lambda_1-\#\seplistvar$ then we can apply a mirrored argument to the last column, and it remains to note that for $\lambda_1-\#\seplistvar>0$ the cases $m>0$ and $m<\lambda_1-\#\seplistvar$ cover everything and for $\lambda_1=\#\seplistvar$ we get that $T$ is a 12-rpp with all mixed columns, but there is obviously a unique such 12-rpp.
+Take any 12-rpp $T\in\OneTwoRPPCutvar$ with $\seplist(T)=\seplistvar$ and with $m$ $1$-pure columns for $0\leq m\leq \lambda_1-\#\seplistvar$. Suppose first that $m>0$. Then there is at least one $1$-pure column in $T$. Let $q\geq 0$ be such that the leftmost $1$-pure column is column $q+1$. Then by Lemma \ref{lemma:leftRight} the columns $1,2,\dots,q$ are mixed. If $q>0$ then the supports of $i_1,i_2,\dots,i_q$ are all contained inside $[1,q+1)$ and we get a contradiction with the irreducibility of $\seplistvar$. The only remaining case is that $q=0$ and the first column of $T$ is $1$-pure. Let $\widetilde\lm$ denote $\lm$ with the first column removed. Then $\seplistvar$ is obviously admissible but may not be irreducible with respect to $\widetilde{\lm}$, because it may happen that $\#\nuxy{2}{b+1}^{\widetilde{\lm}}=b-1$
+% [DG] You didn't "slide" $\widetilde{\lm}$ to the left (i.e., relabel the columns) in the previous proof, so better not do it here either.
+for some $b>1$. In this case we can remove these $b-1$ nonempty columns from $\widetilde{\lm}$ and remove the first $b-1$ entries from $\nu$ to get an irreducible partition again\footnote{This follows from Lemma \ref{lemma:irreducible} \textbf{(c)} (applied to the skew shape $\widetilde{\lm}$ and $k=1$). Here we are using the fact that if we apply Lemma \ref{lemma:irreducible} \textbf{(a)} to $\widetilde{\lm}$ instead of $\lm$, then we get $r = 1$ (because if $r \geq 2$, then $\#\nuxy{a_2}{b_2} = \#\nuxy{a_2}{b_2}^{\widetilde{\lm}} = b_2-a_2$ in contradiction to the irreducibility of $\lm$).}, to which we can apply the induction hypothesis. We are done with the case $m>0$. If $m<\lambda_1-\#\seplistvar$ then we can apply a mirrored argument to the last column, and it remains to note that the cases $m>0$ and $m<\lambda_1-\#\seplistvar$ cover everything (since the irreducibility of $\nu$ shows that $\lambda_1-\#\seplistvar>0$).
+
+This inductive proof shows the uniqueness of the 12-rpp with desired properties. Its existence follows from a parallel argument, using the observation that the first $b-1$ columns of $\widetilde{\lm}$ can actually be filled in. This amounts to showing that for a representable $\seplistvar$, the set $\OneTwoRPPCutvar$ is non-empty in the case when $\lambda_1 = \#\seplistvar$ (so all columns of $T \in \OneTwoRPPCutvar$ must be mixed). This is clear when there is just one column, and the general case easily follows by induction on the number of columns\footnote{In more detail: \par
+If we had $1 \notin \supp(\seplistvar_1)$, then we would have $\supp(\seplistvar_1) \subseteq [2, \lambda_1+1)$, and thus $\supp(\seplistvar_j) \subseteq [2, \lambda_1+1)$ for every $j$ (since $\seplistvar$ is weakly decreasing and since $\supp(\seplistvar_1)$ is nonempty), which would lead to $\nuxy{2}{\lambda_1+1} = \seplistvar$ and thus $\#\nuxy{2}{\lambda_1+1} = \#\seplistvar = \lambda_1 > \lambda_1 + 1 - 2$, contradicting the representability of $\seplistvar$. Hence, we have $1 \in \supp(\seplistvar_1)$, so that we can fill the first column of $\lm$ with $1$'s and $2$'s in such a way that it becomes mixed and the $1$'s are displaced by $2$'s at level $\seplistvar_1$. Now, let $\widetilde{\lm}$ be the skew partition $\lm$ without its first column, and $\widetilde{\seplistvar}$ be the partition $\left(\seplistvar_2, \seplistvar_3, \ldots\right)$. Then, the partition $\widetilde{\seplistvar}$ is representable with respect to $\widetilde{\lm}$. (Otherwise we would have $\#\nuxy{2}{b+1}^{\widetilde{\lm}}>b-1$ for some $b \geq 1$, but then we would have $\supp(\seplistvar_1) \subseteq [1,b+1)$ as well and therefore $\#\nuxy{1}{b+1}>(b-1)+1=b$, contradicting the representability of $\lm$.) Thus we can fill in the entries in the cells of $\widetilde{\lm}$ by induction.}.
 \end{proof}
 
 
