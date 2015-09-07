@@ -2354,8 +2354,8 @@ $T^{\prime}$ is $T$ (because we have $T\mid_{Z}=\mathbf{B}_{Z}\left(
 \ \ \ \ \footnote{\textit{Proof.} We have $\mathbf{B}_{i}\left(  T\right)
 \mid_{Z}=\mathbf{B}_{Z}\left(  T\mid_{Z}\right)  $, thus $\mathbf{B}%
 _{Z}\left(  \mathbf{B}_{i}\left(  T\right)  \mid_{Z}\right)  =\mathbf{B}%
-_{Z}\left(  \mathbf{B}_{Z}\left(  T\mid_{Z}\right)  \right)  =T\mid_{Z}$ (
-since $\mathbf{B}_{Z}$ is an involution), qed.} and $T\mid_{Y\left(
+_{Z}\left(  \mathbf{B}_{Z}\left(  T\mid_{Z}\right)  \right)  =T\mid_{Z}$
+(since $\mathbf{B}_{Z}$ is an involution), qed.} and $T\mid_{Y\left(
 \lambda/\mu\right)  \setminus Z}=\mathbf{B}_{i}\left(  T\right)
 \mid_{Y\left(  \lambda/\mu\right)  \setminus Z}$\ \ \ \ \footnote{since
 $\mathbf{B}_{i}\left(  T\right)  \mid_{Y\left(  \lambda/\mu\right)  \setminus
@@ -3347,7 +3347,12 @@ there exists a $k\in\left\{  1,2,\ldots,n-1\right\}  $ such that
 $a\underset{k}{\Rrightarrow}b$ (since $a\Rrightarrow b$). Consider this $k$.
 We have $a\underset{k}{\Rrightarrow}b$; in other words, $a_{k}>a_{k+1}$ and
 $b=s_{k}\cdot a$ (since this is how $a\underset{k}{\Rrightarrow}b$ is
-defined). It is then easy to see that the pair $\left(  k,k+1\right)  $ is an
+defined).
+Recall that $s_k$ is an involution; thus, $s_k^2 = \id$. Now,
+$s_k \cdot \underbrace{b}_{= s_k \cdot a}
+= \underbrace{s_k \cdot s_k}_{= s_k^2 = \id} \cdot a = \id \cdot a = a$,
+so that $a = s_k \cdot b$.
+It is now easy to see that the pair $\left(  k,k+1\right)  $ is an
 inversion of $a$\ \ \ \ \footnote{\textit{Proof.} We have $k<k+1$ and
 $a_{k}>a_{k+1}$. Hence, $\left(  k,k+1\right)  $ is an inversion of $a$,
 qed.}, but not an inversion of $b$\ \ \ \ \footnote{\textit{Proof.} Assume the
@@ -3453,10 +3458,10 @@ not an inversion of $b$). Thus,
 (\ref{pf.prop.diamond.example.poset.inversion-transform}) (applied to $\left(
 i,j\right)  =\left(  u,v\right)  $) shows that $s_{k}\left(  u\right)
 <s_{k}\left(  v\right)  $. Thus, $\alpha=s_{k}\left(  u\right)  <s_{k}\left(
-v\right)  =\beta$. Moreover, $a=s_{k}\cdot u$, so that $a_{\alpha}=\left(
+v\right)  =\beta$. Moreover, $a=s_{k}\cdot b$, so that $a_{\alpha}=\left(
 s_{k}\cdot b\right)  _{\alpha}=b_{s_{k}^{-1}\left(  \alpha\right)  }=b_{u}$
 (since $s_{k}^{-1}\left(  \alpha\right)  =u$ (since $\alpha=s_{k}\left(
-u\right)  $)). Also, $a=s_{k}\cdot u$, so that $a_{\beta}=\left(  s_{k}\cdot
+u\right)  $)). Also, $a=s_{k}\cdot b$, so that $a_{\beta}=\left(  s_{k}\cdot
 b\right)  _{\beta}=b_{s_{k}^{-1}\left(  \beta\right)  }=b_{v}$ (since
 $s_{k}^{-1}\left(  \beta\right)  =v$ (since $\beta=s_{k}\left(  v\right)  $)).
 Therefore, $a_{\alpha}=b_{u}>b_{v}=a_{\beta}$.
@@ -3469,7 +3474,7 @@ $\alpha=k$ and $\beta=k+1$ and therefore also $k+1=s_{k}\left(  \underbrace{k}%
 _{=\alpha}\right)  =s_{k}\left(  \alpha\right)  =u<v=s_{k}\left(
 \underbrace{\beta}_{=k+1}\right)  =s_{k}\left(  k+1\right)  =k$, which is
 absurd. Hence, we cannot have $\left(  \alpha,\beta\right)  =\left(
-k,k+1\right)  $. We thus have $\left(  \alpha,\beta\right)  =\left(
+k,k+1\right)  $. We thus have $\left(  \alpha,\beta\right) \neq \left(
 k,k+1\right)  $. Finally, $\left(  u,v\right)  =\left(  s_{k}\left(
 \alpha\right)  ,s_{k}\left(  \beta\right)  \right)  $ (since $u=s_{k}\left(
 \alpha\right)  $ and $v=s_{k}\left(  \beta\right)  $). Hence, $\left(
