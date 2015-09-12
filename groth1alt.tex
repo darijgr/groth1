@@ -2795,7 +2795,9 @@ itself is final. Hence, there exists a final element $b\in\mathbf{S}$ such
 that $a\overset{\ast}{\Rrightarrow}b$ (namely, $b=a$). This $b$ is unique,
 because (\ref{pf.lem.diamond.short.lem1}) shows that every $b\in\mathbf{S}$
 satisfying $a\overset{\ast}{\Rrightarrow}b$ and $a\neq b$ would have to
-satisfy $a\Rrightarrow c$. This proves (\ref{pf.lem.diamond.short.goal}).}.
+satisfy $a\Rrightarrow c$ for some $c \in \mathbf{S}$ (which would
+contradict the fact that $a$ is final). This proves
+(\ref{pf.lem.diamond.short.goal}).}.
 Hence, for the rest of this proof, we WLOG assume that there exists some
 $c\in\mathbf{S}$ satisfying $a\Rrightarrow c$. Let us denote this $c$ by
 $c_{1}$. Thus, $c_{1}\in\mathbf{S}$ and\textbf{ }$a\Rrightarrow c_{1}$.
@@ -2847,8 +2849,8 @@ relation $\overset{\ast}{\Rrightarrow}$ is transitive). Thus, $e$ is a final
 element of $\mathbf{S}$ such that $c_{1}\overset{\ast}{\Rrightarrow}e$. In
 other words, $e$ is a final element $b\in\mathbf{S}$ such that $c_{1}%
 \overset{\ast}{\Rrightarrow}b$. Since we already know that $b_{1}$ is the
-unique such element $b$ (in fact, this how we defined $b_{1}$), this shows
-that $e=b_{1}$.
+unique such element $b$ (in fact, this is how we defined $b_{1}$), this
+shows that $e=b_{1}$.
 
 We have $c_{2}\overset{\ast}{\Rrightarrow}d$ and $d\overset{\ast
 }{\Rrightarrow}e$. Hence, $c_{2}\overset{\ast}{\Rrightarrow}e$ (since the
