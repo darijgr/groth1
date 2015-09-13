@@ -89,10 +89,10 @@
 \newenvironment{condition}[1][]
 {\begin{conv}[#1]\begin{leftbar}}
 {\end{leftbar}\end{conv}}
-\newtheorem{quest}[theo]{TODO}
-\newenvironment{todo}[1][]
-{\begin{quest}[#1]\begin{leftbar}}
-{\end{leftbar}\end{quest}}
+%\newtheorem{quest}[theo]{TODO}
+%\newenvironment{todo}[1][]
+%{\begin{quest}[#1]\begin{leftbar}}
+%{\end{leftbar}\end{quest}}
 \newtheorem{warn}[theo]{Warning}
 \newenvironment{conclusion}[1][]
 {\begin{warn}[#1]\begin{leftbar}}
@@ -112,10 +112,12 @@
 \newenvironment{vershort}{}{}
 \newenvironment{noncompile}{}{}
 \newenvironment{obsolete}{}{}
+\newenvironment{todo}{}{}
 \excludecomment{verlong}
 \includecomment{vershort}
 \excludecomment{noncompile}
 \excludecomment{obsolete}
+\excludecomment{todo}
 \newcommand{\kk}{\mathbf{k}}
 \newcommand{\id}{\operatorname{id}}
 \newcommand{\ev}{\operatorname{ev}}

@@ -70,10 +70,10 @@
 \newenvironment{condition}[1][]
 {\begin{conv}[#1]\begin{leftbar}}
 {\end{leftbar}\end{conv}}
-\newtheorem{quest}[theo]{TODO}
-\newenvironment{todo}[1][]
-{\begin{quest}[#1]\begin{leftbar}}
-{\end{leftbar}\end{quest}}
+%\newtheorem{quest}[theo]{TODO}
+%\newenvironment{todo}[1][]
+%{\begin{quest}[#1]\begin{leftbar}}
+%{\end{leftbar}\end{quest}}
 \newtheorem{warn}[theo]{Warning}
 \newenvironment{conclusion}[1][]
 {\begin{warn}[#1]\begin{leftbar}}
@@ -93,10 +93,12 @@
 %\newenvironment{vershort}{}{}
 \newenvironment{noncompile}{}{}
 \newenvironment{obsolete}{}{}
+\newenvironment{todo}{}{}
 %\excludecomment{verlong}
 %\includecomment{vershort}
 \excludecomment{noncompile}
 \excludecomment{obsolete}
+\excludecomment{todo}
 \newcommand{\kk}{\mathbf{k}}
 \newcommand{\id}{\operatorname{id}}
 \newcommand{\ev}{\operatorname{ev}}
@@ -307,7 +309,7 @@ $\left\{ \left( i, j \right) \in \Nplus^2 \mid j \leq \lambda_i \right\}$
 of $\Nplus^{2}$ (called \textit{the Young diagram of $\lambda$}).
 We draw this subset as a Young diagram (which is a left-aligned table of
 empty boxes, where the box $(1,1)$ is in the top-left corner while the
-box $(2,1)$ is direcly below it; this is the \textit{English notation},
+box $(2,1)$ is directly below it; this is the \textit{English notation},
 also known as the \textit{matrix notation}).
 
 
@@ -678,7 +680,7 @@ Theorem \ref{thm.BK}. We define a \textit{12-rpp} to be an rpp whose entries all
 \begin{lemma}
 \label{lem.BK} There exists an
 involution $\mathbf{B}:\OneTwoRPP\rightarrow\OneTwoRPP$ (defined canonically
-in terms of $\lm$) which preserves the ceq statistic and switches the number of columns containing a $1$ with the number of columns containing a $2$ (i.e. acts as a transposition of $1$ and $2$ on the ircont statistic).
+in terms of $\lm$) which preserves the ceq statistic and switches the number of columns containing a $1$ with the number of columns containing a $2$ (that is, switches the first two entries of the ircont statistic).
 \end{lemma}
 
 
@@ -1084,7 +1086,8 @@ For example,
 
 \begin{remark}
  \label{pf.lem.BK.flip.ircont}
-It is clear that $\operatorname*{flip}$ is an involution on $\BenignTables$ that preserves $\operatorname*{ceq}$ and $\operatorname*{seplist}$ but acts as a transposition $s_1$ on $\operatorname*{ircont}$ (that is, we have $\operatorname{ircont}\left(\operatorname{flip}\left(T\right)\right) = s_1 \cdot \operatorname{ircont}\left(T\right)$ for every $T \in \BenignTables$).
+It is clear that $\operatorname*{flip}$ is an involution on $\BenignTables$ that preserves $\operatorname*{ceq}$ and $\operatorname*{seplist}$ but switches the first two entries of $\operatorname*{ircont}$ (that is, if some $T \in \BenignTables$ has $\ircont\left(T\right) = \left(a,b,0,0,0,\ldots\right)$, then
+$\operatorname{ircont}\left(\operatorname{flip}\left(T\right)\right) = \left(b,a,0,0,0,\ldots\right)$).
 \end{remark}
 
 \begin{comment}
@@ -2360,10 +2363,11 @@ $\operatorname*{ceq}\left(  \mathbf{B}\left(  T\right)  \right)
 \begin{proof}[$\mathbf{B}$ switches the numbers of columns containing 1 and 2]
 Let $T\in\OneTwoRPP$. As above, $\operatorname*{flip}\left(  T\right)  \overset{\ast
 }{\Rrightarrow}\mathbf{B}\left(  T\right)  $. Lemma \ref{lem.descent-resolution-*props} \textbf{(b)}
-and Remark \ref{pf.lem.BK.flip.ircont} thus yield
+thus yields
 $\operatorname*{ircont}\left(  \mathbf{B}\left(  T\right)  \right)
-=\operatorname*{ircont}\left(  \operatorname*{flip}\left(  T\right)  \right)
-=s_{1}\cdot\operatorname*{ircont}\left(  T\right)$.
+=\operatorname*{ircont}\left(  \operatorname*{flip}\left(  T\right)  \right)$.
+Due to Remark \ref{pf.lem.BK.flip.ircont}, this is the result
+of switching the first two entries of $\ircont\left(T\right)$.
 \end{proof}
 
 Lemma \ref{lem.BK} is now proven.
@@ -2967,7 +2971,7 @@ Another application of Theorem \ref{thm:12rpps} is a complete description of Ben
 
 \begin{corollary}
 \label{cor:uniqueBK}
-Let $\seplistvar$ be an irreducible partition. Then there is a unique map $b:\OneTwoRPPCutvar\to\OneTwoRPPCutvar$ such that for all $T\in\OneTwoRPPCutvar$ we have $\ircont(b(T)) = s_1 \cdot \ircont(T)$.
+Let $\seplistvar$ be an irreducible partition. Then there is a unique map $b:\OneTwoRPPCutvar\to\OneTwoRPPCutvar$ such that for all $T\in\OneTwoRPPCutvar$, the sequence $\ircont(b(T))$ is obtained from $\ircont(T)$ by switching the first two entries.
 %$$\ircont(T)=(c_1,c_2,0,0,\dots)\Longrightarrow \ircont(b(T))=(c_2,c_1,0,0,\dots).$$
 This unique map $b$ is an involution on $\OneTwoRPPCutvar$. So, for irreducible partition $\seplistvar$ the corresponding Bender-Knuth involution exists and is unique.
 \end{corollary}
