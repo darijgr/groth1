@@ -548,16 +548,17 @@ Let us give some examples of $\widetilde{g}_{\lambda/\mu}$.
 
 \begin{example}
 \label{exa.gtilde.1}
-\textbf{(a)} If $\lm$ is a single row with $n$ cells, then for each rpp $T$ of shape $\lm$ we have $\ceq(T)=(0,0,\dots)$ and $\ircont(T)=\cont(T)$ (in fact, any rpp of shape $\lm$ is a semistandard tableau in this case). Therefore we get 
+
+\begin{enumerate}
+
+\item[\textbf{(a)}] If $\lm$ is a single row with $n$ cells, then for each rpp $T$ of shape $\lm$ we have $\ceq(T)=(0,0,\dots)$ and $\ircont(T)=\cont(T)$ (in fact, any rpp of shape $\lm$ is a semistandard tableau in this case). Therefore we get 
 \[
 \g_\lm(\x;\t)=h_n(\x)=\sum_{a_1\leq a_2\leq\dots\leq a_n} x_{a_1}x_{a_2}\cdots x_{a_n}.
 \]
  Here $h_n(\x)$ is the $n$-th complete homogeneous symmetric function.
 
 
-
-
-\textbf{(b)} If $\lm$ is a single column with $n$ cells, then, by (\ref{eq:sum.of.ceq.and.ircont}), for all rpps $T$ of shape $\lm$ we have $|\ceq(T)|+|\ircont(T)|=n$, so in this case
+\item[\textbf{(b)}] If $\lm$ is a single column with $n$ cells, then, by (\ref{eq:sum.of.ceq.and.ircont}), for all rpps $T$ of shape $\lm$ we have $|\ceq(T)|+|\ircont(T)|=n$, so in this case
 \[
 \g_\lm(\x;\t)=\sum_{k=0}^{n}e_{k}\left(  t_{1},t_{2},\ldots,t_{n-1}\right)
 e_{n-k}\left(  x_{1},x_{2},\ldots\right) =e_n(t_1,t_2,\dots,t_{n-1},x_1,x_2,\dots),
@@ -568,7 +569,7 @@ _{2},\xi_{3},\ldots$.
 
 
 \begin{comment}
-\textbf{(c)} Let now $n=3$, let $\lambda=\left(  2,1\right)  $ and let
+\item[\textbf{(c)}] Let now $n=3$, let $\lambda=\left(  2,1\right)  $ and let
 $\mu=\varnothing$. Then, the rpps $T$ of shape $\lm$
 have the form $%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
@@ -619,7 +620,7 @@ x_{a}x_{b},\ \text{if }a=c
 \end{align*}
 
 \end{comment}
-
+\end{enumerate}
 
 \end{example}
 
@@ -629,11 +630,14 @@ $g_{\lambda/\mu}$ and $s_{\lambda/\mu}$ studied before. The following propositio
 \begin{proposition}
 \label{prop.gtilde.gener}Let $\lambda/\mu$ be a skew partition.
 
-\textbf{(a)} Specifying $\t=\left(
+\begin{enumerate}
+\item[\textbf{(a)}] Specifying $\t=\left(
 1,1,1,\ldots\right)  $ yields $\widetilde{g}_{\lambda/\mu}(\x;\t)=g_{\lambda/\mu}(\x)$.
 
-\textbf{(b)} Specifying $\t =\left(
+\item[\textbf{(b)}] Specifying $\t =\left(
 0,0,0,\ldots\right)  $ yields $\widetilde{g}_{\lambda/\mu}(\x;\t)=s_{\lambda/\mu}(\x)$.
+
+\end{enumerate}
 \end{proposition} \qed
 
 
@@ -1123,17 +1127,19 @@ $\operatorname{ircont}\left(\operatorname{flip}\left(T\right)\right) = \left(b,a
 The following proposition gathers some easy properties of
 $\operatorname*{flip}$:
 
-\begin{proposition}
-\label{prop.flip}\textbf{(a)} We have $\operatorname*{flip}\circ
+\begin{proposition}\phantomsection
+\label{prop.flip}
+\begin{enumerate}
+\item[\textbf{(a)}] We have $\operatorname*{flip}\circ
 \operatorname*{flip}=\operatorname*{id}$.
 
-\textbf{(b)} Let $T$ be a benign 12-table. When $T$ is transformed into
+\item[\textbf{(b)}] Let $T$ be a benign 12-table. When $T$ is transformed into
 $\operatorname*{flip}\left(  T\right)  $, the 1-pure columns of $T$ become
 2-pure columns of $\operatorname*{flip}\left(  T\right)  $, and the 2-pure
 columns of $T$ become 1-pure columns of $\operatorname*{flip}\left(  T\right)
 $, while the mixed columns and the empty columns do not change.
 
-\textbf{(c)} For every benign 12-table $T$, we have%
+\item[\textbf{(c)}] For every benign 12-table $T$, we have%
 \begin{equation}
 \operatorname*{ceq}\left(  \operatorname*{flip}\left(  T\right)  \right)
 =\operatorname*{ceq}\left(  T\right)  \label{pf.lem.BK.flip.ceq}%
@@ -1145,6 +1151,7 @@ and%
 \label{pf.lem.BK.flip.ircont}%
 \end{equation}
 
+\end{enumerate}
 \end{proposition}
 
 \begin{proof}
@@ -1655,18 +1662,21 @@ $\Rrightarrow$:
 \label{lem.descent-resolution-props}Let $P\in\BenignTables$ and $Q\in\BenignTables$
 be such that $P\Rrightarrow Q$. Then:
 
-\textbf{(a)} We have $\operatorname*{ceq}\left(  Q\right)
+\begin{enumerate}
+\item[\textbf{(a)}] We have $\operatorname*{ceq}\left(  Q\right)
 =\operatorname*{ceq}\left(  P\right)  $.
 
-\textbf{(b)} We have $\operatorname*{ircont}\left(  Q\right)
+\item[\textbf{(b)}] We have $\operatorname*{ircont}\left(  Q\right)
 =\operatorname*{ircont}\left(  P\right)  $.
 
-\textbf{(c)} The benign 12-tables $\operatorname*{flip}\left(  P\right)  $ and
+\item[\textbf{(c)}] The benign 12-tables $\operatorname*{flip}\left(  P\right)  $ and
 $\operatorname*{flip}\left(  Q\right)  $ have the property that
 $\operatorname*{flip}\left(  Q\right)  \Rrightarrow\operatorname*{flip}\left(
 P\right)  $.
 
-\textbf{(d)} We have $\ell\left(  P\right)  >\ell\left(  Q\right)  $.
+\item[\textbf{(d)}] We have $\ell\left(  P\right)  >\ell\left(  Q\right)  $.
+
+\end{enumerate}
 \end{lemma}
 
 %\begin{proof}
@@ -1719,18 +1729,22 @@ Lemma \ref{lem.descent-resolution-props} thus yields:
 \label{lem.descent-resolution-*props}Let $P\in\BenignTables$ and $Q\in\BenignTables$
 be such that $P\overset{\ast}{\Rrightarrow}Q$. Then:
 
-\textbf{(a)} We have $\operatorname*{ceq}\left(  Q\right)
+\begin{enumerate}
+
+\item[\textbf{(a)}] We have $\operatorname*{ceq}\left(  Q\right)
 =\operatorname*{ceq}\left(  P\right)  $.
 
-\textbf{(b)} We have $\operatorname*{ircont}\left(  Q\right)
+\item[\textbf{(b)}] We have $\operatorname*{ircont}\left(  Q\right)
 =\operatorname*{ircont}\left(  P\right)  $.
 
-\textbf{(c)} The benign 12-tables $\operatorname*{flip}\left(  P\right)  $ and
+\item[\textbf{(c)}] The benign 12-tables $\operatorname*{flip}\left(  P\right)  $ and
 $\operatorname*{flip}\left(  Q\right)  $ have the property that
 $\operatorname*{flip}\left(  Q\right)  \overset{\ast}{\Rrightarrow
 }\operatorname*{flip}\left(  P\right)  $.
 
-\textbf{(d)} We have $\ell\left(  P\right)  \geq\ell\left(  Q\right)  $.
+\item[\textbf{(d)}] We have $\ell\left(  P\right)  \geq\ell\left(  Q\right)  $.
+
+\end{enumerate}
 \end{lemma}
 
 %\begin{proof}
@@ -2861,7 +2875,9 @@ This yields part \textbf{(a)} of the following lemma:
 \label{lemma:irreducible}
  Let $\seplistvar$ be a representable partition.
 
-\textbf{(a)} There exist unique integers $(1=b_0\leq a_1<b_1<a_2<b_2<\cdots<a_r<b_r\leq a_{r+1}=\lambda_1+1)$ satisfying the following two conditions:
+\begin{enumerate}
+
+\item[\textbf{(a)}] There exist unique integers $(1=b_0\leq a_1<b_1<a_2<b_2<\cdots<a_r<b_r\leq a_{r+1}=\lambda_1+1)$ satisfying the following two conditions:
  \begin{enumerate}
   \item For all $1\leq k\leq r$, we have $\#\nuxy{a_k}{b_k} =b_k-a_k$.
   \item The set $\bigcup_{k=0}^{r}[b_k,a_{k+1})$ is minimal (with respect to inclusion) among all sequences $(1=b_0\leq a_1<b_1<a_2<b_2<\cdots<a_r<b_r\leq a_{r+1}=\lambda_1+1)$ satisfying property 1.
@@ -2869,14 +2885,16 @@ This yields part \textbf{(a)} of the following lemma:
 
 Furthermore, for these integers, we have:
 
-\textbf{(b)} The partition $\nu$ is the concatenation
+\item[\textbf{(b)}] The partition $\nu$ is the concatenation
 \[
 \left(\nuxycap{b_0}{a_1}\right) \left(\nuxy{a_1}{b_1}\right) \left(\nuxycap{b_1}{a_2}\right) \left(\nuxy{a_2}{b_2}\right) \cdots \left(\nuxycap{b_r}{a_{r+1}}\right)
 \]
 (where we regard a partition as a sequence of positive integers, with no trailing zeroes).
 
-\textbf{(c)} The partitions $\nuxycap{b_k}{a_{k+1}}$ are irreducible with respect to $\lm\big|_{[b_k,a_{k+1})}$,
+\item[\textbf{(c)}] The partitions $\nuxycap{b_k}{a_{k+1}}$ are irreducible with respect to $\lm\big|_{[b_k,a_{k+1})}$,
  which is the skew partition $\lm$ with columns $1,2,\dots,b_k-1,a_{k+1},a_{k+1}+1,\dots$ removed.
+
+\end{enumerate}
 \end{lemma}
 
 \begin{proof}
