@@ -3330,7 +3330,7 @@ switching the $k$-th and the $\left(  k+1\right)  $-th entry, which were out
 of order in $a$. Thus, the pair $\left(  k,k+1\right)  $ is an inversion of
 $a$, but not an inversion of $b$. Furthermore, $b_{s_{k}\left(  u\right)
 }=a_{u}$ for every $u\in\left\{  1,2,\ldots,n\right\}  $ (since $b=s_{k}\cdot
-a$), and furthermore, for any $\left(  i,j\right)  \in\left\{  1,2,\ldots
+a$). Furthermore, for any $\left(  i,j\right)  \in\left\{  1,2,\ldots
 ,n\right\}  ^{2}$ satisfying $i<j$, we have $s_{k}\left(  i\right)
 <s_{k}\left(  j\right)  $ if $\left(  i,j\right)  \neq\left(  k,k+1\right)  $
 (this is easy to prove by checking all possible cases). From the last two
@@ -3370,7 +3370,7 @@ $s_{k}^{-1}\left(  k\right)  =k+1$) and similarly $b_{k+1}=a_{k}$. Hence,
 $a_{k+1}=b_{k}>b_{k+1}=a_{k}$. This contradicts $a_{k}>a_{k+1}$. This
 contradiction proves that our assumption was wrong. Qed.}. Furthermore,
 $b_{s_{k}\left(  u\right)  }=a_{u}$ for every $u\in\left\{  1,2,\ldots
-,n\right\}  $ (since $b=s_{k}\cdot a$), and furthermore, for any $\left(
+,n\right\}  $ (since $b=s_{k}\cdot a$). Furthermore, for any $\left(
 i,j\right)  \in\left\{  1,2,\ldots,n\right\}  ^{2}$ satisfying $i<j$, we have%
 \begin{equation}
 s_{k}\left(  i\right)  <s_{k}\left(  j\right)  \ \ \ \ \ \ \ \ \ \ \text{if
@@ -3705,11 +3705,11 @@ $b\underset{v}{\Rrightarrow}d$\textquotedblright). Thus, $b\Rrightarrow d$, so
 that $b\overset{\ast}{\Rrightarrow}d$ (since $\overset{\ast}{\Rrightarrow}$
 extends the relation $\Rrightarrow$).
 
-Also, from $c=s_{v}\cdot b$, we obtain $c_{u}=\left(  s_{v}\cdot b\right)
+Also, from $c=s_{v}\cdot a$, we obtain $c_{u}=\left(  s_{v}\cdot a\right)
 _{u}=a_{s_{v}^{-1}\left(  u\right)  }=a_{u}$ (since $s_{v}^{-1}\left(
-u\right)  =u$ (since $u<v-1<v$)) and $c_{u+1}=\left(  s_{v}\cdot b\right)
-_{u+1}=b_{s_{v}^{-1}\left(  u+1\right)  }=b_{u+1}$ (since $s_{v}^{-1}\left(
-u+1\right)  =u+1$ (since $u+1<v$)). Thus, $c_{u}=a_{u}>a_{u+1}=b_{u+1}$.
+u\right)  =u$ (since $u<v-1<v$)) and $c_{u+1}=\left(  s_{v}\cdot a\right)
+_{u+1}=a_{s_{v}^{-1}\left(  u+1\right)  }=a_{u+1}$ (since $s_{v}^{-1}\left(
+u+1\right)  =u+1$ (since $u+1<v$)). Thus, $c_{u}=a_{u}>a_{u+1}=c_{u+1}$.
 Combined with $d=s_{u}\cdot c$, this yields $c\underset{u}{\Rrightarrow}d$ (by
 the definition of \textquotedblleft$c\underset{u}{\Rrightarrow}d$%
 \textquotedblright). Thus, $c\Rrightarrow d$, so that $c\overset{\ast
@@ -3728,7 +3728,9 @@ Recall also that $b=s_{u}\cdot a=s_{v-1}\cdot a$ (since $u=v-1$) and
 $c=s_{v}\cdot a$.
 
 Now, it is well-known (and easy to check) that $s_{v-1}s_{v}s_{v-1}%
-=s_{v}s_{v-1}s_{v}$ in $\mathfrak{S}_{n}$. We can thus define a $d\in
+=s_{v}s_{v-1}s_{v}$ in $\mathfrak{S}_{n}$. Hence,
+$\left(  s_{v-1}s_{v}s_{v-1}\right)  \cdot a=\left(  s_{v}s_{v-1}%
+s_{v}\right)  \cdot a$. We can thus define a $d\in
 \mathbf{S}$ by%
 \[
 d=\left(  s_{v-1}s_{v}s_{v-1}\right)  \cdot a=\left(  s_{v}s_{v-1}%
@@ -3752,6 +3754,7 @@ a;\label{pf.prop.diamond.example.poset.four3}\\
 \left(  s_{v-1}s_{v}\right)  \cdot a  &  \underset{v}{\Rrightarrow}\left(
 s_{v}s_{v-1}s_{v}\right)  \cdot a. \label{pf.prop.diamond.example.poset.four4}%
 \end{align}
+
 \textit{Proof of (\ref{pf.prop.diamond.example.poset.four1}):} We have
 $\left(  s_{v-1}\cdot a\right)  _{v}=a_{s_{v-1}^{-1}\left(  v\right)
 }=a_{v-1}$ (since $s_{v-1}^{-1}\left(  v\right)  =v-1$) and $\left(
@@ -3767,42 +3770,51 @@ a$). Thus, the relation (\ref{pf.prop.diamond.example.poset.four1}) is proven.
 \textit{Proof of (\ref{pf.prop.diamond.example.poset.four2}):} We have
 $\left(  s_{v}s_{v-1}\right)  \left(  v+1\right)  =s_{v}\left(
 \underbrace{s_{v-1}\left(  v+1\right)  }_{=v+1}\right)  =s_{v}\left(
-v+1\right)  =v$, and thus $\left(  s_{v}s_{v-1}\right)  ^{-1}\left(  v\right)
+v+1\right)  =v=u+1$ (since $u=v-1$),
+and thus $\left(  s_{v}s_{v-1}\right)  ^{-1}\left(  u+1\right)
 =v+1$. Also, we have $\left(  s_{v}s_{v-1}\right)  \left(  v\right)
 =s_{v}\left(  \underbrace{s_{v-1}\left(  v\right)  }_{=v-1}\right)
-=s_{v}\left(  v-1\right)  =v-1$, and thus $\left(  s_{v}s_{v-1}\right)
-^{-1}\left(  v-1\right)  =v$.
+=s_{v}\left(  v-1\right)  =v-1=u$,
+and thus $\left(  s_{v}s_{v-1}\right)^{-1}\left( u\right)  =v$.
 
-Now, $\left(  \left(  s_{v}s_{v-1}\right)  \cdot a\right)  _{v}=a_{\left(
-s_{v}s_{v-1}\right)  ^{-1}\left(  v\right)  }=a_{v+1}$ (since $\left(
-s_{v}s_{v-1}\right)  ^{-1}\left(  v\right)  =v+1$) and $\left(  \left(
-s_{v}s_{v-1}\right)  \cdot a\right)  _{v-1}=a_{\left(  s_{v}s_{v-1}\right)
-^{-1}\left(  v-1\right)  }=a_{v}$ (since $\left(  s_{v}s_{v-1}\right)
-^{-1}\left(  v-1\right)  =v$). Thus, $\left(  \left(  s_{v}s_{v-1}\right)
-\cdot a\right)  _{v-1}=a_{v}>a_{v+1}=\left(  \left(  s_{v}s_{v-1}\right)
-\cdot a\right)  _{v}=\left(  \left(  s_{v}s_{v-1}\right)  \cdot a\right)
-_{\left(  v-1\right)  +1}$. This, combined with $\left(  s_{v-1}s_{v}%
-s_{v-1}\right)  \cdot a=s_{v-1}\cdot\left(  \left(  s_{v}s_{v-1}\right)  \cdot
-a\right)  $, shows that $\left(  s_{v}s_{v-1}\right)  \cdot
-a\underset{v-1}{\Rrightarrow}\left(  s_{v-1}s_{v}s_{v-1}\right)  \cdot a$ (by
+Now, $\left(  \left(  s_{v}s_{v-1}\right)  \cdot a\right)  _{u+1}
+=a_{\left(
+s_{v}s_{v-1}\right)  ^{-1}\left(  u+1\right)  }=a_{v+1}$ (since $\left(
+s_{v}s_{v-1}\right)  ^{-1}\left(  u+1\right)  =v+1$) and $\left(  \left(
+s_{v}s_{v-1}\right)  \cdot a\right)  _{u}=a_{\left(  s_{v}s_{v-1}\right)
+^{-1}\left(  u\right)  }=a_{v}$ (since $\left(  s_{v}s_{v-1}\right)
+^{-1}\left(  u\right)  =v$). Thus, $\left(  \left(  s_{v}s_{v-1}\right)
+\cdot a\right)  _{u}=a_{v}>a_{v+1}=\left(  \left(  s_{v}s_{v-1}\right)
+\cdot a\right)  _{u+1}$. This, combined with $\left(  s_{v-1}s_{v}%
+s_{v-1}\right)  \cdot a=\underbrace{s_{v-1}}_{\substack{=s_u \\
+\text{(since } v-1=u\text{)}}}
+\cdot\left(  \left(  s_{v}s_{v-1}\right)  \cdot
+a\right)
+= s_u \cdot\left(  \left(  s_{v}s_{v-1}\right)  \cdot
+a\right)$, shows that $\left(  s_{v}s_{v-1}\right)  \cdot
+a\underset{u}{\Rrightarrow}\left(  s_{v-1}s_{v}s_{v-1}\right)  \cdot a$ (by
 the definition of the notation $\left(  s_{v}s_{v-1}\right)  \cdot
-a\underset{v-1}{\Rrightarrow}\left(  s_{v-1}s_{v}s_{v-1}\right)  \cdot a$). In
-other words, $\left(  s_{v}s_{v-1}\right)  \cdot a\underset{v-1}{\Rrightarrow
-}\left(  s_{v-1}s_{v}s_{v-1}\right)  \cdot a$ (since $u=v-1$). Thus, the
+a\underset{u}{\Rrightarrow}\left(  s_{v-1}s_{v}s_{v-1}\right)  \cdot a$).
+Thus, the
 relation (\ref{pf.prop.diamond.example.poset.four2}) is proven.
 
 \textit{Proof of (\ref{pf.prop.diamond.example.poset.four3}):} We have
-$\left(  s_{v}\cdot a\right)  _{v-1}=a_{s_{v}^{-1}\left(  v-1\right)
-}=a_{v-1}$ (since $s_{v}^{-1}\left(  v-1\right)  =v-1$) and $\left(
-s_{v}\cdot a\right)  _{v}=a_{s_{v}^{-1}\left(  v\right)  }=a_{v+1}$ (since
-$s_{v}^{-1}\left(  v\right)  =v+1$). Thus, $\left(  s_{v}\cdot a\right)
-_{v-1}=a_{v-1}>a_{v+1}=\left(  s_{v}\cdot a\right)  _{v}$. This, combined with
-$\left(  s_{v-1}s_{v}\right)  \cdot a=s_{v-1}\cdot\left(  s_{v}\cdot a\right)
-$, shows that $s_{v}\cdot a\underset{v-1}{\Rrightarrow}\left(  s_{v-1}%
+$\left(  s_{v}\cdot a\right)  _{u}=a_{s_{v}^{-1}\left(  u\right)
+}=a_{v-1}$ (since $s_{v}^{-1}\left( \underbrace{u}_{=v-1}\right)
+= s_v^{-1}\left(v-1\right) =v-1$) and $\left(
+s_{v}\cdot a\right)  _{u+1}=a_{s_{v}^{-1}\left( u+1 \right)  }
+=a_{v+1}$ (since $s_{v}^{-1}\left( \underbrace{u}_{=v-1}+1 \right)
+= s_v^{-1}\left(\underbrace{v-1+1}_{=v}\right) = s_v^{-1}\left(v\right)
+=v+1$). Thus, $\left(  s_{v}\cdot a\right)
+_{u}=a_{v-1}>a_{v+1}=\left(  s_{v}\cdot a\right)  _{u+1}$. This, combined with
+$\left(  s_{v-1}s_{v}\right)  \cdot a
+=\underbrace{s_{v-1}}_{\substack{=s_u \\
+\text{(since } v-1=u\text{)}}} \cdot\left(  s_{v}\cdot a\right)
+= s_u \cdot\left(  s_{v}\cdot a\right)$,
+shows that $s_{v}\cdot a\underset{u}{\Rrightarrow}\left(  s_{v-1}%
 s_{v}\right)  \cdot a$ (by the definition of the notation $s_{v}\cdot
-a\underset{v-1}{\Rrightarrow}\left(  s_{v-1}s_{v}\right)  \cdot a$). In other
-words, $s_{v}\cdot a\underset{u}{\Rrightarrow}\left(  s_{v-1}s_{v}\right)
-\cdot a$ (since $u=v-1$). Thus, the relation
+a\underset{u}{\Rrightarrow}\left(  s_{v-1}s_{v}\right)  \cdot a$).
+Thus, the relation
 (\ref{pf.prop.diamond.example.poset.four3}) is proven.
 
 \textit{Proof of (\ref{pf.prop.diamond.example.poset.four4}):} We have
@@ -4933,7 +4945,7 @@ benign 12-table $P$ is an analogue of switching two adjacent entries of an
 $n$-tuple $z$ which are out of order.) Starting with a benign 12-table $P$, we
 can repeatedly resolve \textquotedblleft resolvable\textquotedblright%
 \ conflicts until this is no longer possible\footnote{This will eventually
-happen; i.e., we will eventually rearch a state where resolving conflicts will
+happen; i.e., we will eventually reach a state where resolving conflicts will
 no longer be possible because there will be no resolvable conflicts left. In
 fact, we will show that if \textquotedblleft resolving\textquotedblright\ a
 conflict in $P$ yields a new 12-table $Q$, then $\ell\left(  P\right)
@@ -9414,8 +9426,8 @@ $). Lemma \ref{lem.conflict-resolution-*props} \textbf{(c)} (applied to
 $P=\operatorname*{flip}\left(  T\right)  $ and $Q=\mathbf{B}\left(  T\right)
 $) thus yields $\operatorname*{flip}\left(  \mathbf{B}\left(  T\right)
 \right)  \overset{\ast}{\Rrightarrow}\operatorname*{flip}\left(
-\operatorname*{flip}T\right)  $. Since $\operatorname*{flip}\left(
-\operatorname*{flip}T\right)  =\underbrace{\left(  \operatorname*{flip}%
+\operatorname*{flip}\left(T\right)\right)  $. Since $\operatorname*{flip}\left(
+\operatorname*{flip}\left(T\right)\right)  =\underbrace{\left(  \operatorname*{flip}%
 \circ\operatorname*{flip}\right)  }_{\substack{=\operatorname*{id}\\\text{(by
 Proposition \ref{prop.flip} \textbf{(a)})}}}\left(  T\right)
 =\operatorname*{id}\left(  T\right)  =T$, this rewrites as

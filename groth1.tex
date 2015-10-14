@@ -1767,7 +1767,9 @@ $C\overset{\ast}{\Rrightarrow}D$.
 [Proof of Lemma \ref{prop.descent-resolution-hyps}.]If $B=C$, then we can
 simply choose $D=B=C$; thus, we assume that $B\neq C$.
 
-Let $u$, $v \in\mathbb{N}_{+}$ be such that $A\underset{u}{\Rrightarrow}B$ and $A\underset{v}{\Rrightarrow}C$. Since $B \neq C$, we have $u \neq v$.
+Let $u$, $v \in\mathbb{N}_{+}$ be such that $A\underset{u}{\Rrightarrow}B$ and $A\underset{v}{\Rrightarrow}C$.
+Thus, $B = \operatorname{res}_u A$ and $C = \operatorname{res}_v A$.
+Since $B \neq C$, we have $u \neq v$.
 Without loss of generality, assume that $u<v$. We are in one of the following two cases:
 
 \textit{Case 1:} We have $u=v-1$.
@@ -1788,9 +1790,10 @@ A\right)  =\operatorname*{res}\nolimits_{v}\left(  \operatorname*{res}%
 \nolimits_{u}A\right)  $ completes the proof in this case.
 
 Now, let us consider Case 1.
-The $v$-th column of $A$ must contain a $1$ (since $v-1$ is a descent of $A$)
+The $v$-th column of $A$ must contain a $1$ (since $v-1 = u$ is a descent of $A$)
 and a $2$ (since $v$ is a descent of $A$). Hence, the $v$-th column of $A$ is
-mixed. Since $A$ is benign, the $\left(  v-1\right)  $-th column of $A$ is
+mixed. Since $A$ is benign but has $v-1$ and $v$ as descents, it thus follows
+that the $\left(  v-1\right)  $-th column of $A$ is
 2-pure and the
 $\left(  v+1\right)  $-th column of $A$ is 1-pure. We can represent the
 relevant portion (that is, the $\left(v-1\right)$-th, $v$-th and
@@ -1864,8 +1867,8 @@ all belong to $\lm$ (due to what we just said about separating
 lines). We shall refer to this observation as the
 ``six-cells property''.
 
-Now, $B = \operatorname*{res}\nolimits_{v-1}A$, so $B$ is
-represented as follows:%
+Now, $B = \operatorname{res}_u A = \operatorname{res}_{v-1}A$, so
+$B$ is represented as follows:
 \[
 B=%
 %TCIMACRO{\TeXButton{tabular}{\begin{tabular}{ccc}
@@ -2111,7 +2114,9 @@ $B\in\mathbf{Z}$ and $C\in\mathbf{Z}$, we have
 $\operatorname*{Norm}\left(  B\right)  \cap\operatorname*{Norm}\left(
 C\right)  \neq\varnothing$. 
 \ \ \ \ \footnote{In more detail:
-By Lemma \ref{prop.descent-resolution-hyps} there exists
+Let $B\in\mathbf{Z}$ and $C\in\mathbf{Z}$.
+By Lemma \ref{prop.descent-resolution-hyps} (applied to $A=T$)
+there exists
 a $D\in\BenignTables$ such that $B\overset{\ast}{\Rrightarrow}D$ and
 $C\overset{\ast}{\Rrightarrow}D$. This $D$ has
 $\ell\left( T\right)  >\ell\left(  B\right)
@@ -2141,7 +2146,7 @@ B\right)  \cap\operatorname*{Norm}\left(  C\right)  \neq\varnothing$.
 
 Hence, (\ref{pf.prop.BK.norm.union}) shows that $\operatorname*{Norm}\left(
 T\right)  $ is a union of one-element sets, any two of which have a nonempty
-intersection.
+intersection (and thus are identical).
 Moreover, this union is nonempty (since $\mathbf{Z}$ is nonempty). Hence,
 $\operatorname*{Norm}\left(  T\right)  $ itself is a one-element set. This
 completes our induction.
@@ -2376,7 +2381,7 @@ T\right)  \right)  $.
 \end{definition}
 
 In order to complete the proof of Lemma
-\ref{lem.BK}, we need to show that $\mathbf{B}$ is an involution, preserves the ceq statistic, and switches the number of columns containing 1 with the number of columns containing 2. At this point, all of this is easy:
+\ref{lem.BK}, we need to show that $\mathbf{B}$ is an involution, preserves the ceq statistic, and switches the number of columns containing a $1$ with the number of columns containing a $2$. At this point, all of this is easy:
 
 \begin{proof}[$\mathbf{B}$ is an involution]
 Let $T\in \OneTwoRPP$. We have $\operatorname*{flip}\left(
@@ -2419,7 +2424,8 @@ Lemma \ref{lem.BK} is now proven.
 Fix a skew partition $\lambda/\mu$ and a positive integer $i$.
 We claim that the involution $\mathbf{B}_{i}:\operatorname*{RPP}\left(
 \lambda/\mu\right)  \rightarrow\operatorname*{RPP}\left(  \lambda/\mu\right)
-$ we have constructed is a generalization of the $i$-th Bender-Knuth involution defined for
+$ we have constructed in the proof of Theorem~\ref{thm.BK}
+is a generalization of the $i$-th Bender-Knuth involution defined for
 semistandard tableaux. First, we shall
 define the $i$-th Bender-Knuth involution (following \cite[proof of
 Proposition 2.11]{GriRei15} and \cite[proof of Theorem 7.10.2]{Stan99}).
@@ -2670,7 +2676,7 @@ which are in}\\\text{mixed columns}}%
 },\underbrace{2,2,\ldots,2}_{\substack{b \ 2\text{'s
 which are in}\\\text{mixed columns}}}\right)
 \]
-where each 1-pure and 2-pure column contains only one entry. Thus, the $k$-th row of $\operatorname*{flip}\left(  T\right)$ is
+where we use the observation that each 1-pure and each 2-pure column contains only one entry. Thus, the $k$-th row of $\operatorname*{flip}\left(  T\right)$ is
 \[
 \left(  \underbrace{1,1,\ldots,1}_{\substack{a \ 1\text{'s
 which are in}\\\text{mixed columns}}%
@@ -2692,7 +2698,7 @@ which are in}\\\text{mixed columns}}%
 },\underbrace{2,2,\ldots,2}_{\substack{b \ 2\text{'s
 which are in}\\\text{mixed columns}}}\right).
 \]
-Repeating this process for every row of $\operatorname*{flip}\left(  T\right)$ (we can do this because each pure column contains only one entry, and thus each descent-resolution described above affects only one row), we obtain a 12-rpp. By the definition of $\mathbf{B}$, this rpp must equal $\mathbf{B}(T)$. By the above description, it is also clearly equal to $\BK_1(T)$ (because the ignored entries in the construction of $\BK_1(T)$ are precisely the entries lying in mixed columns), which completes the proof.
+Repeating this process for every row of $\operatorname*{flip}\left(  T\right)$ (we can do this because each pure column contains only one entry, and thus each descent-resolution described above affects only one row), we obtain a 12-rpp. By the definition of $\mathbf{B}$, this rpp must equal $\mathbf{B}(T)$. By the above description, it is also equal to $\BK_1(T)$ (because the ignored entries in the construction of $\BK_1(T)$ are precisely the entries lying in mixed columns), which completes the proof.
 \end{proof}
 
 
