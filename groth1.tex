@@ -16,6 +16,7 @@
 %   {\end{leftbar}\end{exmp}}
 
 \documentclass[numbers=enddot,12pt,final,onecolumn,notitlepage]{scrartcl}%
+\usepackage[headsepline,footsepline,manualmark]{scrlayer-scrpage}
 \usepackage[all,cmtip]{xy}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -28,7 +29,6 @@
 \usepackage[sc]{mathpazo}
 \usepackage[T1]{fontenc}
 \usepackage{amsthm}
-\usepackage{fancyhdr}
 \usepackage{ytableau}
 \usepackage{tabu}
 %TCIDATA{OutputFilter=latex2.dll}
@@ -112,9 +112,8 @@
 \renewcommand{\prod}{\prodnonlimits\limits}
 \setlength\textheight{22.5cm}
 \setlength\textwidth{15cm}
-\pagestyle{fancy}
-\lhead{Refined dual stable Grothendieck polynomials}
-\rhead{\today}
+\ihead{Refined dual stable Grothendieck polynomials}
+\ohead{\today}
 
 
 \def\seplist{{\operatorname{seplist}}} % what would be a good notation here? same question for the below:
