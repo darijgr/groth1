@@ -1,5 +1,6 @@
 % This is the version of groth1.tex submitted to the Electronic Journal of
-% Combinatorics the 25th of November 2015.
+% Combinatorics the 25th of November 2015, and subsequently edited after
+% referee report 1.
 
 \documentclass[12pt]{article}
 \usepackage{e-jc}
@@ -11,6 +12,7 @@
 \usepackage{amsthm}
 \usepackage{ytableau}
 \usepackage{tabu}
+\usepackage{float}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
 %TCIDATA{LastRevised=Monday, June 08, 2015 22:39:34}
@@ -20,7 +22,6 @@
 %TCIDATA{BibliographyScheme=Manual}
 %BeginMSIPreambleData
 \providecommand{\U}[1]{\protect\rule{.1in}{.1in}}
-%EndMSIPreambleData
 
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}
@@ -32,6 +33,7 @@
 %\newtheorem{observation}[theorem]{Observation}
 %\newtheorem{claim}[theorem]{Claim}
 
+%EndMSIPreambleData
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{convention}[theorem]{Convention}
@@ -137,9 +139,9 @@ and $2$.
 
 \section{Introduction}
 
-Thomas Lam and Pavlo Pylyavskyy, in \cite[\S 9.1]{LamPyl}, (and earlier Mark
-Shimozono and Mike Zabrocki in unpublished work of 2003) studied \textit{dual
-stable Grothendieck polynomials}, a deformation (in a sense) of the Schur
+Thomas Lam and Pavlo Pylyavskyy, in \cite[\S 9.1]{LamPyl}, and earlier Mark
+Shimozono and Mike Zabrocki in unpublished work of 2003, studied \textit{dual
+stable Grothendieck polynomials}, a deformation of the Schur
 functions. Let us briefly recount their definition.
 \begin{comment}
  
@@ -151,6 +153,7 @@ functions and partitions should start reading from Section
 \ref{sect.notations} on.}
 
 \end{comment}
+
 
 Let $\lambda/\mu$ be a skew partition. The Schur function $s_{\lambda/\mu}$ is
 a multivariate generating function for the semistandard tableaux of shape
@@ -173,14 +176,14 @@ of shape }\lambda/\mu}}\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  },
 \]
 where $\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }$ is the monomial
 $x_{1}^{a_{1}}x_{2}^{a_{2}}x_{3}^{a_{3}}\cdots$ whose $i$-th exponent $a_{i}$
-is the number of \textit{columns} (rather than cells) %this is important enough to be repeated two times -- [PG]
+is the number of \textit{columns}, rather than cells, %this is important enough to be repeated two times -- [PG]
 of $T$ containing the entry $i$. As proven in
-\cite[\S 9.1]{LamPyl}, this power series $g_{\lambda/\mu}$ is a symmetric
-function (albeit, unlike $s_{\lambda/\mu}$, an inhomogeneous one in general).
-Lam and Pylyavskyy connect the $g_{\lambda/\mu}$ to the (more familiar)
-\textit{stable Grothendieck polynomials} $G_{\lambda/\mu}$ (via a duality
-between the symmetric functions and their completion, which explains the name
-of the $g_{\lambda/\mu}$; see \cite[\S 9.4]{LamPyl}) and to the $K$-theory of
+\cite[\S 9.1]{LamPyl}, this power series $g_{\lambda/\mu}$ is an inhomogeneous symmetric
+function. Lam and Pylyavskyy connect the $g_{\lambda/\mu}$ to the
+\textit{stable Grothendieck polynomials} $G_{\lambda/\mu}$ via a duality
+% between the symmetric functions and their completion, which explains the name
+% of the $g_{\lambda/\mu}$; see 
+(\cite[\S 9.4]{LamPyl}) and to the $K$-theory of
 Grassmannians (\cite[\S 9.5]{LamPyl}).
 
 We devise a common generalization of the dual stable Grothendieck polynomial
@@ -201,17 +204,17 @@ $s_{\lambda/\mu}$ when all the $t_{i}$ are set to $0$.
 
 Our main result, Theorem \ref{thm.gtilde.symm}, states that
 $\widetilde{g}_{\lambda/\mu}$ is a symmetric function (in the
-variables $x_{1},x_{2},x_{3},\ldots$).
+variables $x_{1},x_{2},x_{3},\ldots$). This
+generalizes \cite[Theorem 9.1]{LamPyl}.
 
-We prove this result (thus obtaining a new proof of
-\cite[Theorem 9.1]{LamPyl}) first using an elaborate generalization
+We prove this result first using an elaborate generalization
 of the classical Bender-Knuth involutions to reverse plane partitions,
 and then for a second time by analyzing the structure of reverse plane
 partitions whose entries lie in $\left\{1, 2\right\}$. The second
 proof reflects back on the first, in particular providing an
 alternative definition of the generalized Bender-Knuth involutions
 constructed in the first proof, and showing that these involutions
-are (in a sense) ``the only reasonable choice''.
+are ``the only reasonable choice'' in a sense that we clarify.
 We notice that both our proofs are explicitly bijective, unlike
 the proof of \cite[Theorem 9.1]{LamPyl} which relies on computations
 in an algebra of operators.
@@ -219,21 +222,21 @@ in an algebra of operators.
 The present paper is organized as follows: In Section \ref{sect.notations}, we
 recall classical definitions and introduce notations pertaining to
 combinatorics and symmetric functions. In Section \ref{sect.def}, we define
-the refined dual stable Grothendieck polynomials $\widetilde{g}_{\lambda/\mu}$, state
-our main result (that they are symmetric functions), and do the first steps of
-its proof (by reducing it to a purely combinatorial statement about the
-existence of an involution with certain properties). In Section \ref{sect.construction}, we describe the idea of constructing this involution in an elementary way without proofs. In Section
+the refined dual stable Grothendieck polynomials $\widetilde{g}_{\lambda/\mu}$. We state
+our main result that they are symmetric functions, and do the first steps of
+its proof, by reducing it to a purely combinatorial statement about the
+existence of an involution with certain properties. In Section \ref{sect.construction}, we describe the idea of constructing this involution in an elementary way without proofs. In Section
 \ref{sect.proof}, we prove various properties of this involution advertised in Section \ref{sect.construction}, thus finishing the proof of our main result. In Section \ref{sect.BKclassical}, we
 recapitulate the definition of the classical Bender-Knuth involution, and
 show that our involution is a generalization of the latter.
 Finally, in Section \ref{sect.structure} we study the structure of
 reverse plane partitions with entries belonging to $\left\{1, 2\right\}$,
-which (in particular) gives us an explicit formula for the
-$\mathbf{t}$-coefficients of $\g_\lm(x_1,x_2,0,0,\dots;\t)$, and shines
-a new light on the involution constructed in Sections \ref{sect.construction}
-and \ref{sect.proof}
-(also showing that it is the unique involution that shares certain natural
-properties with the classical Bender-Knuth involutions).
+which gives us an explicit formula for the
+$\mathbf{t}$-coefficients of $\g_\lm(x_1,x_2,0,0,\dots;\t)$. As a consequence, we get that the involution constructed in Sections \ref{sect.construction}
+and \ref{sect.proof} is the unique involution that shares certain natural properties with the classical Bender-Knuth involutions.
+
+An extended abstract of this paper, omitting the proofs, is to appear
+as \cite{GaGrLi16}.
 
 \begin{todo}
 \begin{itemize}
@@ -263,8 +266,9 @@ Keep this up to date.
 
 \section{\label{sect.notations}Notations and definitions}
 
-Let us begin by defining our notations (including some standard conventions
-from algebraic combinatorics).
+Let us begin by defining our notations.
+% (including some standard conventions
+% from algebraic combinatorics).
 
 \subsection{Partitions and tableaux}
 
@@ -272,7 +276,7 @@ We set $\mathbb{N}=\left\{  0,1,2,\ldots\right\}  $ and $\mathbb{N}%
 _{+}=\left\{  1,2,3,\ldots\right\}  $. 
 
 
- A sequence $\alpha=\left(\alpha_{1},\alpha_{2},\alpha_{3},\ldots\right)$ of nonnegative integers is called a \textit{weak composition} if the sum of its entries (denoted $\left\vert \alpha\right\vert$) is finite.
+ A sequence $\alpha=\left(\alpha_{1},\alpha_{2},\alpha_{3},\ldots\right)$ of nonnegative integers is called a \textit{weak composition} if the sum of its entries is finite. This sum is denoted by $\left\vert \alpha\right\vert$.
  We shall always write $\alpha_i$ for the $i$-th entry of a weak composition $\alpha$.
 
 
@@ -280,18 +284,15 @@ _{+}=\left\{  1,2,3,\ldots\right\}  $.
 A \textit{partition} is a weak composition $\left(  \alpha_{1},\alpha
 _{2},\alpha_{3},\ldots\right)  $ satisfying $\alpha_{1}\geq\alpha_{2}
 \geq\alpha_{3}\geq\cdots$.
-As usual, we often omit trailing zeroes when writing a partition (e.g.,
-the partition $\left(5,2,1,0,0,0,\ldots\right)$ can thus be written as
-$\left(5,2,1\right)$).
+As usual, we often omit trailing zeroes when writing a partition. For instance, the partition $(5,2,1,0,0,0,\ldots)$ can be also written as $(5,2,1,0)$ or $(5,2,1)$.
 
 We identify each partition $\lambda$ with the subset
 $\left\{ \left( i, j \right) \in \Nplus^2 \mid j \leq \lambda_i \right\}$
-of $\Nplus^{2}$ (called \textit{the Young diagram of $\lambda$}).
-We draw this subset as a Young diagram (which is a left-aligned table of
+of $\Nplus^{2}$, called \textit{the Young diagram of $\lambda$}.
+We draw this subset as a left-aligned table of
 empty boxes, where the box $(1,1)$ is in the top-left corner while the
 box $(2,1)$ is directly below it; this is the \textit{English notation},
-also known as the \textit{matrix notation}); see \cite{Fulton97} for
-the detailed definition.
+also known as the \textit{matrix notation}. See \cite{Fulton97} for the detailed definition.
 
 
 \begin{todo}
@@ -307,7 +308,9 @@ A \textit{skew partition} $\lambda/\mu$ is a pair $\left(\lambda, \mu\right)$ of
  If $\lm$ is a skew partition, then a \textit{filling} of $\lm$ means a map $T:\lm\rightarrow\Nplus$. It is visually represented by drawing $\lm$ and filling each box $c$ with the entry $T(c)$. Three examples of a filling can be found on Figure \ref{fig:fillings}.
  
 
- A filling $T:\lm\rightarrow\Nplus$ of $\lm$ is called a \textit{reverse plane partition of shape $\lm$} if its values increase weakly in each row of $\lm$ from left to right and in each column of $\lm$ from top to bottom. If, in addition, the values of $T$ increase strictly down each column, then $T$ is called a \textit{semistandard tableau of shape $\lm$}. (See Fulton's \cite{Fulton97} for an exposition of properties and applications of semistandard tableaux\footnote{Fulton calls semistandard tableaux just ``tableaux'', but otherwise is consistent with most of our notation.}.) We denote the set of all reverse plane partitions of shape $\lm$ by $\operatorname{RPP}\left(  \lambda/\mu\right)$.  We abbreviate reverse plane partitions as \textit{rpps}. 
+ A filling $T:\lm\rightarrow\Nplus$ of $\lm$ is called a \textit{reverse plane partition of shape $\lm$} if its values increase weakly in each row of $\lm$ from left to right and in each column of $\lm$ from top to bottom. If, in addition, the values of $T$ increase strictly down each column, then $T$ is called a \textit{semistandard tableau of shape $\lm$}. See Fulton's \cite{Fulton97} for an exposition of properties and applications of semistandard tableaux.
+ %\footnote{Fulton calls semistandard tableaux just ``tableaux'', but otherwise is consistent with most of our notation.}.)
+ We denote the set of all reverse plane partitions of shape $\lm$ by $\operatorname{RPP}\left(  \lambda/\mu\right)$.  We abbreviate reverse plane partitions as \textit{rpps}. 
  
  Examples of an rpp, of a non-rpp and of a semistandard tableau can be found on Figure \ref{fig:fillings}.
  
@@ -370,18 +373,14 @@ field of research, and are closely related to Young diagrams and tableaux; see
 
 
 A \textit{symmetric function} is defined to be a
-bounded-degree\footnote{A power series is said to be \textit{bounded-degree}
-if there is an $N \in \mathbb{N}$ such that only monomials of degree $\leq N$
-appear in the series.}
-power series in countably many indeterminates $x_1,x_2,x_3,\dots$
-over $\Z$ that is invariant under (finite)
-permutations\footnote{A permutation is \textit{finite} if it fixes all but
-finitely many elements.} of $x_1,x_2,x_3,\dots$.
+power series in countably many indeterminates $x_1,x_2,x_3,\dots$ over $\Z$ with uniformly bounded degrees of monomials that is invariant under permutations of $x_1,x_2,x_3,\dots$ with finite support. 
+% A power series is said to be \textit{bounded-degree}
+% if there is an $N \in \mathbb{N}$ such that only monomials of degree $\leq N$
+% appear in the series.
 
 The symmetric functions form a ring, which is called the \textit{ring of
-symmetric functions} and denoted by $\Lambda$.
-(In \cite{LamPyl} this ring is denoted by $\operatorname*{Sym}$, while the notation $\Lambda$ is reserved for the
-set of all partitions.) Much research has been done on symmetric functions and
+symmetric functions} and denoted by $\Lambda$. In \cite{LamPyl} this ring is denoted by $\operatorname*{Sym}$, while the notation $\Lambda$ is reserved for the
+set of all partitions. Much research has been done on symmetric functions and
 their relations to Young diagrams and tableaux; see
 \cite[Chapter 7]{Stan99}, \cite{Macdon95} and \cite[Chapter 2]{GriRei15} for expositions. 
 
@@ -428,15 +427,12 @@ instead of the content $\operatorname{cont}\left(  T\right)$.
 
 
   Namely, for a filling $T$ of a skew partition $\lm$, we define its
-\textit{irredundant content} (or, by way of abbreviation, its
-\textit{ircont statistic})
-as the weak composition $\operatorname*{ircont}\left(
-T\right) = \left(r_1,r_2,r_3,\dots\right)$ where $r_i$ is the number of \emph{columns} (rather than cells) of $T$ that contain an entry equal to $i$. For instance, if $T_a$, $T_b$, and $T_c$ are the fillings from Figure \ref{fig:fillings}, then their irredundant contents are
+\textit{irredundant content} as the weak composition $\operatorname*{ircont}\left(
+T\right) = \left(r_1,r_2,r_3,\dots\right)$ where $r_i$ is the number of \emph{columns}, rather than cells, of $T$ that contain an entry equal to $i$. For instance, if $T_a$, $T_b$, and $T_c$ are the fillings from Figure \ref{fig:fillings}, then their irredundant contents are
 \begin{align*}
-\ircont(T_a)=(0,1,2,1,0,1),\ \ircont(T_b)=(0,1,3,1),\ \ircont(T_c)=(0,1,3,1,0,0,1)
+\ircont(T_a)=(0,1,2,1,0,1),\ \ircont(T_b)=(0,1,3,1),\ \ircont(T_c)=(0,1,3,1,0,0,1),
 \end{align*}
 %it looked really weird on two lines 
-(where we omit trailing zeroes),
 because, for example, $T_a$ has one column with a $4$ in it (so $(\ircont(T_a))_4=1$) and $T_b$ contains three columns with a $3$ (so $(\ircont(T_b))_3=3$).
 
 Notice that if $T$ is a semistandard tableau, then $\cont(T)$ and $\ircont(T)$ coincide.
@@ -455,9 +451,7 @@ general) not homogeneous, because whenever a column of an rpp $T$ contains an
 entry several times, the corresponding monomial $\mathbf{x}%
 ^{\operatorname*{ircont}\left(  T\right)  }$ \textquotedblleft
 counts\textquotedblright\ this entry only once. It is fairly clear that the
-highest-degree homogeneous component of $g_{\lambda/\mu}$ is $s_{\lambda/\mu}$
-(the component of degree $\left\vert \lambda\right\vert -\left\vert
-\mu\right\vert $). Therefore, $g_{\lambda/\mu}$ can be regarded as an
+highest-degree homogeneous component of $g_{\lambda/\mu}$ is $s_{\lambda/\mu}$. Therefore, $g_{\lambda/\mu}$ can be regarded as an
 inhomogeneous deformation of the Schur function $s_{\lambda/\mu}$.
 
 Lam and Pylyavskyy, in \cite[\S 9.1]{LamPyl}, have shown the following fact:
@@ -469,9 +463,9 @@ partition $\lambda/\mu$.
 
 
 They prove this proposition using generalized plactic algebras \cite[Lemma
-3.1]{FomGre} (and also give a second, combinatorial proof for the case
+3.1]{FomGre}, and also give a second, combinatorial proof for the case
 $\mu=\varnothing$ by explicitly expanding $g_{\lambda/\varnothing}$ as a sum
-of Schur functions).
+of Schur functions.
 
 
 In the next section, we shall introduce a refinement of these $g_{\lambda/\mu
@@ -495,13 +489,11 @@ cells.
 
 
  If $T$ is a filling of $\lm$,
-then we define the \textit{column equalities vector} (or,
-by way of abbreviation, the \textit{ceq statistic})
-of $T$ to be the weak composition
+then we define the \textit{column equalities vector} of $T$ to be the weak composition
 $\operatorname{ceq}\left(  T\right)=\left(c_1,c_2,c_3,\dots\right)$
 where $c_i$ is the number of $j\in\mathbb{N}_{+}$ such that $\left(  i,j\right)$ is a redundant cell of $T$. Visually speaking, $\left(  \operatorname{ceq}\left(  T\right)  \right)
 _{i}$ is the number of columns of $T$ whose entry in the $i$-th row equals
-their entry in the $\left(  i+1\right)  $-th row. For instance, for fillings $T_a,$ $T_b,$ $T_c$ from Figure \ref{fig:fillings} we have $\ceq(T_a)=(0,1),\ \ceq(T_b)=(1),$ and $\ceq(T_c)=()$, where we again drop trailing zeroes.
+their entry in the $\left(  i+1\right)  $-th row. For instance, for fillings $T_a,$ $T_b,$ $T_c$ from Figure \ref{fig:fillings} we have $\ceq(T_a)=(0,1),\ \ceq(T_b)=(1),$ and $\ceq(T_c)=()$.
 
 Notice that $\left|\ceq(T)\right|$ is the number of redundant cells in $T$, so we have 
 \begin{equation}\label{eq:sum.of.ceq.and.ircont}
@@ -529,7 +521,7 @@ Let us give some examples of $\widetilde{g}_{\lambda/\mu}$.
 
 \begin{enumerate}
 
-\item[\textbf{(a)}] If $\lm$ is a single row with $n$ cells, then for each rpp $T$ of shape $\lm$ we have $\ceq(T)=(0,0,\dots)$ and $\ircont(T)=\cont(T)$ (in fact, any rpp of shape $\lm$ is a semistandard tableau in this case). Therefore we get 
+\item[\textbf{(a)}] If $\lm$ is a single row with $n$ cells, then for each rpp $T$ of shape $\lm$ we have $\ceq(T)=(0,0,\dots)$ and $\ircont(T)=\cont(T)$. In fact, any rpp of shape $\lm$ is a semistandard tableau in this case. Therefore we get 
 \[
 \g_\lm(\x;\t)=h_n(\x)=\sum_{a_1\leq a_2\leq\dots\leq a_n} x_{a_1}x_{a_2}\cdots x_{a_n}.
 \]
@@ -628,9 +620,7 @@ Our main result is now the following:
 $\widetilde{g}_{\lambda/\mu}(\x;\t)$ is symmetric in $\x$.
 \end{theorem}
 
-Here, ``symmetric in $\x$'' means ``invariant under all finite
-permutations of the indeterminates $x_1, x_2, x_3, \ldots$''
-(while $t_1, t_2, t_3, \ldots$ remain unchanged).
+Here, ``symmetric in $\x$'' means ``invariant under all permutations of the indeterminates $x_1, x_2, x_3, \ldots$ with finite support'', while $t_1, t_2, t_3, \ldots$ remain unchanged.
 
 Clearly, Theorem~\ref{thm.gtilde.symm} implies the symmetry of
 $g_\lm$ and $s_\lm$ due to Proposition~\ref{prop.gtilde.gener}.
@@ -651,10 +641,11 @@ involution $\mathbf{B}_{i}:\operatorname{RPP}\left(  \lambda/\mu\right)
 This involution $\mathbf{B}_{i}$ is a generalization of the $i$-th
 Bender-Knuth involution defined for semistandard tableaux (see, e.g.,
 \cite[proof of Proposition 2.11]{GriRei15}), but its definition is more
-complicated than that of the latter.\footnote{We will compare our involution
+complicated than that of the latter. Defining it and proving its
+properties will take a significant part of this paper.
+We will compare our involution
 $\mathbf{B}_{i}$ with the $i$-th Bender-Knuth involution in Section
-\ref{sect.BKclassical}.} Defining it and proving its properties will take a
-significant part of this paper.
+\ref{sect.BKclassical}.
 
 \begin{proof}[Proof of Theorem~\ref{thm.gtilde.symm} using
 Theorem~\ref{thm.BK}.]
@@ -677,8 +668,7 @@ $\mathbf{B}_{i}:\operatorname{RPP}\left(  \lambda/\mu\right)
 property that every $T \in \operatorname{RPP}\left(  \lambda/\mu\right)$
 satisfies $\ceq\left(\mathbf{B}_i\left(T\right)\right) = \ceq \left(T\right)$ and
 $\ircont\left(\mathbf{B}_i\left(T\right)\right) = s_i \cdot \ircont \left(T\right)$.
-Theorem~\ref{thm.BK} yields precisely such a bijection (even an
-involution).
+Theorem~\ref{thm.BK} yields precisely such a bijection, which turns out to be an involution.
 \end{proof}
 
 \subsection{Reduction to 12-rpps}
@@ -689,7 +679,7 @@ Theorem \ref{thm.BK}. We define a \textit{12-rpp} to be an rpp whose entries all
 \begin{lemma}
 \label{lem.BK} There exists an
 involution $\mathbf{B}:\OneTwoRPP\rightarrow\OneTwoRPP$
-which preserves the ceq statistic and switches the number of columns containing a $1$ with the number of columns containing a $2$ (that is, switches the first two entries of the ircont statistic).
+which preserves the ceq statistic and switches the number of columns containing a $1$ with the number of columns containing a $2$. In other words, $\mathbf{B}$ switches the first two entries of the ircont statistic.
 \end{lemma}
 
 
@@ -698,7 +688,8 @@ which preserves the ceq statistic and switches the number of columns containing 
  This Lemma implies Theorem \ref{thm.BK}: for any $i\in\Nplus$ and for $T$ an rpp of shape $\lm$, we construct $\B_i(T)$ as follows: 
  \begin{itemize}
   \item Ignore all entries of $T$ not equal to $i$ or $i+1$. 
-  \item Replace all occurrences of $i$ by $1$ and all occurrences of $i+1$ by $2$. We get a 12-rpp $T'$ of some smaller shape (which is still a skew partition\footnote{Fine print: It has the form $\lm$ for some skew partition $\lm$, but this skew partition $\lm$ is not always uniquely determined (e.g., $\left(3,1,1\right)/\left(2,1\right)$ and $\left(3,2,1\right)/\left(2,2\right)$ have the same Young diagram). But the involution $\mathbf{B}$ constructed in the proof of Lemma~\ref{lem.BK} depends only on the Young diagram of $\lm$, and thus the choice of $\lm$ does not matter.}).
+  \item Replace all occurrences of $i$ by $1$ and all occurrences of $i+1$ by $2$. We get a 12-rpp $T'$ of some smaller shape, which is still a skew partition.
+%   \footnote{Fine print: It has the form $\lm$ for some skew partition $\lm$, but this skew partition $\lm$ is not always uniquely determined (e.g., $\left(3,1,1\right)/\left(2,1\right)$ and $\left(3,2,1\right)/\left(2,2\right)$ have the same Young diagram). But the involution $\mathbf{B}$ constructed in the proof of Lemma~\ref{lem.BK} depends only on the Young diagram of $\lm$, and thus the choice of $\lm$ does not matter.}.
   \item Replace $T'$ by $\B(T')$.
   \item In $\B(T')$, replace back all occurrences of $1$ by $i$ and all occurrences of $2$ by $i+1$.
   \item Finally, restore the remaining entries of $T$ that were ignored on the first step.
@@ -720,8 +711,8 @@ particular, we fix a skew partition $\lm$.
 
 A \textit{12-table} means a filling $T:\lm\rightarrow\left\{  1,2\right\}  $
 of $\lm$
-such that the entries of $T$ are weakly increasing down columns. (We do not
-require them to be weakly increasing along rows.) Every column of a 12-table
+such that the entries of $T$ are weakly increasing down columns. We do not
+require them to be weakly increasing along rows. Every column of a 12-table
 is a sequence of the form $(1,1,\ldots,1,2,2,\ldots,2)$. We say that such a sequence is
 
 \begin{itemize}
@@ -739,13 +730,12 @@ is a sequence of the form $(1,1,\ldots,1,2,2,\ldots,2)$. We say that such a sequ
 For a 12-table $T$, we define $\flip(T)$ to be the 12-table obtained from $T$ by changing each column of $T$ as follows:
 
 \begin{itemize}
-\item \textbf{If} this column is 1-pure, we replace all its entries by $2$'s
-(so that it becomes 2-pure).
+\item \textbf{If} this column is 1-pure, we replace all its entries by $2$'s, so that it becomes 2-pure.
 
 \textbf{Otherwise}, if this column is 2-pure, we replace all its entries by
-$1$'s (so that it becomes 1-pure).
+$1$'s, so that it becomes 1-pure.
 
-\textbf{Otherwise} (i.e., if this column is mixed or empty), we do not change it.
+\textbf{Otherwise} this column is either mixed or empty, in which case we do not change it.
 \end{itemize}
 
 \end{definition}
@@ -766,7 +756,7 @@ For an arbitrary 12-table it can happen also that two mixed columns form a desce
 For each of the three types of descents, we will define what it means to \textit{resolve} this descent. This is an operation which transforms the 12-table $P$ by changing the entries in its $k$-th and $\left(k+1\right)$-th columns. These changes can be informally explained by Figure \ref{fig:des-res-preliminary}:
 
 
-\begin{figure}[here]
+\begin{figure}[H]
  
 \begin{tabular}{||ccc||ccc||ccc||}\hline
  & & & & & & & & \\
@@ -844,11 +834,11 @@ $\rightarrow$
 \def\resk{{\operatorname{res}_{k}}}
 
 For example, if $k$ is a descent of type (M1) in a 12-table $P$, then we define the 12-table $\resk P$ as follows: the $k$-th column of $\resk P$ is 1-pure; the $\left(  k+1\right)  $-th column of $\resk P$ is mixed and the highest $2$ in it is in the same row as the highest $2$ in the $k$-th column of $P$; all other columns of $\resk P$ are
-copied over from $P$ unchanged. The definitions of $\resk P$ for the other two types of descents are similar (and will be elaborated upon in Subsection~\ref{subsect.resolving}). We say that $\resk P$ is obtained from $P$ by \textit{resolving} the descent $k$, and we say that passing from $P$ to $\resk P$ constitutes a \textit{descent-resolution step}. (Of course, a 12-table $P$ can have several descents and thus offer several ways to proceed by descent-resolution steps.)
+copied over from $P$ unchanged. The definitions of $\resk P$ for the other two types of descents are similar, and will be elaborated upon in Subsection~\ref{subsect.resolving}. We say that $\resk P$ is obtained from $P$ by \textit{resolving} the descent $k$, and we say that passing from $P$ to $\resk P$ constitutes a \textit{descent-resolution step}. Of course, a 12-table $P$ can have several descents and thus offer several ways to proceed by descent-resolution steps.
 
-Now the map $\B$ is defined as follows: take any 12-rpp $T$ and apply flip to it to get a 12-table $\flip(T)$. Next, apply descent-resolution steps to $\flip(T)$ in arbitrary order until we get a 12-table with no descents left. Put $\B(T):=P$. (A rigorous statement of this is Definition \ref{defi.B}.)
+Now the map $\B$ is defined as follows: take any 12-rpp $T$ and apply flip to it to get a 12-table $\flip(T)$. Next, apply descent-resolution steps to $\flip(T)$ in arbitrary order until we get a 12-table with no descents left. Put $\B(T):=P$. A rigorous statement of this is Definition \ref{defi.B}.
 
-In the next section we will see that $\B(T)$ is well-defined (that is, the process terminates after a finite number of descent-resolution steps, and the result does not depend on the order of steps). We will also see that $\B$ is an involution $\OneTwoRPP\to\OneTwoRPP$ that satisfies the claims of Lemma \ref{lem.BK}. An alternative proof of all these facts can be found in Section \ref{sect.structure}.
+In the next section we will see that $\B(T)$ is well-defined: the process terminates after a finite number of descent-resolution steps, and the result does not depend on the order of steps. We will also see that $\B$ is an involution $\OneTwoRPP\to\OneTwoRPP$ that satisfies the claims of Lemma \ref{lem.BK}. An alternative proof of all these facts can be found in Section \ref{sect.structure}.
 
 % [DG] Strictly speaking, do you really give an alternative
 % proof of these facts, or just an alternative proof of the
@@ -937,8 +927,8 @@ T\left(  r,k\right)  =\left\{
 \end{equation}
 
 If $T$ is a 12-table, then we let $\operatorname*{seplist}T$ denote the list
-of all values $\operatorname*{sep}\nolimits_{k}T$ (in the order of increasing
-$k$), where $k$ ranges over all positive integers for which the $k$-th column
+of all values $\operatorname*{sep}\nolimits_{k}T$, in the order of increasing
+$k$. Here $k$ ranges over all positive integers for which the $k$-th column
 of $T$ is mixed. For instance, if $T$ is
 \[
 %
@@ -960,14 +950,15 @@ of $T$ is mixed. For instance, if $T$ is
 %EndExpansion
 \]
 then $\operatorname*{sep}\nolimits_{1}T=4$, $\operatorname*{sep}\nolimits_{3}T=4$, and
-$\operatorname*{sep}\nolimits_{5}T=2$ (and there are no other $k$ for which $\operatorname*{sep}\nolimits_{k}T$ is defined), so that $\operatorname*{seplist}T=\left(  4,4,2\right)  $.
+$\operatorname*{sep}\nolimits_{5}T=2$, and there are no other $k$ for which $\operatorname*{sep}\nolimits_{k}T$ is defined. Thus $\operatorname*{seplist}T=\left(  4,4,2\right)  $.
 
 We say that a 12-table $T$ is \textit{benign} if the list
-$\operatorname*{seplist}T$ is weakly decreasing.\footnote{For
+$\operatorname*{seplist}T$ is weakly decreasing. For
 example, the 12-table in (\ref{eq.example-12-table.1}) is benign,
 but replacing its third column by $\left(1,2,2\right)$ and its
 fourth column by $\left(1,1,2\right)$ would yield a 12-table
-which is not benign.}
+which is not benign.
+
 %For instance, the 12-table
 %$T=%
 %TCIMACRO{\TeXButton{Y}{\ytableausetup{notabloids}
@@ -1009,7 +1000,8 @@ which is not benign.}
 %\end{ytableau}%
 %EndExpansion
 %$ is not (since it has $\operatorname*{seplist}T=\left(  5,3,4\right)  $).
-Notice that 12-rpps are benign 12-tables, but the converse is not true. If $T$ is a benign 12-table, then%
+
+All 12-rpps are benign 12-tables, but the converse is not true. If $T$ is a benign 12-table, then%
 \begin{align}
 &  \text{there exists no descent }k\text{ of }T\text{ such that both the
 }k\text{-th column of }T\nonumber\\
@@ -1096,8 +1088,8 @@ For example,
 
 \begin{remark}
  \label{pf.lem.BK.flip.ircont}
-It is clear that $\operatorname*{flip}$ is an involution on $\BenignTables$ that preserves $\operatorname*{ceq}$ and $\operatorname*{seplist}$ but switches the first two entries of $\operatorname*{ircont}$ (that is, if some $T \in \BenignTables$ has $\ircont\left(T\right) = \left(a,b,0,0,0,\ldots\right)$, then
-$\operatorname{ircont}\left(\operatorname{flip}\left(T\right)\right) = \left(b,a,0,0,0,\ldots\right)$).
+It is clear that $\operatorname*{flip}$ is an involution on $\BenignTables$ that preserves $\operatorname*{ceq}$ and $\operatorname*{seplist}$ but switches the first two entries of $\operatorname*{ircont}$. In other words, if some $T \in \BenignTables$ has $\ircont\left(T\right) = \left(a,b,0,0,0,\ldots\right)$, then
+$\operatorname{ircont}\left(\operatorname{flip}\left(T\right)\right) = \left(b,a,0,0,0,\ldots\right)$.
 \end{remark}
 
 \begin{comment}
@@ -1163,8 +1155,8 @@ Q\right)  \right)  .
 
 Let us now briefly sketch the ideas behind the rest of the proof before we go
 into them in detail. The map $\operatorname*{flip}:\BenignTables\rightarrow
-\BenignTables$ does not generally send 12-rpps to 12-rpps (i.e., it does not
-restrict to a map $\OneTwoRPP\rightarrow\OneTwoRPP$). However, we shall amend
+\BenignTables$ does not generally send 12-rpps to 12-rpps, i.e. it does not
+restrict to a map $\OneTwoRPP\rightarrow\OneTwoRPP$. However, we shall amend
 this by defining a way to transform any benign 12-table into a 12-rpp by what
 we call \textquotedblleft resolving descents\textquotedblright. The process of
 \textquotedblleft resolving descents\textquotedblright\ will be a stepwise
@@ -1187,12 +1179,11 @@ the properties that we want it to satisfy.
 
 Now we come to the details.
 
-Let $k\in\mathbb{N}_{+}$. Let $P\in\BenignTables$. Assume (for the whole Subsection \ref{subsect.resolving}) that $k$
+Let $k\in\mathbb{N}_{+}$. Let $P\in\BenignTables$. Assume for the whole Subsection \ref{subsect.resolving} that $k$
 is a descent of $P$. Thus, the $k$-th column of $P$ must contain at least one
 $2$. Hence, the $k$-th column of $P$ is either mixed or 2-pure. Similarly, the
 $\left(  k+1\right)  $-th column of $P$ is either mixed or 1-pure. But the
-$k$-th and the $\left(  k+1\right)  $-th columns of $P$ cannot both be mixed
-(by (\ref{eq.benign.not-both-mixed}), because $P$ is benign). Thus,
+$k$-th and the $\left(  k+1\right)  $-th columns of $P$ cannot both be mixed by (\ref{eq.benign.not-both-mixed}), because $P$ is benign. Thus,
 exactly one of the following three statements holds:
 
 \begin{itemize}
@@ -1269,12 +1260,12 @@ The $k$-th column of $\operatorname*{res}_{k}P$ is 1-pure; the $\left(  k+1\righ
 \nolimits_{k}P$ is mixed and satisfies $\operatorname*{sep}\nolimits_{k+1}%
 \left(  \operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{sep}%
 \nolimits_{k}P$; all other columns of $\operatorname*{res}\nolimits_{k}P$ are
-copied over from $P$ unchanged.\footnote{The reader should check that
+copied over from $P$ unchanged. We encourage the reader to check that
 this 12-table is well-defined.
 % [DG] I find it wrong to leave this unsaid. The proof is easy,
 % but the reader might fail to realize its necessity altogether
 % if it is not mentioned.
-}
+
 
 %\footnote{The reader should check that this
 %definition is well-defined.
@@ -1329,7 +1320,7 @@ is 1-pure; the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
 In either case, $\operatorname*{res}\nolimits_{k}P$ is a well-defined
 12-table. It is furthermore clear that \newline $\operatorname*{seplist}\left(
 \operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{seplist}P$. Thus,
-$\operatorname*{res}\nolimits_{k}P$ is benign (since $P$ is benign); that is,
+$\operatorname*{res}\nolimits_{k}P$ is benign, since $P$ is benign; that is,
 $\operatorname*{res}\nolimits_{k}P\in\BenignTables$. We say that
 $\operatorname*{res}\nolimits_{k}P$ is the 12-table obtained by
 \textit{resolving} the descent $k$ in $P$. 
@@ -1690,13 +1681,13 @@ P\right)  $.
 
 We now define $\overset{\ast}{\Rrightarrow}$ to be the
 reflexive-and-transitive closure of the relation $\Rrightarrow$.
-\footnote{Explicitly, this means that $\overset{\ast}{\Rrightarrow}$
-is defined as follows: For two elements $P\in\BenignTables$ and $Q\in\BenignTables$,
-we have $P\overset{\ast}{\Rrightarrow}Q$ if and only if there exists a
-sequence $\left(  a_{0},a_{1},\ldots,a_{n}\right)  $ of elements of
-$\BenignTables$ such that $a_{0}=P$ and $a_{n}=Q$ and such that every
-$i\in\left\{  0,1,\ldots,n-1\right\}  $ satisfies $a_{i}\Rrightarrow a_{i+1}%
-$. (Note that $n$ is allowed to be $0$.)}
+% \footnote{Explicitly, this means that $\overset{\ast}{\Rrightarrow}$
+% is defined as follows: For two elements $P\in\BenignTables$ and $Q\in\BenignTables$,
+% we have $P\overset{\ast}{\Rrightarrow}Q$ if and only if there exists a
+% sequence $\left(  a_{0},a_{1},\ldots,a_{n}\right)  $ of elements of
+% $\BenignTables$ such that $a_{0}=P$ and $a_{n}=Q$ and such that every
+% $i\in\left\{  0,1,\ldots,n-1\right\}  $ satisfies $a_{i}\Rrightarrow a_{i+1}%
+% $. (Note that $n$ is allowed to be $0$.)} [PG] this is a standard term: https://en.wikipedia.org/wiki/Reflexive_transitive_closure
 This relation $\overset{\ast}{\Rrightarrow}$ is reflexive and transitive,
 and extends the relation $\Rrightarrow$.
 Lemma \ref{lem.descent-resolution-props} thus yields:
@@ -1839,8 +1830,8 @@ Let $s=\operatorname*{sep}\nolimits_{v}A$.
 Then, the cells
 $\left(s, v-1\right)$, $\left(s, v\right)$, $\left(s, v+1\right)$,
 $\left(s+1, v-1\right)$, $\left(s+1, v\right)$, $\left(s+1, v+1\right)$
-all belong to $\lm$ (due to what we just said about separating
-lines). We shall refer to this observation as the
+all belong to $\lm$, due to what we just said about separating
+lines. We shall refer to this observation as the
 ``six-cells property''.
 
 Now, $B = \operatorname{res}_u A = \operatorname{res}_{v-1}A$, so
@@ -1891,11 +1882,10 @@ B=%
 %\end{ytableau}%
 %EndExpansion
 %$.
-where $\operatorname*{sep}\nolimits_{v-1}B = s$
-(that is, the separating line in the
+where $\operatorname*{sep}\nolimits_{v-1}B = s$. In other words, the separating line in the
 $\left(v-1\right)$-th column of $B$
 is between the cells $\left(s,v-1\right)$ and
-$\left(s+1,v-1\right)$).
+$\left(s+1,v-1\right)$.
 Now, $v$ is a descent of $B$.
 Resolving this descent yields a
 12-table $\operatorname{res}_{v}B$ which is represented as follows:
@@ -1947,7 +1937,7 @@ Resolving this descent yields a
 %EndExpansion
 %$.
 This, in turn, shows that $v-1$ is a descent of $\operatorname*{res}%
-\nolimits_{v}B$ (by the six-cells property). Resolving this descent
+\nolimits_{v}B$ by the six-cells property. Resolving this descent
 yields a 12-table $\operatorname*{res}\nolimits_{v-1}\left(
 \operatorname*{res}\nolimits_{v}B\right)  $ which is represented as follows:%
 \begin{equation}
@@ -2088,42 +2078,44 @@ $\operatorname*{Norm}\left( Z\right)  $ is a one-element set.
 \item By Lemma \ref{prop.descent-resolution-hyps}, for every
 $B\in\mathbf{Z}$ and $C\in\mathbf{Z}$, we have
 $\operatorname*{Norm}\left(  B\right)  \cap\operatorname*{Norm}\left(
-C\right)  \neq\varnothing$. 
-\ \ \ \ \footnote{In more detail:
-Let $B\in\mathbf{Z}$ and $C\in\mathbf{Z}$.
-By Lemma \ref{prop.descent-resolution-hyps} (applied to $A=T$)
-there exists
-a $D\in\BenignTables$ such that $B\overset{\ast}{\Rrightarrow}D$ and
-$C\overset{\ast}{\Rrightarrow}D$. This $D$ has
-$\ell\left( T\right)  >\ell\left(  B\right)
-\geq\ell\left(  D\right)  $ (by Lemma \ref{lem.descent-resolution-props}
-\textbf{(d)} and
-Lemma \ref{lem.descent-resolution-*props} \textbf{(d)}, respectively).
-Hence, by (\ref{pf.prop.BK.norm.indhyp}), the set
-$\operatorname*{Norm}\left(  D\right)  $ is a one-element set. Its unique element
-clearly lies in both $\operatorname*{Norm}\left(  B\right)  $ and
-$\operatorname*{Norm}\left(  C\right)  $, so
-$\operatorname*{Norm}\left(
-B\right)  \cap\operatorname*{Norm}\left(  C\right)  \neq\varnothing$.
+C\right)  \neq\varnothing$ by Lemma 5.8 applied to $A=T$.
 
-% [DG] You will probably want to shorten this. Fine with me, but please
-% don't remove this nontrivial argument completely.
-% [PG] Removed this argument because I don't see where it is non-trivial, sorry
-% [DG] This has multiple steps. The $D$ obtained from
-% Lemma \ref{prop.descent-resolution-hyps} is not immediately an rpp.
-% The induction hypothesis is then applied to it, needing the
-% length-decrease argument. This all is rather clear if you are thinking
-% of our algorithm in terms of rewriting systems and confluence, but we
-% have carefully removed all traces of this intuition from the paper,
-% so we cannot accept the reader to have it.
-}
+% \ \ \ \ \footnote{In more detail:
+% Let $B\in\mathbf{Z}$ and $C\in\mathbf{Z}$.
+% By Lemma \ref{prop.descent-resolution-hyps} (applied to $A=T$)
+% there exists
+% a $D\in\BenignTables$ such that $B\overset{\ast}{\Rrightarrow}D$ and
+% $C\overset{\ast}{\Rrightarrow}D$. This $D$ has
+% $\ell\left( T\right)  >\ell\left(  B\right)
+% \geq\ell\left(  D\right)  $ (by Lemma \ref{lem.descent-resolution-props}
+% \textbf{(d)} and
+% Lemma \ref{lem.descent-resolution-*props} \textbf{(d)}, respectively).
+% Hence, by (\ref{pf.prop.BK.norm.indhyp}), the set
+% $\operatorname*{Norm}\left(  D\right)  $ is a one-element set. Its unique element
+% clearly lies in both $\operatorname*{Norm}\left(  B\right)  $ and
+% $\operatorname*{Norm}\left(  C\right)  $, so
+% $\operatorname*{Norm}\left(
+% B\right)  \cap\operatorname*{Norm}\left(  C\right)  \neq\varnothing$.
+% 
+% % [DG] You will probably want to shorten this. Fine with me, but please
+% % don't remove this nontrivial argument completely.
+% % [PG] Removed this argument because I don't see where it is non-trivial, sorry
+% % [DG] This has multiple steps. The $D$ obtained from
+% % Lemma \ref{prop.descent-resolution-hyps} is not immediately an rpp.
+% % The induction hypothesis is then applied to it, needing the
+% % length-decrease argument. This all is rather clear if you are thinking
+% % of our algorithm in terms of rewriting systems and confluence, but we
+% % have carefully removed all traces of this intuition from the paper,
+% % so we cannot accept the reader to have it.
+% % [PG] replaced by ``by Lemma 5.8 applied to $A=T$.'' I don't think we need to use the fact that Norm(D) is a one-element set, just knowing that it's nonempty is enough. It is obviously nonempty. If you disagree, I suggest writing ``by Lemma 5.8 applied to $A=T$ together with ...'', but please, don't make it a footnote again.
+% }
 
 \end{itemize}
 
 Hence, (\ref{pf.prop.BK.norm.union}) shows that $\operatorname*{Norm}\left(
 T\right)  $ is a union of one-element sets, any two of which have a nonempty
-intersection (and thus are identical).
-Moreover, this union is nonempty (since $\mathbf{Z}$ is nonempty). Hence,
+intersection, and thus are identical.
+Moreover, this union is nonempty, since $\mathbf{Z}$ is nonempty. Hence,
 $\operatorname*{Norm}\left(  T\right)  $ itself is a one-element set. This
 completes our induction.
 \end{proof}
@@ -2403,8 +2395,8 @@ We claim that the involution $\mathbf{B}_{i}:\operatorname*{RPP}\left(
 $ we have constructed in the proof of Theorem~\ref{thm.BK}
 is a generalization of the $i$-th Bender-Knuth involution defined for
 semistandard tableaux. First, we shall
-define the $i$-th Bender-Knuth involution (following \cite[proof of
-Proposition 2.11]{GriRei15} and \cite[proof of Theorem 7.10.2]{Stan99}).
+define the $i$-th Bender-Knuth involution, following \cite[proof of
+Proposition 2.11]{GriRei15} and \cite[proof of Theorem 7.10.2]{Stan99}.
 
 Let $\operatorname*{SST}\left(  \lambda/\mu\right)  $ denote the set of all
 semistandard tableaux of shape $ \lm$. We define a
@@ -2672,7 +2664,9 @@ which are in}\\\text{mixed columns}}%
 },\underbrace{2,2,\ldots,2}_{\substack{b \ 2\text{'s
 which are in}\\\text{mixed columns}}}\right).
 \]
-Repeating this process for every row of $\operatorname*{flip}\left(  T\right)$ (we can do this because each pure column contains only one entry, and thus each descent-resolution described above affects only one row), we obtain a 12-rpp. By the definition of $\mathbf{B}$, this rpp must equal $\mathbf{B}(T)$. By the above description, it is also equal to $\BK_1(T)$ (because the ignored entries in the construction of $\BK_1(T)$ are precisely the entries lying in mixed columns), which completes the proof.
+Repeating this process for every row of $\operatorname*{flip}\left(  T\right)$,
+% (we can do this because each pure column contains only one entry, and thus each descent-resolution described above affects only one row), 
+we obtain a 12-rpp. By the definition of $\mathbf{B}$, this rpp must equal $\mathbf{B}(T)$. By the above description, it is also equal to $\BK_1(T)$, because the ignored entries in the construction of $\BK_1(T)$ are precisely the entries lying in mixed columns. This completes the proof.
 \end{proof}
 
 
@@ -2709,7 +2703,7 @@ We will have a running example with $\lambda=(7,7,7,4,4)$ and $\mu=(5,3,2)$.
 \subsection{Irreducible components}
 We recall that a \textit{12-rpp} means an rpp whose entries all belong to the set $\left\{1, 2\right\}$. 
 
-Given a 12-rpp $T$, consider the set $\NS(T)$ of all cells $(i,j)\in \lm$ such that $T(i,j)=1$ but $(i+1,j) \in \lm$ and $T(i+1,j)=2$. (In other words, $\NS(T)$ is the set of all non-redundant cells in $T$ which are filled with a $1$ and which are not the lowest cells in their columns.)
+Given a 12-rpp $T$, consider the set $\NS(T)$ of all cells $(i,j)\in \lm$ such that $T(i,j)=1$ but $(i+1,j) \in \lm$ and $T(i+1,j)=2$. In other words, $\NS(T)$ is the set of all non-redundant cells in $T$ which are filled with a $1$ and which are not the lowest cells in their columns.
 Clearly, $\NS(T)$ contains at most one cell from each column; thus, let us write $\NS(T)=\{(i_1,j_1),(i_2,j_2),\dots,(i_s,j_s)\}$ with $j_1<j_2<\cdots<j_s$. Because $T$ is a 12-rpp, it follows that the numbers $i_1,i_2,\dots,i_s$ decrease weakly, therefore they form a partition which we
 %called \textit{the seplist-partition of} $T$ and
 denoted 
@@ -2794,12 +2788,14 @@ on different rows.)}.
 
 For each integer $i$, the set of all integers $j$ such that $(i,j),(i+1,j)\in\lm$ is just an interval $[\mu_{i}+1,\lambda_{i+1}]$, which we call \textit{the support of $i$} and denote $\supp(i):=[\mu_{i}+1,\lambda_{i+1}]$.
 
+Let $\#\kappa$ denote the length of a partition $\kappa$.
+
 We say that a partition $\seplistvar$ is \textit{admissible} if
-every $k$ satisfies $\supp(i_k) \neq \varnothing$. (This is
+every $k$ satisfies $\supp(i_k) \neq \varnothing$. This is
 clearly satisfied when there exist $j_1<j_2<\cdots<j_s$
-satisfying (\ref{cond:necessary}), but also in other cases.)
+satisfying (\ref{cond:necessary}), but also in other cases.
 Assume that $\seplistvar = \left(i_1 \geq \cdots \geq i_s > 0\right)$ is an admissible partition.
-For two integers $a< b$, we let $\nuab$ denote the subpartition $(i_r,i_{r+1},\dots,i_{r+q})$ of $\seplistvar$, where $[r, r+q]$ is the (possibly empty) set of all $k$ for which $\supp(i_k)\subseteq [a,b)$. In this case, we put\footnote{Here and in the following, $\#\kappa$ denotes the length of a partition $\kappa$.} $\#\nuab:=q+1$, which is just the number of entries in $\nuab$. Similarly, we set $\nuabcap$ to be the subpartition $(i_r,i_{r+1},\dots,i_{r+q})$ of $\seplistvar$, where $[r, r+q]$ is the set of all $k$ for which $\supp(i_k)\cap [a,b)\neq\emptyset$.
+For two integers $a< b$, we let $\nuab$ denote the subpartition $(i_r,i_{r+1},\dots,i_{r+q})$ of $\seplistvar$, where $[r, r+q]$ is the (possibly empty) set of all $k$ for which $\supp(i_k)\subseteq [a,b)$. Thus, the number of entries in $\nuab$ is $\#\nuab =q+1$. Similarly, we set $\nuabcap$ to be the subpartition $(i_r,i_{r+1},\dots,i_{r+q})$ of $\seplistvar$, where $[r, r+q]$ is the set of all $k$ for which $\supp(i_k)\cap [a,b)\neq\emptyset$.
 For example, for $\seplistvar=(4,3,3,2)$ and $\lm$ as on Figure \ref{fig:seplist}, we have 
 $$\supp(3)=[3,4],\ \supp(2)=[4,7],\ \supp(4)=[1,4],$$ 
 $$\nuxy{2}{7}=(3,3),\ \nuxy{2}{8}=(3,3,2),\ \nuxy{4}{8}=(2),\ \nuxycap{4}{5}=(4,3,3,2),\ \#\nuxy{2}{7}=2.$$
@@ -2836,9 +2832,11 @@ Suppose now that a partition $\seplistvar$ is reducible, so for some $a<b$ we ge
 j_r=a,\ j_{r+1}=a+1,\ \cdots,\ j_{r+q}=a+q=b-1 .
 \label{eq.reducible.mixblock-j}
 \end{equation}
-Because $\supp(i_r)\subseteq[a,b)$ but $\supp(i_r)\neq\varnothing$ (since $\nu$ is admissible), we have $(i_r,a-1)\notin\lm$. Thus, placing a $1$ into $(i_r,a)$ and $2$'s into $(i_r+1,a),(i_r+2,a),\dots$ does not put any restrictions on entries in columns $1,\dots, a-1$. And the same is true for columns $b,b+1,\dots$ when we place a $2$ into $(i_{r+q}+1,b-1)$ and $1$'s into all cells above. Thus, if a partition $\seplistvar$ is reducible, then the filling of columns $a,a+1,\dots, b-1$ is uniquely determined (by (\ref{eq.reducible.mixblock-j})), and the filling of the rest can be arbitrary -- the problem of existence of a 12-rpp $T$ such that $\seplist(T)=\seplistvar$ reduces to two smaller independent problems of the same kind (one for the columns $1,2,\ldots,a-1$, the other for the columns\footnote{Recall that a 12-rpp of shape $\lm$ cannot have any nonempty column beyond the $\lambda_1$'th one.} $b,b+1,\ldots,\lambda_1$). One can continue this reduction process and end up with several independent irreducible components separated from each other by mixed columns. An illustration of this phenomenon can be seen on Figure \ref{fig:seplist}: the columns $3$ and $4$ must be mixed for any 12-rpps $T$ with $\seplist(T)=(4,3,3,2)$.
+Because $\supp(i_r)\subseteq[a,b)$ but $\supp(i_r)\neq\varnothing$ (since $\nu$ is admissible), we have $(i_r,a-1)\notin\lm$. Thus, placing a $1$ into $(i_r,a)$ and $2$'s into $(i_r+1,a),(i_r+2,a),\dots$ does not put any restrictions on entries in columns $1,\dots, a-1$. And the same is true for columns $b,b+1,\dots$ when we place a $2$ into $(i_{r+q}+1,b-1)$ and $1$'s into all cells above. Thus, if a partition $\seplistvar$ is reducible, then the filling of columns $a,a+1,\dots, b-1$ is uniquely determined by (\ref{eq.reducible.mixblock-j}), and the filling of the rest can be arbitrary -- the problem of existence of a 12-rpp $T$ such that $\seplist(T)=\seplistvar$ reduces to two smaller independent problems of the same kind: one for the columns $1,2,\ldots,a-1$, the other for the columns $b,b+1,\ldots,\lambda_1$. Recall that a 12-rpp of shape $\lm$ cannot have any nonempty column beyond the $\lambda_1$'th one. 
 
-More explicitly, we have thus shown that every nonempty interval $\left[a,b\right) \subseteq \left[1, \lambda_1+1\right)$ satisfying $\#\nuab = b-a$ splits our problem into two independent subproblems. But if two such intervals $\left[a,b\right)$ and $\left[c,d\right)$ satisfy $a\leq c\leq b\leq d$ then their union $[a,d)$ is another such interval (because in this case, inclusion-exclusion gives $\#\nuxy{a}{d} \geq \#\nuab + \#\nuxy{c}{d} - \#\nuxy{c}{b}$, but $\#\nuxy{c}{b}\leq b-c$ by representability of $\nu$).
+One can continue this reduction process and end up with several independent irreducible components separated from each other by mixed columns. An illustration of this phenomenon can be seen on Figure \ref{fig:seplist}: the columns $3$ and $4$ must be mixed for any 12-rpps $T$ with $\seplist(T)=(4,3,3,2)$.
+
+More explicitly, we have thus shown that every nonempty interval $\left[a,b\right) \subseteq \left[1, \lambda_1+1\right)$ satisfying $\#\nuab = b-a$ splits our problem into two independent subproblems. But if two such intervals $\left[a,b\right)$ and $\left[c,d\right)$ satisfy $a\leq c\leq b\leq d$ then their union $[a,d)$ is another such interval, because in this case, inclusion-exclusion gives $\#\nuxy{a}{d} \geq \#\nuab + \#\nuxy{c}{d} - \#\nuxy{c}{b}$, but $\#\nuxy{c}{b}\leq b-c$ by representability of $\nu$.
 \begin{comment}
 \footnote{\textit{Proof.} Assume that two intervals $\left[a,b\right)$ and $\left[c,d\right)$ satisfying $\#\nuab = b-a$ and $\#\nuxy{c}{d} = d-c$ intersect. We need to show that their union is another such interval.
 \par We WLOG assume that $a \leq c$. Then, $c \leq b$ (since the intervals intersect). If $b > d$, then the union of the two intervals is simply $\left[a,b\right)$, which makes our claim obvious. Hence, we WLOG assume that $b \leq d$. Thus, $a \leq c \leq b \leq d$. The union of the two intervals is therefore $\left[a, d\right)$, and we must show that $\#\nuxy{a}{d} = d-a$.
@@ -2887,7 +2885,7 @@ We need to show that if $\left[c,d\right)$ is a nonempty interval contained in $
 
 \begin{itemize}
 \item \textit{Case 1: We have $c> b_k$ (or $k=0$) and $d< a_{k+1}$ (or $k=r$).} In this case, every $i_p$ with $\supp^J(i_p) \subseteq [c,d)$ must satisfy $\supp(i_p) \subseteq [c,d)$. Hence, $\nupxy{c}{d}^{J} = \nuxy{c}{d}$, so that $\#\nupxy{c}{d}^{J} = \#\nuxy{c}{d} < d-c$, and we are done.
-\item \textit{Case 2: We have $c=b_k$ and $k>0$ (but not $d=a_{k+1}$ and $k<r$).} Assume (for the sake of contradiction) that $\#\nupxy{c}{d}^{J} \geq d-c$. Then, the $i_p$ satisfying $\supp^J(i_p) \subseteq [c,d)$ must satisfy $\supp(i_p) \subseteq [a_k, d)$ (since otherwise, $\supp(i_p)$ would intersect both $[b_{k-1}, a_k)$ and $[b_k, a_{k+1})$, something we have ruled out in the proof of \textbf{(b)}). Thus, $\#\nuxy{a_k}{d} \geq (d-c)+(b_k-a_k) = d-a_k$, which contradicts the minimality of $\bigcup_{k=0}^{r}[b_k,a_{k+1})$ (we could increase $b_k$ to $d$).
+\item \textit{Case 2: We have $c=b_k$ and $k>0$ (but not $d=a_{k+1}$ and $k<r$).} Assume for the sake of contradiction that $\#\nupxy{c}{d}^{J} \geq d-c$. Then, the $i_p$ satisfying $\supp^J(i_p) \subseteq [c,d)$ must satisfy $\supp(i_p) \subseteq [a_k, d)$, since otherwise, $\supp(i_p)$ would intersect both $[b_{k-1}, a_k)$ and $[b_k, a_{k+1})$, something we have ruled out in the proof of \textbf{(b)}. Thus, $\#\nuxy{a_k}{d} \geq (d-c)+(b_k-a_k) = d-a_k$, which contradicts the minimality of $\bigcup_{k=0}^{r}[b_k,a_{k+1})$: we could increase $b_k$ to $d$.
 \item \textit{Case 3: We have $d=a_{k+1}$ and $k<r$ (but not $c=b_k$ and $k>0$).} The argument here is analogous to Case 2.
 \item \textit{Case 4: Neither of the above.} Exercise.
 \end{itemize}
@@ -2895,7 +2893,7 @@ We need to show that if $\left[c,d\right)$ is a nonempty interval contained in $
 
 \begin{definition}
  
- In the context of Lemma \ref{lemma:irreducible}, for $0\leq k\leq r$ the subpartitions $\nuxycap{b_k}{a_{k+1}}$ are called \textit{the irreducible components of $\seplistvar$} and the nonnegative integers $n_k:=a_{k+1}-b_k-\#\nuxycap{b_k}{a_{k+1}}$ are called their \textit{degrees}. (For $T$ with $\seplist(T)=\seplistvar$, the $k$-th degree $n_k$ is equal to the number of pure columns of $T$ inside the corresponding $k$-th irreducible component. All $n_k$ are positive, except for $n_0$ if $a_1 = 1$ and $n_r$ if $b_r = \lambda_1 + 1$.)
+ In the context of Lemma \ref{lemma:irreducible}, for $0\leq k\leq r$ the subpartitions $\nuxycap{b_k}{a_{k+1}}$ are called \textit{the irreducible components of $\seplistvar$} and the nonnegative integers $n_k:=a_{k+1}-b_k-\#\nuxycap{b_k}{a_{k+1}}$ are called their \textit{degrees}. For $T$ with $\seplist(T)=\seplistvar$, the $k$-th degree $n_k$ is equal to the number of pure columns of $T$ inside the corresponding $k$-th irreducible component. All $n_k$ are positive, except for $n_0$ if $a_1 = 1$ and $n_r$ if $b_r = \lambda_1 + 1$.
 \end{definition}
 %\begin{remark}
 % Note that the conditions on $b_0,a_1,\dots,a_{r+1}$ guarantee that $\seplistvar$ is just a concatenation of partitions %$\nuxycap{b_0}{a_1},\nuxy{a_1}{b_1},\dots,\nuxycap{b_r}{a_{r+1}}$. 
@@ -2909,7 +2907,7 @@ We need to show that if $\left[c,d\right)$ is a nonempty interval contained in $
 \subsection{The structural theorem and its applications}
 It is easy to see that for a 12-rpp $T$, the number $\#\seplist(T)$ is equal to the number of mixed columns in $T$.
 
-Recall that $\OneTwoRPP$ denotes the set of all 12-rpps $T$ of shape $\lm$, and let $\OneTwoRPPCutvar$ denote its subset consisting of all 12-rpps $T$ with $\seplist(T)=\seplistvar$. Now we are ready to state a theorem that completely describes the structure of irreducible components (which will be proven later):
+Recall that $\OneTwoRPP$ denotes the set of all 12-rpps $T$ of shape $\lm$, and let $\OneTwoRPPCutvar$ denote its subset consisting of all 12-rpps $T$ with $\seplist(T)=\seplistvar$. Now we are ready to state a theorem that completely describes the structure of irreducible components:
 \begin{theorem}
 \label{thm:12rpps}
  Let $\seplistvar$ be an irreducible partition. Then for all $0\leq m\leq \lambda_1-\#\seplistvar$ there is exactly one 12-rpp $T\in\OneTwoRPPCutvar$ with $\#\seplistvar$ mixed columns, $m$ $1$-pure columns and $(\lambda_1-\#\seplistvar-m)$ $2$-pure columns. Moreover, these are the only elements of $\OneTwoRPPCutvar$. In other words, for an irreducible partition $\seplistvar$ we have
@@ -2918,6 +2916,8 @@ Recall that $\OneTwoRPP$ denotes the set of all 12-rpps $T$ of shape $\lm$, and 
  \sum_{T\in\OneTwoRPPCutvar} \x^{\ircont(T)}=(x_1x_2)^{\#\seplistvar} P_{\lambda_1-\#\seplistvar}(x_1,x_2).
  \end{equation}
 \end{theorem}
+
+Before we proceed to the proof, let us discuss some applications and examples.
 
 \begin{example}
  Each of the two 12-rpps on Figure \ref{fig:seplist} has two irreducible components. One of them is supported on the first two columns and the other one is supported on the last three columns. Here are all possible 12-rpps for each component:
@@ -2975,8 +2975,7 @@ After decomposing into irreducible components, we can obtain a formula for gener
 \[
 \OneTwoRPPCutvar \to \prod_{k=0}^r \operatorname{RPP}^{12}\left( \lm\big|_{[b_k,a_{k+1})} ; \nuxycap{b_k}{a_{k+1}}\right)
 \]
-is injective (since, as we know, the entries of a $T \in \OneTwoRPPCutvar$ in any column outside of the irreducible components are uniquely determined) and surjective (as one can ``glue'' rpps together).
-Now use Theorem \ref{thm:12rpps}.
+is injective, since, as we know, the entries of a $T \in \OneTwoRPPCutvar$ in any column outside of the irreducible components are uniquely determined. It is also surjective, as one can ``glue'' rpps together. Now use Theorem \ref{thm:12rpps}.
 \end{proof}
 
  For a 12-rpp $T$, the vectors $\seplist(T)$ and $\ceq(T)$ uniquely determine each other: if $(\ceq(T))_i=h$ then $\seplist(T)$ contains exactly $\lambda_{i+1}-\mu_i-h$ entries equal to $i$, and this correspondence is one-to-one. Therefore, the polynomials on both sides of (\ref{eq:thm12rppsComposite}) are equal to $Q_{\ceqvar}(x_1,x_2)$ where the vector $\ceqvar$ is the one that corresponds to $\seplistvar$.
@@ -3024,7 +3023,7 @@ Let $\seplistvar=(i_1,\dots,i_s)$ be an irreducible partition. We start with the
 \end{lemma}
 \begin{proof}[Proof of Lemma \ref{lemma:leftRight}]
 Suppose it is false and we have a $1$-pure column to the right of a $2$-pure column. Among all pairs $\left(a, b\right)$ such that column $a$ is $2$-pure and column $b$ is $1$-pure, and $b > a$, consider the one with smallest $b-a$. Then, the columns $a+1,\dots,b-1$ must all be mixed. %, otherwise if some column $k\in (a,b)$ is $1$-pure (resp., $2$-pure) then the columns $a$ and $k$ (resp., $k$ and $b$) would be closer to each other than $a$ and $b$.
-Therefore the set $\NS(T)$ contains $\{(i_{p+1},a+1),(i_{p+2},a+2),\dots,(i_{p+b-1-a},b-1)\}$ for some $p\in\NN$. And because $a$ is $2$-pure and $b$ is $1$-pure, each $i_{p+k}$ (for $k=1,\dots, b-1-a$) must be $\leq$ to the y-coordinate of the highest cell in column $a$ and $>$ than the y-coordinate of the lowest cell in column $b$. Thus, the support of any $i_{p+k}$ for $k=1,\dots, b-1-a$ is a subset of $[a+1,b)$, which contradicts the irreducibility of $\seplistvar$.
+Therefore the set $\NS(T)$ contains $\{(i_{p+1},a+1),(i_{p+2},a+2),\dots,(i_{p+b-1-a},b-1)\}$ for some $p\in\NN$. And because $a$ is $2$-pure and $b$ is $1$-pure, each $i_{p+k}$ for $k=1,\dots, b-1-a$ must be $\leq$ to the y-coordinate of the highest cell in column $a$ and $>$ than the y-coordinate of the lowest cell in column $b$. Thus, the support of any $i_{p+k}$ for $k=1,\dots, b-1-a$ is a subset of $[a+1,b)$, which contradicts the irreducibility of $\seplistvar$.
 \end{proof}
 
 
@@ -3033,10 +3032,13 @@ We proceed by strong induction on the number of columns in $\lm$. If the number 
 
 Take any 12-rpp $T\in\OneTwoRPPCutvar$ with $\seplist(T)=\seplistvar$ and with $m$ $1$-pure columns for $0\leq m\leq \lambda_1-\#\seplistvar$. Suppose first that $m>0$. Then there is at least one $1$-pure column in $T$. Let $q\geq 0$ be such that the leftmost $1$-pure column is column $q+1$. Then by Lemma \ref{lemma:leftRight} the columns $1,2,\dots,q$ are mixed. If $q>0$ then the supports of $i_1,i_2,\dots,i_q$ are all contained inside $[1,q+1)$ and we get a contradiction with the irreducibility of $\seplistvar$. The only remaining case is that $q=0$ and the first column of $T$ is $1$-pure. Let $\widetilde\lm$ denote $\lm$ with the first column removed. Then $\seplistvar$ is obviously admissible but may not be irreducible with respect to $\widetilde{\lm}$, because it may happen that $\#\nuxy{2}{b+1}^{\widetilde{\lm}}=b-1$
 % [DG] You didn't "slide" $\widetilde{\lm}$ to the left (i.e., relabel the columns) in the previous proof, so better not do it here either.
-for some $b>1$. In this case we can remove these $b-1$ nonempty columns from $\widetilde{\lm}$ and remove the first $b-1$ entries from $\nu$ to get an irreducible partition again\footnote{This follows from Lemma \ref{lemma:irreducible} \textbf{(c)} (applied to the skew shape $\widetilde{\lm}$ and $k=1$). Here we are using the fact that if we apply Lemma \ref{lemma:irreducible} \textbf{(a)} to $\widetilde{\lm}$ instead of $\lm$, then we get $r = 1$ (because if $r \geq 2$, then $\#\nuxy{a_2}{b_2} = \#\nuxy{a_2}{b_2}^{\widetilde{\lm}} = b_2-a_2$ in contradiction to the irreducibility of $\lm$).}, to which we can apply the induction hypothesis. We are done with the case $m>0$. If $m<\lambda_1-\#\seplistvar$ then we can apply a mirrored argument to the last column, and it remains to note that the cases $m>0$ and $m<\lambda_1-\#\seplistvar$ cover everything (since the irreducibility of $\nu$ shows that $\lambda_1-\#\seplistvar>0$).
+for some $b>1$. In this case we can remove these $b-1$ nonempty columns from $\widetilde{\lm}$ and remove the first $b-1$ entries from $\nu$ to get an irreducible partition again\footnote{This follows from Lemma \ref{lemma:irreducible} \textbf{(c)} (applied to the skew shape $\widetilde{\lm}$ and $k=1$). Here we are using the fact that if we apply Lemma \ref{lemma:irreducible} \textbf{(a)} to $\widetilde{\lm}$ instead of $\lm$, then we get $r = 1$ (because if $r \geq 2$, then $\#\nuxy{a_2}{b_2} = \#\nuxy{a_2}{b_2}^{\widetilde{\lm}} = b_2-a_2$ in contradiction to the irreducibility of $\lm$).}, to which we can apply the induction hypothesis. We are done with the case $m>0$. If $m<\lambda_1-\#\seplistvar$ then we can apply a mirrored argument to the last column, and it remains to note that the cases $m>0$ and $m<\lambda_1-\#\seplistvar$ cover everything, since the irreducibility of $\nu$ shows that $\lambda_1-\#\seplistvar>0$.
 
-This inductive proof shows the uniqueness of the 12-rpp with desired properties. Its existence follows from a parallel argument, using the observation that the first $b-1$ columns of $\widetilde{\lm}$ can actually be filled in. This amounts to showing that for a representable $\seplistvar$, the set $\OneTwoRPPCutvar$ is non-empty in the case when $\lambda_1 = \#\seplistvar$ (so all columns of $T \in \OneTwoRPPCutvar$ must be mixed). This is clear when there is just one column, and the general case easily follows by induction on the number of columns\footnote{In more detail: \par
-If we had $1 \notin \supp(\seplistvar_1)$, then we would have $\supp(\seplistvar_1) \subseteq [2, \lambda_1+1)$, and thus $\supp(\seplistvar_j) \subseteq [2, \lambda_1+1)$ for every $j$ (since $\seplistvar$ is weakly decreasing and since $\supp(\seplistvar_1)$ is nonempty), which would lead to $\nuxy{2}{\lambda_1+1} = \seplistvar$ and thus $\#\nuxy{2}{\lambda_1+1} = \#\seplistvar = \lambda_1 > \lambda_1 + 1 - 2$, contradicting the representability of $\seplistvar$. Hence, we have $1 \in \supp(\seplistvar_1)$, so that we can fill the first column of $\lm$ with $1$'s and $2$'s in such a way that it becomes mixed and the $1$'s are displaced by $2$'s at level $\seplistvar_1$. Now, let $\widetilde{\lm}$ be the skew partition $\lm$ without its first column, and $\widetilde{\seplistvar}$ be the partition $\left(\seplistvar_2, \seplistvar_3, \ldots\right)$. Then, the partition $\widetilde{\seplistvar}$ is representable with respect to $\widetilde{\lm}$. (Otherwise we would have $\#\nuxy{2}{b+1}^{\widetilde{\lm}}>b-1$ for some $b \geq 1$, but then we would have $\supp(\seplistvar_1) \subseteq [1,b+1)$ as well and therefore $\#\nuxy{1}{b+1}>(b-1)+1=b$, contradicting the representability of $\lm$.) Thus we can fill in the entries in the cells of $\widetilde{\lm}$ by induction.}.
+This inductive proof shows the uniqueness of the 12-rpp with desired properties. Its existence follows from a parallel argument, using the observation that the first $b-1$ columns of $\widetilde{\lm}$ can actually be filled in. This amounts to showing that for a representable $\seplistvar$, the set $\OneTwoRPPCutvar$ is non-empty in the case when $\lambda_1 = \#\seplistvar$, that is, all columns of $T \in \OneTwoRPPCutvar$ must be mixed.
+
+This is clear when there is just one column. To prove it in the general case, we proceed by induction on the number of columns:
+
+If we had $1 \notin \supp(\seplistvar_1)$, then we would have $\supp(\seplistvar_1) \subseteq [2, \lambda_1+1)$, and thus $\supp(\seplistvar_j) \subseteq [2, \lambda_1+1)$ for every $j$, since $\seplistvar$ is weakly decreasing and since $\supp(\seplistvar_1)$ is nonempty. This would lead to $\nuxy{2}{\lambda_1+1} = \seplistvar$ and thus $\#\nuxy{2}{\lambda_1+1} = \#\seplistvar = \lambda_1 > \lambda_1 + 1 - 2$, contradicting the representability of $\seplistvar$. Hence, we have $1 \in \supp(\seplistvar_1)$, so that we can fill the first column of $\lm$ with $1$'s and $2$'s in such a way that it becomes mixed and the $1$'s are displaced by $2$'s at level $\seplistvar_1$. Now, let $\widetilde{\lm}$ be the skew partition $\lm$ without its first column, and $\widetilde{\seplistvar}$ be the partition $\left(\seplistvar_2, \seplistvar_3, \ldots\right)$. Then, the partition $\widetilde{\seplistvar}$ is representable with respect to $\widetilde{\lm}$. Otherwise we would have $\#\nuxy{2}{b+1}^{\widetilde{\lm}}>b-1$ for some $b \geq 1$, but then we would have $\supp(\seplistvar_1) \subseteq [1,b+1)$ as well and therefore $\#\nuxy{1}{b+1}>(b-1)+1=b$, contradicting the representability of $\lm$. Thus we can fill in the entries in the cells of $\widetilde{\lm}$ by induction.
 \end{proof}
 
 
@@ -3059,6 +3061,13 @@ doi:10.1016/S0012-365X(98)00140-X.
 
 \bibitem[Fulton97]{Fulton97}William Fulton, \textit{Young Tableaux}, London
 Mathematical Society Student Texts 35, Cambridge University Press 1997.
+
+\bibitem[GaGrLi16]{GaGrLi16}Pavel Galashin, Darij Grinberg, Gaku Liu,
+\textit{Refined dual stable Grothendieck polynomials
+and generalized Bender-Knuth involutions (extended abstract)},
+FPSAC 2016, to appear in:
+Discrete Mathematics and Theoretical Computer Science,
+\url{http://www.lix.polytechnique.fr/~pilaud/FPSAC16/final_138}.
 
 \bibitem[GriRei15]{GriRei15}Darij Grinberg, Victor Reiner, \textit{Hopf
 algebras in Combinatorics}, August 25, 2015,
