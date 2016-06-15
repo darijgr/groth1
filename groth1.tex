@@ -949,8 +949,8 @@ T\left(  r,k\right)  =\left\{
 \end{equation}
 
 If $T$ is a 12-table, then we let $\operatorname*{seplist}T$ denote the list
-of all values $\operatorname*{sep}\nolimits_{k}T$ (in the order of increasing
-$k$), where $k$ ranges over all positive integers for which the $k$-th column
+of all values $\operatorname*{sep}\nolimits_{k}T$, in the order of increasing
+$k$. Here $k$ ranges over all positive integers for which the $k$-th column
 of $T$ is mixed. For instance, if $T$ is
 \[
 %
@@ -972,7 +972,7 @@ of $T$ is mixed. For instance, if $T$ is
 %EndExpansion
 \]
 then $\operatorname*{sep}\nolimits_{1}T=4$, $\operatorname*{sep}\nolimits_{3}T=4$, and
-$\operatorname*{sep}\nolimits_{5}T=2$ (and there are no other $k$ for which $\operatorname*{sep}\nolimits_{k}T$ is defined), so that $\operatorname*{seplist}T=\left(  4,4,2\right)  $.
+$\operatorname*{sep}\nolimits_{5}T=2$, and there are no other $k$ for which $\operatorname*{sep}\nolimits_{k}T$ is defined. Thus $\operatorname*{seplist}T=\left(  4,4,2\right)  $.
 
 We say that a 12-table $T$ is \textit{benign} if the list
 $\operatorname*{seplist}T$ is weakly decreasing. For
@@ -1110,8 +1110,8 @@ For example,
 
 \begin{remark}
  \label{pf.lem.BK.flip.ircont}
-It is clear that $\operatorname*{flip}$ is an involution on $\BenignTables$ that preserves $\operatorname*{ceq}$ and $\operatorname*{seplist}$ but switches the first two entries of $\operatorname*{ircont}$ (that is, if some $T \in \BenignTables$ has $\ircont\left(T\right) = \left(a,b,0,0,0,\ldots\right)$, then
-$\operatorname{ircont}\left(\operatorname{flip}\left(T\right)\right) = \left(b,a,0,0,0,\ldots\right)$).
+It is clear that $\operatorname*{flip}$ is an involution on $\BenignTables$ that preserves $\operatorname*{ceq}$ and $\operatorname*{seplist}$ but switches the first two entries of $\operatorname*{ircont}$. In other words, if some $T \in \BenignTables$ has $\ircont\left(T\right) = \left(a,b,0,0,0,\ldots\right)$, then
+$\operatorname{ircont}\left(\operatorname{flip}\left(T\right)\right) = \left(b,a,0,0,0,\ldots\right)$.
 \end{remark}
 
 \begin{comment}
@@ -1177,8 +1177,8 @@ Q\right)  \right)  .
 
 Let us now briefly sketch the ideas behind the rest of the proof before we go
 into them in detail. The map $\operatorname*{flip}:\BenignTables\rightarrow
-\BenignTables$ does not generally send 12-rpps to 12-rpps (i.e., it does not
-restrict to a map $\OneTwoRPP\rightarrow\OneTwoRPP$). However, we shall amend
+\BenignTables$ does not generally send 12-rpps to 12-rpps, i.e. it does not
+restrict to a map $\OneTwoRPP\rightarrow\OneTwoRPP$. However, we shall amend
 this by defining a way to transform any benign 12-table into a 12-rpp by what
 we call \textquotedblleft resolving descents\textquotedblright. The process of
 \textquotedblleft resolving descents\textquotedblright\ will be a stepwise
@@ -1201,12 +1201,11 @@ the properties that we want it to satisfy.
 
 Now we come to the details.
 
-Let $k\in\mathbb{N}_{+}$. Let $P\in\BenignTables$. Assume (for the whole Subsection \ref{subsect.resolving}) that $k$
+Let $k\in\mathbb{N}_{+}$. Let $P\in\BenignTables$. Assume for the whole Subsection \ref{subsect.resolving} that $k$
 is a descent of $P$. Thus, the $k$-th column of $P$ must contain at least one
 $2$. Hence, the $k$-th column of $P$ is either mixed or 2-pure. Similarly, the
 $\left(  k+1\right)  $-th column of $P$ is either mixed or 1-pure. But the
-$k$-th and the $\left(  k+1\right)  $-th columns of $P$ cannot both be mixed
-(by (\ref{eq.benign.not-both-mixed}), because $P$ is benign). Thus,
+$k$-th and the $\left(  k+1\right)  $-th columns of $P$ cannot both be mixed by (\ref{eq.benign.not-both-mixed}), because $P$ is benign. Thus,
 exactly one of the following three statements holds:
 
 \begin{itemize}
@@ -1283,12 +1282,12 @@ The $k$-th column of $\operatorname*{res}_{k}P$ is 1-pure; the $\left(  k+1\righ
 \nolimits_{k}P$ is mixed and satisfies $\operatorname*{sep}\nolimits_{k+1}%
 \left(  \operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{sep}%
 \nolimits_{k}P$; all other columns of $\operatorname*{res}\nolimits_{k}P$ are
-copied over from $P$ unchanged.\footnote{The reader should check that
+copied over from $P$ unchanged. We encourage the reader to check that
 this 12-table is well-defined.
 % [DG] I find it wrong to leave this unsaid. The proof is easy,
 % but the reader might fail to realize its necessity altogether
 % if it is not mentioned.
-}
+
 
 %\footnote{The reader should check that this
 %definition is well-defined.
@@ -1343,7 +1342,7 @@ is 1-pure; the $\left(  k+1\right)  $-th column of $\operatorname*{res}%
 In either case, $\operatorname*{res}\nolimits_{k}P$ is a well-defined
 12-table. It is furthermore clear that $\operatorname*{seplist}\left(
 \operatorname*{res}\nolimits_{k}P\right)  =\operatorname*{seplist}P$. Thus,
-$\operatorname*{res}\nolimits_{k}P$ is benign (since $P$ is benign); that is,
+$\operatorname*{res}\nolimits_{k}P$ is benign, since $P$ is benign; that is,
 $\operatorname*{res}\nolimits_{k}P\in\BenignTables$. We say that
 $\operatorname*{res}\nolimits_{k}P$ is the 12-table obtained by
 \textit{resolving} the descent $k$ in $P$. 
@@ -1706,13 +1705,13 @@ P\right)  $.
 
 We now define $\overset{\ast}{\Rrightarrow}$ to be the
 reflexive-and-transitive closure of the relation $\Rrightarrow$.
-\footnote{Explicitly, this means that $\overset{\ast}{\Rrightarrow}$
-is defined as follows: For two elements $P\in\BenignTables$ and $Q\in\BenignTables$,
-we have $P\overset{\ast}{\Rrightarrow}Q$ if and only if there exists a
-sequence $\left(  a_{0},a_{1},\ldots,a_{n}\right)  $ of elements of
-$\BenignTables$ such that $a_{0}=P$ and $a_{n}=Q$ and such that every
-$i\in\left\{  0,1,\ldots,n-1\right\}  $ satisfies $a_{i}\Rrightarrow a_{i+1}%
-$. (Note that $n$ is allowed to be $0$.)}
+% \footnote{Explicitly, this means that $\overset{\ast}{\Rrightarrow}$
+% is defined as follows: For two elements $P\in\BenignTables$ and $Q\in\BenignTables$,
+% we have $P\overset{\ast}{\Rrightarrow}Q$ if and only if there exists a
+% sequence $\left(  a_{0},a_{1},\ldots,a_{n}\right)  $ of elements of
+% $\BenignTables$ such that $a_{0}=P$ and $a_{n}=Q$ and such that every
+% $i\in\left\{  0,1,\ldots,n-1\right\}  $ satisfies $a_{i}\Rrightarrow a_{i+1}%
+% $. (Note that $n$ is allowed to be $0$.)} [PG] this is a standard term: https://en.wikipedia.org/wiki/Reflexive_transitive_closure
 This relation $\overset{\ast}{\Rrightarrow}$ is reflexive and transitive,
 and extends the relation $\Rrightarrow$.
 Lemma \ref{lem.descent-resolution-props} thus yields:
