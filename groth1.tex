@@ -1854,8 +1854,8 @@ Let $s=\operatorname*{sep}\nolimits_{v}A$.
 Then, the cells
 $\left(s, v-1\right)$, $\left(s, v\right)$, $\left(s, v+1\right)$,
 $\left(s+1, v-1\right)$, $\left(s+1, v\right)$, $\left(s+1, v+1\right)$
-all belong to $\lm$ (due to what we just said about separating
-lines). We shall refer to this observation as the
+all belong to $\lm$, due to what we just said about separating
+lines. We shall refer to this observation as the
 ``six-cells property''.
 
 Now, $B = \operatorname{res}_u A = \operatorname{res}_{v-1}A$, so
@@ -1906,11 +1906,10 @@ B=%
 %\end{ytableau}%
 %EndExpansion
 %$.
-where $\operatorname*{sep}\nolimits_{v-1}B = s$
-(that is, the separating line in the
+where $\operatorname*{sep}\nolimits_{v-1}B = s$. In other words, the separating line in the
 $\left(v-1\right)$-th column of $B$
 is between the cells $\left(s,v-1\right)$ and
-$\left(s+1,v-1\right)$).
+$\left(s+1,v-1\right)$.
 Now, $v$ is a descent of $B$.
 Resolving this descent yields a
 12-table $\operatorname{res}_{v}B$ which is represented as follows:
@@ -1962,7 +1961,7 @@ Resolving this descent yields a
 %EndExpansion
 %$.
 This, in turn, shows that $v-1$ is a descent of $\operatorname*{res}%
-\nolimits_{v}B$ (by the six-cells property). Resolving this descent
+\nolimits_{v}B$ by the six-cells property. Resolving this descent
 yields a 12-table $\operatorname*{res}\nolimits_{v-1}\left(
 \operatorname*{res}\nolimits_{v}B\right)  $ which is represented as follows:%
 \begin{equation}
@@ -2103,42 +2102,44 @@ $\operatorname*{Norm}\left( Z\right)  $ is a one-element set.
 \item By Lemma \ref{prop.descent-resolution-hyps}, for every
 $B\in\mathbf{Z}$ and $C\in\mathbf{Z}$, we have
 $\operatorname*{Norm}\left(  B\right)  \cap\operatorname*{Norm}\left(
-C\right)  \neq\varnothing$. 
-\ \ \ \ \footnote{In more detail:
-Let $B\in\mathbf{Z}$ and $C\in\mathbf{Z}$.
-By Lemma \ref{prop.descent-resolution-hyps} (applied to $A=T$)
-there exists
-a $D\in\BenignTables$ such that $B\overset{\ast}{\Rrightarrow}D$ and
-$C\overset{\ast}{\Rrightarrow}D$. This $D$ has
-$\ell\left( T\right)  >\ell\left(  B\right)
-\geq\ell\left(  D\right)  $ (by Lemma \ref{lem.descent-resolution-props}
-\textbf{(d)} and
-Lemma \ref{lem.descent-resolution-*props} \textbf{(d)}, respectively).
-Hence, by (\ref{pf.prop.BK.norm.indhyp}), the set
-$\operatorname*{Norm}\left(  D\right)  $ is a one-element set. Its unique element
-clearly lies in both $\operatorname*{Norm}\left(  B\right)  $ and
-$\operatorname*{Norm}\left(  C\right)  $, so
-$\operatorname*{Norm}\left(
-B\right)  \cap\operatorname*{Norm}\left(  C\right)  \neq\varnothing$.
+C\right)  \neq\varnothing$ by Lemma 5.8 applied to $A=T$.
 
-% [DG] You will probably want to shorten this. Fine with me, but please
-% don't remove this nontrivial argument completely.
-% [PG] Removed this argument because I don't see where it is non-trivial, sorry
-% [DG] This has multiple steps. The $D$ obtained from
-% Lemma \ref{prop.descent-resolution-hyps} is not immediately an rpp.
-% The induction hypothesis is then applied to it, needing the
-% length-decrease argument. This all is rather clear if you are thinking
-% of our algorithm in terms of rewriting systems and confluence, but we
-% have carefully removed all traces of this intuition from the paper,
-% so we cannot accept the reader to have it.
-}
+% \ \ \ \ \footnote{In more detail:
+% Let $B\in\mathbf{Z}$ and $C\in\mathbf{Z}$.
+% By Lemma \ref{prop.descent-resolution-hyps} (applied to $A=T$)
+% there exists
+% a $D\in\BenignTables$ such that $B\overset{\ast}{\Rrightarrow}D$ and
+% $C\overset{\ast}{\Rrightarrow}D$. This $D$ has
+% $\ell\left( T\right)  >\ell\left(  B\right)
+% \geq\ell\left(  D\right)  $ (by Lemma \ref{lem.descent-resolution-props}
+% \textbf{(d)} and
+% Lemma \ref{lem.descent-resolution-*props} \textbf{(d)}, respectively).
+% Hence, by (\ref{pf.prop.BK.norm.indhyp}), the set
+% $\operatorname*{Norm}\left(  D\right)  $ is a one-element set. Its unique element
+% clearly lies in both $\operatorname*{Norm}\left(  B\right)  $ and
+% $\operatorname*{Norm}\left(  C\right)  $, so
+% $\operatorname*{Norm}\left(
+% B\right)  \cap\operatorname*{Norm}\left(  C\right)  \neq\varnothing$.
+% 
+% % [DG] You will probably want to shorten this. Fine with me, but please
+% % don't remove this nontrivial argument completely.
+% % [PG] Removed this argument because I don't see where it is non-trivial, sorry
+% % [DG] This has multiple steps. The $D$ obtained from
+% % Lemma \ref{prop.descent-resolution-hyps} is not immediately an rpp.
+% % The induction hypothesis is then applied to it, needing the
+% % length-decrease argument. This all is rather clear if you are thinking
+% % of our algorithm in terms of rewriting systems and confluence, but we
+% % have carefully removed all traces of this intuition from the paper,
+% % so we cannot accept the reader to have it.
+% % [PG] replaced by ``by Lemma 5.8 applied to $A=T$.'' I don't think we need to use the fact that Norm(D) is a one-element set, just knowing that it's nonempty is enough. It is obviously nonempty. If you disagree, I suggest writing ``by Lemma 5.8 applied to $A=T$ together with ...'', but please, don't make it a footnote again.
+% }
 
 \end{itemize}
 
 Hence, (\ref{pf.prop.BK.norm.union}) shows that $\operatorname*{Norm}\left(
 T\right)  $ is a union of one-element sets, any two of which have a nonempty
-intersection (and thus are identical).
-Moreover, this union is nonempty (since $\mathbf{Z}$ is nonempty). Hence,
+intersection, and thus are identical.
+Moreover, this union is nonempty, since $\mathbf{Z}$ is nonempty. Hence,
 $\operatorname*{Norm}\left(  T\right)  $ itself is a one-element set. This
 completes our induction.
 \end{proof}
@@ -2418,8 +2419,8 @@ We claim that the involution $\mathbf{B}_{i}:\operatorname*{RPP}\left(
 $ we have constructed in the proof of Theorem~\ref{thm.BK}
 is a generalization of the $i$-th Bender-Knuth involution defined for
 semistandard tableaux. First, we shall
-define the $i$-th Bender-Knuth involution (following \cite[proof of
-Proposition 2.11]{GriRei15} and \cite[proof of Theorem 7.10.2]{Stan99}).
+define the $i$-th Bender-Knuth involution, following \cite[proof of
+Proposition 2.11]{GriRei15} and \cite[proof of Theorem 7.10.2]{Stan99}.
 
 Let $\operatorname*{SST}\left(  \lambda/\mu\right)  $ denote the set of all
 semistandard tableaux of shape $ \lm$. We define a
@@ -2689,7 +2690,9 @@ which are in}\\\text{mixed columns}}%
 },\underbrace{2,2,\ldots,2}_{\substack{b \ 2\text{'s
 which are in}\\\text{mixed columns}}}\right).
 \]
-Repeating this process for every row of $\operatorname*{flip}\left(  T\right)$ (we can do this because each pure column contains only one entry, and thus each descent-resolution described above affects only one row), we obtain a 12-rpp. By the definition of $\mathbf{B}$, this rpp must equal $\mathbf{B}(T)$. By the above description, it is also equal to $\BK_1(T)$ (because the ignored entries in the construction of $\BK_1(T)$ are precisely the entries lying in mixed columns), which completes the proof.
+Repeating this process for every row of $\operatorname*{flip}\left(  T\right)$,
+% (we can do this because each pure column contains only one entry, and thus each descent-resolution described above affects only one row), 
+we obtain a 12-rpp. By the definition of $\mathbf{B}$, this rpp must equal $\mathbf{B}(T)$. By the above description, it is also equal to $\BK_1(T)$, because the ignored entries in the construction of $\BK_1(T)$ are precisely the entries lying in mixed columns. This completes the proof.
 \end{proof}
 
 
