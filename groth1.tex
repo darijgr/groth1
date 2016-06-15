@@ -511,13 +511,11 @@ cells.
 
 
  If $T$ is a filling of $\lm$,
-then we define the \textit{column equalities vector} (or,
-by way of abbreviation, the \textit{ceq statistic})
-of $T$ to be the weak composition
+then we define the \textit{column equalities vector} of $T$ to be the weak composition
 $\operatorname{ceq}\left(  T\right)=\left(c_1,c_2,c_3,\dots\right)$
 where $c_i$ is the number of $j\in\mathbb{N}_{+}$ such that $\left(  i,j\right)$ is a redundant cell of $T$. Visually speaking, $\left(  \operatorname{ceq}\left(  T\right)  \right)
 _{i}$ is the number of columns of $T$ whose entry in the $i$-th row equals
-their entry in the $\left(  i+1\right)  $-th row. For instance, for fillings $T_a,$ $T_b,$ $T_c$ from Figure \ref{fig:fillings} we have $\ceq(T_a)=(0,1),\ \ceq(T_b)=(1),$ and $\ceq(T_c)=()$, where we again drop trailing zeroes.
+their entry in the $\left(  i+1\right)  $-th row. For instance, for fillings $T_a,$ $T_b,$ $T_c$ from Figure \ref{fig:fillings} we have $\ceq(T_a)=(0,1),\ \ceq(T_b)=(1),$ and $\ceq(T_c)=()$.
 
 Notice that $\left|\ceq(T)\right|$ is the number of redundant cells in $T$, so we have 
 \begin{equation}\label{eq:sum.of.ceq.and.ircont}
@@ -545,7 +543,7 @@ Let us give some examples of $\widetilde{g}_{\lambda/\mu}$.
 
 \begin{enumerate}
 
-\item[\textbf{(a)}] If $\lm$ is a single row with $n$ cells, then for each rpp $T$ of shape $\lm$ we have $\ceq(T)=(0,0,\dots)$ and $\ircont(T)=\cont(T)$ (in fact, any rpp of shape $\lm$ is a semistandard tableau in this case). Therefore we get 
+\item[\textbf{(a)}] If $\lm$ is a single row with $n$ cells, then for each rpp $T$ of shape $\lm$ we have $\ceq(T)=(0,0,\dots)$ and $\ircont(T)=\cont(T)$. In fact, any rpp of shape $\lm$ is a semistandard tableau in this case. Therefore we get 
 \[
 \g_\lm(\x;\t)=h_n(\x)=\sum_{a_1\leq a_2\leq\dots\leq a_n} x_{a_1}x_{a_2}\cdots x_{a_n}.
 \]
@@ -644,9 +642,7 @@ Our main result is now the following:
 $\widetilde{g}_{\lambda/\mu}(\x;\t)$ is symmetric in $\x$.
 \end{theorem}
 
-Here, ``symmetric in $\x$'' means ``invariant under all finite
-permutations of the indeterminates $x_1, x_2, x_3, \ldots$''
-(while $t_1, t_2, t_3, \ldots$ remain unchanged).
+Here, ``symmetric in $\x$'' means ``invariant under all permutations of the indeterminates $x_1, x_2, x_3, \ldots$ with finite support'', while $t_1, t_2, t_3, \ldots$ remain unchanged.
 
 Clearly, Theorem~\ref{thm.gtilde.symm} implies the symmetry of
 $g_\lm$ and $s_\lm$ due to Proposition~\ref{prop.gtilde.gener}.
@@ -694,8 +690,7 @@ $\mathbf{B}_{i}:\operatorname{RPP}\left(  \lambda/\mu\right)
 property that every $T \in \operatorname{RPP}\left(  \lambda/\mu\right)$
 satisfies $\ceq\left(\mathbf{B}_i\left(T\right)\right) = \ceq \left(T\right)$ and
 $\ircont\left(\mathbf{B}_i\left(T\right)\right) = s_i \cdot \ircont \left(T\right)$.
-Theorem~\ref{thm.BK} yields precisely such a bijection (even an
-involution).
+Theorem~\ref{thm.BK} yields precisely such a bijection, which turns out to be an involution.
 \end{proof}
 
 \subsection{Reduction to 12-rpps}
@@ -706,7 +701,7 @@ Theorem \ref{thm.BK}. We define a \textit{12-rpp} to be an rpp whose entries all
 \begin{lemma}
 \label{lem.BK} There exists an
 involution $\mathbf{B}:\OneTwoRPP\rightarrow\OneTwoRPP$
-which preserves the ceq statistic and switches the number of columns containing a $1$ with the number of columns containing a $2$ (that is, switches the first two entries of the ircont statistic).
+which preserves the ceq statistic and switches the number of columns containing a $1$ with the number of columns containing a $2$. In other words, $\mathbf{B}$ switches the first two entries of the ircont statistic.
 \end{lemma}
 
 
@@ -715,7 +710,8 @@ which preserves the ceq statistic and switches the number of columns containing 
  This Lemma implies Theorem \ref{thm.BK}: for any $i\in\Nplus$ and for $T$ an rpp of shape $\lm$, we construct $\B_i(T)$ as follows: 
  \begin{itemize}
   \item Ignore all entries of $T$ not equal to $i$ or $i+1$. 
-  \item Replace all occurrences of $i$ by $1$ and all occurrences of $i+1$ by $2$. We get a 12-rpp $T'$ of some smaller shape (which is still a skew partition\footnote{Fine print: It has the form $\lm$ for some skew partition $\lm$, but this skew partition $\lm$ is not always uniquely determined (e.g., $\left(3,1,1\right)/\left(2,1\right)$ and $\left(3,2,1\right)/\left(2,2\right)$ have the same Young diagram). But the involution $\mathbf{B}$ constructed in the proof of Lemma~\ref{lem.BK} depends only on the Young diagram of $\lm$, and thus the choice of $\lm$ does not matter.}).
+  \item Replace all occurrences of $i$ by $1$ and all occurrences of $i+1$ by $2$. We get a 12-rpp $T'$ of some smaller shape, which is still a skew partition.
+%   \footnote{Fine print: It has the form $\lm$ for some skew partition $\lm$, but this skew partition $\lm$ is not always uniquely determined (e.g., $\left(3,1,1\right)/\left(2,1\right)$ and $\left(3,2,1\right)/\left(2,2\right)$ have the same Young diagram). But the involution $\mathbf{B}$ constructed in the proof of Lemma~\ref{lem.BK} depends only on the Young diagram of $\lm$, and thus the choice of $\lm$ does not matter.}.
   \item Replace $T'$ by $\B(T')$.
   \item In $\B(T')$, replace back all occurrences of $1$ by $i$ and all occurrences of $2$ by $i+1$.
   \item Finally, restore the remaining entries of $T$ that were ignored on the first step.
@@ -737,8 +733,8 @@ particular, we fix a skew partition $\lm$.
 
 A \textit{12-table} means a filling $T:\lm\rightarrow\left\{  1,2\right\}  $
 of $\lm$
-such that the entries of $T$ are weakly increasing down columns. (We do not
-require them to be weakly increasing along rows.) Every column of a 12-table
+such that the entries of $T$ are weakly increasing down columns. We do not
+require them to be weakly increasing along rows. Every column of a 12-table
 is a sequence of the form $(1,1,\ldots,1,2,2,\ldots,2)$. We say that such a sequence is
 
 \begin{itemize}
@@ -756,13 +752,12 @@ is a sequence of the form $(1,1,\ldots,1,2,2,\ldots,2)$. We say that such a sequ
 For a 12-table $T$, we define $\flip(T)$ to be the 12-table obtained from $T$ by changing each column of $T$ as follows:
 
 \begin{itemize}
-\item \textbf{If} this column is 1-pure, we replace all its entries by $2$'s
-(so that it becomes 2-pure).
+\item \textbf{If} this column is 1-pure, we replace all its entries by $2$'s, so that it becomes 2-pure.
 
 \textbf{Otherwise}, if this column is 2-pure, we replace all its entries by
-$1$'s (so that it becomes 1-pure).
+$1$'s, so that it becomes 1-pure.
 
-\textbf{Otherwise} (i.e., if this column is mixed or empty), we do not change it.
+\textbf{Otherwise} this column is either mixed or empty, in which case we do not change it.
 \end{itemize}
 
 \end{definition}
@@ -861,11 +856,11 @@ $\rightarrow$
 \def\resk{{\operatorname{res}_{k}}}
 
 For example, if $k$ is a descent of type (M1) in a 12-table $P$, then we define the 12-table $\resk P$ as follows: the $k$-th column of $\resk P$ is 1-pure; the $\left(  k+1\right)  $-th column of $\resk P$ is mixed and the highest $2$ in it is in the same row as the highest $2$ in the $k$-th column of $P$; all other columns of $\resk P$ are
-copied over from $P$ unchanged. The definitions of $\resk P$ for the other two types of descents are similar (and will be elaborated upon in Subsection~\ref{subsect.resolving}). We say that $\resk P$ is obtained from $P$ by \textit{resolving} the descent $k$, and we say that passing from $P$ to $\resk P$ constitutes a \textit{descent-resolution step}. (Of course, a 12-table $P$ can have several descents and thus offer several ways to proceed by descent-resolution steps.)
+copied over from $P$ unchanged. The definitions of $\resk P$ for the other two types of descents are similar, and will be elaborated upon in Subsection~\ref{subsect.resolving}. We say that $\resk P$ is obtained from $P$ by \textit{resolving} the descent $k$, and we say that passing from $P$ to $\resk P$ constitutes a \textit{descent-resolution step}. Of course, a 12-table $P$ can have several descents and thus offer several ways to proceed by descent-resolution steps.
 
-Now the map $\B$ is defined as follows: take any 12-rpp $T$ and apply flip to it to get a 12-table $\flip(T)$. Next, apply descent-resolution steps to $\flip(T)$ in arbitrary order until we get a 12-table with no descents left. Put $\B(T):=P$. (A rigorous statement of this is Definition \ref{defi.B}.)
+Now the map $\B$ is defined as follows: take any 12-rpp $T$ and apply flip to it to get a 12-table $\flip(T)$. Next, apply descent-resolution steps to $\flip(T)$ in arbitrary order until we get a 12-table with no descents left. Put $\B(T):=P$. A rigorous statement of this is Definition \ref{defi.B}.
 
-In the next section we will see that $\B(T)$ is well-defined (that is, the process terminates after a finite number of descent-resolution steps, and the result does not depend on the order of steps). We will also see that $\B$ is an involution $\OneTwoRPP\to\OneTwoRPP$ that satisfies the claims of Lemma \ref{lem.BK}. An alternative proof of all these facts can be found in Section \ref{sect.structure}.
+In the next section we will see that $\B(T)$ is well-defined: the process terminates after a finite number of descent-resolution steps, and the result does not depend on the order of steps. We will also see that $\B$ is an involution $\OneTwoRPP\to\OneTwoRPP$ that satisfies the claims of Lemma \ref{lem.BK}. An alternative proof of all these facts can be found in Section \ref{sect.structure}.
 
 % [DG] Strictly speaking, do you really give an alternative
 % proof of these facts, or just an alternative proof of the
