@@ -162,8 +162,8 @@ and $2$.
 
 \section{Introduction}
 
-Thomas Lam and Pavlo Pylyavskyy, in \cite[\S 9.1]{LamPyl}, (and earlier Mark
-Shimozono and Mike Zabrocki in unpublished work of 2003) studied \textit{dual
+Thomas Lam and Pavlo Pylyavskyy, in \cite[\S 9.1]{LamPyl}, and earlier Mark
+Shimozono and Mike Zabrocki in unpublished work of 2003, studied \textit{dual
 stable Grothendieck polynomials}, a deformation of the Schur
 functions. Let us briefly recount their definition.
 \begin{comment}
@@ -177,7 +177,6 @@ functions and partitions should start reading from Section
 
 \end{comment}
 
-%test
 
 Let $\lambda/\mu$ be a skew partition. The Schur function $s_{\lambda/\mu}$ is
 a multivariate generating function for the semistandard tableaux of shape
@@ -200,11 +199,10 @@ of shape }\lambda/\mu}}\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  },
 \]
 where $\mathbf{x}^{\operatorname*{ircont}\left(  T\right)  }$ is the monomial
 $x_{1}^{a_{1}}x_{2}^{a_{2}}x_{3}^{a_{3}}\cdots$ whose $i$-th exponent $a_{i}$
-is the number of \textit{columns} (rather than cells) %this is important enough to be repeated two times -- [PG]
+is the number of \textit{columns}, rather than cells, %this is important enough to be repeated two times -- [PG]
 of $T$ containing the entry $i$. As proven in
-\cite[\S 9.1]{LamPyl}, this power series $g_{\lambda/\mu}$ is a symmetric
-function, albeit, unlike $s_{\lambda/\mu}$, an inhomogeneous one in general.
-Lam and Pylyavskyy connect the $g_{\lambda/\mu}$ to the
+\cite[\S 9.1]{LamPyl}, this power series $g_{\lambda/\mu}$ is an inhomogeneous symmetric
+function. Lam and Pylyavskyy connect the $g_{\lambda/\mu}$ to the
 \textit{stable Grothendieck polynomials} $G_{\lambda/\mu}$ via a duality
 % between the symmetric functions and their completion, which explains the name
 % of the $g_{\lambda/\mu}$; see 
@@ -246,8 +244,8 @@ in an algebra of operators.
 The present paper is organized as follows: In Section \ref{sect.notations}, we
 recall classical definitions and introduce notations pertaining to
 combinatorics and symmetric functions. In Section \ref{sect.def}, we define
-the refined dual stable Grothendieck polynomials $\widetilde{g}_{\lambda/\mu}$, state
-our main result (that they are symmetric functions), and do the first steps of
+the refined dual stable Grothendieck polynomials $\widetilde{g}_{\lambda/\mu}$. We state
+our main result that they are symmetric functions, and do the first steps of
 its proof, by reducing it to a purely combinatorial statement about the
 existence of an involution with certain properties. In Section \ref{sect.construction}, we describe the idea of constructing this involution in an elementary way without proofs. In Section
 \ref{sect.proof}, we prove various properties of this involution advertised in Section \ref{sect.construction}, thus finishing the proof of our main result. In Section \ref{sect.BKclassical}, we
@@ -255,12 +253,9 @@ recapitulate the definition of the classical Bender-Knuth involution, and
 show that our involution is a generalization of the latter.
 Finally, in Section \ref{sect.structure} we study the structure of
 reverse plane partitions with entries belonging to $\left\{1, 2\right\}$,
-which (in particular) gives us an explicit formula for the
-$\mathbf{t}$-coefficients of $\g_\lm(x_1,x_2,0,0,\dots;\t)$, and shines
-a new light on the involution constructed in Sections \ref{sect.construction}
-and \ref{sect.proof}
-(also showing that it is the unique involution that shares certain natural
-properties with the classical Bender-Knuth involutions).
+which gives us an explicit formula for the
+$\mathbf{t}$-coefficients of $\g_\lm(x_1,x_2,0,0,\dots;\t)$. As a consequence, we get that the involution constructed in Sections \ref{sect.construction}
+and \ref{sect.proof} is the unique involution that shares certain natural properties with the classical Bender-Knuth involutions.
 
 An extended abstract of this paper, omitting the proofs, is to appear
 as \cite{GaGrLi16}.
@@ -311,18 +306,15 @@ _{+}=\left\{  1,2,3,\ldots\right\}  $.
 A \textit{partition} is a weak composition $\left(  \alpha_{1},\alpha
 _{2},\alpha_{3},\ldots\right)  $ satisfying $\alpha_{1}\geq\alpha_{2}
 \geq\alpha_{3}\geq\cdots$.
-As usual, we often omit trailing zeroes when writing a partition (e.g.,
-the partition $\left(5,2,1,0,0,0,\ldots\right)$ can thus be written as
-$\left(5,2,1\right)$).
+As usual, we often omit trailing zeroes when writing a partition. For instance, the partition $(5,2,1,0,0,0,\ldots)$ can be also written as $(5,2,1,0)$ or $(5,2,1)$.
 
 We identify each partition $\lambda$ with the subset
 $\left\{ \left( i, j \right) \in \Nplus^2 \mid j \leq \lambda_i \right\}$
-of $\Nplus^{2}$ (called \textit{the Young diagram of $\lambda$}).
-We draw this subset as a Young diagram (which is a left-aligned table of
+of $\Nplus^{2}$, called \textit{the Young diagram of $\lambda$}.
+We draw this subset as a left-aligned table of
 empty boxes, where the box $(1,1)$ is in the top-left corner while the
 box $(2,1)$ is directly below it; this is the \textit{English notation},
-also known as the \textit{matrix notation}); see \cite{Fulton97} for
-the detailed definition.
+also known as the \textit{matrix notation}. See \cite{Fulton97} for the detailed definition.
 
 
 \begin{todo}
@@ -338,7 +330,7 @@ A \textit{skew partition} $\lambda/\mu$ is a pair $\left(\lambda, \mu\right)$ of
  If $\lm$ is a skew partition, then a \textit{filling} of $\lm$ means a map $T:\lm\rightarrow\Nplus$. It is visually represented by drawing $\lm$ and filling each box $c$ with the entry $T(c)$. Three examples of a filling can be found on Figure \ref{fig:fillings}.
  
 
- A filling $T:\lm\rightarrow\Nplus$ of $\lm$ is called a \textit{reverse plane partition of shape $\lm$} if its values increase weakly in each row of $\lm$ from left to right and in each column of $\lm$ from top to bottom. If, in addition, the values of $T$ increase strictly down each column, then $T$ is called a \textit{semistandard tableau of shape $\lm$}. (See Fulton's \cite{Fulton97} for an exposition of properties and applications of semistandard tableaux.)
+ A filling $T:\lm\rightarrow\Nplus$ of $\lm$ is called a \textit{reverse plane partition of shape $\lm$} if its values increase weakly in each row of $\lm$ from left to right and in each column of $\lm$ from top to bottom. If, in addition, the values of $T$ increase strictly down each column, then $T$ is called a \textit{semistandard tableau of shape $\lm$}. See Fulton's \cite{Fulton97} for an exposition of properties and applications of semistandard tableaux.
  %\footnote{Fulton calls semistandard tableaux just ``tableaux'', but otherwise is consistent with most of our notation.}.)
  We denote the set of all reverse plane partitions of shape $\lm$ by $\operatorname{RPP}\left(  \lambda/\mu\right)$.  We abbreviate reverse plane partitions as \textit{rpps}. 
  
@@ -403,18 +395,14 @@ field of research, and are closely related to Young diagrams and tableaux; see
 
 
 A \textit{symmetric function} is defined to be a
-bounded-degree\footnote{A power series is said to be \textit{bounded-degree}
-if there is an $N \in \mathbb{N}$ such that only monomials of degree $\leq N$
-appear in the series.}
-power series in countably many indeterminates $x_1,x_2,x_3,\dots$
-over $\Z$ that is invariant under (finite)
-permutations\footnote{A permutation is \textit{finite} if it fixes all but
-finitely many elements.} of $x_1,x_2,x_3,\dots$.
+power series in countably many indeterminates $x_1,x_2,x_3,\dots$ over $\Z$ with uniformly bounded degrees of monomials that is invariant under permutations of $x_1,x_2,x_3,\dots$ with finite support. 
+% A power series is said to be \textit{bounded-degree}
+% if there is an $N \in \mathbb{N}$ such that only monomials of degree $\leq N$
+% appear in the series.
 
 The symmetric functions form a ring, which is called the \textit{ring of
-symmetric functions} and denoted by $\Lambda$.
-(In \cite{LamPyl} this ring is denoted by $\operatorname*{Sym}$, while the notation $\Lambda$ is reserved for the
-set of all partitions.) Much research has been done on symmetric functions and
+symmetric functions} and denoted by $\Lambda$. In \cite{LamPyl} this ring is denoted by $\operatorname*{Sym}$, while the notation $\Lambda$ is reserved for the
+set of all partitions. Much research has been done on symmetric functions and
 their relations to Young diagrams and tableaux; see
 \cite[Chapter 7]{Stan99}, \cite{Macdon95} and \cite[Chapter 2]{GriRei15} for expositions. 
 
@@ -461,15 +449,12 @@ instead of the content $\operatorname{cont}\left(  T\right)$.
 
 
   Namely, for a filling $T$ of a skew partition $\lm$, we define its
-\textit{irredundant content} (or, by way of abbreviation, its
-\textit{ircont statistic})
-as the weak composition $\operatorname*{ircont}\left(
-T\right) = \left(r_1,r_2,r_3,\dots\right)$ where $r_i$ is the number of \emph{columns} (rather than cells) of $T$ that contain an entry equal to $i$. For instance, if $T_a$, $T_b$, and $T_c$ are the fillings from Figure \ref{fig:fillings}, then their irredundant contents are
+\textit{irredundant content} as the weak composition $\operatorname*{ircont}\left(
+T\right) = \left(r_1,r_2,r_3,\dots\right)$ where $r_i$ is the number of \emph{columns}, rather than cells, of $T$ that contain an entry equal to $i$. For instance, if $T_a$, $T_b$, and $T_c$ are the fillings from Figure \ref{fig:fillings}, then their irredundant contents are
 \begin{align*}
-\ircont(T_a)=(0,1,2,1,0,1),\ \ircont(T_b)=(0,1,3,1),\ \ircont(T_c)=(0,1,3,1,0,0,1)
+\ircont(T_a)=(0,1,2,1,0,1),\ \ircont(T_b)=(0,1,3,1),\ \ircont(T_c)=(0,1,3,1,0,0,1),
 \end{align*}
 %it looked really weird on two lines 
-(where we omit trailing zeroes),
 because, for example, $T_a$ has one column with a $4$ in it (so $(\ircont(T_a))_4=1$) and $T_b$ contains three columns with a $3$ (so $(\ircont(T_b))_3=3$).
 
 Notice that if $T$ is a semistandard tableau, then $\cont(T)$ and $\ircont(T)$ coincide.
@@ -488,9 +473,7 @@ general) not homogeneous, because whenever a column of an rpp $T$ contains an
 entry several times, the corresponding monomial $\mathbf{x}%
 ^{\operatorname*{ircont}\left(  T\right)  }$ \textquotedblleft
 counts\textquotedblright\ this entry only once. It is fairly clear that the
-highest-degree homogeneous component of $g_{\lambda/\mu}$ is $s_{\lambda/\mu}$
-(the component of degree $\left\vert \lambda\right\vert -\left\vert
-\mu\right\vert $). Therefore, $g_{\lambda/\mu}$ can be regarded as an
+highest-degree homogeneous component of $g_{\lambda/\mu}$ is $s_{\lambda/\mu}$. Therefore, $g_{\lambda/\mu}$ can be regarded as an
 inhomogeneous deformation of the Schur function $s_{\lambda/\mu}$.
 
 Lam and Pylyavskyy, in \cite[\S 9.1]{LamPyl}, have shown the following fact:
@@ -502,9 +485,9 @@ partition $\lambda/\mu$.
 
 
 They prove this proposition using generalized plactic algebras \cite[Lemma
-3.1]{FomGre} (and also give a second, combinatorial proof for the case
+3.1]{FomGre}, and also give a second, combinatorial proof for the case
 $\mu=\varnothing$ by explicitly expanding $g_{\lambda/\varnothing}$ as a sum
-of Schur functions).
+of Schur functions.
 
 
 In the next section, we shall introduce a refinement of these $g_{\lambda/\mu
