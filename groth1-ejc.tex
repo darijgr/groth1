@@ -139,10 +139,11 @@ and $2$.
 
 \section{Introduction}
 
+\emph{Grothendieck polynomials} were introduced by Lascoux and Sch\"{u}tzenberger \cite{LasSch82} as polynomial representatives of classes of structure sheaves of Schubert varieties in the $K$-theory of flag manifolds. \emph{Stable Grothendieck polynomials} were introduced by Fomin and Kirillov \cite{FomKir96} as stable limits of certain sequences of Grothendieck polynomials. In particular, the stable Grothendieck polynomials $G_\lambda$ represent classes of structure sheaves of Schubert varieties in the $K$-theory of the Grassmannian, and can be seen as $K$-theory analogues of Schur functions. Buch \cite{Buch02} gave a combinatorial formula for $G_\lambda$ in terms of set-valued tableaux and described a Littlewood-Richardson rule for their structure coefficients.
+
 Thomas Lam and Pavlo Pylyavskyy, in \cite[\S 9.1]{LamPyl}, and earlier Mark
 Shimozono and Mike Zabrocki in unpublished work of 2003, studied \textit{dual
-stable Grothendieck polynomials}, a deformation of the Schur
-functions. Let us briefly recount their definition.
+stable Grothendieck polynomials}, the dual basis to the stable Grothendieck polynomials with respect to the Hall inner product. Lam and Pylyavskyy related these functions to the $K$-homology of the Grassmannian and gave a combinatorial definition of these functions in terms of \emph{reverse plane partitions}. We now briefly recount their definition.
 \begin{comment}
  
 \footnote{All definitions
@@ -179,12 +180,13 @@ $x_{1}^{a_{1}}x_{2}^{a_{2}}x_{3}^{a_{3}}\cdots$ whose $i$-th exponent $a_{i}$
 is the number of \textit{columns}, rather than cells, %this is important enough to be repeated two times -- [PG]
 of $T$ containing the entry $i$. As proven in
 \cite[\S 9.1]{LamPyl}, this power series $g_{\lambda/\mu}$ is an inhomogeneous symmetric
-function. Lam and Pylyavskyy connect the $g_{\lambda/\mu}$ to the
-\textit{stable Grothendieck polynomials} $G_{\lambda/\mu}$ via a duality
+function.
+%Lam and Pylyavskyy connect the $g_{\lambda/\mu}$ to the
+%\textit{stable Grothendieck polynomials} $G_{\lambda/\mu}$ via a duality
 % between the symmetric functions and their completion, which explains the name
 % of the $g_{\lambda/\mu}$; see 
-(\cite[\S 9.4]{LamPyl}) and to the $K$-theory of
-Grassmannians (\cite[\S 9.5]{LamPyl}).
+%(\cite[\S 9.4]{LamPyl}) and to the $K$-theory of
+%Grassmannians (\cite[\S 9.5]{LamPyl}).
 
 We devise a common generalization of the dual stable Grothendieck polynomial
 $g_{\lambda/\mu}$ and the classical skew Schur function $s_{\lambda/\mu}$.
@@ -373,7 +375,7 @@ field of research, and are closely related to Young diagrams and tableaux; see
 
 
 A \textit{symmetric function} is defined to be a
-power series in countably many indeterminates $x_1,x_2,x_3,\dots$ over $\Z$ with uniformly bounded degrees of monomials that is invariant under permutations of $x_1,x_2,x_3,\dots$ with finite support. 
+power series in countably many indeterminates $x_1,x_2,x_3,\dots$ over $\Z$ with bounded degrees of monomials that is invariant under permutations of $x_1,x_2,x_3,\dots$ with finite support. 
 % A power series is said to be \textit{bounded-degree}
 % if there is an $N \in \mathbb{N}$ such that only monomials of degree $\leq N$
 % appear in the series.
@@ -3055,9 +3057,13 @@ If we had $1 \notin \supp(\seplistvar_1)$, then we would have $\supp(\seplistvar
 %European Association for Theoretical Computer Science, February 2003.\newline%
 %\texttt{\url{http://www.ii.uib.no/~bezem/NL/}}
 
+\bibitem[Buch02]{Buch02}Anders Buch, \textit{A Littlewood-Richardson rule for the K-theory of Grassmannians}, Acta Math.\ 189 (2002), 37---78.
+
 \bibitem[FomGre06]{FomGre}Sergey Fomin, Curtis Greene, \textit{Noncommutative
 Schur functions and their applications}, Discrete Mathematics 306 (2006) 1080--1096.
 doi:10.1016/S0012-365X(98)00140-X.
+
+\bibitem[FomKir96]{FomKir96}Sergey Fomin, Anatol N.\ Kirillov, \textit{The Yang-Baxter equation, symmetric functions, and Schubert polynomials}, Discrete Math.\ 153 (1996), 1--3, 123--143.
 
 \bibitem[Fulton97]{Fulton97}William Fulton, \textit{Young Tableaux}, London
 Mathematical Society Student Texts 35, Cambridge University Press 1997.
@@ -3080,6 +3086,8 @@ Hopf algebras and }$K$\textit{-homology of Grassmanians},
 \arxiv{0705.2189v1}. An updated version
 was later published in: International Mathematics Research Notices, Vol. 2007,
 Article ID rnm125, 48 pages. doi:10.1093/imrn/rnm125.
+
+\bibitem[LasSch82]{LasSch82}Alain Lascoux, Marcel-Paul Sch\"{u}tzenberger, \textit{Structure de Hopf de l'anneau de cohomologie et de l'anneau de Grothendieck d'une varit de drapeaux}, C.\ R.\ Acad.\ Sci.\ Paris Sr.\ I Math 295 (1982), 11, 629--633.
 
 \bibitem[Macdon95]{Macdon95}Ian G. Macdonald, \textit{Symmetric Functions and
 Hall Polynomials}, 2nd edition, Oxford University Press 1995.
